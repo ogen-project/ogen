@@ -21,10 +21,10 @@ using System.Diagnostics;
 //using Npgsql.Design;
 //using NpgsqlTypes;
 
-using OGen.lib.datalayer;
-using OGen.NTier.lib.metadata;
-using OGen.NTier.lib.metadata.metadataDB;
-using OGen.NTier.lib.metadata.metadataExtended;
+using OGen.Libraries.DataLayer;
+using OGen.NTier.Libraries.Metadata;
+using OGen.NTier.Libraries.Metadata.MetadataDB;
+using OGen.NTier.Libraries.Metadata.MetadataExtended;
 
 namespace OGen.NTier.presentationlayer.test {
 	class Program {

@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadata
 	applicationName="Doc_metadata" 
-	namespace="OGen.Doc.lib.metadata" 
+	namespace="OGen.Doc.Libraries.Metadata" 
 	caseType="PascalCase"
 	allowSettersOnObjects="false"
 	isSimple="false"

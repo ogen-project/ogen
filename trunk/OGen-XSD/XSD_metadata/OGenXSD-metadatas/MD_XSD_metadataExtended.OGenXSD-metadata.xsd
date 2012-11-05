@@ -20,7 +20,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	<!--
 		<metadata
 			applicationName="XXX_metadata" 
-			namespace="OGen.XXX.lib.metadata" 
+			namespace="OGen.XXX.Libraries.Metadata" 
 			caseType="PascalCase"
 			allowSettersOnObjects="false"
 			isSimple="false"
@@ -130,7 +130,7 @@ SHARED by all
 	<!--
 		<metadata
 			applicationName="XXX_metadata" 
-			namespace="OGen.XXX.lib.metadata" 
+			namespace="OGen.XXX.Libraries.Metadata" 
 			caseType="PascalCase"
 			allowSettersOnObjects="false"
 			isSimple="false"

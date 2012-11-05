@@ -21,9 +21,9 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Text;
 
-using OGen.XSD.lib.metadata;
-using OGen.XSD.lib.metadata.schema;
-using OGen.XSD.lib.metadata.metadata;
+using OGen.XSD.Libraries.Metadata;
+using OGen.XSD.Libraries.Metadata.Schema;
+using OGen.XSD.Libraries.Metadata.Metadata;
 
 namespace OGen.XSD.presentationlayer.test {
 	public class Program {
@@ -53,7 +53,7 @@ namespace OGen.XSD.presentationlayer.test {
 			string name = string.Empty;
 			bool must = false;
 
-			OGen.XSD.lib.metadata.schema.ComplexTypeItem[] _complex = null;
+			OGen.XSD.Libraries.Metadata.Schema.ComplexTypeItem[] _complex = null;
 			for (int c = 0; c < _root.SchemaCollection[0].ComplexTypeCollection.Count; c++) {
 				must = _root.SchemaCollection[0].ComplexTypeCollection[c].mustImplementCollection(
 					"metadataExtended",
@@ -131,7 +131,7 @@ namespace OGen.XSD.presentationlayer.test {
 			XS_attributeType _attrib1 = new XS_attributeType();
 			_attrib1.Name = "someAttrib1";
 			_attrib1.Type = "xs:string";
-			OGen.XSD.lib.metadata.schema.XS_complexTypeType _someType1 = new OGen.XSD.lib.metadata.schema.XS_complexTypeType();
+			OGen.XSD.Libraries.Metadata.Schema.XS_complexTypeType _someType1 = new OGen.XSD.Libraries.Metadata.Schema.XS_complexTypeType();
 			_someType1.Name = "someType1";
 			_someType1.AttributeCollection.Add(
 				_attrib1
@@ -143,7 +143,7 @@ namespace OGen.XSD.presentationlayer.test {
 			XS_attributeType _attrib3 = new XS_attributeType();
 			_attrib3.Name = "someAttrib3";
 			_attrib3.Type = "xs:string";
-			OGen.XSD.lib.metadata.schema.XS_complexTypeType _someType2 = new OGen.XSD.lib.metadata.schema.XS_complexTypeType();
+			OGen.XSD.Libraries.Metadata.Schema.XS_complexTypeType _someType2 = new OGen.XSD.Libraries.Metadata.Schema.XS_complexTypeType();
 			_someType2.Name = "someType2";
 			_someType2.AttributeCollection.Add(
 				_attrib2, 

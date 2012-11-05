@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadata
 	applicationName="OGen_templates" 
-	namespace="OGen.lib" 
+	namespace="OGen.Libraries" 
 	caseType="PascalCase"
 	allowSettersOnObjects="false"
 	isSimple="true"

@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -->
 <metadata
 	applicationName="SpreadsheetXML_metadata" 
-	namespace="OGen.SpreadsheetXML.lib.metadata" 
+	namespace="OGen.SpreadsheetXML.Libraries.Metadata" 
 	caseType="PascalCase"
 	allowSettersOnObjects="false"
 	isSimple="false"

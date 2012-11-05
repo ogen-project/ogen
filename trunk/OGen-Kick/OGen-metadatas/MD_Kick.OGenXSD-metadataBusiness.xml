@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <metadataBusiness xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" applicationName="Kick">
   <classes>
-    <class name="CRD_Authentication" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="CRD_Authentication" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="ChangePassword" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -38,9 +38,9 @@
         </method>
       </methods>
     </class>
-    <class name="CRD_Permission" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="CRD_Permission" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Permission[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Permission[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -54,7 +54,7 @@
         </method>
       </methods>
     </class>
-    <class name="CRD_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="CRD_Profile" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -64,7 +64,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -72,7 +72,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -84,7 +84,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_ProfileProfile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byProfile" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_ProfileProfile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -96,7 +96,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_ofProfilePermission_byProfile" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_ProfilePermission[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_ofProfilePermission_byProfile" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_ProfilePermission[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -108,7 +108,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_ofUserProfile_byUser" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vCRD_UserProfile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_ofUserProfile_byUser" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vCRD_UserProfile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -124,7 +124,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idPermission_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
@@ -143,7 +143,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="idProfile_parent_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idPermission_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
@@ -161,7 +161,7 @@
         </method>
       </methods>
     </class>
-    <class name="CRD_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="CRD_User" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="insObject_CreateUser" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -181,7 +181,7 @@
         </method>
       </methods>
     </class>
-    <class name="DIC_Dic" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="DIC_Dic" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delLanguage" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -191,7 +191,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byApplication" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_ApplicationLanguage[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byApplication" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_ApplicationLanguage[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -202,7 +202,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byLanguage" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -214,7 +214,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Language" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vDIC_Language[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Language" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vDIC_Language[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -230,8 +230,8 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="languageName_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="existingLanguagesInNewLanguage_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="languageName_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="existingLanguagesInNewLanguage_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -248,15 +248,15 @@
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="idLanguage_in" type="int" isParams="false" isOut="false" isRef="false" />
-            <parameter name="textLanguage_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="textLanguage_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
       </methods>
     </class>
-    <class name="LOG_Log" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="LOG_Log" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
-        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_LOG_Log[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_LOG_Log[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -298,7 +298,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_Attachment" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Attachment" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -308,7 +308,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -316,7 +316,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -328,7 +328,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent_andLanguage" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Attachment[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -345,9 +345,9 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="guid_out" type="string" isParams="false" isOut="true" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
@@ -357,15 +357,15 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="attachment_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Description_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="attachment_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Attachment" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Description_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
       </methods>
     </class>
-    <class name="NWS_Author" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Author" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -375,7 +375,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -383,7 +383,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -394,7 +394,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Author[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -405,7 +405,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentAuthor[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentAuthor[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -421,7 +421,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -430,7 +430,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="author_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
+            <parameter name="author_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Author" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -444,7 +444,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_Highlight" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Highlight" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -454,7 +454,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -462,7 +462,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -473,7 +473,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Highlight[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -484,7 +484,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentHighlight[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentHighlight[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -500,7 +500,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -509,7 +509,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="highlight_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
+            <parameter name="highlight_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Highlight" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -523,7 +523,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_News" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_News" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -533,7 +533,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -542,7 +542,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -554,7 +554,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Content[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -581,11 +581,11 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTags_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idAuthors_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idSources_in" type="long[]" isParams="false" isOut="false" isRef="false" />
@@ -598,11 +598,11 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idTags_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idAuthors_in" type="long[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="idSources_in" type="long[]" isParams="false" isOut="false" isRef="false" />
@@ -632,11 +632,11 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Title_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Content_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Content" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Title_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Content_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Subtitle_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Summary_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -678,7 +678,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_Profile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Profile" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -688,7 +688,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Profile" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -696,7 +696,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -707,7 +707,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -718,7 +718,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentProfile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentProfile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -734,7 +734,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -742,7 +742,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="profile_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
+            <parameter name="profile_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Profile" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -756,7 +756,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_Source" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Source" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -766,7 +766,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -774,7 +774,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -785,7 +785,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Approved" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Source[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -796,7 +796,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentSource[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentSource[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -812,7 +812,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -821,7 +821,7 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="source_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
+            <parameter name="source_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Source" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -835,7 +835,7 @@
         </method>
       </methods>
     </class>
-    <class name="NWS_Tag" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="NWS_Tag" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
         <method name="delObject" outputType="void" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
@@ -845,7 +845,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -853,7 +853,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject_byTag_andLanguage" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject_byTag_andLanguage" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -862,7 +862,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_Approved_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_Approved_byLang" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -874,7 +874,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_ContentTag[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byContent" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_ContentTag[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -886,7 +886,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byLang" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byLang" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -898,7 +898,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_byTag" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_byTag" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNWS_Tag[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -914,8 +914,8 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="selectIdentity_in" type="bool" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
@@ -924,8 +924,8 @@
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tag_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
-            <parameter name="tx_Name_in" type="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tag_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NWS_Tag" isParams="false" isOut="false" isRef="false" />
+            <parameter name="tx_Name_in" type="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_DIC__TextLanguage[]" isParams="false" isOut="false" isRef="false" />
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
@@ -939,9 +939,9 @@
         </method>
       </methods>
     </class>
-    <class name="WEB_DefaultProfile" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="WEB_DefaultProfile" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
-        <method name="getRecord_all" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_all" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_Profile[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -962,9 +962,9 @@
         </method>
       </methods>
     </class>
-    <class name="WEB_User" type="invalid" namespace="OGen.NTier.Kick.lib.businesslayer">
+    <class name="WEB_User" type="invalid" namespace="OGen.NTier.Kick.Libraries.BusinessLayer">
       <methods>
-        <method name="getObject" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_NET_User" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_NET_User" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -972,7 +972,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getObject_details" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getObject_details" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
@@ -980,7 +980,7 @@
             <parameter name="errors_out" type="int[]" isParams="false" isOut="true" isRef="false" />
           </parameters>
         </method>
-        <method name="getRecord_generic" outputType="OGen.NTier.Kick.lib.datalayer.shared.structures.SO_vNET_User[]" distribute="true" isSearch="false" ipParamNum="1">
+        <method name="getRecord_generic" outputType="OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_vNET_User[]" distribute="true" isSearch="false" ipParamNum="1">
           <parameters>
             <parameter name="sessionGuid_in" type="string" isParams="false" isOut="false" isRef="false" />
             <parameter name="ip_forLogPurposes_in" type="string" isParams="false" isOut="false" isRef="false" />
