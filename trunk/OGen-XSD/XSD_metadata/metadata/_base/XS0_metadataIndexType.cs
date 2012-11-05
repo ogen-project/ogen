@@ -64,6 +64,19 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 			}
 		}
 		#endregion
+		#region public string Namespace { get; set; }
+		internal string namespace_;
+
+		[XmlAttribute("namespace")]
+		public string Namespace {
+			get {
+				return this.namespace_;
+			}
+			set {
+				this.namespace_ = value;
+			}
+		}
+		#endregion
 		#region public string Index { get; set; }
 		internal string index_;
 
@@ -113,6 +126,7 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 			int _index = -1;
 
 			this.metadata_ = metadataIndexType_in.metadata_;
+			this.namespace_ = metadataIndexType_in.namespace_;
 			this.index_ = metadataIndexType_in.index_;
 			this.specificcasecollection_.Clear();
 			for (int d = 0; d < metadataIndexType_in.specificcasecollection_.Count; d++) {

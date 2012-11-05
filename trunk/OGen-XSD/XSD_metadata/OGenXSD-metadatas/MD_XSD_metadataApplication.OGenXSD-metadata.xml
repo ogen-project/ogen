@@ -32,6 +32,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 
 		<metadataIndex 
 			metadata="metadata" 
+			namespace="Metadata"
 			index="ApplicationName">
 
 			<specificCase word="isSimple" translation="isSimple" />
@@ -46,6 +47,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		</metadataIndex>
 		<metadataIndex 
 			metadata="schema" 
+			metadata="Schema"
 			index="Element.Name">
 
 			<specificCase word="xmlns" translation="xmlNS" />

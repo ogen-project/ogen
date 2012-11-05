@@ -44,7 +44,7 @@ if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (
 <%
 }%>
 
-namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_schema.Element.Name%> {
+namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%>.<%=_aux_rootmetadata.MetadataCollection[0].MetadataIndexCollection[_arg_SchemaName].Namespace%> {
 	using System;
 	using System.IO;
 	using System.Xml.Serialization;

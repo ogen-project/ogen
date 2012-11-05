@@ -32,6 +32,7 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 
 		<metadataIndex 
 			metadata="spreadsheet" 
+			namespace="Spreadsheet" 
 			index="Spreadsheet" />
 
 <!--

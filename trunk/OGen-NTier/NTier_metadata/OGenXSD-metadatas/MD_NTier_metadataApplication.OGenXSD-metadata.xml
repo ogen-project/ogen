@@ -71,12 +71,15 @@ shared
 
 		<metadataIndex 
 			metadata="metadataExtended" 
+			namespace="MetadataExtended" 
 			index="ApplicationName" />
 		<metadataIndex 
 			metadata="metadataDB" 
+			namespace="MetadataDB" 
 			index="ApplicationName" />
 		<metadataIndex 
 			metadata="metadataBusiness" 
+			namespace="MetadataBusiness" 
 			index="ApplicationName" />
 <!--
 		<metadataIndex 
