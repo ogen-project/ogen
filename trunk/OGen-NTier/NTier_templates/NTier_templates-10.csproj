@@ -11,14 +11,14 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>OGen.NTier.lib.templates-2.0</AssemblyName>
+    <AssemblyName>OGen.NTier.Libraries.Templates-2.0</AssemblyName>
     <AssemblyOriginatorKeyFile>..\..\distro\distro-keys\OGen.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGen.NTier.lib.templates</RootNamespace>
+    <RootNamespace>OGen.NTier.Libraries.Templates</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject>
     </StartupObject>
@@ -168,303 +168,114 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app0.config.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="ResetCache.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-server-utils0.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-utils0.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ---xxx.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RC-Someapp-remoting-client--Config.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ--COMMON-AssemblyInfo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ--COMMON-XXX.config.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx">
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO0__utils.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx">
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-DO__utils.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RC-Someapp-remoting-client-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-server-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx">
-    </Content>
-    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx">
-    </Content>
-    <Content Include="PRJ-Someapp--test-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-Someapp--test-program.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-Someapp-9.sln.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WC-Someapp-webservices-client-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-9.csproj.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="app0.config.aspx" />
+    <Content Include="ResetCache.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp_SomeTable_Record_open_bySomeCriteria_page-SQLServer.sql.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-server-Utilities0.cs.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-Utilities0.cs.aspx" />
+    <Content Include="PRJ---xxx.cs.aspx" />
+    <Content Include="PRJ-RC-Someapp-remoting-client--Config.cs.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances--Config0.cs.aspx" />
+    <Content Include="PRJ--COMMON-AssemblyInfo.cs.aspx" />
+    <Content Include="PRJ--COMMON-XXX.config.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-9.csproj.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-BO0_Somebo.cs.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances-9.csproj.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-instances-Somebo0.cs.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-9.csproj.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO0_Somebo.cs.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-shared-IBO_Somebo.cs.aspx" />
+    <Content Include="PRJ-BO-Someapp-businesslayer-structures-9.csproj.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-9.csproj.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-DO0_Sometable.cs.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-DO0__Utilities.cs.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-DO_Sometable.cs.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-DO__Utilities.cs.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-structures-9.csproj.aspx" />
+    <Content Include="PRJ-DO-Someapp-datalayer-structures-SO0_Sometable.cs.aspx" />
+    <Content Include="PRJ-RC-Someapp-remoting-client-9.csproj.aspx" />
+    <Content Include="PRJ-RC-Someapp-remoting-client-RC0_Somebo.cs.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-server-9.csproj.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-server-RS0_Somebo.cs.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-server-RS0__server.cs.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-9.csproj.aspx" />
+    <Content Include="PRJ-RS-Someapp-remoting-simpleserver-Program.cs.aspx" />
+    <Content Include="PRJ-Someapp--test-9.csproj.aspx" />
+    <Content Include="PRJ-Someapp--test-program.cs.aspx" />
+    <Content Include="PRJ-Someapp-9.sln.aspx" />
+    <Content Include="PRJ-WC-Someapp-webservices-client-9.csproj.aspx" />
+    <Content Include="PRJ-WC-Someapp-webservices-client-WC0_Somebo.cs.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-9.csproj.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.cs.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-Default.aspx.designer.cs.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS0_Somebo.cs.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.aspx" />
+    <Content Include="PRJ-WS-Someapp-webservices-server-WS_Somebo.asmx.cs.aspx" />
     <Content Include="emptyfile.txt" />
     <Content Include="DO-DB-OGen_sp0__getTableFields-MySQL.sql" />
     <Content Include="DO-DB-OGen_sp0__getTableFields-SQLServer.sql" />
     <Content Include="DO-DB-OGen_sp0__getTables-SQLServer.sql" />
     <Content Include="DO-DB-OGen_fnc0__Split-SQLServer.sql" />
-    <Content Include="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx">
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_count_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable_Record_hasObject_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc0_SomeTable__ConstraintExist-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_isObject_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-fnc_SomeTable_Record_open_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_delObject_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_getObject_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_insObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_insObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_insObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_delete_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_Record_update_SomeUpdate_bySomeCriteria-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_setObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_setObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_setObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-MySQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-PostgreSQL.sql.aspx" />
+    <Content Include="DO-DB-sp0_SomeTable_updObject_SomeUpdate-SQLServer.sql.aspx" />
+    <Content Include="DO-DB-v0_SomeTable__onlyKeys-PostgreSQL.sql.aspx" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
-    <Content Include="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="SomeApplication-MD_SomeApplication.OGenXSD-metadataExtended-CompareAndUpdate.xml.aspx" />
     <Content Include="templates.config.xml" />
     <Content Include="Web.config" />
     <Content Include="__XSLT-TEST.txt.xslt" />
