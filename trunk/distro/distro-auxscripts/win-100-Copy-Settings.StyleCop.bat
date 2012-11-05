@@ -30,6 +30,11 @@ GOTO eof
 :test
 	SHIFT
 
+	IF '%3' == 'f' IF '%5' == 'f' (
+		SET error=
+		GOTO eof
+	)
+
 	COPY "%thisdir%..\distro-templates\Settings.StyleCop" "..\..\%0\%1"
 
 	SET error=

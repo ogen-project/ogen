@@ -455,3 +455,8 @@
 /trunk/OGen/OGen_webforms/Settings.StyleCop
 /trunk/OGen/OGen_winforms/Settings.StyleCop
 /trunk/OGen/OGen_worker/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_remoting_server/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_test/Settings.StyleCop
+/trunk/OGen-SpreadsheetXML/SpreadsheetXML-Console/Settings.StyleCop
+/trunk/OGen-SpreadsheetXML/SpreadsheetXML_metadata/Settings.StyleCop
+/trunk/OGen-Doc/Doc/Settings.StyleCop
