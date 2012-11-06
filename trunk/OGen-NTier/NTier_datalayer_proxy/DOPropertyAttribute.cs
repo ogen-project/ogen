@@ -30,8 +30,8 @@ namespace OGen.NTier.Libraries.DataLayer {
 		/// <param name="isIdentity_in">True if it is a Sequence/Identity Seed, False if not</param>
 		/// <param name="isNullable_in">True if it allows null Values, False if not</param>
 		/// <param name="defaultValue_in">Default Value</param>
-		/// <param name="fk_TableName_in">Foreign Key Table Name</param>
-		/// <param name="fk_FieldName_in">Foreign Key Field Name</param>
+		/// <param name="foreignKey_TableName_in">Foreign Key Table Name</param>
+		/// <param name="foreignKey_TableFieldName_in">Foreign Key Field Name</param>
 		/// <param name="isConfig_Name_in">True if it represents a Config Name, False if not</param>
 		/// <param name="isConfig_Config_in">True if it represents a Config Config, False if not</param>
 		/// <param name="isConfig_Datatype_in">True if it represents a Config DataType, False if not</param>
@@ -49,8 +49,8 @@ namespace OGen.NTier.Libraries.DataLayer {
 			bool			isIdentity_in,
 			bool			isNullable_in, 
 			string			defaultValue_in,
-			string			fk_TableName_in, 
-			string			fk_FieldName_in, 
+			string			foreignKey_TableName_in, 
+			string			foreignKey_TableFieldName_in, 
 			bool			isConfig_Name_in, 
 			bool			isConfig_Config_in, 
 			bool			isConfig_Datatype_in, 
@@ -72,8 +72,8 @@ namespace OGen.NTier.Libraries.DataLayer {
 			this.isidentity_ = isIdentity_in;
 			this.isnullable_ = isNullable_in;
 			this.defaultvalue_ = defaultValue_in;
-			this.fk_tablename_ = fk_TableName_in;
-			this.fk_fieldname_ = fk_FieldName_in;
+			this.foreignkey_tablename_ = foreignKey_TableName_in;
+			this.foreignkey_tablefieldname_ = foreignKey_TableFieldName_in;
 			this.isconfig_name_ = isConfig_Name_in;
 			this.isconfig_config_ = isConfig_Config_in;
 			this.isconfig_datatype_ = isConfig_Datatype_in;
@@ -169,24 +169,24 @@ namespace OGen.NTier.Libraries.DataLayer {
 			get { return this.defaultvalue_; }
 		}
 		#endregion
-		#region public string FK_TableName { get; }
-		private string fk_tablename_;
+		#region public string ForeignKey_TableName { get; }
+		private string foreignkey_tablename_;
 
 		/// <summary>
 		/// Foreign Key Table Name
 		/// </summary>
-		public string FK_TableName {
-			get { return this.fk_tablename_; }
+		public string ForeignKey_TableName {
+			get { return this.foreignkey_tablename_; }
 		}
 		#endregion
-		#region public string FK_FieldName { get; }
-		private string fk_fieldname_;
+		#region public string ForeignKey_TableFieldName { get; }
+		private string foreignkey_tablefieldname_;
 
 		/// <summary>
 		/// Foreign Key Field Name
 		/// </summary>
-		public string FK_FieldName {
-			get { return this.fk_fieldname_; }
+		public string ForeignKey_TableFieldName {
+			get { return this.foreignkey_tablefieldname_; }
 		}
 		#endregion
 		#region public bool isConfig_Name { get; }

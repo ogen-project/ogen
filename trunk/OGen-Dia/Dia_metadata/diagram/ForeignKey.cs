@@ -22,18 +22,18 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 		public ForeignKey(
 			string tableFieldName_in, 
 
-			string fk_TableName_in, 
-			string fk_TableFieldName_in
+			string foreignKey_TableName_in, 
+			string foreignKey_TableFieldName_in
 		) {
 			this.TableFieldName = tableFieldName_in;
 
-			this.FK_TableName = fk_TableName_in;
-			this.FK_TableFieldName = fk_TableFieldName_in;
+			this.ForeignKey_TableName = foreignKey_TableName_in;
+			this.ForeignKey_TableFieldName = foreignKey_TableFieldName_in;
 		}
 
 		public string TableFieldName;
 
-		public string FK_TableName;
-		public string FK_TableFieldName;
+		public string ForeignKey_TableName;
+		public string ForeignKey_TableFieldName;
 	}
 }

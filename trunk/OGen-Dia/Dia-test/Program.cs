@@ -58,13 +58,13 @@ namespace OGen.Dia.presentationlayer.test {
 																Console.WriteLine("\tfield-comments: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String);
 																break;
 															case "primary_key":
-																Console.WriteLine("\tfield-pk: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
+																Console.WriteLine("\tfield-pk: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value);
 																break;
 															case "nullable":
-																Console.WriteLine("\tfield-nullable: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
+																Console.WriteLine("\tfield-nullable: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value);
 																break;
 															case "unique":
-																Console.WriteLine("\tfield-unique: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val);
+																Console.WriteLine("\tfield-unique: {0}", _dia.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value);
 																break;
 															default:
 																break;

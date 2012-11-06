@@ -59,12 +59,12 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Foreign Key Table Name.
 		/// </summary>
-		public string FK_TableName;
+		public string ForeignKey_TableName;
 
 		/// <summary>
 		/// Foreign Key Field Name.
 		/// </summary>
-		public string FK_FieldName;
+		public string ForeignKey_TableFieldName;
 
 		/// <summary>
 		/// Description.

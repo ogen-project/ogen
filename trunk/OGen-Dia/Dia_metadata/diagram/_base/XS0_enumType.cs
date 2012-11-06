@@ -47,11 +47,11 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 			get { return this.root_ref_; }
 		}
 		#endregion
-		#region public string Val { get; set; }
+		#region public string Value { get; set; }
 		internal string val_;
 
 		[XmlAttribute("val")]
-		public string Val {
+		public string Value {
 			get {
 				return this.val_;
 			}

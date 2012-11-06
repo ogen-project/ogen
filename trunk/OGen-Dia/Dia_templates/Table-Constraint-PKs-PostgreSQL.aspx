@@ -24,7 +24,7 @@ XS__diagram _aux_diagram = XS__diagram.Load_fromFile(
 )[0];
 XS_objectType _aux_table = _aux_diagram.Table_search(_arg_tableId);
 DBTableField[] _tablefields = _aux_table.TableFields();
-OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _aux_fks = _aux_table.TableFKs();
+OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _aux_fks = _aux_table.TableForeignKeys();
 
 bool _aux_first;
 bool _aux_hasUnique = false;

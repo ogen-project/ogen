@@ -143,7 +143,7 @@ namespace OGen.Dia.Libraries.Generator {
 			for (int l = 0; l < this.diagram_.LayerCollection.Count; l++) {
 				for (int o = 0; o < this.diagram_.LayerCollection[l].ObjectCollection.Count; o++) {
 					_dbtablefields = this.diagram_.Table_search(l, o).TableFields();
-					this.diagram_.Table_search(l, o).TableFKs(
+					this.diagram_.Table_search(l, o).TableForeignKeys(
 						out __fks,
 						out _fks
 					);
@@ -157,7 +157,7 @@ namespace OGen.Dia.Libraries.Generator {
 							"invalid foreign key at table: {0}.? -> {1}.?",
 
 							this.diagram_.Table_search(l, o).TableName,
-							_fks[""].FK_TableName
+							_fks[""].ForeignKey_TableName
 						));
 					}
 					#endregion
@@ -272,9 +272,9 @@ namespace OGen.Dia.Libraries.Generator {
 
 						#region //checking FKs . . .
 						//if (
-						//    (_dbtablefields[f].FK_TableName != null)
+						//    (_dbtablefields[f].ForeignKey_TableName != null)
 						//    &&
-						//    (_dbtablefields[f].FK_TableName.Trim() != "")
+						//    (_dbtablefields[f].ForeignKey_TableName.Trim() != "")
 						//) {
 						//    _foundFKTable = false;
 						//    _foundFKField = false;
@@ -283,7 +283,7 @@ namespace OGen.Dia.Libraries.Generator {
 						//            if (
 						//                diagram_.Table_search(l2, o2).TableName
 						//                ==
-						//                _dbtablefields[f].FK_TableName
+						//                _dbtablefields[f].ForeignKey_TableName
 						//            ) {
 						//                _dbtablefields2 = diagram_.Table_search(l2, o2).TableFields();
 
@@ -291,7 +291,7 @@ namespace OGen.Dia.Libraries.Generator {
 						//                    if (
 						//                        _dbtablefields2[f2].Name
 						//                        ==
-						//                        _dbtablefields[f].FK_FieldName
+						//                        _dbtablefields[f].ForeignKey_TableFieldName
 						//                    ) {
 
 						//                        if (
@@ -302,8 +302,8 @@ namespace OGen.Dia.Libraries.Generator {
 						//                            throw new Exception(string.Format(
 						//                                System.Globalization.CultureInfo.CurrentCulture,
 						//                                "foreign key postgresql db type mismatch: {0}.{1}",
-						//                                _dbtablefields[f].FK_TableName,
-						//                                _dbtablefields[f].FK_FieldName
+						//                                _dbtablefields[f].ForeignKey_TableName,
+						//                                _dbtablefields[f].ForeignKey_TableFieldName
 						//                            ));
 						//                        }
 						//                        if (
@@ -314,8 +314,8 @@ namespace OGen.Dia.Libraries.Generator {
 						//                            throw new Exception(string.Format(
 						//                                System.Globalization.CultureInfo.CurrentCulture,
 						//                                "foreign key sql server db type mismatch: {0}.{1}",
-						//                                _dbtablefields[f].FK_TableName,
-						//                                _dbtablefields[f].FK_FieldName
+						//                                _dbtablefields[f].ForeignKey_TableName,
+						//                                _dbtablefields[f].ForeignKey_TableFieldName
 						//                            ));
 						//                        }
 
@@ -334,16 +334,16 @@ namespace OGen.Dia.Libraries.Generator {
 						//        throw new Exception(string.Format(
 						//            System.Globalization.CultureInfo.CurrentCulture,
 						//            "can't find foreign key TABLE: {0}.{1}",
-						//            _dbtablefields[f].FK_TableName,
-						//            _dbtablefields[f].FK_FieldName
+						//            _dbtablefields[f].ForeignKey_TableName,
+						//            _dbtablefields[f].ForeignKey_TableFieldName
 						//        ));
 						//    }
 						//    if (!_foundFKField) {
 						//        throw new Exception(string.Format(
 						//            System.Globalization.CultureInfo.CurrentCulture,
 						//            "can't find foreign key FIELD: {0}.{1}",
-						//            _dbtablefields[f].FK_TableName,
-						//            _dbtablefields[f].FK_FieldName
+						//            _dbtablefields[f].ForeignKey_TableName,
+						//            _dbtablefields[f].ForeignKey_TableFieldName
 						//        ));
 						//    }
 						//}
@@ -361,7 +361,7 @@ namespace OGen.Dia.Libraries.Generator {
 									if (
 										this.diagram_.Table_search(l2, o2).TableName
 										==
-										_fks[_dbtablefields[f].Name].FK_TableName
+										_fks[_dbtablefields[f].Name].ForeignKey_TableName
 									) {
 										_dbtablefields2 = this.diagram_.Table_search(l2, o2).TableFields();
 
@@ -369,7 +369,7 @@ namespace OGen.Dia.Libraries.Generator {
 											if (
 												_dbtablefields2[f2].Name
 												==
-												_fks[_dbtablefields[f].Name].FK_TableFieldName
+												_fks[_dbtablefields[f].Name].ForeignKey_TableFieldName
 											) {
 
 												if (
@@ -420,8 +420,8 @@ namespace OGen.Dia.Libraries.Generator {
 														this.diagram_.Table_search(l, o).TableName,
 														_dbtablefields[f].Name,
 
-														_fks[_dbtablefields[f].Name].FK_TableName,
-														_fks[_dbtablefields[f].Name].FK_TableFieldName
+														_fks[_dbtablefields[f].Name].ForeignKey_TableName,
+														_fks[_dbtablefields[f].Name].ForeignKey_TableFieldName
 													));
 												}
 												if (
@@ -444,8 +444,8 @@ namespace OGen.Dia.Libraries.Generator {
 														this.diagram_.Table_search(l, o).TableName,
 														_dbtablefields[f].Name,
 
-														_fks[_dbtablefields[f].Name].FK_TableName,
-														_fks[_dbtablefields[f].Name].FK_TableFieldName
+														_fks[_dbtablefields[f].Name].ForeignKey_TableName,
+														_fks[_dbtablefields[f].Name].ForeignKey_TableFieldName
 													));
 												}
 
@@ -468,8 +468,8 @@ namespace OGen.Dia.Libraries.Generator {
 									this.diagram_.Table_search(l, o).TableName,
 									_dbtablefields[f].Name,
 
-									_fks[_dbtablefields[f].Name].FK_TableName,
-									_fks[_dbtablefields[f].Name].FK_TableFieldName
+									_fks[_dbtablefields[f].Name].ForeignKey_TableName,
+									_fks[_dbtablefields[f].Name].ForeignKey_TableFieldName
 								));
 							}
 							if (!_foundFKField) {
@@ -480,8 +480,8 @@ namespace OGen.Dia.Libraries.Generator {
 									this.diagram_.Table_search(l, o).TableName,
 									_dbtablefields[f].Name,
 
-									_fks[_dbtablefields[f].Name].FK_TableName,
-									_fks[_dbtablefields[f].Name].FK_TableFieldName
+									_fks[_dbtablefields[f].Name].ForeignKey_TableName,
+									_fks[_dbtablefields[f].Name].ForeignKey_TableFieldName
 								));
 							}
 						}

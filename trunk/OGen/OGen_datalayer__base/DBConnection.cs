@@ -1112,8 +1112,8 @@ namespace OGen.Libraries.DataLayer {
 		private const string INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE = "is_nullable";
 		private const string INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY = "is_identity";
 		private const string INFORMATION_SCHEMA_COLUMNS_IS_PK = "is_pk";
-		private const string INFORMATION_SCHEMA_COLUMNS_FK_TABLE_NAME = "fk_table_name";
-		private const string INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME = "fk_column_name";
+		private const string INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_NAME = "fk_table_name";
+		private const string INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME = "fk_column_name";
 		private const string INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION = "numeric_precision";
 		private const string INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE = "numeric_scale";
 		private const string INFORMATION_SCHEMA_COLUMNS_DATA_TYPE = "data_type";
@@ -1201,9 +1201,9 @@ namespace OGen.Libraries.DataLayer {
 					)
 				);
 
-				_output[r].FK_TableName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_TABLE_NAME];
+				_output[r].ForeignKey_TableName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_NAME];
 
-				_output[r].FK_FieldName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FK_COLUMN_NAME];
+				_output[r].ForeignKey_TableFieldName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME];
 
 				// comment: some providers send int, other long, hence using convert change type:
 				//getTableFields_out[r].isIdentity = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY] == 1);

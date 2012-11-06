@@ -79,15 +79,15 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 												break;
 											case "primary_key":
 												_tableField.isPK
-													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "unique":
 												_tableField.isUnique
-													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "nullable":
 												_tableField.isNullable
-													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Val;
+													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "comment":
 												_tableField.DBDescription = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
@@ -141,21 +141,21 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 			return _list.ToArray();
 		}
 		#endregion
-		#region public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableFKs();
-		public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableFKs() {
-			OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _output;
-			System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _output2;
+		#region public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableForeignKeys();
+		public OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] TableForeignKeys() {
+			OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _aux1;
+			System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _aux2;
 
-			this.TableFKs(
-				out _output, 
-				out _output2
+			this.TableForeignKeys(
+				out _aux1, 
+				out _aux2
 			);
 
-			return _output;
+			return _aux1;
 		}
-		public void TableFKs(
-			out OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] fks_out,
-			out System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> fks_dic_out
+		public void TableForeignKeys(
+			out OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] foreignKeys_out,
+			out System.Collections.Generic.Dictionary<string, OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> foreignKeys_dic_out
 		) {
 			System.Collections.Generic.List<OGen.Dia.Libraries.Metadata.Diagram.ForeignKey> _output 
 				= new System.Collections.Generic.List<OGen.Dia.Libraries.Metadata.Diagram.ForeignKey>();
@@ -198,7 +198,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 							for (int a = 0; a < _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection.Count; a++) {
 								switch (_root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Name) {
 									case "direction":
-										_direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Val;
+										_direction = _root_ref.LayerCollection[l].ObjectCollection[o].AttributeCollection[a].Enum.Value;
 										break;
 									case "role_a":
 										_table_a = _root_ref.Table_search(
@@ -252,8 +252,8 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 				}
 			}
 
-			fks_dic_out = _output2;
-			fks_out = _output.ToArray();
+			foreignKeys_dic_out = _output2;
+			foreignKeys_out = _output.ToArray();
 
 			//return _output.ToArray();
 		}

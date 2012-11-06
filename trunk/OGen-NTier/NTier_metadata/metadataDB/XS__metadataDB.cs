@@ -199,16 +199,16 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							&&
 							(_field.FKTableName == string.Empty)
 						) {
-							_field.FKTableName = _fields_aux[f].FK_TableName;
+							_field.FKTableName = _fields_aux[f].ForeignKey_TableName;
 						} else if (
 							(dbConnectionParam_in[c].DBServerType != DBServerTypes.MySQL)
 						) {
-							_field.FKTableName = _fields_aux[f].FK_TableName;
+							_field.FKTableName = _fields_aux[f].ForeignKey_TableName;
 						}
 #else
-						_field.FKTableName = _fields_aux[f].FK_TableName;
+						_field.FKTableName = _fields_aux[f].ForeignKey_TableName;
 #endif
-						_field.FKFieldName = _fields_aux[f].FK_FieldName;
+						_field.FKFieldName = _fields_aux[f].ForeignKey_TableFieldName;
 
 						#region _fielddb = ...; _fielddb.DBServerType = ...;
 						_searchindex = _field.TableFieldDBs.TableFieldDBCollection.Search(
