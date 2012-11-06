@@ -61,9 +61,9 @@ namespace <%=_aux_namespace%> {
 		#else
 		public <%=XS__%><%=_aux_schema.Element.Name%>Collection(
 		#endif
-			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in
+			<%=XS__%><%=_aux_schema.Element.Name%>[] <%=_aux_schema.Element.Name%>Collection_in
 		) {
-			this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_ = <%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_in;
+			this.<%=_aux_schema.Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>collection_ = <%=_aux_schema.Element.Name%>Collection_in;
 		}
 
 		#region public <%=XS__%><%=_aux_schema.Element.Name%> this[...] { get; }

@@ -29,9 +29,9 @@ namespace OGen.Doc.Libraries.Metadata.Documentation {
 		#else
 		public XS__documentationCollection(
 		#endif
-			XS__documentation[] documentationcollection_in
+			XS__documentation[] documentationCollection_in
 		) {
-			this.documentationcollection_ = documentationcollection_in;
+			this.documentationcollection_ = documentationCollection_in;
 		}
 
 		#region public XS__documentation this[...] { get; }

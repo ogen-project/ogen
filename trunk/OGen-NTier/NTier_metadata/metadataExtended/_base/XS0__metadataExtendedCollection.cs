@@ -29,9 +29,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 		#else
 		public XS__metadataExtendedCollection(
 		#endif
-			XS__metadataExtended[] metadataextendedcollection_in
+			XS__metadataExtended[] metadataExtendedCollection_in
 		) {
-			this.metadataextendedcollection_ = metadataextendedcollection_in;
+			this.metadataextendedcollection_ = metadataExtendedCollection_in;
 		}
 
 		#region public XS__metadataExtended this[...] { get; }

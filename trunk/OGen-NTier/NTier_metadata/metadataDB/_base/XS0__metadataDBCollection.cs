@@ -29,9 +29,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		#else
 		public XS__metadataDBCollection(
 		#endif
-			XS__metadataDB[] metadatadbcollection_in
+			XS__metadataDB[] metadataDBCollection_in
 		) {
-			this.metadatadbcollection_ = metadatadbcollection_in;
+			this.metadatadbcollection_ = metadataDBCollection_in;
 		}
 
 		#region public XS__metadataDB this[...] { get; }

@@ -29,9 +29,9 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 		#else
 		public XS__diagramCollection(
 		#endif
-			XS__diagram[] diagramcollection_in
+			XS__diagram[] diagramCollection_in
 		) {
-			this.diagramcollection_ = diagramcollection_in;
+			this.diagramcollection_ = diagramCollection_in;
 		}
 
 		#region public XS__diagram this[...] { get; }

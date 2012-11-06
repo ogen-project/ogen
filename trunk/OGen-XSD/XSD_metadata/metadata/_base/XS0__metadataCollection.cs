@@ -29,9 +29,9 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 		#else
 		public XS__metadataCollection(
 		#endif
-			XS__metadata[] metadatacollection_in
+			XS__metadata[] metadataCollection_in
 		) {
-			this.metadatacollection_ = metadatacollection_in;
+			this.metadatacollection_ = metadataCollection_in;
 		}
 
 		#region public XS__metadata this[...] { get; }

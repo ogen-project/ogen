@@ -29,9 +29,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 		#else
 		public XS__metadataBusinessCollection(
 		#endif
-			XS__metadataBusiness[] metadatabusinesscollection_in
+			XS__metadataBusiness[] metadataBusinessCollection_in
 		) {
-			this.metadatabusinesscollection_ = metadatabusinesscollection_in;
+			this.metadatabusinesscollection_ = metadataBusinessCollection_in;
 		}
 
 		#region public XS__metadataBusiness this[...] { get; }

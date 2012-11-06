@@ -29,9 +29,9 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 		#else
 		public XS__spreadsheetCollection(
 		#endif
-			XS__spreadsheet[] spreadsheetcollection_in
+			XS__spreadsheet[] spreadsheetCollection_in
 		) {
-			this.spreadsheetcollection_ = spreadsheetcollection_in;
+			this.spreadsheetcollection_ = spreadsheetCollection_in;
 		}
 
 		#region public XS__spreadsheet this[...] { get; }

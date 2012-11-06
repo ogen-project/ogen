@@ -29,9 +29,9 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 		#else
 		public XS__schemaCollection(
 		#endif
-			XS__schema[] schemacollection_in
+			XS__schema[] schemaCollection_in
 		) {
-			this.schemacollection_ = schemacollection_in;
+			this.schemacollection_ = schemaCollection_in;
 		}
 
 		#region public XS__schema this[...] { get; }
