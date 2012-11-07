@@ -12,17 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Xml;
-using OGen.Libraries.Collections;
-using OGen.Libraries.Generator;
-using OGen.Libraries.Templates;
-using OGen.Doc.Libraries.Generator;
-using OGen.Doc.Libraries.Metadata;
-using OGen.Doc.Libraries.Metadata.Documentation;
 
 namespace Doc_test {
+	using System;
+	using System.IO;
+	using System.Xml;
+
+	using OGen.Doc.Libraries.Generator;
+	using OGen.Doc.Libraries.Metadata;
+	using OGen.Doc.Libraries.Metadata.Documentation;
+	using OGen.Libraries.Collections;
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Templates;
+
 	public class MainClass {
 		//#region //test2
 		public static void Iteration_found(string message_in) {

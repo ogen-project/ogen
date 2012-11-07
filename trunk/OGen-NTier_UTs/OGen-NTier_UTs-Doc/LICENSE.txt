@@ -41,6 +41,23 @@ OGen is licensed under various different licenses.
 	* OGen.NTier.PresentationLayer.WinForms: MIT
 	* OGen.NTier.PresentationLayer.ConsoleApplication: MIT
 	* OGen.NTier.PresentationLayer.Test: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.BusinessObject: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.RemotingClient: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.WebServicesClient: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared: MIT
+	* OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures: MIT
+	* OGen.NTier.Kick.Libraries.DataLayer: MIT
+	* OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures: MIT
+	* OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client: MIT
+	* OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server: MIT
+	* OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer: MIT
+	* OGen.NTier.Kick.PresentationLayer.ConsoleApplication: MIT
+	* OGen.NTier.Kick.PresentationLayer.WebLayer: MIT
+	* OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer: MIT
+	* OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client: MIT
+	* OGen.NTier.Kick.DistributedLayer.WebServices.Server: MIT
 	* OGen.NTier.UTs.lib.businesslayer: MIT
 	* OGen.NTier.UTs.lib.businesslayer.proxy: MIT
 	* OGen.NTier.UTs.lib.businesslayer.UTs: MIT
@@ -63,7 +80,6 @@ OGen is licensed under various different licenses.
 	* OGen.Dia.PresentationLayer.Test: MIT
 	* OGen.Doc.Libraries.Generator: MIT
 	* OGen.Doc.Libraries.Metadata: MIT
-	* OGen.Doc.Libraries.Metadata.UnitTests: MIT
 	* OGen.Doc.Libraries.Templates: MIT
 	* OGen.Doc.PresentationLayer.WinForms: MIT
 	* OGen.Doc.PresentationLayer.ConsoleApplication: MIT

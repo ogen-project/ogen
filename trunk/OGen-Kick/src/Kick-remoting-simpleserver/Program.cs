@@ -15,8 +15,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer {
-	class Program {
-		static void Main(string[] args) {
+
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args) {
+
 			OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server.RS__server.Start();
 			Console.ReadLine();
 		}

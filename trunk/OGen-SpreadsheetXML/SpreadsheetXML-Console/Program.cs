@@ -20,8 +20,11 @@ namespace SpreadsheetXML_Console {
 
 	using OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet;
 
-	class Program {
-		static void Main(string[] args) {
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args) {
+
 			#region string _ssFilePath = args[0];
 			string _ssFilePath;
 #if DEBUG

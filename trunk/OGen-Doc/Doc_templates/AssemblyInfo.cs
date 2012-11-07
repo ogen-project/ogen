@@ -17,13 +17,6 @@ using System.Runtime.CompilerServices;
 
 [assembly: System.CLSCompliant(true)]
 [assembly: System.Runtime.InteropServices.ComVisible(false)]
-
-// Information about this assembly is defined by the following
-// attributes.
-//
-// change them to the information which is associated with the assembly
-// you compile.
-//
 [assembly: AssemblyTitle("OGen.Doc.Libraries.Templates")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -39,14 +32,12 @@ using System.Runtime.CompilerServices;
 //
 // You can specify all values by your own or you can build default build and revision
 // numbers with the '*' character (the default):
-//
 [assembly: AssemblyVersion("0.1.1000.20000")]
 
+#if NET_1_1
 // The following attributes specify the key for the sign of your assembly. See the
 // .NET Framework documentation for more information about signing.
 // This is not required, if you don't want signing let these attributes like they're.
-//
-#if NET_1_1
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyKeyFile("..\\..\\..\\..\\distro\\distro-keys\\OGen.snk")]
 #endif

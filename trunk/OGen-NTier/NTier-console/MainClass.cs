@@ -20,9 +20,11 @@ namespace OGen.NTier.PresentationLayer.ConsoleApplication {
 	using OGen.NTier.Libraries.Generator;
 	using OGen.NTier.Libraries.Metadata;
 
-	class MainClass {
+	public class MainClass {
+
 		[STAThread]
-		static void Main(string[] args_in) {
+		public static void Main(string[] args_in) {
+
 			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
 			Console.WriteLine(
 				@"

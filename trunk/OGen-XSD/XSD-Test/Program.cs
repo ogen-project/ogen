@@ -26,7 +26,9 @@ using OGen.XSD.Libraries.Metadata.Schema;
 using OGen.XSD.Libraries.Metadata.Metadata;
 
 namespace OGen.XSD.presentationlayer.test {
+
 	public class Program {
+
 		public static void PressAnyKey() {
 			Console.Write("Press any key to continue . . . ");
 #if !NET_1_1
@@ -36,6 +38,8 @@ namespace OGen.XSD.presentationlayer.test {
 #endif
 			Console.WriteLine();
 		}
+
+		[STAThread]
 		public static void Main(string[] args) {
 			XS__RootMetadata _root = new XS__RootMetadata(
 				System.IO.Path.Combine(

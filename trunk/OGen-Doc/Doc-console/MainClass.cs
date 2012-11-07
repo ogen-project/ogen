@@ -20,9 +20,11 @@ namespace OGen.Doc.PresentationLayer.ConsoleApplication {
 	using OGen.Doc.Libraries.Metadata;
 	using OGen.Libraries.Generator;
 
-	class MainClass {
+	public class MainClass {
+
 		[STAThread]
-		static void Main(string[] args_in) {
+		public static void Main(string[] args_in) {
+
 			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
 			Console.WriteLine(
 				@"
@@ -71,7 +73,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			}
 		}
 
-		static void DoIt(string filePath_in) {
+		public static void DoIt(string filePath_in) {
 			DocGenerator _generator = new DocGenerator();
 			_generator.Open(
 				filePath_in, 

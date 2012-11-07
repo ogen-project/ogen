@@ -21,8 +21,11 @@ namespace OGen.Dia.PresentationLayer.ConsoleApplication {
 	using OGen.Dia.Libraries.Metadata;
 	using OGen.Libraries.Generator;
 
-	class Program {
-		static void Main(string[] args_in) {
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args_in) {
+
 			#region Console.WriteLine("Copyright (C) 2002 Francisco Monteiro");
 			Console.WriteLine(
 				@"
@@ -68,7 +71,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			}
 		}
 
-		static void DoIt(string filePath_in) {
+		public static void DoIt(string filePath_in) {
 			DiaGenerator _generator = new DiaGenerator();
 			_generator.Open(
 				filePath_in, 

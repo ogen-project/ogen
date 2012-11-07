@@ -29,7 +29,7 @@ GOTO eof
 
 
 :test
-	SHIFT
+	::SHIFT
 
 	SET paramError=
 

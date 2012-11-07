@@ -20,8 +20,10 @@ namespace OGen.NTier.Kick.PresentationLayer.ConsoleApplication {
 	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances;
 	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
-	class Program {
-		static void Main(string[] args) {
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args) {
 
 			Console.WriteLine(
 				System.Configuration.ConfigurationManager.AppSettings["Some_UT_config"]

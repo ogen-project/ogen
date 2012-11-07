@@ -12,16 +12,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-using OGen.Dia.Libraries.Metadata;
-using OGen.Dia.Libraries.Metadata.Diagram;
 
 namespace OGen.Dia.presentationlayer.test {
-	class Program {
-		static void Main(string[] args) {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
+	using OGen.Dia.Libraries.Metadata;
+	using OGen.Dia.Libraries.Metadata.Diagram;
+
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args) {
+
 			XS__diagram _dia = XS__diagram.Load_fromFile(
 				@"X:\test\modeloDados.dia"
 			)[0];
