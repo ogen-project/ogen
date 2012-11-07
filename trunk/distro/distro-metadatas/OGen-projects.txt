@@ -3,7 +3,7 @@ OGen, OGen_mail, OGen.Libraries.Mail, t, f, f, MIT, f, t
 OGen, OGen_datalayer__base, OGen.Libraries.DataLayer, t, f, f, MIT, f, t
 OGen, OGen_datalayer_PostgreSQL, OGen.Libraries.DataLayer.PostgreSQL, t, f, f, MIT, f, t
 OGen, OGen_datalayer_SQLServer, OGen.Libraries.DataLayer.SQLServer, t, f, f, MIT, f, t
-OGen, OGen_datalayer_MySQL, OGen.Libraries.DataLayer.MySQL, t, f, f, MIT, f, t
+OGen, OGen_datalayer_MySQL, OGen.Libraries.DataLayer.MySQL, f, f, f, MIT, f, f
 OGen, OGen_datalayer_UTs, OGen.Libraries.DataLayer.UnitTests, f, f, f, MIT, f, f
 OGen, OGen_datalayersupport, OGen.Libraries.DataLayer.Support, t, f, f, MIT, f, t
 OGen, OGen_collections, OGen.Libraries.Collections, t, f, f, MIT, f, t

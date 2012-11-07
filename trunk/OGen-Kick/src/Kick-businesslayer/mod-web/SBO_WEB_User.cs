@@ -724,7 +724,7 @@ A equipa {2}
 #if DEBUG
 				throw new Exception("(nothing to do) what are you doing?");
 #else
-                _errors.Add(ErrorType.business__this_should_never_happen);
+				_errorlist.Add(ErrorType.business__this_should_never_happen);
 #endif
 			}
 
