@@ -17,7 +17,11 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 	using System;
 	using System.Xml.Serialization;
 
+#if NET_1_1
 	public struct ComplexTypeItem {
+#else
+	public struct ComplexTypeItem : IEquatable<ComplexTypeItem> {
+#endif
 		public ComplexTypeItem(
 			string name_in,
 			string nType_in,
@@ -31,6 +35,39 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 		public string NType;
 		public string Name;
 		public bool CaseSensitive;
+
+#if NET_1_1
+#else
+		public override int GetHashCode() {
+			unchecked {
+				int _output = 17;
+				_output = _output * 23 + this.NType.GetHashCode();
+				_output = _output * 23 + this.Name.GetHashCode();
+				_output = _output * 23 + this.CaseSensitive.GetHashCode();
+				return _output;
+			}
+		}
+		public bool Equals(ComplexTypeItem other) {
+			return
+				(other.NType.Equals(this.NType)) &&
+				(other.Name.Equals(this.Name)) &&
+				(other.CaseSensitive.Equals(this.CaseSensitive));
+		}
+		public override bool Equals(object obj) {
+			if (!(obj is ComplexTypeItem))
+				return false;
+
+			return Equals((ComplexTypeItem)obj);
+		}
+
+		public static bool operator ==(ComplexTypeItem aux1, ComplexTypeItem aux2) {
+			return aux1.Equals(aux2);
+		}
+
+		public static bool operator !=(ComplexTypeItem aux1, ComplexTypeItem aux2) {
+			return !aux1.Equals(aux2);
+		}
+#endif
 	}
 
 	#if NET_1_1

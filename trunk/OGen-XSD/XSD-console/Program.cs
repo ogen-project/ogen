@@ -20,7 +20,7 @@ namespace OGen.XSD.PresentationLayer.ConsoleApplication {
 	using OGen.XSD.Libraries.Generator;
 	using OGen.XSD.Libraries.Metadata;
 
-	public class MainClass {
+	public static class MainClass {
 
 		[STAThread]
 		public static void Main(string[] args_in) {
@@ -148,7 +148,13 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 						Console.WriteLine();
 						Console.WriteLine();
 
-						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+						Console.WriteLine(
+							"time: {0}", 
+							new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString(
+								"HH'H' mm'm' ss's' fff",
+								System.Globalization.CultureInfo.CurrentCulture
+							)
+						);
 					} catch (Exception _ex) {
 						Console.WriteLine(_ex.ToString());
 					}
@@ -165,7 +171,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			}
 		}
 
-		static void DoIt(
+		public static void DoIt(
 			string filePathExtendedMetadata_in
 		) {
 			XSDGenerator _generator = new XSDGenerator();

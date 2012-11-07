@@ -25,7 +25,7 @@ namespace Doc_test {
 	using OGen.Libraries.Generator;
 	using OGen.Libraries.Templates;
 
-	public class MainClass {
+	public static class MainClass {
 		//#region //test2
 		public static void Iteration_found(string message_in) {
 			Console.WriteLine(
@@ -132,7 +132,7 @@ namespace Doc_test {
 //				Iteration_found
 //			);
 //
-//			Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+//			Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff", System.Globalization.CultureInfo.CurrentCulture));
 //			return;
 			#endregion
 			#region //test1 - generator...

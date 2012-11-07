@@ -58,7 +58,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.PresentationLayer.ConsoleAp
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances;
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
 
-	public class Program {
+	public static class Program {
 
 		[STAThread]
 		public static void Main(string[] args) {

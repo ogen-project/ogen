@@ -20,7 +20,11 @@ namespace OGen.Libraries.Generator {
 	using OGen.Libraries.Collections;
 
 	#region public struct MetaFile { ... }
+#if NET_1_1
 	public struct MetaFile {
+#else
+	public struct MetaFile : IEquatable<MetaFile> {
+#endif
 		public MetaFile(
 			string path_in,
 			string root_in
@@ -31,6 +35,37 @@ namespace OGen.Libraries.Generator {
 
 		public string Path;
 		public string Root;
+
+#if NET_1_1
+#else
+		public override int GetHashCode() {
+			unchecked {
+				int _output = 17;
+				_output = _output * 23 + this.Path.GetHashCode();
+				_output = _output * 23 + this.Root.GetHashCode();
+				return _output;
+			}
+		}
+		public bool Equals(MetaFile other) {
+			return
+				(other.Path.Equals(this.Path)) &&
+				(other.Root.Equals(this.Root));
+		}
+		public override bool Equals(object obj) {
+			if (!(obj is MetaFile))
+				return false;
+
+			return Equals((MetaFile)obj);
+		}
+
+		public static bool operator ==(MetaFile aux1, MetaFile aux2) {
+			return aux1.Equals(aux2);
+		}
+
+		public static bool operator !=(MetaFile aux1, MetaFile aux2) {
+			return !aux1.Equals(aux2);
+		}
+#endif
 	}
 	#endregion
 	#region public interface MetadataInterface { ... }

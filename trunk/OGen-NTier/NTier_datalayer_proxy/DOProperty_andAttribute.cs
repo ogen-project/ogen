@@ -17,7 +17,11 @@ namespace OGen.NTier.Libraries.DataLayer {
 	using System;
 	using System.Reflection;
 
+#if NET_1_1
 	public struct DOProperty_andAttribute {
+#else
+	public struct DOProperty_andAttribute : IEquatable<DOProperty_andAttribute> {
+#endif
 		#region public DOProperty_andAttribute(...);
 		public DOProperty_andAttribute(
 			PropertyInfo doProperty_in, 
@@ -85,5 +89,36 @@ namespace OGen.NTier.Libraries.DataLayer {
 			return _dopropatt_out;
 		}
 		#endregion
+
+#if NET_1_1
+#else
+		public override int GetHashCode() {
+			unchecked {
+				int _output = 17;
+				_output = _output * 23 + this.doproperty_.GetHashCode();
+				_output = _output * 23 + this.doattribute_.GetHashCode();
+				return _output;
+			}
+		}
+		public bool Equals(DOProperty_andAttribute other) {
+			return
+				(other.doproperty_.Equals(this.doproperty_)) &&
+				(other.doattribute_.Equals(this.doattribute_));
+		}
+		public override bool Equals(object obj) {
+			if (!(obj is DOProperty_andAttribute))
+				return false;
+
+			return Equals((DOProperty_andAttribute)obj);
+		}
+
+		public static bool operator ==(DOProperty_andAttribute aux1, DOProperty_andAttribute aux2) {
+			return aux1.Equals(aux2);
+		}
+
+		public static bool operator !=(DOProperty_andAttribute aux1, DOProperty_andAttribute aux2) {
+			return !aux1.Equals(aux2);
+		}
+#endif
 	}
 }

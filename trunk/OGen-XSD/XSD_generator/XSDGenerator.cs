@@ -101,7 +101,7 @@ namespace OGen.XSD.Libraries.Generator {
 		#endregion
 //		#region public void Open(...);
 		public void Open(
-			string filenameextendedmetadata_in,
+			string fileNameExtendedMetadata_in,
 			bool force_doNOTSave_in, 
 			dNotifyBack notifyBack_in
 		) {
@@ -117,7 +117,7 @@ namespace OGen.XSD.Libraries.Generator {
 				}
 			}
 			#endregion
-			this.filenameextendedmetadata_ = filenameextendedmetadata_in;
+			this.filenameextendedmetadata_ = fileNameExtendedMetadata_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml files", true);

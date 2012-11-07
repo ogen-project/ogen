@@ -28,7 +28,7 @@ using OGen.NTier.Libraries.Metadata.MetadataExtended;
 
 namespace OGen.NTier.presentationlayer.test {
 
-	public class Program {
+	public static class Program {
 		#region //test1...
 		//static void xpto(cDBMetadata aux_metadata_in) {
 		//    cDBMetadata_Table_Field _aux_field;
@@ -59,7 +59,7 @@ namespace OGen.NTier.presentationlayer.test {
 
 		[STAThread]
 		public static void Main(string[] args) {
-			
+
 			var i = 0;
 			Console.WriteLine(
 				System.Reflection.Assembly.GetExecutingAssembly().ImageRuntimeVersion

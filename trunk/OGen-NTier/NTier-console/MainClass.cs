@@ -20,7 +20,7 @@ namespace OGen.NTier.PresentationLayer.ConsoleApplication {
 	using OGen.NTier.Libraries.Generator;
 	using OGen.NTier.Libraries.Metadata;
 
-	public class MainClass {
+	public static class MainClass {
 
 		[STAThread]
 		public static void Main(string[] args_in) {
@@ -88,7 +88,13 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 							//	"data"
 							//}
 						);
-						Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+						Console.WriteLine(
+							"time: {0}", 
+							new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString(
+								"HH'H' mm'm' ss's' fff",
+								System.Globalization.CultureInfo.CurrentCulture
+							)
+						);
 
 						Console.WriteLine(
 							"lines: {0}\nbytes: {1}  ~ {2}",
@@ -113,7 +119,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			}
 		}
 
-		static void DoIt(
+		public static void DoIt(
 			string filePath_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in

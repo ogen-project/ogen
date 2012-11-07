@@ -1,4 +1,4 @@
-/*
+﻿/*
 
 OGen
 Copyright (C) 2002 Francisco Monteiro
@@ -74,10 +74,10 @@ SELECT
 				c.oid
 			from pg_catalog.pg_class c 
 			where
-				(c.relname = _field.table_name)
+				(c.relname = _columns.table_name)
 
 		), 
-		_field.ordinal_position
+		_columns.ordinal_position
 	) 
 	AS column_description
 

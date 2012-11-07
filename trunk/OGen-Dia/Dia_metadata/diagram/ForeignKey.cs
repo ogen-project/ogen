@@ -18,7 +18,11 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 	using System.Collections.Generic;
 	using System.Text;
 
+#if NET_1_1
 	public struct ForeignKey {
+#else
+	public struct ForeignKey : IEquatable<ForeignKey> {
+#endif
 		public ForeignKey(
 			string tableFieldName_in, 
 
@@ -35,5 +39,38 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 
 		public string ForeignKey_TableName;
 		public string ForeignKey_TableFieldName;
+
+#if NET_1_1
+#else
+		public override int GetHashCode() {
+			unchecked {
+				int _output = 17;
+				_output = _output * 23 + this.TableFieldName.GetHashCode();
+				_output = _output * 23 + this.ForeignKey_TableName.GetHashCode();
+				_output = _output * 23 + this.ForeignKey_TableFieldName.GetHashCode();
+				return _output;
+			}
+		}
+		public bool Equals(ForeignKey other) {
+			return
+				(other.TableFieldName.Equals(this.TableFieldName)) &&
+				(other.ForeignKey_TableName.Equals(this.ForeignKey_TableName)) &&
+				(other.ForeignKey_TableFieldName.Equals(this.ForeignKey_TableFieldName));
+		}
+		public override bool Equals(object obj) {
+			if (!(obj is ForeignKey))
+				return false;
+
+			return Equals((ForeignKey)obj);
+		}
+
+		public static bool operator ==(ForeignKey aux1, ForeignKey aux2) {
+			return aux1.Equals(aux2);
+		}
+
+		public static bool operator !=(ForeignKey aux1, ForeignKey aux2) {
+			return !aux1.Equals(aux2);
+		}
+#endif
 	}
 }

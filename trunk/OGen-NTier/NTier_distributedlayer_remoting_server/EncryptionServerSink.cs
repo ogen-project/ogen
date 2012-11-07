@@ -61,7 +61,11 @@ namespace OGen.NTier.Libraries.DistributedLayer.Remoting.Server {
 		}
 		#endregion
 		#region private struct StateStruct { ... }
+#if NET_1_1
 		private struct StateStruct {
+#else
+		private struct StateStruct : IEquatable<StateStruct> {
+#endif
 			public StateStruct(
 				bool isEncripted_in,
 				string ClientID_in
@@ -72,6 +76,35 @@ namespace OGen.NTier.Libraries.DistributedLayer.Remoting.Server {
 
 			public bool isEncripted;
 			public string ClientID;
+
+#if NET_1_1
+#else
+			public override int GetHashCode() {
+				int _output = 17;
+				_output = _output * 23 + this.isEncripted.GetHashCode();
+				_output = _output * 23 + this.ClientID.GetHashCode();
+				return _output;
+			}
+			public bool Equals(StateStruct other) {
+				return
+					(other.isEncripted.Equals(this.isEncripted)) &&
+					(other.ClientID.Equals(this.ClientID));
+			}
+			public override bool Equals(object obj) {
+				if (!(obj is StateStruct))
+					return false;
+
+				return Equals((StateStruct)obj);
+			}
+
+			public static bool operator ==(StateStruct aux1, StateStruct aux2) {
+				return aux1.Equals(aux2);
+			}
+
+			public static bool operator !=(StateStruct aux1, StateStruct aux2) {
+				return !aux1.Equals(aux2);
+			}
+#endif
 		} 
 		#endregion
 		private string keyspath_;

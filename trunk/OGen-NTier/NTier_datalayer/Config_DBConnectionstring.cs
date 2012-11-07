@@ -16,7 +16,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.NTier.Libraries.DataLayer {
 	using System;
 
+#if NET_1_1
 	public struct Config_DBConnectionstring {
+#else
+	public struct Config_DBConnectionstring : IEquatable<Config_DBConnectionstring> {
+#endif
 		#region public Config_DBConnectionstring(...);
 		/// <summary>
 		/// Used to store a config file connection string.
@@ -53,6 +57,35 @@ namespace OGen.NTier.Libraries.DataLayer {
 			);
 		}
 		#endregion
+
+#if NET_1_1
+#else
+		public override int GetHashCode() {
+			unchecked {
+				int _output = 17;
+				_output = _output * 23 + this.connectionstring_.GetHashCode();
+				return _output;
+			}
+		}
+		public bool Equals(Config_DBConnectionstring other) {
+			return
+				(other.connectionstring_.Equals(this.connectionstring_));
+		}
+		public override bool Equals(object obj) {
+			if (!(obj is Config_DBConnectionstring))
+				return false;
+
+			return Equals((Config_DBConnectionstring)obj);
+		}
+
+		public static bool operator ==(Config_DBConnectionstring aux1, Config_DBConnectionstring aux2) {
+			return aux1.Equals(aux2);
+		}
+
+		public static bool operator !=(Config_DBConnectionstring aux1, Config_DBConnectionstring aux2) {
+			return !aux1.Equals(aux2);
+		}
+#endif
 		#endregion
 	}
 }

@@ -20,7 +20,7 @@ namespace OGen.Doc.PresentationLayer.ConsoleApplication {
 	using OGen.Doc.Libraries.Metadata;
 	using OGen.Libraries.Generator;
 
-	public class MainClass {
+	public static class MainClass {
 
 		[STAThread]
 		public static void Main(string[] args_in) {
@@ -66,7 +66,13 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 					)
 				);
 
-				Console.WriteLine("time: {0}", new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString("HH'H' mm'm' ss's' fff"));
+				Console.WriteLine(
+					"time: {0}", 
+					new DateTime(DateTime.Now.Ticks - _begin_ticks).ToString(
+						"HH'H' mm'm' ss's' fff",
+						System.Globalization.CultureInfo.CurrentCulture
+					)
+				);
 #else
 				Console.WriteLine("must provide xml file");
 #endif

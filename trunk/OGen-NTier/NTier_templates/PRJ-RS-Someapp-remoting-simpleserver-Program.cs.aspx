@@ -49,7 +49,7 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.Remoting.SimpleServer {
 	using System;
 
-	public class Program {
+	public static class Program {
 
 		[STAThread]
 		public static void Main(string[] args) {
