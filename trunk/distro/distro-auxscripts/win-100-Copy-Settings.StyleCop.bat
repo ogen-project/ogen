@@ -30,7 +30,7 @@ GOTO eof
 :test
 	SHIFT
 
-	IF '%3' == 'f' IF '%5' == 'f' (
+	IF '%3' == 'f' IF '%4' == 'f' IF '%5' == 'f' IF '%8' == 'f' (
 		SET error=
 		GOTO eof
 	)

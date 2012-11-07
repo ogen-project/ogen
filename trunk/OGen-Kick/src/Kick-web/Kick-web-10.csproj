@@ -15,6 +15,7 @@
     <AssemblyName>OGen.NTier.Kick.PresentationLayer.WebLayer-2.0</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <SignAssembly>True</SignAssembly>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,6 +81,8 @@
     <Content Include="keys-Authentication-client\e1c47959-7b10-4196-8c6b-29e4a8e98b2d.public.xml" />
     <Content Include="keys-Authentication-server\d0a2cc8f-63b6-4c7a-94b9-5b583e6b15e3.private.xml" />
     <Content Include="keys-Authentication-server\d0a2cc8f-63b6-4c7a-94b9-5b583e6b15e3.public.xml" />
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
     <Content Include="News-list.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Registration-changePassword.aspx" />
@@ -390,6 +393,9 @@
       <Project>{F631FEFC-77DF-4F4C-BBE2-F9474A6690F2}</Project>
       <Name>Kick-weblayer-10</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING.MIT" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

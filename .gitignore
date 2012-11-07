@@ -460,3 +460,6 @@
 /trunk/OGen-SpreadsheetXML/SpreadsheetXML-Console/Settings.StyleCop
 /trunk/OGen-SpreadsheetXML/SpreadsheetXML_metadata/Settings.StyleCop
 /trunk/OGen-Doc/Doc/Settings.StyleCop
+/trunk/OGen-Dia/Dia-test/StyleCop.Cache
+/trunk/OGen-Doc/Doc-test/StyleCop.Cache
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_webservices_server/Settings.StyleCop
