@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_LOG_Log
 	{
 		public WC_LOG_Log() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

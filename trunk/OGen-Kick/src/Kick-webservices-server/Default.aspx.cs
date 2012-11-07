@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
 	public partial class Default : System.Web.UI.Page {
 		protected void Page_Load(object sender, EventArgs e) {
 

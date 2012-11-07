@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_WEB_User
 	{
 		public WC_WEB_User() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

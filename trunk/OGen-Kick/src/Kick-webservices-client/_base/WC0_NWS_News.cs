@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_NWS_News
 	{
 		public WC_NWS_News() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

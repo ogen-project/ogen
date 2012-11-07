@@ -12,16 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
-using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
 
 namespace OGen.NTier.Kick.PresentationLayer.WebLayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Web;
+	using System.Web.UI;
+	using System.Web.UI.WebControls;
+
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	using OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer;
+
 	public partial class SitePage : System.Web.UI.Page {
 		public Site Master_Site {
 			get {

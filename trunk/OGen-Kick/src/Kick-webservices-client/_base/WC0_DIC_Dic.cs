@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_DIC_Dic
 	{
 		public WC_DIC_Dic() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

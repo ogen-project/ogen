@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_CRD_Profile
 	{
 		public WC_CRD_Profile() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

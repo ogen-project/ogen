@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Web;
-using System.Web.Services;
 
 namespace OGen.NTier.Kick.DistributedLayer.WebServices.Server {
+	using System;
+	using System.Web;
+	using System.Web.Services;
+
 	/// <summary>
 	/// CRD_Authentication web service.
 	/// </summary>

@@ -81,7 +81,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.
 		IBO_<%=_aux_class.Name%>
 	{
 		public WC_<%=_aux_class.Name%>() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();

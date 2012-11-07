@@ -37,7 +37,7 @@ namespace OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client {
 		IBO_WEB_DefaultProfile
 	{
 		public WC_WEB_DefaultProfile() {
-			ReConfig();
+			this.ReConfig();
 		}
 
 		#region public void ReConfig();
