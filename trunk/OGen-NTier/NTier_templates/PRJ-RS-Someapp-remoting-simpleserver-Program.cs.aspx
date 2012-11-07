@@ -49,8 +49,10 @@ if (_aux_ex_metadata.CopyrightText != string.Empty) {
 namespace <%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.Remoting.SimpleServer {
 	using System;
 
-	class Program {
-		static void Main(string[] args) {
+	public class Program {
+
+		[STAThread]
+		public static void Main(string[] args) {
 			<%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.Remoting.Server.RS__server.Start();
 			Console.ReadLine();
 		}

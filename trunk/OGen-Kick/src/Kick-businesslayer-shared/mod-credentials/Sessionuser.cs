@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
 	public class Sessionuser {
 		public Sessionuser(
 			long idUser_in,

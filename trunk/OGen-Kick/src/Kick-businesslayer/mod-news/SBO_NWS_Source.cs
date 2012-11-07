@@ -12,19 +12,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-
-using OGen.Libraries.DataLayer;
-using OGen.NTier.Libraries.BusinessLayer;
-
-using OGen.Libraries.Crypt;
-using OGen.NTier.Kick.Libraries.DataLayer;
-using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
-using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
-//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 namespace OGen.NTier.Kick.Libraries.BusinessLayer {
+	using System;
+	using System.Collections.Generic;
+
+	using OGen.Libraries.Crypt;
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Libraries.BusinessLayer;
+
 	[BOClassAttribute("BO_NWS_Source", "")]
 	public static class SBO_NWS_Source {
 		#region public static SO_NWS_Source getObject(...);

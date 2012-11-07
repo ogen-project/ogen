@@ -12,16 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.Libraries.DataLayer;
-#if PostgreSQL
-using OGen.Libraries.DataLayer.PostgreSQL;
-#endif
-
-using OGen.NTier.Libraries.DataLayer;
 
 namespace OGen.NTier.Kick.Libraries.DataLayer {
+	using System;
+
+	using OGen.Libraries.DataLayer;
+	#if PostgreSQL
+	using OGen.Libraries.DataLayer.PostgreSQL;
+	#endif
+	using OGen.NTier.Libraries.DataLayer;
+
 	/// <summary>
 	/// Utilities DataObject which works as a repository of useful Properties and Methods for DataObjects at OGen.NTier.Kick.Libraries.DataLayer namespace.
 	/// </summary>

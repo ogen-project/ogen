@@ -12,13 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-
-using OGen.Libraries.DataLayer;
-
-using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
 
 namespace OGen.NTier.Kick.Libraries.DataLayer {
+	using System;
+
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+
 	/// <summary>
 	/// NWS_ContentHighlight DataObject which provides access to NWS_ContentHighlight's Database table.
 	/// </summary>

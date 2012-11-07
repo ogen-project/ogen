@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
+	using System;
+	using System.Collections.Generic;
+	using System.Text;
+
 	public static class TableFieldSource {
 		public const int DIC_LANGUAGE__TX_NAME = 1;
 		public const int NWS_CONTENT__TX_TITLE = 2;

@@ -58,7 +58,6 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 	using System;
 
 	using OGen.Libraries.DataLayer;
-
 	using <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.Structures;
 
 	/// <summary>

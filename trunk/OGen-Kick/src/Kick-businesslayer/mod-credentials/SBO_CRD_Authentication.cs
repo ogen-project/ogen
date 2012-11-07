@@ -21,12 +21,12 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 
 	using OGen.Libraries.Crypt;
 	using OGen.Libraries.DataLayer;
-	using OGen.NTier.Libraries.BusinessLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 	using OGen.NTier.Kick.Libraries.DataLayer;
 	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
 	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
-	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
-	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Libraries.BusinessLayer;
 
 	[BOClassAttribute("BO_CRD_Authentication", "")]
 	public static class SBO_CRD_Authentication {

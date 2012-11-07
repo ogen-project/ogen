@@ -12,24 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Configuration;
-using System.Collections.Generic;
-using System.Text;
-
-using OGen.Libraries.DataLayer;
-using OGen.NTier.Libraries.BusinessLayer;
-
-using OGen.Libraries.Crypt;
-
-using OGen.NTier.Kick.Libraries.DataLayer;
-using OGen.NTier.Kick.Libraries.DataLayer.Shared;
-using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
-
-using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
-//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
 
 namespace OGen.NTier.Kick.Libraries.BusinessLayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Text;
+
+	using OGen.Libraries.Crypt;
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Libraries.BusinessLayer;
+
 	[BOClassAttribute("BO_WEB_User", "")]
 	public static class SBO_WEB_User {
 		#region public static void Login(...);

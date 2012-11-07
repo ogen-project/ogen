@@ -12,21 +12,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
-
-using OGen.Libraries.Crypt;
-using OGen.Libraries.DataLayer;
-using OGen.NTier.Kick.Libraries.DataLayer;
-using OGen.NTier.Kick.Libraries.DataLayer.Shared;
-using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
-using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
-//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
-using OGen.NTier.Libraries.BusinessLayer;
 
 namespace OGen.NTier.Kick.Libraries.BusinessLayer {
+	using System;
+	using System.Collections.Generic;
+	using System.Configuration;
+	using System.Text;
+
+	using OGen.Libraries.Crypt;
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.BusinessLayer.Shared;
+	//using OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures;
+	using OGen.NTier.Kick.Libraries.DataLayer;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared;
+	using OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures;
+	using OGen.NTier.Libraries.BusinessLayer;
+
 	[BOClassAttribute("BO_CRD_Permission", "")]
 	public static class SBO_CRD_Permission {
 		#region public static SO_CRD_Permission[] getRecord_all(...);
