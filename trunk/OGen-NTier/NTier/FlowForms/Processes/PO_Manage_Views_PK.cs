@@ -15,19 +15,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
-	public class PO_Manage_Views_PK {
+	public class PO_Manage_Views_PK : IDisposable {
 		#region public PO_Manage_Views_PK(...);
 		public PO_Manage_Views_PK(frm_Main MainForm_) {
 			MainForm = MainForm_;
 		}
 		~PO_Manage_Views_PK() {
-			cleanUp();
+			this.Dispose(false);
 		}
 		public void Dispose() {
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
-			cleanUp();
 		}
-		public void cleanUp() {
+		private void Dispose(bool disposing_in) {
 			// ...
 		}
 		#endregion

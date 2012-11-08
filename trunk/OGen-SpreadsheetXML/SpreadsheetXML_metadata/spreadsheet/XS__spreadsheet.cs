@@ -123,6 +123,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 
 
 				_datatable[r] = new DataTable(_table_visualName);
+				_datatable[r].Locale = System.Globalization.CultureInfo.CurrentCulture;
 				_dataadaptar.Fill(_datatable[r]);
 
 				_dataadaptar.Dispose();
