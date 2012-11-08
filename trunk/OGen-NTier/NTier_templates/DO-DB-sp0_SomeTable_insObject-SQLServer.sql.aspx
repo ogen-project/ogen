@@ -79,7 +79,7 @@ AS<%
 			}%>
 		)
 		IF (@SelectIdentity_ = 1) BEGIN
-			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = @@IDENTITY
+			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = SCOPE_IDENTITY() -- @@IDENTITY
 		END ELSE BEGIN
 			SET @<%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].Name%>_ = CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)
 		END<%
