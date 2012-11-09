@@ -116,22 +116,22 @@
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "Flowforms\cFlowform.cs"
+                    RelPath = "Flowforms\Flowform.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Flowforms\cFlowformForm.cs"
+                    RelPath = "Flowforms\FlowformForm.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Flowforms\eFlowformEvents.cs"
+                    RelPath = "Flowforms\FlowformEvents.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Flowforms\eFlowformFormEvents.cs"
+                    RelPath = "Flowforms\FlowformFormEvents.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

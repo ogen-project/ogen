@@ -16,16 +16,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 	using System;
 
-	public abstract class cFlowform {
-		#region public cFlowform(...);
-		protected cFlowform(
+	public abstract class Flowform : IDisposable {
+		#region public Flowform(...);
+		protected Flowform(
 			dNotifyBase notifyBase_in, 
 			int numFlowformForms_in
 		) {
 			this.notifybase_ = notifyBase_in;
-			this.myflowforms_ = new cFlowform[numFlowformForms_in];
+			this.myflowforms_ = new Flowform[numFlowformForms_in];
 		}
-		public virtual void Dispose() {
+		~Flowform() {
+			this.Dispose(false);
+		}
+
+		public void Dispose() {
+			this.Dispose(true);
+			System.GC.SuppressFinalize(this);
+		}
+		protected virtual void Dispose(bool disposing_in) {
 			if (this.MyFlowforms != null) {
 				for (int i = 0; i < this.MyFlowforms.Length; i++) {
 					if (this.MyFlowforms[i] != null)
@@ -39,18 +47,18 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 		#endregion
 
 		#region Delegations...
-		public delegate void dNotifyBase(eFlowformEvents someEvent_in, cFlowform flowform_in);
+		public delegate void dNotifyBase(FlowformEvents someEvent_in, Flowform flowform_in);
 		private dNotifyBase notifybase_ = null;
 
-		public void NotifyBase(eFlowformEvents someEvent_in, cFlowform flowform_in) {
+		public void NotifyBase(FlowformEvents someEvent_in, Flowform flowform_in) {
 			if (this.notifybase_ != null) {
 				this.notifybase_(someEvent_in, flowform_in);
 			} else {
 				switch (someEvent_in) {
-					case eFlowformEvents.Closed:
+					case FlowformEvents.Closed:
 						this.Dispose();
 						break;
-					case eFlowformEvents.Back:
+					case FlowformEvents.Back:
 						// do nothing...
 						break;
 				}
@@ -58,32 +66,32 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 		}
 		#endregion
 
-		#region protected cFlowform[] MyFlowforms { get; }
-		private cFlowform[] myflowforms_;
-		protected cFlowform[] MyFlowforms {
+		#region protected Flowform[] MyFlowforms { get; }
+		private Flowform[] myflowforms_;
+		protected Flowform[] MyFlowforms {
 			get { return this.myflowforms_; }
 		}
 		#endregion
 		protected abstract System.Windows.Forms.Form myform_ { get; }
 
-		protected void MyForm_notifiedMe(eFlowformFormEvents someEvent_in) {
+		protected void MyForm_notifiedMe(FlowformFormEvents someEvent_in) {
 			switch (someEvent_in) {
-				case eFlowformFormEvents.Closed:
-					this.NotifyBase(eFlowformEvents.Closed, this);
+				case FlowformFormEvents.Closed:
+					this.NotifyBase(FlowformEvents.Closed, this);
 					break;
-				case eFlowformFormEvents.Back:
-					this.NotifyBase(eFlowformEvents.Back, this);
+				case FlowformFormEvents.Back:
+					this.NotifyBase(FlowformEvents.Back, this);
 					break;
 			}
 		}
-		protected void MyFlowforms_notifiedMe(eFlowformEvents someEvent_in, cFlowform flowform_in) {
+		protected void MyFlowforms_notifiedMe(FlowformEvents someEvent_in, Flowform flowform_in) {
 			for (int i = 0; i < this.MyFlowforms.Length; i++) {
 				if (this.MyFlowforms[i] == flowform_in) {
 					switch (someEvent_in) {
-						case eFlowformEvents.Closed:
-							this.NotifyBase(eFlowformEvents.Closed, this);
+						case FlowformEvents.Closed:
+							this.NotifyBase(FlowformEvents.Closed, this);
 							break;
-						case eFlowformEvents.Back:
+						case FlowformEvents.Back:
 							this.MyFlowforms[i].Hide();
 							this.myform_.Show();
 							break;

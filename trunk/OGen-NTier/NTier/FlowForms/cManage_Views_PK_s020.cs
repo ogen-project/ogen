@@ -17,7 +17,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 	using System;
 	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
 
-	public class cManage_Views_PK_s020 : cFlowform {
+	public class cManage_Views_PK_s020 : Flowform {
 		#region public cManage_Views_PK_s020(...);
 		public cManage_Views_PK_s020(
 			frm_Main Base_ref_, 
@@ -30,10 +30,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			Base_ref = Base_ref_;
 
 			MyForm = new frmManage_Views_PK_s020(
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe
 				),
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe_aboutNext
 				)
 			);
@@ -43,18 +43,24 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 			MyProcess = MyProcess_;
 		}
+
+		protected override void Dispose(bool disposing_in) {
+			MyForm.Dispose();
+
+			base.Dispose(disposing_in);
+		}
 		#endregion
 
-		private void MyForm_notifiedMe_aboutNext(eFlowformFormEvents SomeEvent_) {
+		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
-				case eFlowformFormEvents.Next:
+				case FlowformFormEvents.Next:
 					// ToDos: here!
 
 
 
 					MyProcess.ViewPKs = MyForm.ViewPKs;
 					MyProcess.Manage_Views_PK();
-					NotifyBase(eFlowformEvents.Closed, this);
+					NotifyBase(FlowformEvents.Closed, this);
 
 
 

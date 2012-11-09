@@ -17,7 +17,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 	using System;
 	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
 
-	public class cGenerator_Generate_s000 : cFlowform {
+	public class cGenerator_Generate_s000 : Flowform {
 		#region public cGenerator_Generate_s000(...);
 		public cGenerator_Generate_s000(
 			frm_Main Base_ref_
@@ -35,10 +35,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			Base_ref = Base_ref_;
 
 			MyForm = new frmGenerator_Generate_s000(
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe
 				),
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe_aboutNext
 				)
 			);
@@ -46,11 +46,21 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			//MyForm.MaximizeBox = false;
 			//MyForm_ref = MyForm;
 		}
+
+		protected override void Dispose(bool disposing_in) {
+			MyForm.Dispose();
+			if (Manage_Views_PK_s010 != null) {
+				Manage_Views_PK_s010.Dispose();
+				Manage_Views_PK_s010 = null;
+			}
+
+			base.Dispose(disposing_in);
+		}
 		#endregion
 
-		private void MyForm_notifiedMe_aboutNext(eFlowformFormEvents SomeEvent_) {
+		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
-				case eFlowformFormEvents.Next:
+				case FlowformFormEvents.Next:
 					MyForm.Hide();
 					//---
 					frmProcessOutput output = new frmProcessOutput("Output");
@@ -72,7 +82,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					//output.DisplayMessage("... finished!", true);
 					output.DisplayMessage();
 					//---
-					NotifyBase(eFlowformEvents.Closed, this);
+					NotifyBase(FlowformEvents.Closed, this);
 					break;
 			}
 		}
@@ -89,7 +99,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		//#region private Methods...
-		public void LetMeKnowWhen_NoMoreUndefinedViews(eFlowformEvents SomeEvent_, cFlowform Flowform_) {
+		public void LetMeKnowWhen_NoMoreUndefinedViews(FlowformEvents SomeEvent_, Flowform Flowform_) {
 			Manage_Views_PK_s010.Hide();
 			Manage_Views_PK_s010.Dispose(); Manage_Views_PK_s010 = null;
 
@@ -112,14 +122,14 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 						Manage_Views_PK_s010 = new cManage_Views_PK_s010(
 							Base_ref, 
-							new cFlowform.dNotifyBase(LetMeKnowWhen_NoMoreUndefinedViews), 
+							new Flowform.dNotifyBase(LetMeKnowWhen_NoMoreUndefinedViews), 
 							manage_views_pk
 						);
 						Manage_Views_PK_s010.Show();
 
 						break;
 					case System.Windows.Forms.DialogResult.Cancel:
-						NotifyBase(eFlowformEvents.Closed, this);
+						NotifyBase(FlowformEvents.Closed, this);
 						break;
 				}
 			} else {
@@ -128,7 +138,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					case System.Windows.Forms.DialogResult.OK:
 						break;
 					case System.Windows.Forms.DialogResult.Cancel:
-						NotifyBase(eFlowformEvents.Closed, this);
+						NotifyBase(FlowformEvents.Closed, this);
 						break;
 				}
 			}

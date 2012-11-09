@@ -17,7 +17,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 	using System;
 	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
 
-	public class cManage_ConfigTables_CreateOrChange_s020 : cFlowform {
+	public class cManage_ConfigTables_CreateOrChange_s020 : Flowform {
 		#region public cManage_ConfigTables_CreateOrChange_s020(...);
 		public cManage_ConfigTables_CreateOrChange_s020(
 			frm_Main Base_ref_, 
@@ -30,10 +30,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			Base_ref = Base_ref_;
 
 			MyForm = new frmManage_ConfigTables_CreateOrChange_s020(
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe
 				),
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe_aboutNext
 				)
 			);
@@ -43,11 +43,17 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 			MyProcess = MyProcess_;
 		}
+
+		protected override void Dispose(bool disposing_in) {
+			MyForm.Dispose();
+
+			base.Dispose(disposing_in);
+		}
 		#endregion
 
-		private void MyForm_notifiedMe_aboutNext(eFlowformFormEvents SomeEvent_) {
+		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
-				case eFlowformFormEvents.Next:
+				case FlowformFormEvents.Next:
 
 
 
@@ -76,7 +82,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							MyProcess.DatatypeField = MyForm.DatatypeField;
 
 							MyProcess.ConfigTables();
-							NotifyBase(eFlowformEvents.Closed, this);
+							NotifyBase(FlowformEvents.Closed, this);
 						}
 					}
 

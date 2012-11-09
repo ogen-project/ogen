@@ -32,13 +32,13 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		protected override void Dispose(bool disposing_in) {
-			if (disposing_in) {
+		protected override void Dispose(bool disposing) {
+			if (disposing) {
 				if (this.components != null) {
 					this.components.Dispose();
 				}
 			}
-			base.Dispose(disposing_in);
+			base.Dispose(disposing);
 		}
 
 		#region Windows Form Designer generated code

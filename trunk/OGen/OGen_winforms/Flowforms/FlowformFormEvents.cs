@@ -16,39 +16,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 	using System;
 
-	public class cFlowformForm {
-		public cFlowformForm(
-			dNotifyBase notifyBase_in, 
-			dNotifyBase notifyBase_aboutNext_in
-		) {
-			this.notifybase_ = notifyBase_in;
-			this.notifybase_aboutnext_ = notifyBase_aboutNext_in;
-		}
-
-		#region Delegations...
-		public delegate void dNotifyBase(eFlowformFormEvents someEvent_in);
-		private dNotifyBase notifybase_ = null;
-		private dNotifyBase notifybase_aboutnext_ = null;
-
-		public void NotifyBase(eFlowformFormEvents someEvent_in) {
-			if (someEvent_in == eFlowformFormEvents.Next) {
-				if (this.notifybase_aboutnext_ != null) this.notifybase_aboutnext_(someEvent_in);
-			} else {
-				if (this.notifybase_ != null) this.notifybase_(someEvent_in);
-			}
-		}
-		#endregion
-
-		//#region Events...
-		public void btnBack_Click(object sender, System.EventArgs e) {
-			this.NotifyBase(eFlowformFormEvents.Back);
-		}
-		public void btnNext_Click(object sender, System.EventArgs e) {
-			this.NotifyBase(eFlowformFormEvents.Next);
-		}
-		public void FlowformForm_Closed(object sender, System.EventArgs e) {
-			this.NotifyBase(eFlowformFormEvents.Closed);
-		}
-		//#endregion
+	public enum FlowformFormEvents {
+		Back = 0, 
+		Closed = 1, 
+		Next = 2
 	}
 }

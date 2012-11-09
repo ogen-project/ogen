@@ -15,19 +15,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
-	public class PO_MODEL {
+	public class PO_MODEL : IDisposable {
 		#region public PO_MODEL(...);
 		public PO_MODEL(frm_Main MainForm_) {
 			MainForm = MainForm_;
 		}
 		~PO_MODEL() {
-			cleanUp();
+			this.Dispose(false);
 		}
+
 		public void Dispose() {
+			this.Dispose(true);
 			System.GC.SuppressFinalize(this);
-			cleanUp();
 		}
-		public void cleanUp() {
+		protected virtual void Dispose(bool disposing_in) {
 			// ...
 		}
 		#endregion

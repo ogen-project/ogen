@@ -142,24 +142,24 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		public frmGenerator_Generate_s000(
-			cFlowformForm.dNotifyBase NotifyBase_, 
-			cFlowformForm.dNotifyBase NotifyBase_aboutNext_
+			FlowformForm.dNotifyBase NotifyBase_, 
+			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
 			InitializeComponent();
 			#endregion
-			FlowformForm = new cFlowformForm(
+			flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(FlowformForm.btnNext_Click);
-			this.Closed += new System.EventHandler(FlowformForm.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
 		#region private Properties...
-		private cFlowformForm FlowformForm;
+		private FlowformForm flowformform_;
 		#endregion
 		//#region public Properties...
 		public OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration SQLscriptOptions {

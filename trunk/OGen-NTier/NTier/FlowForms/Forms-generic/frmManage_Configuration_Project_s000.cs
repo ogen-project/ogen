@@ -281,20 +281,20 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		public frmTweak_Project_s000(
-			cFlowformForm.dNotifyBase notifyBase_in, 
-			cFlowformForm.dNotifyBase notifyBase_aboutNext_in, 
+			FlowformForm.dNotifyBase notifyBase_in, 
+			FlowformForm.dNotifyBase notifyBase_aboutNext_in, 
 			cTweak_Project_s000.eMode mode_in
 		) {
 			#region Required for Windows Form Designer support...
 			InitializeComponent();
 			#endregion
-			FlowformForm = new cFlowformForm(
+			flowformform_ = new FlowformForm(
 				notifyBase_in, 
 				notifyBase_aboutNext_in
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(FlowformForm.btnNext_Click);
-			this.Closed += new System.EventHandler(FlowformForm.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
 
 			this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
 			this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -315,7 +315,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		#region private Properties...
-		private cFlowformForm FlowformForm;
+		private FlowformForm flowformform_;
 		#region private eMode Mode { get; set; }
 		private cTweak_Project_s000.eMode mode__;
 		private cTweak_Project_s000.eMode Mode {

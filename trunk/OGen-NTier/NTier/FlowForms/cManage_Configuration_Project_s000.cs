@@ -17,7 +17,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 	using System;
 	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
 
-	public class cTweak_Project_s000 : cFlowform {
+	public class cTweak_Project_s000 : Flowform {
 		#region public cTweak_Project_s000(...);
 		public cTweak_Project_s000(
 			frm_Main base_ref_in, 
@@ -39,10 +39,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			mode_ = mode_in;
 
 			MyForm = new frmTweak_Project_s000(
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe
 				),
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe_aboutNext
 				), 
 				mode_in
@@ -52,17 +52,11 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 //			MyProcess = new PO_Tweak_Project(Base_ref);
 		}
-		~cTweak_Project_s000() {
-			cleanUp();
-		}
-		public override void Dispose() {
-			System.GC.SuppressFinalize(this);
-			cleanUp();
 
-			base.Dispose();
-		}
-		public void cleanUp() {
+		protected override void Dispose(bool disposing_in) {
 //			MyProcess.Dispose();
+
+			base.Dispose(disposing_in);
 		}
 		#endregion
 
@@ -73,9 +67,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		}
 		#endregion
 
-		private void MyForm_notifiedMe_aboutNext(eFlowformFormEvents SomeEvent_) {
+		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
-				case eFlowformFormEvents.Next:
+				case FlowformFormEvents.Next:
 					#region Checking...
 					if (
 						(mode_ == eMode.New) 
@@ -200,7 +194,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					Base_ref.Form_Refresh();
 
 					MyForm.Hide();
-					NotifyBase(eFlowformEvents.Closed, this);
+					NotifyBase(FlowformEvents.Closed, this);
 					break;
 			}
 		}

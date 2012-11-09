@@ -100,16 +100,16 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Flowforms\cFlowform.cs">
+    <Compile Include="Flowforms\Flowform.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Flowforms\cFlowformForm.cs">
+    <Compile Include="Flowforms\FlowformForm.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Flowforms\eFlowformEvents.cs">
+    <Compile Include="Flowforms\FlowformEvents.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Flowforms\eFlowformFormEvents.cs">
+    <Compile Include="Flowforms\FlowformFormEvents.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Flowforms\frmProcessOutput.cs">

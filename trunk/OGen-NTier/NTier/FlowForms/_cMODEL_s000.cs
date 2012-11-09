@@ -17,7 +17,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 	using System;
 	using OGen.Libraries.PresentationLayer.WinForms.FlowForms;
 
-	public class cMODEL_s000 : cFlowform {
+	public class cMODEL_s000 : Flowform {
 		#region public cMODEL_s000(...);
 		public cMODEL_s000(
 			frm_Main Base_ref_
@@ -35,10 +35,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			Base_ref = Base_ref_;
 
 			MyForm = new frmMODEL(
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe
 				),
-				new cFlowformForm.dNotifyBase(
+				new FlowformForm.dNotifyBase(
 					MyForm_notifiedMe_aboutNext
 				)
 			);
@@ -48,23 +48,18 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 			MyProcess = new PO_MODEL(Base_ref);
 		}
-		~cMODEL_s000() {
-			cleanUp();
-		}
-		public override void Dispose() {
-			System.GC.SuppressFinalize(this);
-			cleanUp();
 
-			base.Dispose();
-		}
-		public void cleanUp() {
+		protected override void Dispose(bool disposing_in) {
+			MyForm.Dispose();
 			MyProcess.Dispose();
+
+			base.Dispose(disposing_in);
 		}
 		#endregion
 
-		private void MyForm_notifiedMe_aboutNext(eFlowformFormEvents SomeEvent_) {
+		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
-				case eFlowformFormEvents.Next:
+				case FlowformFormEvents.Next:
 					// ToDos: here!
 
 

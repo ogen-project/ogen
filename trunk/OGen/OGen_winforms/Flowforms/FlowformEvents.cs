@@ -16,9 +16,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 	using System;
 
-	public enum eFlowformFormEvents {
+	public enum FlowformEvents {
 		Back = 0, 
-		Closed = 1, 
-		Next = 2
+		Closed = 1
 	}
 }
