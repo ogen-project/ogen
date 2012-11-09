@@ -19,8 +19,16 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 	using System.Text;
 	using Npgsql;
 
+	/// <summary>
+	///	Provides access to PostgreSQL Databases, allowing the execution of SQL Queries and Functions retrieving their existing data if any. It also supports Transactions.
+	/// </summary>
 	public sealed class DBConnection_PostgreSQL : DBConnection {
 		//#region public DBConnection_PostgreSQL(...);
+
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBConnection_PostgreSQL">DBConnection_PostgreSQL</see>
+		/// </summary>
+		/// <param name="connectionstring_in">Connection String</param>
 		public DBConnection_PostgreSQL(
 			string connectionstring_in
 		) : base (
@@ -29,6 +37,12 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 			string.Empty
 		) {
 		}
+
+		/// <summary>
+		/// Initializes a new instance of <see cref="DBConnection_PostgreSQL">DBConnection_PostgreSQL</see>
+		/// </summary>
+		/// <param name="connectionstring_in">Connection String</param>
+		/// <param name="logfile_in">Log File (null or empty string disables log)</param>
 		public DBConnection_PostgreSQL(
 			string connectionstring_in,
 			string logfile_in
@@ -37,6 +51,14 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 			connectionstring_in,
 			logfile_in
 		) {
+		}
+
+		/// <summary>
+		/// Releases all resources used by <see cref="DBConnection_PostgreSQL">DBConnection_PostgreSQL</see>.
+		/// </summary>
+		/// <param name="disposing"></param>
+		protected override void Dispose(bool disposing) {
+			base.Dispose(disposing);
 		}
 		//#endregion
 

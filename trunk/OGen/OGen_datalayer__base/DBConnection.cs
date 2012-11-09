@@ -141,7 +141,7 @@ namespace OGen.Libraries.DataLayer {
 		/// Releases all resources used by <see cref="DBConnection">DBConnection</see>.
 		/// </summary>
 		/// <param name="disposing_in"></param>
-		private void Dispose(bool disposing_in) {
+		protected virtual void Dispose(bool disposing_in) {
 			if (this.transaction__ != null) {
 				this.transaction__.Dispose(); this.transaction__ = null;
 			}
@@ -559,6 +559,7 @@ namespace OGen.Libraries.DataLayer {
 			);
 			try {
 				_output = new DataSet();
+				_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 				_dataadapter.Fill(_output);
 			} catch (Exception _ex) {
 				#region throw new Exception("...");
@@ -791,6 +792,7 @@ namespace OGen.Libraries.DataLayer {
 			#endregion
 			try {
 				_output = new DataSet();
+				_output.Locale = System.Globalization.CultureInfo.CurrentCulture;
 				_dataadapter.Fill(_output);
 			} catch (Exception _ex) {
 				throw new Exception(
