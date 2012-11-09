@@ -28,17 +28,17 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Indicates if it is a Sequence/Identity Seed. True if it is a Sequence/Identity Seed, False if not.
 		/// </summary>
-		public bool isIdentity;
+		public bool IsIdentity;
 
 		/// <summary>
 		/// Indicates if it is a Primary Key. True if it is a Primary Key, False if not.
 		/// </summary>
-		public bool isPK;
+		public bool IsPK;
 
 		/// <summary>
 		/// Indicates if it allows null Values. True if it allows null Values, False if not.
 		/// </summary>
-		public bool isNullable;
+		public bool IsNullable;
 
 		/// <summary>
 		/// Name.

@@ -60,11 +60,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isViewPK { get; set; }
+		#region public bool IsViewPK { get; set; }
 		internal bool isviewpk_;
 
 		[XmlAttribute("isViewPK")]
-		public bool isViewPK {
+		public bool IsViewPK {
 			get {
 				return this.isviewpk_;
 			}
@@ -112,11 +112,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isListItemValue { get; set; }
+		#region public bool IsListItemValue { get; set; }
 		internal bool islistitemvalue_;
 
 		[XmlAttribute("isListItemValue")]
-		public bool isListItemValue {
+		public bool IsListItemValue {
 			get {
 				return this.islistitemvalue_;
 			}
@@ -125,11 +125,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isListItemText { get; set; }
+		#region public bool IsListItemText { get; set; }
 		internal bool islistitemtext_;
 
 		[XmlAttribute("isListItemText")]
-		public bool isListItemText {
+		public bool IsListItemText {
 			get {
 				return this.islistitemtext_;
 			}

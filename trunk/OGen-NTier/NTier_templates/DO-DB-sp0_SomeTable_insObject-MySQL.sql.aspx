@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_insObject`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
-	<%=(_aux_db_field.isIdentity) ? "OUT" : "IN"%> `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	<%=(_aux_db_field.IsIdentity) ? "OUT" : "IN"%> `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 	}%>
 	IN `SelectIdentity_` BOOLEAN
 )
@@ -58,7 +58,7 @@ BEGIN<%
 	SET `ConstraintExist` = `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-			if (_aux_db_field.isIdentity) {%><%=""%>
+			if (_aux_db_field.IsIdentity) {%><%=""%>
 		CAST(0 AS UNSIGNED)<%
 			} else {%><%=""%>
 		`<%=_aux_db_field.Name%>_`<%

@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE OR REPLACE FUNCTION "sp0_<%=_aux_db_table.Name%>_insObject"(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-		if (_aux_db_field.isIdentity) {
+		if (_aux_db_field.IsIdentity) {
 			continue;
 		}%>"<%=_aux_db_field.Name%>_" <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>, <%
 	}
@@ -66,7 +66,7 @@ AS $BODY$
 		IF ("fnc0_<%=_aux_db_table.Name%>__ConstraintExist"(<%
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-				if (_aux_db_field.isIdentity) {%><%=""%>
+				if (_aux_db_field.IsIdentity) {%><%=""%>
 			CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)<%
 				} else {%><%=""%>
 			"<%=_aux_db_field.Name%>_"<%
@@ -79,7 +79,7 @@ AS $BODY$
 			INSERT INTO "<%=_aux_db_table.Name%>" (<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-					if (_aux_db_field.isIdentity) {
+					if (_aux_db_field.IsIdentity) {
 						continue;
 					}%>
 				"<%=_aux_db_field.Name%>"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
@@ -87,7 +87,7 @@ AS $BODY$
 			) VALUES (<%
 				for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-					if (_aux_db_field.isIdentity) {
+					if (_aux_db_field.IsIdentity) {
 						continue;
 					}%>
 				"<%=_aux_db_field.Name%>_"<%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%

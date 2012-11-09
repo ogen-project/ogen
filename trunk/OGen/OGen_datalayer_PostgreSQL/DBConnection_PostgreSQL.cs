@@ -63,7 +63,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		//#endregion
 
 		//#region public static properties...
-#region public static DBUtilities Utils { get; }
+		#region public static DBUtilities Utils { get; }
 		private static DBUtilities utils__ = null;
 		private static object utils__locker = new object();
 
@@ -103,7 +103,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		#region public override DBUtilities Utilities { get; }
 		public override DBUtilities Utilities {
 			get {
-				return Utils;
+				return DBConnection_PostgreSQL.Utils;
 			}
 		}
 		#endregion
@@ -377,8 +377,8 @@ WHERE
 		}
 		#endregion
 		//---
-		#region public override string getDBs_query(...);
-		public override string getDBs_query() {
+		#region public override string SchemaDatabases_query(...);
+		public override string SchemaDatabases_query() {
 			return
 @"
 SELECT CATALOG_NAME 
@@ -391,8 +391,8 @@ ORDER BY CATALOG_NAME
 			;
 		}
 		#endregion
-		#region public override string getTables_query(...);
-		public override string getTables_query(
+		#region public override string SchemaDatabaseTables_query(...);
+		public override string SchemaDatabaseTables_query(
 			string dbName_in, 
 			string subAppName_in
 		) {
@@ -484,8 +484,8 @@ WHERE
 			return _query.ToString();
 		}
 		#endregion
-		#region public override string getTableFields_query(...);
-		public override string getTableFields_query(
+		#region public override string SchemaDatabaseTableFields_query(...);
+		public override string SchemaDatabaseTableFields_query(
 			string tableName_in
 		) {
 			#region return "SELECT ...";

@@ -60,8 +60,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 			// Clean Keys:
 			for (int f = 0; f < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
-				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity = false;
-				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK = false;
+				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsIdentity = false;
+				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK = false;
 			}
 
 			// Reset Keys:
@@ -70,7 +70,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
 						ViewPKs[k]
 					)
-				].isPK = true;
+				].IsPK = true;
 			}
 
 			frm_Main.NTierProject.hasChanges = true;

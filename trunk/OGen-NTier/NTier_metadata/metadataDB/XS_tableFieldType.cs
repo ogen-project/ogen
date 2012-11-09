@@ -124,41 +124,41 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		}
 		#endregion
 
-		#region public bool isBool { get; }
+		#region public bool IsBoolean { get; }
 		[XmlIgnore()]
-		public bool isBool {
-			get { return this.TableFieldDBs.TableFieldDBCollection[0].isBool; }
+		public bool IsBoolean {
+			get { return this.TableFieldDBs.TableFieldDBCollection[0].IsBoolean; }
 		}
 		#endregion
-		#region public bool isDateTime { get; }
+		#region public bool IsDateTime { get; }
 		[XmlIgnore()]
-		public bool isDateTime {
+		public bool IsDateTime {
 			get {
-				return this.TableFieldDBs.TableFieldDBCollection[0].isDateTime;
+				return this.TableFieldDBs.TableFieldDBCollection[0].IsDateTime;
 			}
 		}
 		#endregion
-		#region public bool isInt { get; }
+		#region public bool IsInteger { get; }
 		[XmlIgnore()]
-		public bool isInt {
+		public bool IsInteger {
 			get {
-				return this.TableFieldDBs.TableFieldDBCollection[0].isInt;
+				return this.TableFieldDBs.TableFieldDBCollection[0].IsInteger;
 			}
 		}
 		#endregion
-		#region public bool isDecimal { get; }
+		#region public bool IsDecimal { get; }
 		[XmlIgnore()]
-		public bool isDecimal {
+		public bool IsDecimal {
 			get {
-				return this.TableFieldDBs.TableFieldDBCollection[0].isDecimal;
+				return this.TableFieldDBs.TableFieldDBCollection[0].IsDecimal;
 			}
 		}
 		#endregion
-		#region public bool isText { get; }
+		#region public bool IsText { get; }
 		[XmlIgnore()]
-		public bool isText {
+		public bool IsText {
 			get {
-				return this.TableFieldDBs.TableFieldDBCollection[0].isText;
+				return this.TableFieldDBs.TableFieldDBCollection[0].IsText;
 			}
 		}
 		#endregion
@@ -174,17 +174,17 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 		#region public bool canBeConfig_... { get; }
 		[XmlIgnore()]
 		public bool canBeConfig_Name {
-			get { return this.isText && this.isPK; }
+			get { return this.IsText && this.IsPK; }
 		}
 
 		[XmlIgnore()]
 		public bool canBeConfig_Config {
-			get { return this.isText && !this.isPK; }
+			get { return this.IsText && !this.IsPK; }
 		}
 
 		[XmlIgnore()]
 		public bool canBeConfig_Type {
-			get { return this.isInt && !this.isPK; }
+			get { return this.IsInteger && !this.IsPK; }
 		}
 		#endregion
 	}

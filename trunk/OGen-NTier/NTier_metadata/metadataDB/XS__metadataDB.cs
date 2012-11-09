@@ -100,7 +100,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 
 				#region _tables_aux = ...;
 				_getTables_exists = _connection.SQLStoredProcedure_exists(OGEN_SP0__GETTABLES);
-				_tables_aux = _connection.getTables(
+				_tables_aux = _connection.SchemaDatabaseTables(
 					subAppName_in,
 					_getTables_exists 
 						? OGEN_SP0__GETTABLES
@@ -119,7 +119,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 						break;
 				}
 
-				_fields_aux = _connection.getTableFields(
+				_fields_aux = _connection.SchemaDatabaseTableFields(
 					// _tables_aux[t].Name, // get's specific table fields
 					string.Empty, // get's fields for all tables
 					_getTableFields_exists
@@ -141,7 +141,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 						_output.Tables.TableCollection.Add(_table);
 					}
 					#endregion
-					_table.isVirtualTable = _tables_aux[t].isVirtualTable;
+					_table.IsVirtualTable = _tables_aux[t].IsVirtualTable;
 
 					#region _tabledb = ...; _tabledb.DBServerType = ...;
 					_searchindex = _table.TableDBs.TableDBCollection.Search(
@@ -187,9 +187,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							_table.TableFields.TableFieldCollection.Add(_field);
 						}
 						#endregion
-						_field.isPK = _fields_aux[f].isPK;
-						_field.isIdentity = _fields_aux[f].isIdentity;
-						_field.isNullable = _fields_aux[f].isNullable;
+						_field.IsPK = _fields_aux[f].IsPK;
+						_field.IsIdentity = _fields_aux[f].IsIdentity;
+						_field.IsNullable = _fields_aux[f].IsNullable;
 						_field.NumericPrecision = _fields_aux[f].Numeric_Precision;
 						_field.NumericScale = _fields_aux[f].Numeric_Scale;
 						_field.Size = _fields_aux[f].Size;

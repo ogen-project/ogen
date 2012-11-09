@@ -64,11 +64,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isRange { get; set; }
+		#region public bool IsRange { get; set; }
 		internal bool isrange_;
 
 		[XmlAttribute("isRange")]
-		public bool isRange {
+		public bool IsRange {
 			get {
 				return this.isrange_;
 			}
@@ -77,11 +77,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isExplicitUniqueIndex { get; set; }
+		#region public bool IsExplicitUniqueIndex { get; set; }
 		internal bool isexplicituniqueindex_;
 
 		[XmlAttribute("isExplicitUniqueIndex")]
-		public bool isExplicitUniqueIndex {
+		public bool IsExplicitUniqueIndex {
 			get {
 				return this.isexplicituniqueindex_;
 			}

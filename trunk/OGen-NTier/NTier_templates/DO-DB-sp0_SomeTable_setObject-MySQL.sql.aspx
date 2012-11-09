@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE PROCEDURE `sp0_<%=_aux_db_table.Name%>_setObject`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
+	IN `<%=_aux_db_field.Name%>_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText) ? "(" + _aux_db_field.Size + ")" : ""%>, <%
 	}%>
 
 	OUT `Output_` Int

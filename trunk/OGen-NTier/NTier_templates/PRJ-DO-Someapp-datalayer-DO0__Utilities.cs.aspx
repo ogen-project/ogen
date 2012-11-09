@@ -234,7 +234,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 			for (int t = 0; t < _aux_ex_metadata.Tables.TableCollection.Count; t++) {
 				_aux_ex_table = _aux_ex_metadata.Tables.TableCollection[t];
 				_aux_db_table = _aux_ex_table.parallel_ref;
-				if (_aux_ex_table.isConfig) {%>
+				if (_aux_ex_table.IsConfig) {%>
 		#region public static Methods - DB.<%=_aux_db_table.Name%>...<%
 					NameField = "";
 					ConfigField = "";
@@ -242,15 +242,15 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						_aux_ex_field = _aux_db_field.parallel_ref;
-						if (_aux_ex_field.isConfig_Name) {
+						if (_aux_ex_field.IsConfig_Name) {
 							NameField = _aux_db_field.Name;
 							continue;
 						}
-						if (_aux_ex_field.isConfig_Config) {
+						if (_aux_ex_field.IsConfig_Config) {
 							ConfigField = _aux_db_field.Name;
 							continue;
 						}
-						if (_aux_ex_field.isConfig_Datatype) {
+						if (_aux_ex_field.IsConfig_Datatype) {
 							DatatypeField = _aux_db_field.Name;
 							continue;
 						}

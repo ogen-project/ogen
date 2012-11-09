@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE FUNCTION [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	@<%=_aux_db_field.Name%> <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	@<%=_aux_db_field.Name%> <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.IsDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 RETURNS Bit
@@ -54,7 +54,7 @@ BEGIN
 	DECLARE @ConstraintExist Bit
 	SET @ConstraintExist = 0
 	<%for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
-		if (_aux_ex_table.TableSearches.TableSearchCollection[s].isExplicitUniqueIndex) {%>
+		if (_aux_ex_table.TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex) {%>
 	IF (@ConstraintExist = 0) BEGIN
 		SELECT
 			@ConstraintExist = 1

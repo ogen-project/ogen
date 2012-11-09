@@ -155,7 +155,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 					out _rowIndex,
 					new XS_rowType()
 				);
-				_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].isHeader = true;
+				_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].IsHeader = true;
 				for (int c = 0; c < dt_spreadsheet_in[s].Columns.Count; c++) {
 					_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection.Add(
 						out _cellIndex,
@@ -179,19 +179,19 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 						out _rowIndex,
 						new XS_rowType()
 					);
-					_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].isHeader = false;
+					_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].IsHeader = false;
 					for (int c = 0; c < dt_spreadsheet_in[s].Columns.Count; c++) {
 						_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection.Add(
 							out _cellIndex,
 							new XS_cellType()
 						);
 						if (dt_spreadsheet_in[s].Rows[r][c] != DBNull.Value) {
-							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].isNull = false;
+							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].IsNull = false;
 							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].Data
 								= dt_spreadsheet_in[s].Rows[r][c].ToString();
 
 						} else {
-							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].isNull = true;
+							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].IsNull = true;
 							_ss_output.PageCollection[_pageIndex].RowCollection[_rowIndex].CellCollection[_cellIndex].Data
 								= "";
 						}

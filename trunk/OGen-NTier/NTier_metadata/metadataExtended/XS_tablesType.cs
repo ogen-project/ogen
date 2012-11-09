@@ -45,7 +45,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 							// initialization...
 							this.hasvirtualtable_withundefinedkeys__ = false;
 							for (int t = 0; t < this.TableCollection.Count; t++)
-								if (this.TableCollection[t].isVirtualTable)
+								if (this.TableCollection[t].IsVirtualTable)
 									if (
 										this.TableCollection[t].parallel_ref
 											.TableFields_onlyPK.TableFieldCollection
@@ -87,7 +87,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 							// initialization...
 							this.hasconfigtable__ = false;
 							for (int t = 0; t < this.TableCollection.Count; t++)
-								if (this.TableCollection[t].isConfig) {
+								if (this.TableCollection[t].IsConfig) {
 									this.hasconfigtable__ = true;
 									break;
 								}

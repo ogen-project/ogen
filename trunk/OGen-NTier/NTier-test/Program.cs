@@ -39,7 +39,7 @@ namespace OGen.NTier.presentationlayer.test {
 		//        //Console.WriteLine(_aux_table.Name);
 
 		//        //if (_aux_table.Name == "TipoDocumento") {
-		//        //    Console.WriteLine(_aux_table.hasIdentityKey());
+		//        //    Console.WriteLine(_aux_table.HasIdentityKey());
 		//        //    for (int k = 0; k < _aux_table.Fields_onlyPK.Count; k++) {
 		//        //        _aux_field = _aux_table.Fields_onlyPK[k];
 		//        //        Console.WriteLine("\t> {0}", _aux_field.Name);

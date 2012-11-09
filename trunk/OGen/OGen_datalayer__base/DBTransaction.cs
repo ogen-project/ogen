@@ -40,12 +40,21 @@ namespace OGen.Libraries.DataLayer {
 		}
 
 		#region public void Dispose(...);
+
+		/// <summary>
+		/// Releases all resources used by <see cref="DBTransaction">DBTransaction</see>.
+		/// </summary>
+		/// <param name="disposing_in"></param>
 		private void Dispose(bool disposing_in) {
 			if (this.intransaction_) this.Terminate();
 			if (this.transaction_ != null) {
 				this.transaction_.Dispose(); this.transaction_ = null;
 			}
 		}
+
+		/// <summary>
+		/// Releases all resources used by <see cref="DBTransaction">DBTransaction</see>.
+		/// </summary>
 		public void Dispose() {
 			this.Dispose(true);
 			System.GC.SuppressFinalize(this);

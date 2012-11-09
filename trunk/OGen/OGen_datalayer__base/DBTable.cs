@@ -33,7 +33,7 @@ namespace OGen.Libraries.DataLayer {
 			string dbDescription_in
 		) {
 			this.Name = name_in;
-			this.isVirtualTable = isVirtualTable_in;
+			this.IsVirtualTable = isVirtualTable_in;
 			this.DBDescription = dbDescription_in;
 		}
 
@@ -50,6 +50,6 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Indicates if it represents a View or Table. True if it represents a View, False if it represents a Table.
 		/// </summary>
-		public bool isVirtualTable;
+		public bool IsVirtualTable;
 	}
 }

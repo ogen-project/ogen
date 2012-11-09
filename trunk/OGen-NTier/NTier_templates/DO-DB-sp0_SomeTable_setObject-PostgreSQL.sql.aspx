@@ -115,7 +115,7 @@ $BODY$
 					_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 				<%=
 
-					//(_aux_db_field.isPK) 
+					//(_aux_db_field.IsPK) 
 					//	? "_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType_generic.FWEmptyValue 
 					//	: "\"" + _aux_db_field.Name + "_\""
 

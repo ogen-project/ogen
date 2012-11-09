@@ -79,18 +79,18 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.DistributedLayer.WebService
 		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+			<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.IsParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
 			<%=(_aux_method.OutputType == "void") ? "" : "return "%><%=_aux_class.Namespace%>.SBO_<%=_aux_class.Name%>.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
 					if (_aux_method.IPParamNum == p) {%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%>(Utilities.ResetClientIP) 
+				<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%>(Utilities.ResetClientIP) 
 					? HttpContext.Current.Request.UserHostAddress 
 					: <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 					} else {%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+				<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 					}
 				}%>
 			);

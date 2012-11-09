@@ -35,7 +35,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 		public XS_tableFieldType ListItemValue {
 			get {
 				for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
-					if (this.TableFields.TableFieldCollection[f].isListItemValue) {
+					if (this.TableFields.TableFieldCollection[f].IsListItemValue) {
 						return this.TableFields.TableFieldCollection[f];
 					}
 				}
@@ -47,7 +47,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 		public XS_tableFieldType ListItemText {
 			get {
 				for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
-					if (this.TableFields.TableFieldCollection[f].isListItemText) {
+					if (this.TableFields.TableFieldCollection[f].IsListItemText) {
 						return this.TableFields.TableFieldCollection[f];
 					}
 				}
@@ -56,12 +56,12 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 		}
 		#endregion
 
-		#region public bool hasPK { get; }
+		#region public bool HasPK { get; }
 		[XmlIgnore()]
 		[XmlAttribute("hasPK")]
-		public bool hasPK {
+		public bool HasPK {
 			get {
-				return this.parallel_ref.hasPK;
+				return this.parallel_ref.HasPK;
 			}
 		}
 		#endregion
@@ -116,13 +116,13 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isListItem(...);
-		public bool isListItem() {
+		#region public bool IsListItem(...);
+		public bool IsListItem() {
 			for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
 				if (
-					(this.TableFields.TableFieldCollection[f].isListItemText)
+					(this.TableFields.TableFieldCollection[f].IsListItemText)
 					||
-					(this.TableFields.TableFieldCollection[f].isListItemValue)
+					(this.TableFields.TableFieldCollection[f].IsListItemValue)
 				) {
 					return true;
 				}

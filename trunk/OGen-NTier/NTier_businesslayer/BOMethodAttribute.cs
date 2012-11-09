@@ -73,13 +73,13 @@ namespace OGen.NTier.Libraries.BusinessLayer {
 			get { return this.distribute_; }
 		}
 		#endregion
-		#region public bool isSearch { get; }
+		#region public bool IsSearch { get; }
 		private bool issearch_;
 
 		/// <summary>
-		/// isSearch
+		/// IsSearch
 		/// </summary>
-		public bool isSearch {
+		public bool IsSearch {
 			get { return this.issearch_; }
 		}
 		#endregion

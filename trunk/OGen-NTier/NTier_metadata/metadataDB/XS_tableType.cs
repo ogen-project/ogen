@@ -105,7 +105,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							_aux.root_ref = this.root_ref;
 
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
-								if (this.TableFields.TableFieldCollection[f].isPK)
+								if (this.TableFields.TableFieldCollection[f].IsPK)
 									_aux.TableFieldCollection.Add(
 										this.TableFields.TableFieldCollection[f]
 									);
@@ -144,7 +144,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							_aux.root_ref = this.root_ref;
 
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
-								if (!this.TableFields.TableFieldCollection[f].isPK)
+								if (!this.TableFields.TableFieldCollection[f].IsPK)
 									_aux.TableFieldCollection.Add(
 										this.TableFields.TableFieldCollection[f]
 									);
@@ -159,14 +159,14 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool hasPK { get; }
+		#region public bool HasPK { get; }
 		private bool haspk__beenread = false;
 		private object haspk__locker = new object();
 		private bool haspk__;
 
 		[XmlIgnore()]
 		[XmlAttribute("hasPK")]
-		public bool hasPK {
+		public bool HasPK {
 			get {
 				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
@@ -183,7 +183,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							// initialization...
 							this.haspk__ = false;
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
-								if (this.TableFields.TableFieldCollection[f].isPK) {
+								if (this.TableFields.TableFieldCollection[f].IsPK) {
 									this.haspk__ = true;
 									break;
 								}
@@ -198,14 +198,14 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool hasIdentityKey { get; }
+		#region public bool HasIdentityKey { get; }
 		private bool hasidentitykey__beenread = false;
 		private object hasidentitykey__locker = new object();
 		private bool hasidentitykey__;
 
 		[XmlIgnore()]
 		[XmlAttribute("hasIdentityKey")]
-		public bool hasIdentityKey {
+		public bool HasIdentityKey {
 			get {
 				// caching isn't safe, there's no way to assure that items won't be
 				// added or removed, however by the time this method is called
@@ -222,7 +222,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							// initialization...
 							this.hasidentitykey__ = false;
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
-								if (this.TableFields.TableFieldCollection[f].isIdentity) {
+								if (this.TableFields.TableFieldCollection[f].IsIdentity) {
 									this.hasidentitykey__ = true;
 									break;
 								}
@@ -260,7 +260,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							// initialization...
 							int _aux = -1;
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++)
-								if (this.TableFields.TableFieldCollection[f].isIdentity) {
+								if (this.TableFields.TableFieldCollection[f].IsIdentity) {
 									_aux = f;
 									break;
 								}
@@ -297,9 +297,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							int _aux = -1;
 							for (int f = 0; f < this.TableFields.TableFieldCollection.Count; f++) {
 								if (
-									(this.TableFields.TableFieldCollection[f].isPK)
+									(this.TableFields.TableFieldCollection[f].IsPK)
 									//||
-									//(this.TableFields.TableFieldCollection[f].isIdentity)
+									//(this.TableFields.TableFieldCollection[f].IsIdentity)
 								) {
 									_aux = f;
 									break;
@@ -338,9 +338,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							// initialization...
 							if (
 								this.canbeconfig__ = (
-									!this.parallel_ref.isConfig
+									!this.parallel_ref.IsConfig
 									&&
-									!this.hasIdentityKey
+									!this.HasIdentityKey
 									&&
 									(this.TableFields_onlyPK.TableFieldCollection.Count == 1)
 									&&

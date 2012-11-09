@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE PROCEDURE [dbo].[sp0_<%=_aux_db_table.Name%>_insObject]<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	@<%=_aux_db_field.Name%>_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(_aux_db_field.isIdentity) ? " OUT" : ""%>, <%
+	@<%=_aux_db_field.Name%>_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.IsDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%><%=(_aux_db_field.IsIdentity) ? " OUT" : ""%>, <%
 	}%>
 	@SelectIdentity_ Bit
 AS<%
@@ -54,7 +54,7 @@ AS<%
 	SET @ConstraintExist = [dbo].[fnc0_<%=_aux_db_table.Name%>__ConstraintExist](<%
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-			if (_aux_db_field.isIdentity) {%><%=""%>
+			if (_aux_db_field.IsIdentity) {%><%=""%>
 		CAST(0 AS <%=_aux_db_table.TableFields.TableFieldCollection[_aux_db_table.IdentityKey].TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%>)<%
 			} else {%><%=""%>
 		@<%=_aux_db_field.Name%>_<%

@@ -26,14 +26,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	</xs:simpleType>
 
 	<!--
-		<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
-		<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" isIndexed_andReadOnly="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+		<dbConnection configMode="DEBUG" isDefault="True" generateSQL="True" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
+		<dbConnection configMode="!DEBUG" isDefault="True" generateSQL="False" connectionstring="Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;" />
 	-->
 	<xs:complexType name="dbConnectionType">
 		<xs:attribute name="configMode" type="xs:string" />
 		<xs:attribute name="isDefault" type="xs:boolean" />
 		<xs:attribute name="generateSQL" type="xs:boolean" />
-		<xs:attribute name="isIndexed_andReadOnly" type="xs:boolean" />
 		<xs:attribute name="connectionstring" type="xs:string" />
 	</xs:complexType>
 	<!--

@@ -64,11 +64,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool isVirtualTable { get; set; }
+		#region public bool IsVirtualTable { get; set; }
 		internal bool isvirtualtable_;
 
 		[XmlAttribute("isVirtualTable")]
-		public bool isVirtualTable {
+		public bool IsVirtualTable {
 			get {
 				return this.isvirtualtable_;
 			}

@@ -159,7 +159,7 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 ].Distribute = _methodattribute.Distribute;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
-].isSearch = _methodattribute.isSearch;
+].IsSearch = _methodattribute.IsSearch;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[
 	_method_index
 ].IPParamNum = _methodattribute.IPParamNum;
@@ -180,16 +180,16 @@ _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_i
 );
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isOut = _parameterinfo[p].IsOut;
+].IsOut = _parameterinfo[p].IsOut;
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
 ].Type = OGen.Libraries.Utilities.Type_ToString(_parameterinfo[p].ParameterType);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);
+].IsRef = (_parameterinfo[p].ParameterType.IsByRef && !_parameterinfo[p].IsOut);
 _output.Classes.ClassCollection[_class_index].Methods.MethodCollection[_method_index].Parameters.ParameterCollection[
 	_property_index
-].isParams = false;
+].IsParams = false;
 
 								}
 							}

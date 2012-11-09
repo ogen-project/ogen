@@ -55,7 +55,7 @@ bool _aux_bool;
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	@<%=_aux_xx_field_name%>_search_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.isDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
+	@<%=_aux_xx_field_name%>_search_ <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText && (_aux_db_field.Size <= 8000)) ? " (" + _aux_db_field.Size + ")" : ""%><%=(_aux_db_field.IsDecimal && (_aux_db_field.NumericScale > 0)) ? " (" + _aux_db_field.NumericPrecision + ", " + _aux_db_field.NumericScale + ")" : ""%>, <%
 	}%>
 	@page_orderBy_ INT, 
 	@page_ BIGINT,
@@ -87,11 +87,11 @@ AS
 					for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 						if (!(
-							_aux_db_field.isBool ||
-							(_aux_db_field.isText && (_aux_db_field.Size > 0) && (_aux_db_field.Size <= 100)) || 
-							_aux_db_field.isInt || 
-							_aux_db_field.isDecimal ||
-							_aux_db_field.isDateTime
+							_aux_db_field.IsBoolean ||
+							(_aux_db_field.IsText && (_aux_db_field.Size > 0) && (_aux_db_field.Size <= 100)) || 
+							_aux_db_field.IsInteger || 
+							_aux_db_field.IsDecimal ||
+							_aux_db_field.IsDateTime
 						)) continue;%><%=(_aux_bool) ? "," : ""%>
 					CASE WHEN (@page_orderBy_ = <%=f + 1%>) THEN t1.[<%=_aux_db_field.Name%>] END ASC<%
 						_aux_bool = true;

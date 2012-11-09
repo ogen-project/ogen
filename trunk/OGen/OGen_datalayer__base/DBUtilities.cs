@@ -24,13 +24,13 @@ namespace OGen.Libraries.DataLayer {
 	public abstract class DBUtilities {
 		public abstract DBUtilities_convert Convert { get; }
 		public abstract DBUtilities_connectionString ConnectionString { get; }
-		#region public static bool isBool(...);
+		#region public static bool IsBoolean(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid Boolean type.
 		/// </summary>
 		/// <param name="dbType_in">the DbType to determine if it is a valid Boolean type</param>
 		/// <returns>True if DbType is a valid Boolean type, False if not</returns>
-		public static bool isBool(DbType dbType_in) {
+		public static bool IsBoolean(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.Boolean:
 					return true;
@@ -40,13 +40,13 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		#region public static bool isDateTime(...);
+		#region public static bool IsDateTime(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid DateTime type.
 		/// </summary>
 		/// <param name="dbType_in">the DbType to determine if it is a valid DateTime type</param>
 		/// <returns>True if DbType is a valid DateTime type, False if not</returns>
-		public static bool isDateTime(DbType dbType_in) {
+		public static bool IsDateTime(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.DateTime:
 				case DbType.Date:
@@ -58,13 +58,13 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		#region public static bool isInt(...);
+		#region public static bool IsInteger(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid Integer type.
 		/// </summary>
 		/// <param name="dbType_in">the DbType to determine if it is a valid Integer type</param>
 		/// <returns>True if DbType is a valid Integer type, False if not</returns>
-		public static bool isInt(DbType dbType_in) {
+		public static bool IsInteger(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.Byte:
 				case DbType.SByte:
@@ -82,13 +82,13 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		#region public static bool isDecimal(...);
+		#region public static bool IsDecimal(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid Decimal type.
 		/// </summary>
 		/// <param name="dbType_in">the DbType to determine if it is a valid Decimal type</param>
 		/// <returns>True if DbType is a valid Decimal type, False if not</returns>
-		public static bool isDecimal(DbType dbType_in) {
+		public static bool IsDecimal(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.Currency:
 				case DbType.Decimal:
@@ -101,13 +101,13 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		#region public static bool isText(...);
+		#region public static bool IsText(...);
 		/// <summary>
 		/// Determines if a specific DbType is a valid String type.
 		/// </summary>
 		/// <param name="dbType_in">the DbType to determine if it is a valid String type</param>
 		/// <returns>True if DbType is a valid String type, False if not</returns>
-		public static bool isText(DbType dbType_in) {
+		public static bool IsText(DbType dbType_in) {
 			switch (dbType_in) {
 				case DbType.String:
 				case DbType.StringFixedLength:

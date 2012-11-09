@@ -154,26 +154,25 @@ shared
 		<specificCase word="copyrightTextLong" translation="CopyrightTextLong" />
 
 		<specificCase word="generateSQL" translation="GenerateSQL" />
-		<specificCase word="isConfig" translation="isConfig" />
-		<specificCase word="isConfig_Config" translation="isConfig_Config" />
-		<specificCase word="isConfig_Datatype" translation="isConfig_Datatype" />
-		<specificCase word="isConfig_Name" translation="isConfig_Name" />
-		<specificCase word="isDefault" translation="isDefault" />
-		<specificCase word="isExplicitUniqueIndex" translation="isExplicitUniqueIndex" />
-		<specificCase word="isIdentity" translation="isIdentity" />
-		<specificCase word="isIndexed_andReadOnly" translation="isIndexed_andReadOnly" />
-		<specificCase word="isListItemText" translation="isListItemText" />
-		<specificCase word="isListItemValue" translation="isListItemValue" />
-		<specificCase word="isNullable" translation="isNullable" />
-		<specificCase word="isPK" translation="isPK" />
-		<specificCase word="isViewPK" translation="isViewPK" />
-		<specificCase word="isRange" translation="isRange" />
-		<specificCase word="isVirtualTable" translation="isVirtualTable" />
-		<specificCase word="isSearch" translation="isSearch" />
+		<specificCase word="isConfig" translation="IsConfig" />
+		<specificCase word="isConfig_Config" translation="IsConfig_Config" />
+		<specificCase word="isConfig_Datatype" translation="IsConfig_Datatype" />
+		<specificCase word="isConfig_Name" translation="IsConfig_Name" />
+		<specificCase word="isDefault" translation="IsDefault" />
+		<specificCase word="isExplicitUniqueIndex" translation="IsExplicitUniqueIndex" />
+		<specificCase word="isIdentity" translation="IsIdentity" />
+		<specificCase word="isListItemText" translation="IsListItemText" />
+		<specificCase word="isListItemValue" translation="IsListItemValue" />
+		<specificCase word="isNullable" translation="IsNullable" />
+		<specificCase word="isPK" translation="IsPK" />
+		<specificCase word="isViewPK" translation="IsViewPK" />
+		<specificCase word="isRange" translation="IsRange" />
+		<specificCase word="isVirtualTable" translation="IsVirtualTable" />
+		<specificCase word="isSearch" translation="IsSearch" />
 
-		<specificCase word="isParams" translation="isParams" />
-		<specificCase word="isOut" translation="isOut" />
-		<specificCase word="isRef" translation="isRef" />
+		<specificCase word="isParams" translation="IsParams" />
+		<specificCase word="isOut" translation="IsOut" />
+		<specificCase word="isRef" translation="IsRef" />
 
 		<specificCase word="ipParamNum" translation="IPParamNum" />
 

@@ -45,7 +45,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 							// initialization...
 							this.hasexplicituniqueindex__ = false;
 							for (int s = 0; s < this.TableSearchCollection.Count; s++) {
-								if (this.TableSearchCollection[s].isExplicitUniqueIndex) {
+								if (this.TableSearchCollection[s].IsExplicitUniqueIndex) {
 									this.hasexplicituniqueindex__ = true;
 									break;
 								}

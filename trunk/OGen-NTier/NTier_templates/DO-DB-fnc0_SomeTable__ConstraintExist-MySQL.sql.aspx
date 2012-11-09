@@ -45,7 +45,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 %>CREATE FUNCTION `fnc0_<%=_aux_db_table.Name%>__ConstraintExist`(<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%>
-	`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields.TableFieldCollection.Count - 1) ? ", " : ""%><%
 	}%>
 )
 	RETURNS BOOLEAN
@@ -55,7 +55,7 @@ OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldType _aux_ex_field;
 BEGIN
 	DECLARE `ConstraintExist` BOOLEAN DEFAULT false;
 	<%for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
-		if (_aux_ex_table.TableSearches.TableSearchCollection[s].isExplicitUniqueIndex) {%>
+		if (_aux_ex_table.TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex) {%>
 	IF (NOT `ConstraintExist`) THEN
 		SELECT
 			true INTO `ConstraintExist`

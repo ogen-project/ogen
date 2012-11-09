@@ -76,19 +76,19 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 			switch (Choice) {
 				case eInsUpdDel.Delete:
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].isConfig = false;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].IsConfig = false;
 					break;
 				case eInsUpdDel.Update:
 				case eInsUpdDel.Insert:
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].isConfig = true;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].IsConfig = true;
 
 					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigName = NameField;
 					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigConfig = ConfigField;
 					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigDatatype = DatatypeField;
 
 					//int s = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches.Add("byName", true);
-					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].isExplicitUniqueIndex = true;
-					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].isRange = false;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].IsExplicitUniqueIndex = true;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].IsRange = false;
 					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].SearchParameters.Add(
 					//	TableName, 
 					//	NameField, 

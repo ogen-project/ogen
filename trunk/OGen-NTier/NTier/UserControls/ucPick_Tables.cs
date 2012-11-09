@@ -109,18 +109,18 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					case eTypeSelection.OnlyTables:
 						_canAdd = !frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 							t
-						].isVirtualTable;
+						].IsVirtualTable;
 						break;
 					case eTypeSelection.OnlyViews:
 						_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 							t
-						].isVirtualTable;
+						].IsVirtualTable;
 						break;
 					case eTypeSelection.OnlyViews_withNoKeys:
 						_canAdd = (
 							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 								t
-							].isVirtualTable
+							].IsVirtualTable
 							&&
 							(frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 								t
@@ -132,7 +132,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 								t
 							].Name
-						].isConfig;
+						].IsConfig;
 						break;
 					case eTypeSelection.NoConfigTables:
 						_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[

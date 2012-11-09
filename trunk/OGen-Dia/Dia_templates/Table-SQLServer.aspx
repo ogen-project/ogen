@@ -34,10 +34,10 @@ List<DBTableField> _tablefield_pk = new List<DBTableField>(_tablefields.Length);
 //-----------------------------------------------------------------------------------------
 %>CREATE TABLE "<%=_aux_table.TableName%>" (<%
 for (int f = 0; f < _tablefields.Length; f++) {
-	if (_tablefields[f].isPK) {
+	if (_tablefields[f].IsPK) {
 		_tablefield_pk.Add(_tablefields[f]);
 	}%>
-	"<%=_tablefields[f].Name%>" "<%=_tablefields[f].SQLServerTypeName%>"<%=(_tablefields[f].SQLServerTypeName.ToLower() == "varchar") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%><%=(_tablefields[f].isIdentity) ? " IDENTITY(1, 1)" : ""%> <%=(_tablefields[f].isNullable) ? "" : "NOT " %>NULL, <%
+	"<%=_tablefields[f].Name%>" "<%=_tablefields[f].SQLServerTypeName%>"<%=(_tablefields[f].SQLServerTypeName.ToLower() == "varchar") ? "(" + _tablefields[f].Size.ToString() + ")" : ""%><%=(_tablefields[f].IsIdentity) ? " IDENTITY(1, 1)" : ""%> <%=(_tablefields[f].IsNullable) ? "" : "NOT " %>NULL, <%
 }%>
 
 	CONSTRAINT "PK_<%=_aux_table.TableName%>" PRIMARY KEY CLUSTERED (<%

@@ -1021,15 +1021,15 @@ namespace OGen.Libraries.DataLayer {
 		}
 		#endregion
 		// ---
-		#region public string[] getBDs(...);
-		public abstract string getDBs_query();
+		#region public string[] SchemaDatabases(...);
+		public abstract string SchemaDatabases_query();
 
 		/// <summary>
 		/// Makes use of the Database INFORMATION_SCHEMA to get a list of available Database names.
 		/// </summary>
 		/// <returns>String array, representing a list of available Database names</returns>
-		public string[] getDBs() {
-			DataTable _datatable = this.Execute_SQLQuery_returnDataTable(this.getDBs_query());
+		public string[] SchemaDatabases() {
+			DataTable _datatable = this.Execute_SQLQuery_returnDataTable(this.SchemaDatabases_query());
 
 			string[] _output = new string[_datatable.Rows.Count];
 			for (int i = 0; i < _datatable.Rows.Count; i++)
@@ -1040,12 +1040,12 @@ namespace OGen.Libraries.DataLayer {
 			return _output;
 		}
 		#endregion
-		#region public cDBTable[] getTables(...);
+		#region public cDBTable[] SchemaDatabaseTables_query(...);
 		private const string INFORMATION_SCHEMA_TABLES_TABLE_NAME = "table_name";
 		private const string INFORMATION_SCHEMA_TABLES_IS_VIEW = "is_view";
 		private const string INFORMATION_SCHEMA_TABLES_TABLE_DESCRIPTION = "table_description";
 
-		public abstract string getTables_query(
+		public abstract string SchemaDatabaseTables_query(
 			string dbName_in, 
 			string subAppName_in
 		);
@@ -1054,9 +1054,9 @@ namespace OGen.Libraries.DataLayer {
 		/// Makes use of the Database INFORMATION_SCHEMA to get a list of Table names for the current Database Connection.
 		/// </summary>
 		/// <returns>String array, representing a list of Table names</returns>
-		public DBTable[] getTables(
+		public DBTable[] SchemaDatabaseTables(
 		) {
-			return this.getTables(
+			return this.SchemaDatabaseTables(
 				string.Empty
 			);
 		}
@@ -1066,10 +1066,10 @@ namespace OGen.Libraries.DataLayer {
 		/// </summary>
 		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one Database only, and you're using that Database for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
-		public DBTable[] getTables(
+		public DBTable[] SchemaDatabaseTables(
 			string subAppName_in
 		) {
-			return this.getTables(
+			return this.SchemaDatabaseTables(
 				subAppName_in, 
 				null
 			);
@@ -1080,17 +1080,17 @@ namespace OGen.Libraries.DataLayer {
 		/// </summary>
 		/// <param name="subAppName_in">Table Filter. If your Application is to be hosted at some ASP, which provides you with one Database only, and you're using that Database for more than one Application. I assume you're using some convention for Table naming like: AP1_Table1, AP1_Table2, AP2_Table1, ... . Or even if you have several modules sharing same data base. If so, you can use this parameter to filter Table names for some specific Application, like: AP1 or AP2</param>
 		/// <returns>String array, representing a list of Table names</returns>
-		public DBTable[] getTables(
+		public DBTable[] SchemaDatabaseTables(
 			string subAppName_in, 
 			string sqlFuncion_in
 		) {
 			DBTable[] _output;
 
-			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(gettables(subAppName_in));
+			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(SchemaDatabaseTables_query(subAppName_in));
 			DataTable _dtemp;
 			if (string.IsNullOrEmpty(sqlFuncion_in)) {
 				_dtemp = this.Execute_SQLQuery_returnDataTable(
-					this.getTables_query(
+					this.SchemaDatabaseTables_query(
 						this.Connectionstring_DBName, 
 						subAppName_in
 					)
@@ -1122,7 +1122,7 @@ namespace OGen.Libraries.DataLayer {
 			return _output;
 		}
 		#endregion
-		#region public cDBTableField[] getTableFields(...);
+		#region public cDBTableField[] SchemaDatabaseTableFields(...);
 		private const string INFORMATION_SCHEMA_COLUMNS_TABLE_NAME = "table_name";
 		private const string INFORMATION_SCHEMA_COLUMNS_COLUMN_NAME = "column_name";
 		private const string INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH = "character_maximum_length";
@@ -1138,7 +1138,7 @@ namespace OGen.Libraries.DataLayer {
 		private const string INFORMATION_SCHEMA_COLUMNS_COLLATION_NAME = "collation_name";
 		private const string INFORMATION_SCHEMA_COLUMNS_COLUMN_DESCRIPTION = "column_description";
 
-		public abstract string getTableFields_query(
+		public abstract string SchemaDatabaseTableFields_query(
 			string tableName_in
 		);
 
@@ -1147,10 +1147,10 @@ namespace OGen.Libraries.DataLayer {
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>
-		public DBTableField[] getTableFields(
+		public DBTableField[] SchemaDatabaseTableFields(
 			string tableName_in
 		) {
-			return this.getTableFields(
+			return this.SchemaDatabaseTableFields(
 				tableName_in,
 				null
 			);
@@ -1161,7 +1161,7 @@ namespace OGen.Libraries.DataLayer {
 		/// </summary>
 		/// <param name="tableName_in">Table name for which Field names are to be retrieved</param>
 		/// <returns>String array, representing a list of Field names</returns>
-		public DBTableField[] getTableFields(
+		public DBTableField[] SchemaDatabaseTableFields(
 			string tableName_in,
 			string sqlFuncion_in
 		) {
@@ -1171,7 +1171,7 @@ namespace OGen.Libraries.DataLayer {
 			DataTable _dtemp;
 			if (string.IsNullOrEmpty(sqlFuncion_in)) {
 				_dtemp = this.Execute_SQLQuery_returnDataTable(
-					this.getTableFields_query(
+					this.SchemaDatabaseTableFields_query(
 						tableName_in
 					)
 				);
@@ -1198,7 +1198,7 @@ namespace OGen.Libraries.DataLayer {
 				_output[r].Name = (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_COLUMN_NAME];
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH];
+				//_output[r].Size = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH];
 				_output[r].Size 
 					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_CHARACTER_MAXIMUM_LENGTH] == DBNull.Value) 
 						? 0 
@@ -1209,8 +1209,8 @@ namespace OGen.Libraries.DataLayer {
 						);
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].isNullable = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE] == 1);
-				_output[r].isNullable = (
+				//_output[r].IsNullable = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE] == 1);
+				_output[r].IsNullable = (
 					1 == (int)Convert.ChangeType(
 						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_NULLABLE], 
 						typeof(int),
@@ -1223,8 +1223,8 @@ namespace OGen.Libraries.DataLayer {
 				_output[r].ForeignKey_TableFieldName = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME] == DBNull.Value) ? string.Empty : (string)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_FOREIGNKEY_TABLE_COLUMN_NAME];
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].isIdentity = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY] == 1);
-				_output[r].isIdentity = (
+				//_output[r].IsIdentity = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY] == 1);
+				_output[r].IsIdentity = (
 					1 == (int)Convert.ChangeType(
 						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_IDENTITY], 
 						typeof(int),
@@ -1233,8 +1233,8 @@ namespace OGen.Libraries.DataLayer {
 				);
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].isPK = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK] == 1);
-				_output[r].isPK = (
+				//_output[r].IsPK = ((int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK] == 1);
+				_output[r].IsPK = (
 					1 == (int)Convert.ChangeType(
 						_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_IS_PK], 
 						typeof(int),
@@ -1243,7 +1243,7 @@ namespace OGen.Libraries.DataLayer {
 				);
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION];
+				//_output[r].Numeric_Precision = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION];
 				_output[r].Numeric_Precision 
 					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_PRECISION] == DBNull.Value) 
 						? 0 
@@ -1254,7 +1254,7 @@ namespace OGen.Libraries.DataLayer {
 						);
 
 				// comment: some providers send int, other long, hence using convert change type:
-				//getTableFields_out[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE];
+				//_output[r].Numeric_Scale = (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) ? 0 : (int)_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE];
 				_output[r].Numeric_Scale 
 					= (_dtemp.Rows[r][INFORMATION_SCHEMA_COLUMNS_NUMERIC_SCALE] == DBNull.Value) 
 						? 0 

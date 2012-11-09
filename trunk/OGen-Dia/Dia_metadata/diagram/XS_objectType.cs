@@ -70,7 +70,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 							switch (this.AttributeCollection[a].CompositeCollection[c].Type) {
 								case "table_attribute":
 									_list.Add(_tableField = new DBTableField());
-									_tableField.isIdentity = false;
+									_tableField.IsIdentity = false;
 
 									for (int aa = 0; aa < this.AttributeCollection[a].CompositeCollection[c].AttributeCollection.Count; aa++) {
 										switch (this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Name) {
@@ -78,7 +78,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 												_tableField.Name = this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].String.Replace("#", "");
 												break;
 											case "primary_key":
-												_tableField.isPK
+												_tableField.IsPK
 													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "unique":
@@ -86,7 +86,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "nullable":
-												_tableField.isNullable
+												_tableField.IsNullable
 													= this.AttributeCollection[a].CompositeCollection[c].AttributeCollection[aa].Boolean.Value;
 												break;
 											case "comment":
@@ -107,7 +107,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 													"unique" // ______________ 7
 												);
 												if (!string.IsNullOrEmpty(_comment[0]))
-													_tableField.isIdentity = bool.Parse(_comment[0]);
+													_tableField.IsIdentity = bool.Parse(_comment[0]);
 												if (!string.IsNullOrEmpty(_comment[1]))
 													_tableField.Size = int.Parse(_comment[1], System.Globalization.CultureInfo.CurrentCulture);
 

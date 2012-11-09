@@ -88,11 +88,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 			}
 		}
 		#endregion
-		#region public bool isSearch { get; set; }
+		#region public bool IsSearch { get; set; }
 		internal bool issearch_;
 
 		[XmlAttribute("isSearch")]
-		public bool isSearch {
+		public bool IsSearch {
 			get {
 				return this.issearch_;
 			}

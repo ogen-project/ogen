@@ -64,34 +64,34 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool isBool { get; }
+		#region public bool IsBoolean { get; }
 		[XmlIgnore()]
-		public bool isBool {
-			get { return DBUtilities.isBool(this.DBType_generic.Value); }
+		public bool IsBoolean {
+			get { return DBUtilities.IsBoolean(this.DBType_generic.Value); }
 		}
 		#endregion
-		#region public bool isDateTime { get; }
+		#region public bool IsDateTime { get; }
 		[XmlIgnore()]
-		public bool isDateTime {
-			get { return DBUtilities.isDateTime(this.DBType_generic.Value); }
+		public bool IsDateTime {
+			get { return DBUtilities.IsDateTime(this.DBType_generic.Value); }
 		}
 		#endregion
-		#region public bool isInt { get; }
+		#region public bool IsInteger { get; }
 		[XmlIgnore()]
-		public bool isInt {
-			get { return DBUtilities.isInt(this.DBType_generic.Value); }
+		public bool IsInteger {
+			get { return DBUtilities.IsInteger(this.DBType_generic.Value); }
 		}
 		#endregion
-		#region public bool isDecimal { get; }
+		#region public bool IsDecimal { get; }
 		[XmlIgnore()]
-		public bool isDecimal {
-			get { return DBUtilities.isDecimal(this.DBType_generic.Value); }
+		public bool IsDecimal {
+			get { return DBUtilities.IsDecimal(this.DBType_generic.Value); }
 		}
 		#endregion
-		#region public bool isText { get; }
+		#region public bool IsText { get; }
 		[XmlIgnore()]
-		public bool isText {
-			get { return DBUtilities.isText(this.DBType_generic.Value); }
+		public bool IsText {
+			get { return DBUtilities.IsText(this.DBType_generic.Value); }
 		}
 		#endregion
 	}

@@ -270,8 +270,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					)
 				);
 
-				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].isRange = cbxIsRange.Checked;
-				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].isExplicitUniqueIndex = cbxIsExplicitUniqueIndex.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsRange = cbxIsRange.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex = cbxIsExplicitUniqueIndex.Checked;
 
 				for (int f = 0; f < Parent_ref.FieldsName.GetLength(0); f++) {
 					_param_tablefield = Parent_ref.FieldsName[f, 1].ToString().Split(new char[] { '\\' });

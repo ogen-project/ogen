@@ -35,9 +35,9 @@ namespace OGen.NTier.Libraries.DataLayer {
 		/// <param name="isConfig_Name_in">True if it represents a Config Name, False if not</param>
 		/// <param name="isConfig_Config_in">True if it represents a Config Config, False if not</param>
 		/// <param name="isConfig_Datatype_in">True if it represents a Config DataType, False if not</param>
-		/// <param name="isBool_in">True if it is a Boolean Value, False if not</param>
+		/// <param name="isBoolean_in">True if it is a Boolean Value, False if not</param>
 		/// <param name="isDateTime_in">True if it is a DateTime Value, False if not</param>
-		/// <param name="isInt_in">True if it is an Integer Value, False if not</param>
+		/// <param name="isInteger_in">True if it is an Integer Value, False if not</param>
 		/// <param name="isDecimal_in">True if it is a Decimal Value, False if not</param>
 		/// <param name="isText_in">True if it is a Text Value, False if not</param>
 		public DOPropertyAttribute(
@@ -54,9 +54,9 @@ namespace OGen.NTier.Libraries.DataLayer {
 			bool			isConfig_Name_in, 
 			bool			isConfig_Config_in, 
 			bool			isConfig_Datatype_in, 
-			bool			isBool_in, 
+			bool			isBoolean_in, 
 			bool			isDateTime_in, 
-			bool			isInt_in, 
+			bool			isInteger_in, 
 			bool			isDecimal_in, 
 			bool			isText_in,
 			bool			isListItemValue_in,
@@ -77,9 +77,9 @@ namespace OGen.NTier.Libraries.DataLayer {
 			this.isconfig_name_ = isConfig_Name_in;
 			this.isconfig_config_ = isConfig_Config_in;
 			this.isconfig_datatype_ = isConfig_Datatype_in;
-			this.isbool_ = isBool_in;
+			this.isboolean_ = isBoolean_in;
 			this.isdatetime_ = isDateTime_in;
-			this.isint_ = isInt_in;
+			this.isinteger_ = isInteger_in;
 			this.isdecimal_ = isDecimal_in;
 			this.istext_ = isText_in;
 			this.islistitemvalue_ = isListItemValue_in;
@@ -129,33 +129,33 @@ namespace OGen.NTier.Libraries.DataLayer {
 			get { return this.extendeddescription_; }
 		}
 		#endregion
-		#region public bool isPK { get; }
+		#region public bool IsPK { get; }
 		private bool ispk_;
 
 		/// <summary>
 		/// Indicates if it is a Primary Key. True if it is a Primary Key, False if not.
 		/// </summary>
-		public bool isPK {
+		public bool IsPK {
 			get { return this.ispk_; }
 		}
 		#endregion
-		#region public bool isIdentity { get; }
+		#region public bool IsIdentity { get; }
 		private bool isidentity_;
 
 		/// <summary>
 		/// Indicates if it is a Sequence/Identity Seed. True if it is a Sequence/Identity Seed, False if not.
 		/// </summary>
-		public bool isIdentity {
+		public bool IsIdentity {
 			get { return this.isidentity_; }
 		}
 		#endregion
-		#region public bool isNullable { get; }
+		#region public bool IsNullable { get; }
 		private bool isnullable_;
 
 		/// <summary>
 		/// Indicates if it allows null Values. True if it allows null Values, False if not.
 		/// </summary>
-		public bool isNullable {
+		public bool IsNullable {
 			get { return this.isnullable_; }
 		}
 		#endregion
@@ -189,97 +189,97 @@ namespace OGen.NTier.Libraries.DataLayer {
 			get { return this.foreignkey_tablefieldname_; }
 		}
 		#endregion
-		#region public bool isConfig_Name { get; }
+		#region public bool IsConfig_Name { get; }
 		private bool isconfig_name_;
 
 		/// <summary>
 		/// Indicates if it represents a Config Name. True if it represents a Config Name, False if not.
 		/// </summary>
-		public bool isConfig_Name {
+		public bool IsConfig_Name {
 			get { return this.isconfig_name_; }
 		}
 		#endregion
-		#region public bool isConfig_Config { get; }
+		#region public bool IsConfig_Config { get; }
 		private bool isconfig_config_;
 
 		/// <summary>
 		/// Indicates if it represents a Config Config. True if it represents a Config Config, False if not.
 		/// </summary>
-		public bool isConfig_Config {
+		public bool IsConfig_Config {
 			get { return this.isconfig_config_; }
 		}
 		#endregion
-		#region public bool isConfig_Datatype { get; }
+		#region public bool IsConfig_Datatype { get; }
 		private bool isconfig_datatype_;
 
 		/// <summary>
 		/// Indicates if it represents a Config DataType. True if it represents a Config DataType, False if not.
 		/// </summary>
-		public bool isConfig_Datatype {
+		public bool IsConfig_Datatype {
 			get { return this.isconfig_datatype_; }
 		}
 		#endregion
-		#region public bool isBool { get; }
-		private bool isbool_;
+		#region public bool IsBoolean { get; }
+		private bool isboolean_;
 
 		/// <summary>
 		/// Indicates if it is a Boolean Value. True if it is a Boolean Value, False if not.
 		/// </summary>
-		public bool isBool {
-			get { return this.isbool_; }
+		public bool IsBoolean {
+			get { return this.isboolean_; }
 		}
 		#endregion
-		#region public bool isDateTime { get; }
+		#region public bool IsDateTime { get; }
 		private bool isdatetime_;
 
 		/// <summary>
 		/// Indicates if it is a DateTime Value. True if it is a DateTime Value, False if not.
 		/// </summary>
-		public bool isDateTime {
+		public bool IsDateTime {
 			get { return this.isdatetime_; }
 		}
 		#endregion
-		#region public bool isInt { get; }
-		private bool isint_;
+		#region public bool IsInteger { get; }
+		private bool isinteger_;
 
 		/// <summary>
 		/// Indicates if it is an Integer Value. True if it is an Integer Value, False if not.
 		/// </summary>
-		public bool isInt {
-			get { return this.isint_; }
+		public bool IsInteger {
+			get { return this.isinteger_; }
 		}
 		#endregion
-		#region public bool isDecimal { get; }
+		#region public bool IsDecimal { get; }
 		private bool isdecimal_;
 
 		/// <summary>
 		/// Indicates if it is a Decimal Value. True if it is a Decimal Value, False if not.
 		/// </summary>
-		public bool isDecimal {
+		public bool IsDecimal {
 			get { return this.isdecimal_; }
 		}
 		#endregion
-		#region public bool isText { get; }
+		#region public bool IsText { get; }
 		private bool istext_;
 
 		/// <summary>
 		/// Indicates if it is a Text Value. True if it is a Text Value, False if not.
 		/// </summary>
-		public bool isText {
+		public bool IsText {
 			get { return this.istext_; }
 		}
 		#endregion
-//		#region public bool isListItemValue { get; }
+//		#region public bool IsListItemValue { get; }
 		private bool islistitemvalue_;
 
-		public bool isListItemValue {
+		public bool IsListItemValue {
 			get { return this.islistitemvalue_; }
 		}
 //		#endregion
-//		#region public bool isListItemText { get; }
+//		#region public bool IsListItemText { get; }
 		private bool islistitemtext_;
 
-		public bool isListItemText {
+		public bool IsListItemText {
 			get { return this.islistitemtext_; }
 		}
 //		#endregion

@@ -27,18 +27,18 @@ DBTableField[] _tablefields = _aux_table.TableFields();
 OGen.Dia.Libraries.Metadata.Diagram.ForeignKey[] _aux_fks = _aux_table.TableForeignKeys();
 
 bool _aux_first;
-bool _aux_hasUnique = false;
-bool _aux_hasPK = false;
+bool _aux_HasUnique = false;
+bool _aux_HasPK = false;
 for (int f = 0; f < _tablefields.Length; f++) {
 	if (_tablefields[f].isUnique) {
-		_aux_hasUnique = true;
+		_aux_HasUnique = true;
 	}
 
-	if (_tablefields[f].isPK) {
-		_aux_hasPK = true;
+	if (_tablefields[f].IsPK) {
+		_aux_HasPK = true;
 	}
 
-	if (_aux_hasUnique && _aux_hasPK) {
+	if (_aux_HasUnique && _aux_HasPK) {
 		break;
 	}
 }
@@ -64,7 +64,7 @@ if (_aux_fks.Length != 0) {
 // meaning first is not necessarly unique, second is not necessarly unique, 
 // but combination of first and second (or more) should, 
 // HENCE the fallowing being commented
-if (false && _aux_hasUnique) {
+if (false && _aux_HasUnique) {
 %><%--ALTER TABLE "<%=_aux_table.TableName%>"<%
 	_aux_first = true;
 	for (int f = 0; f < _tablefields.Length; f++) {

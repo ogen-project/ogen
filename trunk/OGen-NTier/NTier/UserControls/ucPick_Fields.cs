@@ -117,13 +117,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 					switch (FieldType_) {
 						case eType.OnlyIdentityKey:
-							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity;
+							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsIdentity;
 							break;
 						case eType.OnlyPrimaryKeys:
-							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
+							_canAdd = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 							break;
 						case eType.NoKeys:
-							_canAdd = !frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
+							_canAdd = !frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 							break;
 						case eType.All:
 							_canAdd = true;
@@ -147,15 +147,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						switch (SelectionType_) {
 							case eType.OnlyIdentityKey:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isIdentity;
+									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsIdentity;
 								break;
 							case eType.OnlyPrimaryKeys:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
+									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 								break;
 							case eType.NoKeys:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
-									!frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isPK;
+									!frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 								break;
 							case eType.All:
 								lvwFields.Items[lvwFields.Items.Count - 1].Selected = true;

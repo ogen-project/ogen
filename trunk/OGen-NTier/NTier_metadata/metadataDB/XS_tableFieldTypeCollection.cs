@@ -45,7 +45,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 							// initialization...
 							int _count = 0;
 							for (int f = 0; f < this.Count; f++) {
-								if (this[f].isPK) _count++;
+								if (this[f].IsPK) _count++;
 							}
 
 							// ...attribution (last thing before unlock)

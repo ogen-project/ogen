@@ -50,8 +50,8 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
 		<specificCase word="dbCollationName" translation="DBCollationName" />
 -->
 
-		<specificCase word="isNull" translation="isNull" />
-		<specificCase word="isHeader" translation="isHeader" />
+		<specificCase word="isNull" translation="IsNull" />
+		<specificCase word="isHeader" translation="IsHeader" />
 
 		<!-- caseSensitive="true" -->
 <!--

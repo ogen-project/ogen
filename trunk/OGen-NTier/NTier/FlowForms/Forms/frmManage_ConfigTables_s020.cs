@@ -251,7 +251,7 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 (
 //	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 //		TableName_
-//	].TableFields.TableFieldCollection[f].isConfig_Name
+//	].TableFields.TableFieldCollection[f].IsConfig_Name
 
 	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 		TableName_
@@ -293,7 +293,7 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 (
 //	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 //		TableName_
-//	].TableFields.TableFieldCollection[f].isConfig_Config
+//	].TableFields.TableFieldCollection[f].IsConfig_Config
 
 	frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 		TableName_

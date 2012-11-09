@@ -105,11 +105,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isVirtualTable { get; set; }
+		#region public bool IsVirtualTable { get; set; }
 		internal bool isvirtualtable_;
 
 		[XmlAttribute("isVirtualTable")]
-		public bool isVirtualTable {
+		public bool IsVirtualTable {
 			get {
 				return this.isvirtualtable_;
 			}
@@ -118,11 +118,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 			}
 		}
 		#endregion
-		#region public bool isConfig { get; set; }
+		#region public bool IsConfig { get; set; }
 		internal bool isconfig_;
 
 		[XmlAttribute("isConfig")]
-		public bool isConfig {
+		public bool IsConfig {
 			get {
 				return this.isconfig_;
 			}

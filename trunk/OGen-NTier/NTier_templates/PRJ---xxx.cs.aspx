@@ -80,7 +80,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.PresentationLayer
 			_aux_class = _aux_business_metadata.Classes.ClassCollection[c];
 			for (int m = 0; m < _aux_class.Methods.MethodCollection.Count; m++) {
 				_aux_method = _aux_class.Methods.MethodCollection[m];
-				if (!_aux_method.isSearch) continue;%><%=""%>
+				if (!_aux_method.IsSearch) continue;%><%=""%>
 
 		#region public void Bind_<%=_aux_class.Name%>_<%=_aux_method.Name%>(...);
 		public void Bind_<%=_aux_class.Name%>_<%=_aux_method.Name%>(
@@ -88,14 +88,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.PresentationLayer
 			bool allowNull_in<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%>, 
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
+			<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.IsParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
 			}%>
 		) {
 			<%=_aux_method.OutputType%> _items 
 				= <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%
 					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-					<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+					<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 					}%>
 				);
 			if (_items != null) {
@@ -125,14 +125,14 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.PresentationLayer
 			long idCoworker_search_in<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%>, 
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
+			<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.IsParams ? "[]" : ""%> <%=_aux_parameter.Name%><%
 			}%>
 		) {
 			<%=_aux_method.OutputType%> _items 
 			= <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.BusinessLayer.Shared.Instances.<%=_aux_class.Name%>.InstanceClient.<%=_aux_method.Name%>(<%
 				for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 					_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-				<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+				<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 				}%>
 			);
 			if (_items != null) {

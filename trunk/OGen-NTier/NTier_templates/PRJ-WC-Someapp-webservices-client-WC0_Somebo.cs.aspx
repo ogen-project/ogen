@@ -113,7 +113,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.
 		public <%=_aux_method.OutputType%> <%=_aux_method.Name%>(<%
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];%><%=""%>
-			<%=_aux_parameter.isOut ? "out " : ""%><%=_aux_parameter.isRef ? "ref " : ""%><%=_aux_parameter.isParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
+			<%=_aux_parameter.IsOut ? "out " : ""%><%=_aux_parameter.IsRef ? "ref " : ""%><%=_aux_parameter.IsParams ? "params " : ""%><%=_aux_parameter.Type%><%=_aux_parameter.IsParams ? "[]" : ""%> <%=_aux_parameter.Name%><%=(p == _aux_method.Parameters.ParameterCollection.Count - 1) ? "" : ", "%><%
 			}%>
 		) {
 			object[] results = this.Invoke(
@@ -121,7 +121,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.
 				new object[] {<%
 					for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 						_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
-						if (_aux_parameter.isOut) 
+						if (_aux_parameter.IsOut) 
 							continue;%><%=(p != 0) ? "," : ""%>
 					<%=_aux_parameter.Name%><%
 					}%>
@@ -130,10 +130,10 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DistributedLayer.
 			_aux_outputparameter = (_aux_method.OutputType != "void") ? 0 : -1;
 			for (int p = 0; p < _aux_method.Parameters.ParameterCollection.Count; p++) {
 				_aux_parameter = _aux_method.Parameters.ParameterCollection[p];
-				if (!_aux_parameter.isOut)
+				if (!_aux_parameter.IsOut)
 					continue;
 				_aux_outputparameter++;%><%=""%>
-			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.isParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
+			<%=_aux_parameter.Name%> = (<%=_aux_parameter.Type%><%=_aux_parameter.IsParams ? "[]" : ""%>)results[<%=_aux_outputparameter.ToString()%>];<%
 			}
 			if (_aux_method.OutputType != "void") {%>
 			return (<%=_aux_method.OutputType%>)results[0];<%

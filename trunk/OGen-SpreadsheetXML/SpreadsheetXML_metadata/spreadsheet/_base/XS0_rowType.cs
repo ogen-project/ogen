@@ -49,11 +49,11 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 			get { return this.root_ref_; }
 		}
 		#endregion
-		#region public bool isHeader { get; set; }
+		#region public bool IsHeader { get; set; }
 		internal bool isheader_;
 
 		[XmlAttribute("isHeader")]
-		public bool isHeader {
+		public bool IsHeader {
 			get {
 				return this.isheader_;
 			}

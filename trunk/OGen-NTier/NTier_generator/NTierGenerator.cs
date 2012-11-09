@@ -292,7 +292,7 @@ throw new Exception("// ToDos: not implemented!");
 			_metadatadb.ApplicationName = this.metadata_.MetadataExtendedCollection[0].ApplicationName;
 			for (int ff, tt, t = 0; t < this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection.Count; t++) {
 				for (int f = 0; f < this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
-					if (this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].isViewPK) {
+					if (this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsViewPK) {
 						tt = _metadatadb.Tables.TableCollection.Search(
 							this.metadata_.MetadataExtendedCollection[0].Tables.TableCollection[t].Name,
 							!this.metadata_.MetadataExtendedCollection[0].DBs.Supports_MySQL
@@ -309,7 +309,7 @@ throw new Exception("// ToDos: not implemented!");
 							tt
 						].TableFields.TableFieldCollection[
 							ff
-						].isPK 
+						].IsPK 
 							= true;
 					}
 				}

@@ -85,23 +85,23 @@ namespace OGen.NTier.Libraries.DataLayer {
 			get { return this.extendeddescription_; }
 		}
 		#endregion
-		#region public bool isVirtualTable { get; }
+		#region public bool IsVirtualTable { get; }
 		private bool isvirtualtable_;
 
 		/// <summary>
 		/// Indicates if it is a View or Table. True if it is a View, False if it is a Table.
 		/// </summary>
-		public bool isVirtualTable {
+		public bool IsVirtualTable {
 			get { return this.isvirtualtable_; }
 		}
 		#endregion
-		#region public bool isConfig { get; }
+		#region public bool IsConfig { get; }
 		private bool isconfig_;
 
 		/// <summary>
 		/// Indicates if it is a Config Table.
 		/// </summary>
-		public bool isConfig {
+		public bool IsConfig {
 			get { return this.isconfig_; }
 		}
 		#endregion

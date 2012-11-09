@@ -73,11 +73,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 			}
 		}
 		#endregion
-		#region public bool isParams { get; set; }
+		#region public bool IsParams { get; set; }
 		internal bool isparams_;
 
 		[XmlAttribute("isParams")]
-		public bool isParams {
+		public bool IsParams {
 			get {
 				return this.isparams_;
 			}
@@ -86,11 +86,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 			}
 		}
 		#endregion
-		#region public bool isOut { get; set; }
+		#region public bool IsOut { get; set; }
 		internal bool isout_;
 
 		[XmlAttribute("isOut")]
-		public bool isOut {
+		public bool IsOut {
 			get {
 				return this.isout_;
 			}
@@ -99,11 +99,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 			}
 		}
 		#endregion
-		#region public bool isRef { get; set; }
+		#region public bool IsRef { get; set; }
 		internal bool isref_;
 
 		[XmlAttribute("isRef")]
-		public bool isRef {
+		public bool IsRef {
 			get {
 				return this.isref_;
 			}

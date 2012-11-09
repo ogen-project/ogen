@@ -54,7 +54,7 @@ AS $BODY$
 		-- nothing to declare!
 	BEGIN<%
 		for (int s = 0; s < _aux_ex_table.TableSearches.TableSearchCollection.Count; s++) {
-			if (_aux_ex_table.TableSearches.TableSearchCollection[s].isExplicitUniqueIndex) {%>
+			if (_aux_ex_table.TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex) {%>
 		IF EXISTS(
 			SELECT
 				true -- whatever, just checking existence

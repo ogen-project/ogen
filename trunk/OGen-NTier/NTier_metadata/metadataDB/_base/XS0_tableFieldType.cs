@@ -62,11 +62,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool isPK { get; set; }
+		#region public bool IsPK { get; set; }
 		internal bool ispk_;
 
 		[XmlAttribute("isPK")]
-		public bool isPK {
+		public bool IsPK {
 			get {
 				return this.ispk_;
 			}
@@ -75,11 +75,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool isIdentity { get; set; }
+		#region public bool IsIdentity { get; set; }
 		internal bool isidentity_;
 
 		[XmlAttribute("isIdentity")]
-		public bool isIdentity {
+		public bool IsIdentity {
 			get {
 				return this.isidentity_;
 			}
@@ -114,11 +114,11 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			}
 		}
 		#endregion
-		#region public bool isNullable { get; set; }
+		#region public bool IsNullable { get; set; }
 		internal bool isnullable_;
 
 		[XmlAttribute("isNullable")]
-		public bool isNullable {
+		public bool IsNullable {
 			get {
 				return this.isnullable_;
 			}

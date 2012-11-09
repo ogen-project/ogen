@@ -56,13 +56,13 @@ for (int f = 0; f < _aux_ex_search.TableSearchParameters.TableFieldRefCollection
 	_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 	_aux_db_field = _aux_ex_field.parallel_ref;
 	_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-	`<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
+	`<%=_aux_xx_field_name%>_search_` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? ", " : ""%><%
 }%>
 )
 	RETURNS `finalresult` TABLE (<%
 		for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];%>
-		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.isText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
+		`<%=_aux_db_field.Name%>` <%=_aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBType%><%=(_aux_db_field.IsText) ? "(" + _aux_db_field.Size + ")" : ""%><%=(f != _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count - 1) ? ", " : ""%><%
 		}%>
 	)
 	NOT DETERMINISTIC
@@ -88,7 +88,7 @@ BEGIN<%if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {
 		_aux_ex_field = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].TableField_ref;
 		_aux_db_field = _aux_ex_field.parallel_ref;
 		_aux_xx_field_name = _aux_ex_search.TableSearchParameters.TableFieldRefCollection[f].ParamName;%>
-		(`<%=_aux_ex_field.Name%>` <%=(_aux_db_field.isText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_db_field.isText) ? " + '%' COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName : ""%>)<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
+		(`<%=_aux_ex_field.Name%>` <%=(_aux_db_field.IsText) ? "LIKE '%' +" : "="%> `<%=_aux_xx_field_name%>_search_`<%=(_aux_db_field.IsText) ? " + '%' COLLATE " + _aux_db_field.TableFieldDBs.TableFieldDBCollection[_aux_dbservertype].DBCollationName : ""%>)<%=(f != _aux_ex_search.TableSearchParameters.TableFieldRefCollection.Count - 1) ? " AND" : ""%><%
 	}%><%=(makeItAComment) ? "*/" : ""%>;
 
 	RETURN;

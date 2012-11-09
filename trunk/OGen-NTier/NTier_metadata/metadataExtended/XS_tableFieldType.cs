@@ -123,25 +123,25 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 		}
 		#endregion
 
-		#region public bool isConfig_Name { get; }
+		#region public bool IsConfig_Name { get; }
 		[XmlIgnore()]
-		public bool isConfig_Name {
+		public bool IsConfig_Name {
 			get {
 				return (this.parent_table_ref.ConfigName == this.Name);
 			}
 		}
 		#endregion
-		#region public bool isConfig_Config { get; }
+		#region public bool IsConfig_Config { get; }
 		[XmlIgnore()]
-		public bool isConfig_Config {
+		public bool IsConfig_Config {
 			get {
 				return (this.parent_table_ref.ConfigConfig == this.Name);
 			}
 		}
 		#endregion
-		#region public bool isConfig_Datatype { get; }
+		#region public bool IsConfig_Datatype { get; }
 		[XmlIgnore()]
-		public bool isConfig_Datatype {
+		public bool IsConfig_Datatype {
 			get {
 				return (this.parent_table_ref.ConfigDatatype == this.Name);
 			}

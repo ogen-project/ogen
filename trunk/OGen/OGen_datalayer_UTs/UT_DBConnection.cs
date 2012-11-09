@@ -131,7 +131,7 @@
 //            bool _found;
 
 //            for (int c = 0; c < dbconnections_.Length; c++) {
-//                _dbs = dbconnections_[c].getDBs();
+//                _dbs = dbconnections_[c].SchemaDatabases();
 //                _found = false;
 //                for (int d = 0; d < _dbs.Length; d++) {
 //                    if (_dbs[d] == dbname_) {

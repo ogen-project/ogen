@@ -92,11 +92,11 @@ AS $BODY$
 			for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 				_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
 				if (!(
-					_aux_db_field.isBool ||
-					(_aux_db_field.isText && (_aux_db_field.Size > 0) && (_aux_db_field.Size <= 100)) || 
-					_aux_db_field.isInt || 
-					_aux_db_field.isDecimal ||
-					_aux_db_field.isDateTime
+					_aux_db_field.IsBoolean ||
+					(_aux_db_field.IsText && (_aux_db_field.Size > 0) && (_aux_db_field.Size <= 100)) || 
+					_aux_db_field.IsInteger || 
+					_aux_db_field.IsDecimal ||
+					_aux_db_field.IsDateTime
 				)) continue;%><%=(_aux_bool) ? "," : ""%>
 				CASE WHEN ("page_orderBy_" = <%=f + 1%>) THEN t1."<%=_aux_db_field.Name%>" END ASC<%
 				_aux_bool = true;

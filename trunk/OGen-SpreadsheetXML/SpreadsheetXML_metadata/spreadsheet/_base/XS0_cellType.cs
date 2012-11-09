@@ -60,11 +60,11 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 			}
 		}
 		#endregion
-		#region public bool isNull { get; set; }
+		#region public bool IsNull { get; set; }
 		internal bool isnull_;
 
 		[XmlAttribute("isNull")]
-		public bool isNull {
+		public bool IsNull {
 			get {
 				return this.isnull_;
 			}

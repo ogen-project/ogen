@@ -76,7 +76,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 	using OGen.NTier.Libraries.DataLayer;
 
 	/// <summary>
-	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.isVirtualTable) ? "view" : "table"%> at Database.
+	/// <%=_aux_db_table.Name%> SerializableObject which provides fields access at <%=_aux_db_table.Name%> <%=(_aux_db_table.IsVirtualTable) ? "view" : "table"%> at Database.
 	/// </summary>
 	[Serializable()]
 	public class SO_<%=_aux_db_table.Name%> : 
@@ -106,7 +106,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		) {<%
 	for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 		_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];
-		if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
+		if (_aux_db_field.IsNullable && !_aux_db_field.IsPK) {%><%=""%>
 			this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ 
 				= (info.GetValue("<%=_aux_db_field.Name%>", typeof(<%=_aux_db_field.DBType_generic.FWType%>)) == null)
 					? <%=_aux_db_field.DBType_generic.FWEmptyValue%>
@@ -143,7 +143,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		#region public override <%=_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType%> ListItem_Value { get; }
 		public override <%=_aux_ex_table.ListItemValue.parallel_ref.DBType_generic.FWType%> ListItem_Value {
 			get {<%
-				if (_aux_ex_table.ListItemValue.parallel_ref.isNullable && !_aux_ex_table.ListItemValue.parallel_ref.isPK) {%>
+				if (_aux_ex_table.ListItemValue.parallel_ref.IsNullable && !_aux_ex_table.ListItemValue.parallel_ref.IsPK) {%>
 				return this.<%=_aux_ex_table.ListItemValue.Name%>;<%
 				} else {%>
 				return this.<%=_aux_ex_table.ListItemValue.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
@@ -154,7 +154,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		#region public override <%=_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType%> ListItem_Text { get; }
 		public override <%=_aux_ex_table.ListItemText.parallel_ref.DBType_generic.FWType%> ListItem_Text {
 			get {<%
-				if (_aux_ex_table.ListItemText.parallel_ref.isNullable && !_aux_ex_table.ListItemText.parallel_ref.isPK) {%>
+				if (_aux_ex_table.ListItemText.parallel_ref.IsNullable && !_aux_ex_table.ListItemText.parallel_ref.IsPK) {%>
 				return this.<%=_aux_ex_table.ListItemText.Name%>;<%
 				} else {%>
 				return this.<%=_aux_ex_table.ListItemText.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
@@ -171,7 +171,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
-		private <%=(_aux_db_field.isNullable && !_aux_db_field.isPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
+		private <%=(_aux_db_field.IsNullable && !_aux_db_field.IsPK) ? "object" : _aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;// = <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%>;
 		
 		/// <summary>
 		/// <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
@@ -182,30 +182,30 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 			"<%=_aux_db_field.Name%>", 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.FriendlyName%>", 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.ExtendedDescription%>", 
-			<%=_aux_db_field.isPK.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isIdentity.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isNullable.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsPK.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsIdentity.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsNullable.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
 			"<%=(_aux_ex_field == null) ? "" : _aux_ex_field.DefaultValue%>", <%--
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "null" : _aux_ex_field.DefaultValue%>,
 			<%=(_aux_ex_field.DefaultValue == string.Empty) ? "\"\"" : _aux_ex_field.DefaultValue%>, --%>
 			"<%=_aux_db_field.FKTableName%>", 
 			"<%=_aux_db_field.FKFieldName%>", 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Name.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Config.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isConfig_Datatype.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isBool.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isDateTime.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isInt.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isDecimal.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=_aux_db_field.isText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemValue.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
-			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.isListItemText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.IsConfig_Name.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.IsConfig_Config.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.IsConfig_Datatype.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsBoolean.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsDateTime.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsInteger.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsDecimal.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=_aux_db_field.IsText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.IsListItemValue.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
+			<%=(_aux_ex_field == null) ? "false" : _aux_ex_field.IsListItemText.ToString().ToLower(System.Globalization.CultureInfo.CurrentCulture)%>, 
 			<%=_aux_db_field.Size%>, 
 			""
 		)]
 		public <%=_aux_db_field.DBType_generic.FWType%> <%=_aux_db_field.Name%> {
 			get {<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+			if (_aux_db_field.IsNullable && !_aux_db_field.IsPK) {%>
 				return (<%=_aux_db_field.DBType_generic.FWType%>)((this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ == null) ? <%=((_aux_ex_field == null) || (_aux_ex_field.DefaultValue == "")) ? _aux_db_field.DBType_generic.FWEmptyValue : _aux_ex_field.DefaultValue%> : this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
 			} else {%>
 				return this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_;<%
@@ -225,7 +225,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 			}
 		}
 		#endregion<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%>
+			if (_aux_db_field.IsNullable && !_aux_db_field.IsPK) {%>
 		#region public bool <%=_aux_db_field.Name%>_isNull { get; set; }
 		/// <summary>
 		/// Allows assignement of null and check if null at <%=_aux_db_table.Name%>'s <%=_aux_db_field.Name%>.
@@ -235,7 +235,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		public bool <%=_aux_db_field.Name%>_isNull {
 			get { return (this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ == null); }<%
 			// ToDos: here! fmonteiro
-			if (true || !_aux_db_table.isVirtualTable) {%>
+			if (true || !_aux_db_table.IsVirtualTable) {%>
 			set {
 				//if (value) this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_ = null;
 
@@ -310,7 +310,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		for (int f = 0; f < _aux_db_table.TableFields.TableFieldCollection.Count; f++) {
 			_aux_db_field = _aux_db_table.TableFields.TableFieldCollection[f];%><%=""%>
 			info.AddValue("<%=_aux_db_field.Name%>", this.<%=_aux_db_field.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>_);<%
-			if (_aux_db_field.isNullable && !_aux_db_field.isPK) {%><%=""%>
+			if (_aux_db_field.IsNullable && !_aux_db_field.IsPK) {%><%=""%>
 			info.AddValue("<%=_aux_db_field.Name%>_isNull", this.<%=_aux_db_field.Name%>_isNull);<%
 			}
 		}%>
