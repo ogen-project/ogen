@@ -71,12 +71,12 @@ namespace OGen.Libraries.Generator {
 		#region public int Add(...);
 		public int Add(
 			DBServerTypes dbServerType_in, 
-			string connectionstring_in
+			string connectionString_in
 		) {
 			return this.dbconnectionstrings_.Add(
 				new DBConnectionstring(
 					dbServerType_in, 
-					connectionstring_in
+					connectionString_in
 				)
 			);
 		}

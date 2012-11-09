@@ -326,6 +326,35 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			txtUserName.Enabled = useTweak_in;			lblUserName.Enabled = useTweak_in;
 			txtPassword.Enabled = useTweak_in;			lblPassword.Enabled = useTweak_in;
 			txtDatabase.Enabled = useTweak_in;			lblDatabase.Enabled = useTweak_in;
+
+			//if (useTweak_in) {
+			//    DBConnection _con = DBConnectionsupport.CreateInstance(
+			//        DBServerType,
+			//        txtConnectionString.Text
+			//    );
+
+			//    txtServer.Text
+			//        = _con.Utilities.ConnectionString.ParseParameter(
+			//            txtConnectionString.Text,
+			//            DBUtilities_connectionString.ParameterName.Server
+			//        );
+			//    txtUserName.Text
+			//        = _con.Utilities.ConnectionString.ParseParameter(
+			//            txtConnectionString.Text,
+			//            DBUtilities_connectionString.ParameterName.User
+			//        );
+			//    txtPassword.Text
+			//        = "***************";
+			//    txtDatabase.Text
+			//        = _con.Utilities.ConnectionString.ParseParameter(
+			//            txtConnectionString.Text,
+			//            DBUtilities_connectionString.ParameterName.DBName
+			//        );
+
+			//    _con.Dispose();
+			//    _con = null;
+			//}
+
 		}
 		#endregion
 		//#endregion

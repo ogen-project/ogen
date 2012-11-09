@@ -448,7 +448,7 @@ namespace OGen.Libraries.DataLayer {
 	/// </summary>
 	public abstract class DBUtilities_connectionString {
 		#region public abstract string ParseParameter(...);
-		public enum eParameter {
+		public enum ParameterName : int {
 			Server = 0, 
 			User = 1, 
 			DBName = 2,
@@ -457,18 +457,18 @@ namespace OGen.Libraries.DataLayer {
 		}
 
 		public static string ParseParameter(
-			string connectionstring_in, 
-			string parameter_in
+			string connectionString_in, 
+			string parameterName_in
 		) {
 			System.Text.RegularExpressions.Regex fields_reg = new System.Text.RegularExpressions.Regex(
 				string.Format(
 					System.Globalization.CultureInfo.CurrentCulture, 
 					"^(?<before>.*){0}=(?<param>.*);(?<after>.*)", 
-					parameter_in
+					parameterName_in
 				),
 				System.Text.RegularExpressions.RegexOptions.IgnoreCase
 			);
-			System.Text.RegularExpressions.Match matchingfields = fields_reg.Match(connectionstring_in);
+			System.Text.RegularExpressions.Match matchingfields = fields_reg.Match(connectionString_in);
 			if (!matchingfields.Success) {
 				throw new Exception(
 					string.Format(
@@ -476,7 +476,7 @@ namespace OGen.Libraries.DataLayer {
 						"{0}.{1}.ParseParameter(): - error parsing db connectionstring: '{2}'",
 						typeof(DBUtilities_connectionString).Namespace,
 						typeof(DBUtilities_connectionString).Name,
-						connectionstring_in
+						connectionString_in
 					)
 				);
 			} else {
@@ -484,8 +484,8 @@ namespace OGen.Libraries.DataLayer {
 			}
 		}
 		public abstract string ParseParameter(
-			string connectionstring_in, 
-			eParameter parameter_in
+			string connectionString_in, 
+			ParameterName parameterName_in
 		);
 		#endregion
 

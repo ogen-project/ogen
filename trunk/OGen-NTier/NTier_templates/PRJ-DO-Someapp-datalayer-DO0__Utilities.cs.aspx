@@ -161,8 +161,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 		#region public static Methods...
 		public static DBConnection DBConnection_createInstance(
 			string dbServerType_in, 
-			string connectionstring_in, 
-			string logfile_in
+			string connectionString_in, 
+			string logFile_in
 		) {
 			switch (dbServerType_in) {<%
 
@@ -173,8 +173,8 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer {
 #if <%=_aux_supportedDBServerTypes[i]%>
 				case "<%=_aux_supportedDBServerTypes[i]%>":
 					return new DBConnection_<%=_aux_supportedDBServerTypes[i]%>(
-						connectionstring_in, 
-						logfile_in
+						connectionString_in, 
+						logFile_in
 					);
 #endif<%
 			}%>

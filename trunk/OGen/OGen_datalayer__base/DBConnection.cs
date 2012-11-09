@@ -95,11 +95,11 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBConnection">DBConnection</see>
 		/// </summary>
-		/// <param name="connectionstring_in">Connection String</param>
+		/// <param name="connectionString_in">Connection String</param>
 		protected DBConnection(
-			string connectionstring_in
+			string connectionString_in
 		) : this (
-			connectionstring_in,
+			connectionString_in,
 			string.Empty
 		) {
 		}
@@ -107,26 +107,26 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBConnection">DBConnection</see>
 		/// </summary>
-		/// <param name="connectionstring_in">Connection String</param>
-		/// <param name="logfile_in">Log File (null or empty string disables log)</param>
+		/// <param name="connectionString_in">Connection String</param>
+		/// <param name="logFile_in">Log File (null or empty string disables log)</param>
 		protected DBConnection(
-			string connectionstring_in, 
-			string logfile_in
+			string connectionString_in, 
+			string logFile_in
 		) {
-			if (string.IsNullOrEmpty(connectionstring_in))
+			if (string.IsNullOrEmpty(connectionString_in))
 				throw new InvalidConnectionstringException_empty();
 
-			this.connectionstring_ = connectionstring_in;
+			this.connectionstring_ = connectionString_in;
 
-			this.logfile_ = (logfile_in != null)
-				? logfile_in
+			this.logfile_ = (logFile_in != null)
+				? logFile_in
 				: string.Empty;
 			this.logenabled_ = 
-				!string.IsNullOrEmpty(logfile_in)
+				!string.IsNullOrEmpty(logFile_in)
 
 				//// prefer to let exception be raised and let user know 
 				//// he has to revise his config file, hence comment:
-				//&& File.Exists(logfile_in)
+				//&& File.Exists(logFile_in)
 			;
 			this.isopen_ = false;
 		}
@@ -195,7 +195,7 @@ namespace OGen.Libraries.DataLayer {
 							// ...attribution (last thing before unlock)
 							this.connectionstring_dbname__ = this.Utilities.ConnectionString.ParseParameter(
 								this.Connectionstring,
-								DBUtilities_connectionString.eParameter.DBName
+								DBUtilities_connectionString.ParameterName.DBName
 							);
 						}
 					}
@@ -1082,13 +1082,13 @@ namespace OGen.Libraries.DataLayer {
 		/// <returns>String array, representing a list of Table names</returns>
 		public DBTable[] SchemaDatabaseTables(
 			string subAppName_in, 
-			string sqlFuncion_in
+			string sqlFunction_in
 		) {
 			DBTable[] _output;
 
 			#region DataTable _dtemp = base.Execute_SQLQuery_returnDataTable(SchemaDatabaseTables_query(subAppName_in));
 			DataTable _dtemp;
-			if (string.IsNullOrEmpty(sqlFuncion_in)) {
+			if (string.IsNullOrEmpty(sqlFunction_in)) {
 				_dtemp = this.Execute_SQLQuery_returnDataTable(
 					this.SchemaDatabaseTables_query(
 						this.Connectionstring_DBName, 
@@ -1097,7 +1097,7 @@ namespace OGen.Libraries.DataLayer {
 				);
 			} else {
 				_dtemp = this.Execute_SQLFunction_returnDataTable(
-					sqlFuncion_in,
+					sqlFunction_in,
 					new IDbDataParameter[] {
 						this.newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, this.Connectionstring_DBName, this.Connectionstring_DBName.Length), 
 						this.newDBDataParameter("subApp_", DbType.String, ParameterDirection.Input, subAppName_in, subAppName_in.Length)
@@ -1163,13 +1163,13 @@ namespace OGen.Libraries.DataLayer {
 		/// <returns>String array, representing a list of Field names</returns>
 		public DBTableField[] SchemaDatabaseTableFields(
 			string tableName_in,
-			string sqlFuncion_in
+			string sqlFunction_in
 		) {
 			DBTableField[] _output;
 
 			#region DataTable _dtemp = ...;
 			DataTable _dtemp;
-			if (string.IsNullOrEmpty(sqlFuncion_in)) {
+			if (string.IsNullOrEmpty(sqlFunction_in)) {
 				_dtemp = this.Execute_SQLQuery_returnDataTable(
 					this.SchemaDatabaseTableFields_query(
 						tableName_in
@@ -1177,7 +1177,7 @@ namespace OGen.Libraries.DataLayer {
 				);
 			} else {
 				_dtemp = this.Execute_SQLFunction_returnDataTable(
-					sqlFuncion_in,
+					sqlFunction_in,
 					new IDbDataParameter[] {
 						this.newDBDataParameter("dbName_", DbType.String, ParameterDirection.Input, this.Connectionstring_DBName, this.Connectionstring_DBName.Length), 
 						this.newDBDataParameter("tableName_", DbType.String, ParameterDirection.Input, tableName_in, tableName_in.Length)

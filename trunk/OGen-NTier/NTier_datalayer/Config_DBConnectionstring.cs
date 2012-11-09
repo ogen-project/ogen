@@ -25,11 +25,11 @@ namespace OGen.NTier.Libraries.DataLayer {
 		/// <summary>
 		/// Used to store a config file connection string.
 		/// </summary>
-		/// <param name="connectionstring_in">The connection's connectionstring.</param>
+		/// <param name="connectionString_in">The connection's connectionstring.</param>
 		public Config_DBConnectionstring(
-			string connectionstring_in
+			string connectionString_in
 		) {
-			this.connectionstring_ = connectionstring_in;
+			this.connectionstring_ = connectionString_in;
 		}
 		#endregion
 

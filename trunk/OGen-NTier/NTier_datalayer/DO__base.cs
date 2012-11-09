@@ -38,46 +38,46 @@ namespace OGen.NTier.Libraries.DataLayer {
 			null
 		) {}
 		/// <param name="dbServerType_in">DB Server Type</param>
-		/// <param name="connectionstring_in">Connection String</param>
+		/// <param name="connectionString_in">Connection String</param>
 		protected DO__base(
 			string dbServerType_in, 
-			string connectionstring_in
+			string connectionString_in
 		) : this (
 			null, 
 			dbServerType_in, 
-			connectionstring_in, 
+			connectionString_in, 
 			true, // connection_insideInstance_in
 			null
 		) {}
 		protected DO__base(
 			string dbServerType_in, 
-			string connectionstring_in, 
-			string logfile_in
+			string connectionString_in, 
+			string logFile_in
 		) : this (
 			null, 
 			dbServerType_in, 
-			connectionstring_in, 
+			connectionString_in, 
 			true, // connection_insideInstance_in
-			logfile_in
+			logFile_in
 		) {}
 		private DO__base(
 			DBConnection connection_in, 
 			string dbServerType_in, 
-			string connectionstring_in, 
+			string connectionString_in, 
 			bool connection_insideInstance_in,
-			string logfile_in
+			string logFile_in
 		) {
 			this.connection__ = connection_in;
 			this.connection_dbservertype_ = dbServerType_in;
-			this.connection_connectionstring_ = connectionstring_in;
+			this.connection_connectionstring_ = connectionString_in;
 			this.connection_insideinstance_ = connection_insideInstance_in;
 
-			if (logfile_in == null) {
+			if (logFile_in == null) {
 				this.logenabled_ = false;
 				this.logfile_ = null;
 			} else {
 				this.logenabled_ = true;
-				this.logfile_ = logfile_in;
+				this.logfile_ = logFile_in;
 			}
 		}
 		///
@@ -165,8 +165,8 @@ namespace OGen.NTier.Libraries.DataLayer {
 		#region Methods...
 		public abstract DBConnection DBConnection_createInstance(
 			string dbServerType_in, 
-			string connectionstring_in, 
-			string logfile_in
+			string connectionString_in, 
+			string logFile_in
 		);
 		#endregion
 	}

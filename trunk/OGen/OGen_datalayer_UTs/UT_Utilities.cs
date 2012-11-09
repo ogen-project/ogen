@@ -45,10 +45,10 @@
 //            DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
 //            for (int i = 0; i < _dbtypes.Length; i++) {
 //                _constring = Utilities.Connectionstring.Buildwith.Parameters(
-//                    (string)hash_in[Utilities.Connectionstring.eParameter.Server],
-//                    (string)hash_in[Utilities.Connectionstring.eParameter.User], 
+//                    (string)hash_in[Utilities.Connectionstring.ParameterName.Server],
+//                    (string)hash_in[Utilities.Connectionstring.ParameterName.User], 
 //                    "somepassword",
-//                    (string)hash_in[Utilities.Connectionstring.eParameter.Database], 
+//                    (string)hash_in[Utilities.Connectionstring.ParameterName.Database], 
 //                    (eDBServerTypes)i
 //                );
 
@@ -61,7 +61,7 @@
 //                        Utilities.Connectionstring.ParseParameter(
 //                            _constring,
 //                            (eDBServerTypes)i,
-//                            (Utilities.Connectionstring.eParameter)_enumerator.Key
+//                            (Utilities.Connectionstring.ParameterName)_enumerator.Key
 //                        )
 ////, _constring
 //                    );
@@ -75,15 +75,15 @@
 //            Hashtable _hash;
 
 //            _hash  = new Hashtable();
-//            _hash.Add(Utilities.Connectionstring.eParameter.Database, "somedb");
-//            _hash.Add(Utilities.Connectionstring.eParameter.Server, "someserver");
-//            _hash.Add(Utilities.Connectionstring.eParameter.User, "someuser");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.Database, "somedb");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.Server, "someserver");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.User, "someuser");
 //            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
 //            _hash = new Hashtable();
-//            _hash.Add(Utilities.Connectionstring.eParameter.Database, "database");
-//            _hash.Add(Utilities.Connectionstring.eParameter.Server, "server");
-//            _hash.Add(Utilities.Connectionstring.eParameter.User, "uid");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.Database, "database");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.Server, "server");
+//            _hash.Add(Utilities.Connectionstring.ParameterName.User, "uid");
 //            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
 //            Assert.AreEqual(
@@ -91,7 +91,7 @@
 //                Utilities.Connectionstring.ParseParameter(
 //                    "Server=someserver;User ID=someuser;Password=somepassword;Database=somedatabase",
 //                    eDBServerTypes.PostgreSQL,
-//                    Utilities.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.ParameterName.Database
 //                )
 //            );
 //            Assert.AreEqual(
@@ -99,7 +99,7 @@
 //                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase;Server=someserver;User ID=someuser;Password=somepassword",
 //                    eDBServerTypes.PostgreSQL,
-//                    Utilities.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.ParameterName.Database
 //                )
 //            );
 //            Assert.AreEqual(
@@ -107,7 +107,7 @@
 //                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase",
 //                    eDBServerTypes.PostgreSQL,
-//                    Utilities.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.ParameterName.Database
 //                )
 //            );
 //            Assert.AreEqual(
@@ -115,7 +115,7 @@
 //                Utilities.Connectionstring.ParseParameter(
 //                    "Database=somedatabase;",
 //                    eDBServerTypes.PostgreSQL,
-//                    Utilities.Connectionstring.eParameter.Database
+//                    Utilities.Connectionstring.ParameterName.Database
 //                )
 //            );
 //        }

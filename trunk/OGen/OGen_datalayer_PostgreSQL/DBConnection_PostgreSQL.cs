@@ -28,12 +28,12 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBConnection_PostgreSQL">DBConnection_PostgreSQL</see>
 		/// </summary>
-		/// <param name="connectionstring_in">Connection String</param>
+		/// <param name="connectionString_in">Connection String</param>
 		public DBConnection_PostgreSQL(
-			string connectionstring_in
+			string connectionString_in
 		) : base (
 //			DBServerTypes.PostgreSQL, 
-			connectionstring_in,
+			connectionString_in,
 			string.Empty
 		) {
 		}
@@ -41,15 +41,15 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		/// <summary>
 		/// Initializes a new instance of <see cref="DBConnection_PostgreSQL">DBConnection_PostgreSQL</see>
 		/// </summary>
-		/// <param name="connectionstring_in">Connection String</param>
-		/// <param name="logfile_in">Log File (null or empty string disables log)</param>
+		/// <param name="connectionString_in">Connection String</param>
+		/// <param name="logFile_in">Log File (null or empty string disables log)</param>
 		public DBConnection_PostgreSQL(
-			string connectionstring_in,
-			string logfile_in
+			string connectionString_in,
+			string logFile_in
 		) : base (
 //			DBServerTypes.PostgreSQL, 
-			connectionstring_in,
-			logfile_in
+			connectionString_in,
+			logFile_in
 		) {
 		}
 

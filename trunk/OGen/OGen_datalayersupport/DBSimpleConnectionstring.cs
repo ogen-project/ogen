@@ -20,10 +20,10 @@ namespace OGen.Libraries.DataLayer {
 		#region public DBSimpleConnectionstring(...);
 		public DBSimpleConnectionstring(
 			DBServerTypes dbServerType_in, 
-			string connectionstring_in
+			string connectionString_in
 		) {
 			this.dbservertype_ = dbServerType_in;
-			this.connectionstring_ = connectionstring_in;
+			this.connectionstring_ = connectionString_in;
 		}
 		#endregion
 

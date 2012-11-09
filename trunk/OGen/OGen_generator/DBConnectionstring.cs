@@ -22,10 +22,10 @@ namespace OGen.Libraries.Generator {
 		#region public DBConnectionstring(...);
 		public DBConnectionstring(
 			DBServerTypes dbServerType_in, 
-			string connectionstring_in
+			string connectionString_in
 		) : base (
 			dbServerType_in, 
-			connectionstring_in
+			connectionString_in
 		) {
 			this.connection_ = null;
 		}

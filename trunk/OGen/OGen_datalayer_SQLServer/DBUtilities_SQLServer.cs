@@ -264,18 +264,18 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 	public sealed class DBUtilities_connectionString_SQLServer : DBUtilities_connectionString {
 		#region public override string ParseParameter(...);
 		public override string ParseParameter(
-			string connectionstring_in, 
-			eParameter parameter_in
+			string connectionString_in, 
+			ParameterName parameterName_in
 		) {
-			switch (parameter_in) {
-				case eParameter.DBName:
-					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "database");
+			switch (parameterName_in) {
+				case ParameterName.DBName:
+					return DBUtilities_connectionString.ParseParameter(connectionString_in, "database");
 
-				case eParameter.Server:
-					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "server");
+				case ParameterName.Server:
+					return DBUtilities_connectionString.ParseParameter(connectionString_in, "server");
 
-				case eParameter.User:
-					return DBUtilities_connectionString.ParseParameter(connectionstring_in, "uid");
+				case ParameterName.User:
+					return DBUtilities_connectionString.ParseParameter(connectionString_in, "uid");
 			}
 			throw new Exception(
 				string.Format(
@@ -284,7 +284,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 					typeof(DBUtilities_connectionString_SQLServer).Namespace,
 					typeof(DBUtilities_connectionString_SQLServer).Name,
 #if DEBUG
-					connectionstring_in
+					connectionString_in
 #else
 					"- not available -"
 #endif

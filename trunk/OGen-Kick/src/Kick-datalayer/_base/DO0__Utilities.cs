@@ -112,22 +112,22 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 		#region public static Methods...
 		public static DBConnection DBConnection_createInstance(
 			string dbServerType_in, 
-			string connectionstring_in, 
-			string logfile_in
+			string connectionString_in, 
+			string logFile_in
 		) {
 			switch (dbServerType_in) {
 #if PostgreSQL
 				case "PostgreSQL":
 					return new DBConnection_PostgreSQL(
-						connectionstring_in, 
-						logfile_in
+						connectionString_in, 
+						logFile_in
 					);
 #endif
 #if SQLServer
 				case "SQLServer":
 					return new DBConnection_SQLServer(
-						connectionstring_in, 
-						logfile_in
+						connectionString_in, 
+						logFile_in
 					);
 #endif
 			}
