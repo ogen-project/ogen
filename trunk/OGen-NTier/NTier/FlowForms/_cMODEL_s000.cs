@@ -64,11 +64,11 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 
-					#region ((cFlowform)MyFlowforms[0]).Show();
+					#region ((Flowform)MyFlowforms[0]).Show();
 					if (MyFlowforms[0] == null) {
 						//MyFlowforms[0] = new cMODEL_s010(
 						//	Base_ref, 
-						//	new cFlowform.dNotifyBase(MyFlowforms_notifiedMe), 
+						//	new Flowform.dNotifyBase(MyFlowforms_notifiedMe), 
 						//	MyProcess
 						//);
 					}
@@ -76,7 +76,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					MyFlowforms[0].Show();
 					#endregion
 					// IF LAST FORM:
-					//NotifyBase(eFlowformEvents.Closed, this);
+					//NotifyBase(FlowformEvents.Closed, this);
 
 
 

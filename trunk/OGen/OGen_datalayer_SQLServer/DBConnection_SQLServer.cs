@@ -283,7 +283,8 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 						_ex.InnerException,
 
 						DBUtilities.IDbDataParameter2String(dataParameters_in)
-					)
+					),
+					_ex
 				);
 			}
 

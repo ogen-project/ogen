@@ -64,7 +64,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 					MyProcess.Undefined_orAll = MyForm.Undefined_orAll;
-					#region ((cFlowform)MyFlowforms[0]).Show();
+					#region ((Flowform)MyFlowforms[0]).Show();
 					if (MyFlowforms[0] == null) {
 						MyFlowforms[0] = new cManage_Views_PK_s010(
 							Base_ref, 

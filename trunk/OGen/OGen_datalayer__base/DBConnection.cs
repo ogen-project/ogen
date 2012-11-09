@@ -493,10 +493,15 @@ namespace OGen.Libraries.DataLayer {
 						"--- query:\n{0}\n\n--- ConnectionString:\n{1}|{2}\n\n--- exception:\n{3}\n\n--- inner-exception:\n{4}\n",
 						query_in,
 						this.DBServerType,
+#if DEBUG
 						this.connectionstring_, 
+#else
+						"- not available -", 
+#endif
 						_ex.Message, 
 						_ex.InnerException
-					)
+					),
+					_ex
 				);
 				#endregion
 			}
@@ -569,10 +574,15 @@ namespace OGen.Libraries.DataLayer {
 						"query: {0}\nConnectionString: {1}|{2}\nexception: {3}\ninner-exception: {4}\n",
 						query_in,
 						this.DBServerType,
-						this.connectionstring_,
+#if DEBUG
+						this.connectionstring_, 
+#else
+						"- not available -", 
+#endif
 						_ex.Message,
 						_ex.InnerException
-					)
+					),
+					_ex
 				);
 				#endregion
 			}
@@ -802,11 +812,16 @@ namespace OGen.Libraries.DataLayer {
 						function_in,
 						dataParameters_in,
 						this.DBServerType,
-						this.connectionstring_,
+#if DEBUG
+						this.connectionstring_, 
+#else
+						"- not available -", 
+#endif
 						_ex.Message,
 						_ex.InnerException,
 						DBUtilities.IDbDataParameter2String(dataParameters_in)
-					)
+					),
+					_ex
 				);
 			}
 

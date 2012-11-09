@@ -273,7 +273,8 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 						_ex.InnerException,
 
 						DBUtilities.IDbDataParameter2String(dataParameters_in)
-					)
+					),
+					_ex
 				);
 			}
 
