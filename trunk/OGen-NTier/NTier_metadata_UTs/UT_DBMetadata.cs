@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using NUnit.Framework;
-
-using OGen.Libraries.DataLayer;
-using OGen.NTier.Libraries.Metadata;
 
 namespace OGen.NTier.Libraries.Metadata.UnitTests {
+	using System;
+	using NUnit.Framework;
+
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Libraries.Metadata;
+
 	[TestFixture]
 	public class UT_DBMetadata { public UT_DBMetadata() {}
 		#region public void TestFixtureSetUp();

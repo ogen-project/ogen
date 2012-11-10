@@ -41,8 +41,8 @@ namespace OGen.Libraries.Generator {
 		public override int GetHashCode() {
 			unchecked {
 				int _output = 17;
-				_output = _output * 23 + this.Path.GetHashCode();
-				_output = _output * 23 + this.Root.GetHashCode();
+				_output = (_output * 23) + this.Path.GetHashCode();
+				_output = (_output * 23) + this.Root.GetHashCode();
 				return _output;
 			}
 		}
@@ -55,7 +55,7 @@ namespace OGen.Libraries.Generator {
 			if (!(obj is MetaFile))
 				return false;
 
-			return Equals((MetaFile)obj);
+			return this.Equals((MetaFile)obj);
 		}
 
 		public static bool operator ==(MetaFile aux1, MetaFile aux2) {
@@ -68,8 +68,8 @@ namespace OGen.Libraries.Generator {
 #endif
 	}
 	#endregion
-	#region public interface MetadataInterface { ... }
-	public interface MetadataInterface {
+	#region public interface IMetadata { ... }
+	public interface IMetadata {
 		string Read_fromRoot(string what_in);
 
 		void IterateThrough_fromRoot(

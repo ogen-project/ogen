@@ -63,7 +63,7 @@ namespace OGen.Libraries.Generator {
 		#region private Fields/Properties...
 		private Uri xmltemplatesfileuri_;
 		private string xmltemplatesdir_;
-		private MetadataInterface metadata_;
+		private IMetadata metadata_;
 		private XS__templates templates_;
 		private dBuild notifyback_;
 		#endregion
@@ -657,7 +657,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		private void build(
 			dBuild notifyBack_in, 
 //			bool loadMetadata_in, 
-			MetadataInterface metadata_in,
+			IMetadata metadata_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {
@@ -972,7 +972,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 //		}
 		public void Build(
 			dBuild notifyBack_in,
-			MetadataInterface metadata_in,
+			IMetadata metadata_in,
 			params string[] templateTypes_in
 		) {
 			this.Build(
@@ -984,7 +984,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		}
 		public void Build(
 			dBuild notifyBack_in,
-			MetadataInterface metadata_in,
+			IMetadata metadata_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {

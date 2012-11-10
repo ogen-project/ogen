@@ -22,8 +22,8 @@ namespace OGen.Libraries.Collections {
 	public class OGenRootrefCollection<TCollectionItem, TRootRef, TKey> : OGenCollection<TCollectionItem, TKey>
 		where TCollectionItem : 
 			class,
-			OGenCollectionInterface<TCollectionItem, TKey>, 
-			OGenRootrefCollectionInterface<TRootRef>
+			IOGenCollection<TCollectionItem, TKey>, 
+			IOGenRootrefCollection<TRootRef>
 		where TRootRef : class
 		where TKey : struct
 	{

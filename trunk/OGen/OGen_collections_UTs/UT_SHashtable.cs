@@ -12,13 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using NUnit.Framework;
-
-using OGen.Libraries.Collections;
 
 namespace OGen.Libraries.Collections.UnitTests {
+	using System;
+	using System.IO;
+	using NUnit.Framework;
+	using OGen.Libraries.Collections;
+
 	[TestFixture]
 	public class UT_SHashtable { public UT_SHashtable() {}
 		private SHashtable _hash;
@@ -26,31 +26,31 @@ namespace OGen.Libraries.Collections.UnitTests {
 		#region public void TestFixtureSetUp();
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp() {
-			_hash = new SHashtable();
-			_hash.Add("três", 3);
-			_hash.Add("um", 1);
-			_hash.Add("dois", 2);
+			this._hash = new SHashtable();
+			this._hash.Add("três", 3);
+			this._hash.Add("um", 1);
+			this._hash.Add("dois", 2);
 		}
 		#endregion
 		#region public void TestFixtureTearDown();
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown() {
-			_hash = null;
+			this._hash = null;
 		}
 		#endregion
 
 		[Test]
 		public void UT_SomeTest() {
-			Assert.AreEqual(3, _hash.Count);
-			Assert.AreEqual(3, _hash.Keys.Count);
+			Assert.AreEqual(3, this._hash.Count);
+			Assert.AreEqual(3, this._hash.Keys.Count);
 
-			Assert.AreEqual("três", _hash.Keys[0]);
-			Assert.AreEqual("um", _hash.Keys[1]);
-			Assert.AreEqual("dois", _hash.Keys[2]);
+			Assert.AreEqual("três", this._hash.Keys[0]);
+			Assert.AreEqual("um", this._hash.Keys[1]);
+			Assert.AreEqual("dois", this._hash.Keys[2]);
 
-			Assert.AreEqual(3, (int)_hash["três"]);
-			Assert.AreEqual(1, (int)_hash["um"]);
-			Assert.AreEqual(2, (int)_hash["dois"]);
+			Assert.AreEqual(3, (int)this._hash["três"]);
+			Assert.AreEqual(1, (int)this._hash["um"]);
+			Assert.AreEqual(2, (int)this._hash["dois"]);
 		}
 	}
 }

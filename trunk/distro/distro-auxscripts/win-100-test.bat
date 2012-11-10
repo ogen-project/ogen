@@ -19,8 +19,8 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error3
 
 
 SET errorFound=
-FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
-	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j
+FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9,10 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
+	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j %%k
 )
 IF '%errorFound%' == '' ECHO no errors!
 SET errorFound=
@@ -29,23 +29,24 @@ GOTO eof
 
 
 :test
-	::SHIFT
+	SHIFT
 
 	SET paramError=
 
+	IF '%0' == '' SET paramError=%0#%paramError%
 	IF '%1' == '' SET paramError=%1#%paramError%
 	IF '%2' == '' SET paramError=%2#%paramError%
-	IF '%3' == '' SET paramError=%3#%paramError%
+	IF NOT '%3' == 't' IF NOT '%3' == 'f' SET paramError=%3#%paramError%
 	IF NOT '%4' == 't' IF NOT '%4' == 'f' SET paramError=%4#%paramError%
 	IF NOT '%5' == 't' IF NOT '%5' == 'f' SET paramError=%5#%paramError%
-	IF NOT '%6' == 't' IF NOT '%6' == 'f' SET paramError=%6#%paramError%
-	IF NOT '%7' == 'MIT' IF NOT '%7' == 'GNU_GPL' IF NOT '%7' == 'GNU_LGPL' IF NOT '%7' == 'GNU_FDL' SET paramError=%7#%paramError%
+	IF NOT '%6' == 'MIT' IF NOT '%6' == 'GNU_GPL' IF NOT '%6' == 'GNU_LGPL' IF NOT '%6' == 'GNU_FDL' SET paramError=%6#%paramError%
+	IF NOT '%7' == 't' IF NOT '%7' == 'f' SET paramError=%7#%paramError%
 	IF NOT '%8' == 't' IF NOT '%8' == 'f' SET paramError=%8#%paramError%
 	IF NOT '%9' == 't' IF NOT '%9' == 'f' SET paramError=%9#%paramError%
-	IF NOT EXIST "..\..\%1" SET paramError="solution does not exist"#%paramError%
-	IF NOT EXIST "..\..\%1\%2" SET paramError="project does not exist"#%paramError%
+	IF NOT EXIST "..\..\%0" SET paramError="solution does not exist"#%paramError%
+	IF NOT EXIST "..\..\%0\%1" SET paramError="project does not exist"#%paramError%
 
-	IF NOT '%paramError%' == '' ECHO %1, %2, %3, %4, %5, %6, %7, %8, %9
+	IF NOT '%paramError%' == '' ECHO %0 %1, %2, %3, %4, %5, %6, %7, %8, %9
 	IF NOT '%paramError%' == '' ECHO %paramError%
 	IF NOT '%paramError%' == '' SET errorFound=1
 

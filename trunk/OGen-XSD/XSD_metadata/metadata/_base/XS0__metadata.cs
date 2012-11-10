@@ -22,9 +22,9 @@ namespace OGen.XSD.Libraries.Metadata.Metadata {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__metadata : XS_metadataType, MetadataInterface {
+	public class XS0__metadata : XS_metadataType, IMetadata {
 	#else
-	public partial class XS__metadata : XS_metadataType, MetadataInterface {
+	public partial class XS__metadata : XS_metadataType, IMetadata {
 	#endif
 
 		public const string METADATA = "metadata";

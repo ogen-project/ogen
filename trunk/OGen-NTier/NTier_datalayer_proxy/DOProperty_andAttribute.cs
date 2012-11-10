@@ -95,8 +95,8 @@ namespace OGen.NTier.Libraries.DataLayer {
 		public override int GetHashCode() {
 			unchecked {
 				int _output = 17;
-				_output = _output * 23 + this.doproperty_.GetHashCode();
-				_output = _output * 23 + this.doattribute_.GetHashCode();
+				_output = (_output * 23) + this.doproperty_.GetHashCode();
+				_output = (_output * 23) + this.doattribute_.GetHashCode();
 				return _output;
 			}
 		}
@@ -109,7 +109,7 @@ namespace OGen.NTier.Libraries.DataLayer {
 			if (!(obj is DOProperty_andAttribute))
 				return false;
 
-			return Equals((DOProperty_andAttribute)obj);
+			return this.Equals((DOProperty_andAttribute)obj);
 		}
 
 		public static bool operator ==(DOProperty_andAttribute aux1, DOProperty_andAttribute aux2) {

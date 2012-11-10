@@ -24,9 +24,9 @@ namespace OGen.Doc.Libraries.Metadata {
 	using OGen.Doc.Libraries.Metadata.Documentation;
 
 	#if NET_1_1
-	public class XS0__RootMetadata : MetadataInterface {
+	public class XS0__RootMetadata : IMetadata {
 	#else
-	public partial class XS__RootMetadata : MetadataInterface {
+	public partial class XS__RootMetadata : IMetadata {
 	#endif
 		#region public XS__RootMetadata(...);
 		#if NET_1_1

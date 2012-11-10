@@ -26,8 +26,8 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 	public partial class XS__spreadsheet {
 	#endif
 
-		const string XLSX = ".xlsx";
-		const string XLS = ".xls";
+		public const string XLSX = ".xlsx";
+		public const string XLS = ".xls";
 
 		#region public static DataTable[] Spreadsheet_toDataTable(...);
 		public static DataTable[] Spreadsheet_toDataTable(

@@ -22,9 +22,9 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__spreadsheet : XS_spreadsheetType, MetadataInterface {
+	public class XS0__spreadsheet : XS_spreadsheetType, IMetadata {
 	#else
-	public partial class XS__spreadsheet : XS_spreadsheetType, MetadataInterface {
+	public partial class XS__spreadsheet : XS_spreadsheetType, IMetadata {
 	#endif
 
 		public const string SPREADSHEET = "spreadsheet";

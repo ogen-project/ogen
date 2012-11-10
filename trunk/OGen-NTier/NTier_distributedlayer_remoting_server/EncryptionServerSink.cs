@@ -81,8 +81,8 @@ namespace OGen.NTier.Libraries.DistributedLayer.Remoting.Server {
 #else
 			public override int GetHashCode() {
 				int _output = 17;
-				_output = _output * 23 + this.isEncripted.GetHashCode();
-				_output = _output * 23 + this.ClientID.GetHashCode();
+				_output = (_output * 23) + this.isEncripted.GetHashCode();
+				_output = (_output * 23) + this.ClientID.GetHashCode();
 				return _output;
 			}
 			public bool Equals(StateStruct other) {
@@ -94,7 +94,7 @@ namespace OGen.NTier.Libraries.DistributedLayer.Remoting.Server {
 				if (!(obj is StateStruct))
 					return false;
 
-				return Equals((StateStruct)obj);
+				return this.Equals((StateStruct)obj);
 			}
 
 			public static bool operator ==(StateStruct aux1, StateStruct aux2) {

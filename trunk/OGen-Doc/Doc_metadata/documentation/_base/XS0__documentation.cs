@@ -22,9 +22,9 @@ namespace OGen.Doc.Libraries.Metadata.Documentation {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__documentation : XS_documentationType, MetadataInterface {
+	public class XS0__documentation : XS_documentationType, IMetadata {
 	#else
-	public partial class XS__documentation : XS_documentationType, MetadataInterface {
+	public partial class XS__documentation : XS_documentationType, IMetadata {
 	#endif
 
 		public const string DOCUMENTATION = "documentation";

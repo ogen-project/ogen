@@ -54,9 +54,9 @@ namespace <%=_aux_namespace%> {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
+	public class <%=XS0__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, IMetadata {
 	#else
-	public partial class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, MetadataInterface {
+	public partial class <%=XS__%><%=_aux_schema.Element.Name%> : <%=XS_%><%=_aux_schema.Element.Type%>, IMetadata {
 	#endif
 
 		public const string <%=_aux_schema.Element.Name.ToUpper()%> = "<%=_aux_schema.Element.Name%>";

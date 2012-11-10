@@ -12,20 +12,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using NUnit.Framework;
-
-using OGen.Libraries.Parser;
 
 namespace OGen.Libraries.Parser.UnitTests {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using NUnit.Framework;
+
+	using OGen.Libraries.Parser;
+
 	[TestFixture]
 	public class UT_ParserXSLT { public UT_ParserXSLT() {}
 		#region private string resourse_dir { get; }
 		private string resourse_dir { 
 			get { 
-				return System.Configuration.ConfigurationSettings.AppSettings["OGen_parser_UTs_resourse_dir"];
+				return 
+#if NET_1_1
+					System.Configuration.ConfigurationSettings.AppSettings
+#else
+					System.Configuration.ConfigurationManager.AppSettings
+#endif
+					["OGen_parser_UTs_resourse_dir"];
 			}
 		}
 		#endregion
@@ -33,9 +40,9 @@ namespace OGen.Libraries.Parser.UnitTests {
 		private string metadata_file = null;
 		private string Metadata_File {
 			get {
-				if (metadata_file == null) {
-					metadata_file = Path.Combine(
-						resourse_dir, 
+				if (this.metadata_file == null) {
+					this.metadata_file = Path.Combine(
+						this.resourse_dir, 
 						Path.Combine(
 							"UT_ParserXSLT", 
 							Path.Combine(
@@ -45,7 +52,7 @@ namespace OGen.Libraries.Parser.UnitTests {
 						)
 					);
 				}
-				return metadata_file;
+				return this.metadata_file;
 			}
 		}
 		#endregion
@@ -53,9 +60,9 @@ namespace OGen.Libraries.Parser.UnitTests {
 		private string template_file = null;
 		private string Template_File {
 			get {
-				if (template_file == null) {
-					template_file = Path.Combine(
-						resourse_dir, 
+				if (this.template_file == null) {
+					this.template_file = Path.Combine(
+						this.resourse_dir, 
 						Path.Combine(
 							"UT_ParserXSLT", 
 							Path.Combine(
@@ -65,7 +72,7 @@ namespace OGen.Libraries.Parser.UnitTests {
 						)
 					);
 				}
-				return template_file;
+				return this.template_file;
 			}
 		}
 		#endregion
@@ -93,8 +100,8 @@ namespace OGen.Libraries.Parser.UnitTests {
 //Console.WriteLine(Template_File);
 
 			ParserXSLT.Parse(
-				Metadata_File,  
-				Template_File, 
+				this.Metadata_File,
+				this.Template_File, 
 				_hash, 
 				_parsedOutput
 			);

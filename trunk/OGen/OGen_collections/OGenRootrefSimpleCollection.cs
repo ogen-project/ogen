@@ -22,7 +22,7 @@ namespace OGen.Libraries.Collections {
 	public class OGenRootrefSimpleCollection<TCollectionItem, TRootRef> : OGenSimpleCollection<TCollectionItem>
 		where TCollectionItem :
 			class,
-			OGenRootrefCollectionInterface<TRootRef> 
+			IOGenRootrefCollection<TRootRef> 
 		where TRootRef : class
 	{
 		#region public object parent_ref { get; }

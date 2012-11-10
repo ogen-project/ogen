@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using NUnit.Framework;
-
-using OGen.Libraries.Parser;
 
 namespace OGen.Libraries.Parser.UnitTests {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using NUnit.Framework;
+
+	using OGen.Libraries.Parser;
+
 	[TestFixture]
 	public class UT_ParserASPX { public UT_ParserASPX() {}
 		private string resourse_dir_;
@@ -30,11 +31,17 @@ namespace OGen.Libraries.Parser.UnitTests {
 		#region public void TestFixtureSetUp();
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp() {
-			resourse_dir_ = System.Configuration.ConfigurationSettings.AppSettings["OGen_parser_UTs_resourse_dir"];
-			template_file_ = "template.aspx";
+			this.resourse_dir_ = 
+#if NET_1_1
+				System.Configuration.ConfigurationSettings.AppSettings
+#else
+					System.Configuration.ConfigurationManager.AppSettings
+#endif
+				["OGen_parser_UTs_resourse_dir"];
+			this.template_file_ = "template.aspx";
 
-			metadata_file_ = Path.Combine(
-				resourse_dir_,
+			this.metadata_file_ = Path.Combine(
+				this.resourse_dir_,
 				Path.Combine(
 					"UT_ParserASPX",
 					Path.Combine(
@@ -43,8 +50,8 @@ namespace OGen.Libraries.Parser.UnitTests {
 					)
 				)
 			);
-			template_dir_ = Path.Combine(
-				resourse_dir_, 
+			this.template_dir_ = Path.Combine(
+				this.resourse_dir_, 
 				Path.Combine(
 					"UT_ParserASPX", 
 					"resources"
@@ -66,8 +73,8 @@ namespace OGen.Libraries.Parser.UnitTests {
 			_hash.Add("Lines", 3);
 
 			ParserASPX.Parse(
-				template_dir_, 
-				template_file_, 
+				this.template_dir_,
+				this.template_file_, 
 				_hash,
 				out _parsedOutput
 			);

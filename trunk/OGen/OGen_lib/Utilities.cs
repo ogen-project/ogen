@@ -164,7 +164,7 @@ namespace OGen.Libraries {
 				||
 				(arguments_in.Length == 0)
 			) {
-				return "";
+				return string.Empty;
 			} else {
 				bool _isfirst = true;
 				System.Text.StringBuilder _sb = new System.Text.StringBuilder();

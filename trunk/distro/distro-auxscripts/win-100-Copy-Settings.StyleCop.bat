@@ -19,7 +19,7 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error3
 
 SET errorFound=
 FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
-	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j
+	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j %%k
 )
 IF '%errorFound%' == '' ECHO no errors!
 SET errorFound=
@@ -30,7 +30,7 @@ GOTO eof
 :test
 	SHIFT
 
-	IF '%3' == 'f' IF '%4' == 'f' IF '%5' == 'f' IF '%8' == 'f' (
+	IF '%3' == 'f' IF '%4' == 'f' IF '%5' == 'f' IF '%8' == 'f' IF '%9' == 'f' (
 		SET error=
 		GOTO eof
 	)

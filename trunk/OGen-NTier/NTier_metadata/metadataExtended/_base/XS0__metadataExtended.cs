@@ -22,9 +22,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataExtended {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__metadataExtended : XS_metadataExtendedType, MetadataInterface {
+	public class XS0__metadataExtended : XS_metadataExtendedType, IMetadata {
 	#else
-	public partial class XS__metadataExtended : XS_metadataExtendedType, MetadataInterface {
+	public partial class XS__metadataExtended : XS_metadataExtendedType, IMetadata {
 	#endif
 
 		public const string METADATAEXTENDED = "metadataExtended";

@@ -22,9 +22,9 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__diagram : XS_diagramType, MetadataInterface {
+	public class XS0__diagram : XS_diagramType, IMetadata {
 	#else
-	public partial class XS__diagram : XS_diagramType, MetadataInterface {
+	public partial class XS__diagram : XS_diagramType, IMetadata {
 	#endif
 
 		public const string DIAGRAM = "diagram";

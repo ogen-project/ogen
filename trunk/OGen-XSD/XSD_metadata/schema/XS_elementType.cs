@@ -41,9 +41,9 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 		public override int GetHashCode() {
 			unchecked {
 				int _output = 17;
-				_output = _output * 23 + this.NType.GetHashCode();
-				_output = _output * 23 + this.Name.GetHashCode();
-				_output = _output * 23 + this.CaseSensitive.GetHashCode();
+				_output = (_output * 23) + this.NType.GetHashCode();
+				_output = (_output * 23) + this.Name.GetHashCode();
+				_output = (_output * 23) + this.CaseSensitive.GetHashCode();
 				return _output;
 			}
 		}
@@ -57,7 +57,7 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 			if (!(obj is ComplexTypeItem))
 				return false;
 
-			return Equals((ComplexTypeItem)obj);
+			return this.Equals((ComplexTypeItem)obj);
 		}
 
 		public static bool operator ==(ComplexTypeItem aux1, ComplexTypeItem aux2) {

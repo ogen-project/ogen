@@ -12,37 +12,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using NUnit.Framework;
-
-using OGen.Libraries.PresentationLayer.WebForms;
 
 namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using NUnit.Framework;
+
+	using OGen.Libraries.PresentationLayer.WebForms;
+
 	[TestFixture]
 	public class UT_Utilities { public UT_Utilities() {}
-		Hashtable _hash;
+		private Hashtable _hash;
 
 		#region public void TestFixtureSetUp();
 		[TestFixtureSetUp]
 		public void TestFixtureSetUp() {
-			_hash = new Hashtable(3);
-			_hash.Add("um", "one$");
-			_hash.Add("dois", 2);
-			_hash.Add("três", "three&");
+			this._hash = new Hashtable(3);
+			this._hash.Add("um", "one$");
+			this._hash.Add("dois", 2);
+			this._hash.Add("três", "three&");
 		}
 		#endregion
 		#region public void TestFixtureTearDown();
 		[TestFixtureTearDown]
 		public void TestFixtureTearDown() {
-			_hash = null;
+			this._hash = null;
 		}
 		#endregion
 
 		[Test]
 		public void UT_CheckParamValue() {
-			string _urlparam = Utilities.ConcatenateURLParams(_hash, false);
+			string _urlparam = Utilities.ConcatenateURLParams(this._hash, false);
 			string[] _paramvalue = _urlparam.Split('&');
 			string[] _params;
 
@@ -50,12 +51,12 @@ namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 				_params = _paramvalue[i].Split('=');
 				Assert.IsTrue(
 					(
-						System.Web.HttpUtility.UrlDecode(_hash[_params[0]].ToString()) 
+						System.Web.HttpUtility.UrlDecode(this._hash[_params[0]].ToString()) 
 						== 
 						System.Web.HttpUtility.UrlDecode(_params[1].ToString())
 					), 
-					"{0} != UrlDecode({1})", 
-					_hash[_params[0]].ToString(), 
+					"{0} != UrlDecode({1})",
+					this._hash[_params[0]].ToString(), 
 					_params[1].ToString()
 				);
 			}
@@ -63,8 +64,8 @@ namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 
 		[Test]
 		public void UT_CheckQuestionMark() {
-			string _urlparam1 = Utilities.ConcatenateURLParams(_hash, true);
-			string _urlparam2 = Utilities.ConcatenateURLParams(_hash, false);
+			string _urlparam1 = Utilities.ConcatenateURLParams(this._hash, true);
+			string _urlparam2 = Utilities.ConcatenateURLParams(this._hash, false);
 			Assert.IsTrue(
 				(
 					_urlparam1 

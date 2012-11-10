@@ -22,9 +22,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataBusiness {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__metadataBusiness : XS_metadataBusinessType, MetadataInterface {
+	public class XS0__metadataBusiness : XS_metadataBusinessType, IMetadata {
 	#else
-	public partial class XS__metadataBusiness : XS_metadataBusinessType, MetadataInterface {
+	public partial class XS__metadataBusiness : XS_metadataBusinessType, IMetadata {
 	#endif
 
 		public const string METADATABUSINESS = "metadataBusiness";

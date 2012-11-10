@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.Libraries.Collections {
 	using System;
 
-	public interface OGenCollectionInterface<TCollectionItem, TKey>
+	public interface IOGenCollection<TCollectionItem, TKey>
 		where TKey : struct
 	{
 		TKey[] Keys { get; }

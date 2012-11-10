@@ -22,9 +22,9 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__metadataDB : XS_metadataDBType, MetadataInterface {
+	public class XS0__metadataDB : XS_metadataDBType, IMetadata {
 	#else
-	public partial class XS__metadataDB : XS_metadataDBType, MetadataInterface {
+	public partial class XS__metadataDB : XS_metadataDBType, IMetadata {
 	#endif
 
 		public const string METADATADB = "metadataDB";

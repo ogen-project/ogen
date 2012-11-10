@@ -13,19 +13,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
-//using System.Collections;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
-using System.IO;
-using System.Text;
-
-using OGen.XSD.Libraries.Metadata;
-using OGen.XSD.Libraries.Metadata.Schema;
-using OGen.XSD.Libraries.Metadata.Metadata;
-
 namespace OGen.XSD.presentationlayer.test {
+	using System;
+	//using System.Collections;
+	using System.IO;
+	using System.Text;
+	using System.Xml;
+	using System.Xml.Schema;
+	using System.Xml.Serialization;
+
+	using OGen.XSD.Libraries.Metadata;
+	using OGen.XSD.Libraries.Metadata.Metadata;
+	using OGen.XSD.Libraries.Metadata.Schema;
 
 	public class Program {
 

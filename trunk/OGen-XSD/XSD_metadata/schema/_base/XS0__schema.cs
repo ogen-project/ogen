@@ -22,9 +22,9 @@ namespace OGen.XSD.Libraries.Metadata.Schema {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__schema : XS_schemaType, MetadataInterface {
+	public class XS0__schema : XS_schemaType, IMetadata {
 	#else
-	public partial class XS__schema : XS_schemaType, MetadataInterface {
+	public partial class XS__schema : XS_schemaType, IMetadata {
 	#endif
 
 		public const string SCHEMA = "schema";

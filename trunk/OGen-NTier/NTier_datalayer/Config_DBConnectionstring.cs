@@ -63,7 +63,7 @@ namespace OGen.NTier.Libraries.DataLayer {
 		public override int GetHashCode() {
 			unchecked {
 				int _output = 17;
-				_output = _output * 23 + this.connectionstring_.GetHashCode();
+				_output = (_output * 23) + this.connectionstring_.GetHashCode();
 				return _output;
 			}
 		}
@@ -75,7 +75,7 @@ namespace OGen.NTier.Libraries.DataLayer {
 			if (!(obj is Config_DBConnectionstring))
 				return false;
 
-			return Equals((Config_DBConnectionstring)obj);
+			return this.Equals((Config_DBConnectionstring)obj);
 		}
 
 		public static bool operator ==(Config_DBConnectionstring aux1, Config_DBConnectionstring aux2) {

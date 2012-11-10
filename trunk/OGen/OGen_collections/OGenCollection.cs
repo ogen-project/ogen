@@ -20,7 +20,7 @@ namespace OGen.Libraries.Collections {
 	using System.Collections.Generic;
 
 	public class OGenCollection<TCollectionItem, TKey> : OGenSimpleCollection<TCollectionItem>
-		where TCollectionItem : class, OGenCollectionInterface<TCollectionItem, TKey>
+		where TCollectionItem : class, IOGenCollection<TCollectionItem, TKey>
 		where TKey : struct
 	{
 		#region public C this[...] { get; }

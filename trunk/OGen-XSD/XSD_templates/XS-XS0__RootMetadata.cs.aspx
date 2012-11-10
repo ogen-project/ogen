@@ -55,9 +55,9 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 	}%>
 
 	#if NET_1_1
-	public class <%=XS0__%>RootMetadata : MetadataInterface {
+	public class <%=XS0__%>RootMetadata : IMetadata {
 	#else
-	public partial class <%=XS__%>RootMetadata : MetadataInterface {
+	public partial class <%=XS__%>RootMetadata : IMetadata {
 	#endif
 		#region public <%=XS__%>RootMetadata(...);
 		#if NET_1_1

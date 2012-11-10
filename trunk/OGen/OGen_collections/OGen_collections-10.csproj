@@ -124,7 +124,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SHashtableItem.cs" />
-    <Compile Include="OGenRootrefCollectionInterface.cs" />
+    <Compile Include="IOGenRootrefCollection.cs" />
     <Compile Include="OGenRootrefCollection.cs" />
     <Compile Include="OGenRootrefSimpleCollection.cs" />
     <Compile Include="OGenSimpleCollection.cs" />
@@ -135,7 +135,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="OGenCollection.cs" />
-    <Compile Include="OGenCollectionInterface.cs" />
+    <Compile Include="IOGenCollection.cs" />
     <None Include="COPYING.MIT" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />

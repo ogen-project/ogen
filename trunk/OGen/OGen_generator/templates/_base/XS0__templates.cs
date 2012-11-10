@@ -22,9 +22,9 @@ namespace OGen.Libraries.Templates {
 	using OGen.Libraries.Generator;
 
 	#if NET_1_1
-	public class XS0__templates : XS_templatesType, MetadataInterface {
+	public class XS0__templates : XS_templatesType, IMetadata {
 	#else
-	public partial class XS__templates : XS_templatesType, MetadataInterface {
+	public partial class XS__templates : XS_templatesType, IMetadata {
 	#endif
 
 		public const string TEMPLATES = "templates";

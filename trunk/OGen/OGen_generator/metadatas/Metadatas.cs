@@ -23,7 +23,7 @@ namespace OGen.Libraries.Metadata {
 	using OGen.Libraries.Generator;
 
 	[System.Xml.Serialization.XmlRootAttribute("metadatas")]
-	public class Metadatas : MetadataInterface {
+	public class Metadatas : IMetadata {
 		//public Metadatas() {
 		//}
 

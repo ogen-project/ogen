@@ -12,21 +12,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Diagnostics;
-
-//using Npgsql;
-//using Npgsql.Design;
-//using NpgsqlTypes;
-
-using OGen.Libraries.DataLayer;
-using OGen.NTier.Libraries.Metadata;
-using OGen.NTier.Libraries.Metadata.MetadataDB;
-using OGen.NTier.Libraries.Metadata.MetadataExtended;
 
 namespace OGen.NTier.presentationlayer.test {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Text;
+
+	//using Npgsql;
+	//using Npgsql.Design;
+	//using NpgsqlTypes;
+
+	using OGen.Libraries.DataLayer;
+	using OGen.NTier.Libraries.Metadata;
+	using OGen.NTier.Libraries.Metadata.MetadataDB;
+	using OGen.NTier.Libraries.Metadata.MetadataExtended;
 
 	public static class Program {
 		#region //test1...
@@ -60,7 +60,6 @@ namespace OGen.NTier.presentationlayer.test {
 		[STAThread]
 		public static void Main(string[] args) {
 
-			var i = 0;
 			Console.WriteLine(
 				System.Reflection.Assembly.GetExecutingAssembly().ImageRuntimeVersion
 			);

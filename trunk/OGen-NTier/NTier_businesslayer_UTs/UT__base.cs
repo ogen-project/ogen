@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using NUnit.Framework;
-
-using OGen.NTier.Libraries.BusinessLayer;
 
 namespace OGen.NTier.Libraries.BusinessLayer.UnitTests {
+	using System;
+	using NUnit.Framework;
+
+	using OGen.NTier.Libraries.BusinessLayer;
+
 	[TestFixture]
 	public class UT__base { public UT__base() {}
 		#region public void TestFixtureSetUp();

@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.IO;
-using System.Collections;
-using NUnit.Framework;
-
-using OGen.Libraries.PresentationLayer.WinForms;
 
 namespace OGen.Libraries.PresentationLayer.WinForms.UnitTests {
+	using System;
+	using System.Collections;
+	using System.IO;
+	using NUnit.Framework;
+
+	using OGen.Libraries.PresentationLayer.WinForms;
+
 	[TestFixture]
 	public class UT_Flowforms { public UT_Flowforms() {}
 		#region public void TestFixtureSetUp();

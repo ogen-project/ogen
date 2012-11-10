@@ -18,7 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 namespace OGen.Libraries.Collections {
 	using System;
 
-	public interface OGenRootrefCollectionInterface<TRootRef> {
+	public interface IOGenRootrefCollection<TRootRef> {
 		object parent_ref {
 			get;
 			set;
