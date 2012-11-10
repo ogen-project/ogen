@@ -19,9 +19,9 @@ namespace OGen.Doc.Libraries.Metadata {
 	using System.Collections;
 	using System.Xml.Serialization;
 
+	using OGen.Doc.Libraries.Metadata.Documentation;
 	using OGen.Libraries.Generator;
 	using OGen.Libraries.Metadata;
-	using OGen.Doc.Libraries.Metadata.Documentation;
 
 	#if NET_1_1
 	public class XS0__RootMetadata : IMetadata {

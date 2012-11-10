@@ -30,6 +30,17 @@ string XS0_ = _aux_rootmetadata.MetadataCollection[0].PrefixGenerated;
 string XS_ = _aux_rootmetadata.MetadataCollection[0].Prefix;
 string XS0__ = _aux_rootmetadata.MetadataCollection[0].PrefixBaseGenerated;
 string XS__ = _aux_rootmetadata.MetadataCollection[0].PrefixBase;
+
+int _aux_alpha = 0;
+if (_aux_rootmetadata.SchemaCollection.Count != 0) {
+	_aux_alpha = string.Compare(
+		"OGen.Libraries.",
+		_aux_rootmetadata.MetadataCollection[0].FullNamespaceForSchema(_aux_rootmetadata.SchemaCollection[0].Element.Name),
+		false,
+		System.Globalization.CultureInfo.CurrentCulture
+	);
+}
+
 #endregion
 //-----------------------------------------------------------------------------------------
 if ((_aux_rootmetadata.MetadataCollection[0].CopyrightText != string.Empty) && (_aux_rootmetadata.MetadataCollection[0].CopyrightTextLong != string.Empty)) {
@@ -47,11 +58,17 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 	using System;
 	using System.Collections;
 	using System.Xml.Serialization;
-
+<%
+	if (_aux_alpha <= 0) {%>
 	using OGen.Libraries.Generator;
 	using OGen.Libraries.Metadata;<%
+	}
 	for (int s = 0; s < _aux_rootmetadata.SchemaCollection.Count; s++) {%>
 	using <%=_aux_rootmetadata.MetadataCollection[0].FullNamespaceForSchema(_aux_rootmetadata.SchemaCollection[s].Element.Name)%>;<%
+	}
+	if (_aux_alpha > 0) {%>
+	using OGen.Libraries.Generator;
+	using OGen.Libraries.Metadata;<%
 	}%>
 
 	#if NET_1_1

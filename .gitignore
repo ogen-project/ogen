@@ -474,3 +474,12 @@
 /trunk/OGen/OGen_datalayer_UTs/Settings.StyleCop
 /trunk/OGen/OGen_datalayer_UTs/StyleCop.Cache
 /trunk/distro/distro-auxscripts/OGen-everything-10.suo
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_businesslayer_UTs/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_datalayer_UTs/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_business_client/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_businesslayer/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_businesslayer_proxy/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_webservices_client/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_datalayer/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_datalayer_proxy/Settings.StyleCop
+/trunk/OGen-NTier_UTs/OGen-NTier_UTs_remoting_client/Settings.StyleCop
