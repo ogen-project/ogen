@@ -53,8 +53,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -286,15 +286,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			cTweak_Project_s000.eMode mode_in
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				notifyBase_in, 
 				notifyBase_aboutNext_in
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 
 			this.btnPath.Click += new System.EventHandler(this.btnPath_Click);
 			this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -303,7 +303,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
 			#endregion
 
-			Mode = mode_in;
+			this.Mode = mode_in;
 		}
 
 		#region enums...
@@ -319,22 +319,22 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region private eMode Mode { get; set; }
 		private cTweak_Project_s000.eMode mode__;
 		private cTweak_Project_s000.eMode Mode {
-			get { return mode__; }
+			get { return this.mode__; }
 			set {
-				mode__ = value;
-				switch (mode__) {
+				this.mode__ = value;
+				switch (this.mode__) {
 					case cTweak_Project_s000.eMode.New: {
-						Text = "Project - Configuration - New";
-						btnNext.Text = "&New!";
-						txtPath.ReadOnly = false;
-						btnPath.Enabled = true;
+						this.Text = "Project - Configuration - New";
+						this.btnNext.Text = "&New!";
+						this.txtPath.ReadOnly = false;
+						this.btnPath.Enabled = true;
 						break;
 					}
 					case cTweak_Project_s000.eMode.Update: {
-						Text = "Project - Configuration - Updating";
-						btnNext.Text = "&Update!";
-						txtPath.ReadOnly = true;
-						btnPath.Enabled = false;
+						this.Text = "Project - Configuration - Updating";
+						this.btnNext.Text = "&Update!";
+						this.txtPath.ReadOnly = true;
+						this.btnPath.Enabled = false;
 						break;
 					}
 				}
@@ -345,20 +345,20 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//#region public Properties...
 		#region public string ApplicationPath { get; set; }
 		public string ApplicationPath {
-			get { return txtPath.Text; }
-			set { txtPath.Text = value; }
+			get { return this.txtPath.Text; }
+			set { this.txtPath.Text = value; }
 		}
 		#endregion
 		#region public string ApplicationName { get; set; }
 		public string ApplicationName {
-			get { return txtApplicationName.Text; }
-			set { txtApplicationName.Text = value; }
+			get { return this.txtApplicationName.Text; }
+			set { this.txtApplicationName.Text = value; }
 		}
 		#endregion
 		#region public string Namespace { get; set; }
 		public string Namespace {
-			get { return txtNamespace.Text; }
-			set { txtNamespace.Text = value; }
+			get { return this.txtNamespace.Text; }
+			set { this.txtNamespace.Text = value; }
 		}
 		#endregion
 		//#endregion
@@ -378,15 +378,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			int _dbindex;
 
 			_dbservertypes = new ArrayList();
-			for (int i = 0; i < lvwConnections.Items.Count; i++) {
+			for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
 				if ( // if Default
-					lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text
-					!=
-					string.Empty
+					!string.IsNullOrEmpty(this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text)
 				) {
 					_dbservertype = (DBServerTypes)Enum.Parse(
 						typeof(DBServerTypes),
-						lvwConnections.Items[i].SubItems[
+						this.lvwConnections.Items[i].SubItems[
 							(int)eConnectionColumns.DBServerType
 						].Text
 					);
@@ -397,15 +395,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					break; // default was found
 				}
 			}
-			for (int i = 0; i < lvwConnections.Items.Count; i++) {
+			for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
 				if ( // if !Default
-					lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text
-					==
-					string.Empty
+					string.IsNullOrEmpty(this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text)
 				) {
 					_dbservertype = (DBServerTypes)Enum.Parse(
 						typeof(DBServerTypes),
-						lvwConnections.Items[i].SubItems[
+						this.lvwConnections.Items[i].SubItems[
 							(int)eConnectionColumns.DBServerType
 						].Text
 					);
@@ -427,16 +423,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			}
 
 
-			for (int i = 0; i < lvwConnections.Items.Count; i++) {
+			for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
 				_dbservertype 
 					= (DBServerTypes)Enum.Parse(
 						typeof(DBServerTypes),
-						lvwConnections.Items[i].SubItems[
+						this.lvwConnections.Items[i].SubItems[
 							(int)eConnectionColumns.DBServerType
 						].Text
 					);
 				_dbindex = _dbservertypes.IndexOf(_dbservertype);
-				DBConnections_out[_dbindex].DBServerType = lvwConnections.Items[i].SubItems[
+				DBConnections_out[_dbindex].DBServerType = this.lvwConnections.Items[i].SubItems[
 					(int)eConnectionColumns.DBServerType
 				].Text;
 
@@ -444,7 +440,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 //DBConnections_out[_dbindex].DBConnections.DBConnectionCollection[_justadded].generateSQL = true;
 DBConnections_out[_dbindex].GenerateSQL = true;
 
-				DBConnections_out[_dbindex].ConnectionString = lvwConnections.Items[i].SubItems[
+				DBConnections_out[_dbindex].ConnectionString = this.lvwConnections.Items[i].SubItems[
 					(int)eConnectionColumns.DBConnectionstring
 				].Text;
 			}
@@ -454,16 +450,16 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 		#endregion
 		#region public void Bind_DBConnections(...);
 		public void Bind_DBConnections() {
-			lvwConnections.Items.Clear();
+			this.lvwConnections.Items.Clear();
 		}
 		public void Bind_DBConnections(
 			OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] dbMetadata_DB_in
 			//, OGen.Libraries.DataLayer.DBServerTypes default_DBServerType_in,
 			//string default_Mode_in
 		) {
-			lvwConnections.Items.Clear();
+			this.lvwConnections.Items.Clear();
 			for (int _db = 0; _db < dbMetadata_DB_in.Length; _db++) {
-				lvwConnections.Items.Add(
+				this.lvwConnections.Items.Add(
 					new ListViewItem(
 						new string[] {
 							//(
@@ -494,9 +490,14 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 			switch (connection.ShowDialog()) {
 				case DialogResult.OK: {
 					bool _thecombinationexists = false;
-					for (int i = 0; i < lvwConnections.Items.Count; i++) {
+					for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
 						if (
-							(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text == connection.DBServerType.ToString())
+							string.Compare(
+								this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text,
+								connection.DBServerType.ToString(),
+								false,
+								System.Globalization.CultureInfo.CurrentCulture
+							) == 0
 						) {
 							if (
 								System.Windows.Forms.MessageBox.Show(
@@ -506,19 +507,19 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 									System.Windows.Forms.MessageBoxIcon.Warning
 								) != System.Windows.Forms.DialogResult.Cancel
 							) {
-								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text = string.Empty;
-								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-								lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
+								this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text = string.Empty;
+								this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
+								this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 							}
 							_thecombinationexists = true;
 							break; // no need to keep searching, combination has been found...
 						}
 					}
 					if (!_thecombinationexists) {
-						lvwConnections.Items.Add(
+						this.lvwConnections.Items.Add(
 							new ListViewItem(
 								new string[] {
-									(lvwConnections.Items.Count == 0) ? "*" : string.Empty, 
+									(this.lvwConnections.Items.Count == 0) ? "*" : string.Empty, 
 									connection.DBServerType.ToString(), 
 									connection.DBConnectionstring
 								}
@@ -535,22 +536,22 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 		#endregion
 		#region private void btnEdit_Click(object sender, System.EventArgs e);
 		private void btnEdit_Click(object sender, System.EventArgs e) {
-			if (lvwConnections.SelectedItems.Count == 1) {
+			if (this.lvwConnections.SelectedItems.Count == 1) {
 				frmConnectionstring connection = new frmConnectionstring();
 				connection.DBServerType = (DBServerTypes)Enum.Parse(
 					typeof(DBServerTypes),
-					lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text
+					this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text
 				);
-				connection.DBConnectionstring = lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text;
+				connection.DBConnectionstring = this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text;
 				switch (connection.ShowDialog()) {
 					case DialogResult.OK: {
 						bool _samecombinationalreadyexists = false;
-						for (int i = 0; i < lvwConnections.Items.Count; i++) {
+						for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
 							if (
-								(lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text == connection.DBServerType.ToString())
+								(this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.DBServerType].Text == connection.DBServerType.ToString())
 
 								&&
-								(i != lvwConnections.SelectedItems[0].Index)
+								(i != this.lvwConnections.SelectedItems[0].Index)
 							) {
 								if (
 									System.Windows.Forms.MessageBox.Show(
@@ -561,14 +562,14 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 									) != System.Windows.Forms.DialogResult.Cancel
 								) {
 									// leave it as it is:
-									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.Default].Text 
-										= lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text ;
+									this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.Default].Text
+										= this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text;
 
 									// update other properties:
-									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-									lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
+									this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
+									this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 
-									lvwConnections.Items.RemoveAt(i);
+									this.lvwConnections.Items.RemoveAt(i);
 								}
 								_samecombinationalreadyexists = true;
 								break; // no need to keep searching, combination has been found...
@@ -576,11 +577,11 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 						}
 						if (!_samecombinationalreadyexists) {
 							// leave it as it is:
-							//lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.Default].Text = string.Empty;
+							//this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.Default].Text = string.Empty;
 
 							// update other properties:
-							lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
-							lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
+							this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBServerType].Text = connection.DBServerType.ToString();
+							this.lvwConnections.SelectedItems[0].SubItems[(int)eConnectionColumns.DBConnectionstring].Text = connection.DBConnectionstring;
 						}
 						break;
 					}
@@ -593,10 +594,10 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 		#endregion
 		#region private void btnDefault_Click(object sender, System.EventArgs e);
 		private void btnDefault_Click(object sender, System.EventArgs e) {
-			if (lvwConnections.SelectedItems.Count == 1) {
-				for (int i = 0; i < lvwConnections.Items.Count; i++) {
-					lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text 
-						= (lvwConnections.SelectedItems[0].Index == i) 
+			if (this.lvwConnections.SelectedItems.Count == 1) {
+				for (int i = 0; i < this.lvwConnections.Items.Count; i++) {
+					this.lvwConnections.Items[i].SubItems[(int)eConnectionColumns.Default].Text
+						= (this.lvwConnections.SelectedItems[0].Index == i) 
 						? "*" 
 						: string.Empty;
 				}
@@ -605,9 +606,9 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 		#endregion
 		#region private void btnRemove_Click(object sender, System.EventArgs e);
 		private void btnRemove_Click(object sender, System.EventArgs e) {
-			if (lvwConnections.SelectedItems.Count == 1) {
-				lvwConnections.Items.RemoveAt(
-					lvwConnections.SelectedItems[0].Index
+			if (this.lvwConnections.SelectedItems.Count == 1) {
+				this.lvwConnections.Items.RemoveAt(
+					this.lvwConnections.SelectedItems[0].Index
 				);
 			}
 		}
@@ -618,7 +619,7 @@ DBConnections_out[_dbindex].GenerateSQL = true;
 			folderbrowser.ShowNewFolderButton = true;
 			switch (folderbrowser.ShowDialog()) {
 				case DialogResult.OK: {
-					ApplicationPath = folderbrowser.SelectedPath;
+					this.ApplicationPath = folderbrowser.SelectedPath;
 					break;
 				}
 			}

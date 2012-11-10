@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class frmManage_Searches_Create_step030 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -42,8 +43,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -206,7 +207,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public frmManage_Searches_Create_step030(frmManage_Searches_Create_step020 Parent_ref_) {
 			#region Required for Windows Form Designer support
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -227,14 +228,14 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//#region public Methods...
 		#region public new void Show();
 		public new void Show() {
-			txtTableName.Text = Parent_ref.Parent_ref.TableName;
-			lbxFields.Items.Clear();
-			for (int f = 0; f < Parent_ref.FieldsName.GetLength(0); f++) {
-				lbxFields.Items.Add(
+			this.txtTableName.Text = this.Parent_ref.Parent_ref.TableName;
+			this.lbxFields.Items.Clear();
+			for (int f = 0; f < this.Parent_ref.FieldsName.GetLength(0); f++) {
+				this.lbxFields.Items.Add(
 					//new ListViewItem(
 					//	new string[] {
-							Parent_ref.FieldsName[f, 0]
-					//		, Parent_ref.FieldsName[f, 1]
+							this.Parent_ref.FieldsName[f, 0]
+					//		, this.Parent_ref.FieldsName[f, 1]
 					//	}
 					//)
 				);
@@ -257,8 +258,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			string[] _param_tablefield;
 			int _index;
 
-			int t = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(txtTableName.Text);
-			if (frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Search(txtSearchName.Text) != -1) {
+			int t = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(this.txtTableName.Text);
+			if (frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection.Search(this.txtSearchName.Text) != -1) {
 				MessageBox.Show("Search already exists, choose a diferent name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			} else {
 				int s;
@@ -266,15 +267,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					out s, 
 					true, 
 					new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableSearchType(
-						txtSearchName.Text
+						this.txtSearchName.Text
 					)
 				);
 
-				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsRange = cbxIsRange.Checked;
-				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex = cbxIsExplicitUniqueIndex.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsRange = this.cbxIsRange.Checked;
+				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[t].TableSearches.TableSearchCollection[s].IsExplicitUniqueIndex = this.cbxIsExplicitUniqueIndex.Checked;
 
-				for (int f = 0; f < Parent_ref.FieldsName.GetLength(0); f++) {
-					_param_tablefield = Parent_ref.FieldsName[f, 1].ToString().Split(new char[] { '\\' });
+				for (int f = 0; f < this.Parent_ref.FieldsName.GetLength(0); f++) {
+					_param_tablefield = this.Parent_ref.FieldsName[f, 1].ToString().Split(new char[] { '\\' });
 					
 					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 						t
@@ -283,7 +284,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					].TableSearchParameters.TableFieldRefCollection.Add(
 						out _index, 
 						new OGen.NTier.Libraries.Metadata.MetadataExtended.XS_tableFieldRefType(
-							Parent_ref.FieldsName[f, 0]
+							this.Parent_ref.FieldsName[f, 0]
 						)
 					);
 

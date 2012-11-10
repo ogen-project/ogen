@@ -37,8 +37,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -120,15 +120,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
@@ -139,16 +139,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public bool Undefined_orAll { get; }
 		public bool Undefined_orAll {
 			get {
-				return rbtUndefined.Checked;
+				return this.rbtUndefined.Checked;
 			}
 		}
 		#endregion
 		#region public bool hasVirtualTable_withUndefinedKeys { set; }
 		public bool hasVirtualTable_withUndefinedKeys {
 			set {
-				rbtUndefined.Enabled = value;
-				rbtUndefined.Checked = value;
-				rbtAll.Checked = !value;
+				this.rbtUndefined.Enabled = value;
+				this.rbtUndefined.Checked = value;
+				this.rbtAll.Checked = !value;
 			}
 		}
 		#endregion

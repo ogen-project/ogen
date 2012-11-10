@@ -12,10 +12,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
-	public enum eInsUpdDel {
+	using System;
+
+	public enum eInsUpdDel : int {
 		Insert = 0,
 		Update = 1,
 		Delete = 2

@@ -53,7 +53,7 @@ if (_aux_ex_metadata.CopyrightTextLong != string.Empty) {%>
 <%=_aux_ex_metadata.CopyrightTextLong%>
 
 --><%
-} else if (_aux_ex_metadata.CopyrightText != string.Empty) {%>
+} else if (!string.IsNullOrEmpty(_aux_ex_metadata.CopyrightText)) {%>
 <!--
 
 <%=_aux_ex_metadata.CopyrightText%>

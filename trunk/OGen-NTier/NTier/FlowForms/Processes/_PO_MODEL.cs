@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+
 	public class PO_MODEL : IDisposable {
 		#region public PO_MODEL(...);
 		public PO_MODEL(frm_Main MainForm_) {
-			MainForm = MainForm_;
+			this.MainForm = MainForm_;
 		}
 		~PO_MODEL() {
 			this.Dispose(false);

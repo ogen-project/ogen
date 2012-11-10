@@ -35,33 +35,33 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			notifyBase_in, 
 			1
 		) {
-			Base_ref = base_ref_in;
-			mode_ = mode_in;
+			this.Base_ref = base_ref_in;
+			this.mode_ = mode_in;
 
-			MyForm = new frmTweak_Project_s000(
+			this.MyForm = new frmTweak_Project_s000(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				), 
 				mode_in
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
 
-//			MyProcess = new PO_Tweak_Project(Base_ref);
+//			this.MyProcess = new PO_Tweak_Project(Base_ref);
 		}
 
 		protected override void Dispose(bool disposing_in) {
-//			MyProcess.Dispose();
+//			this.MyProcess.Dispose();
 
 			base.Dispose(disposing_in);
 		}
 		#endregion
 
 		#region enums...
-		public enum eMode {
+		public enum eMode : int {
 			New = 0, 
 			Update = 1
 		}
@@ -72,9 +72,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 				case FlowformFormEvents.Next:
 					#region Checking...
 					if (
-						(mode_ == eMode.New) 
-						&& 
-						(MyForm.ApplicationPath.Trim() == string.Empty)
+						(this.mode_ == eMode.New) 
+						&&
+						(string.IsNullOrEmpty(this.MyForm.ApplicationPath))
 					) {
 						System.Windows.Forms.MessageBox.Show(
 							"must provide a valid Application Path",
@@ -85,12 +85,12 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						return;
 					}
 					if (
-						(mode_ == eMode.New) 
+						(this.mode_ == eMode.New) 
 						&& 
 						(
-							(System.IO.Directory.GetDirectories(MyForm.ApplicationPath).Length != 0)
+							(System.IO.Directory.GetDirectories(this.MyForm.ApplicationPath).Length != 0)
 							||
-							(System.IO.Directory.GetFiles(MyForm.ApplicationPath).Length != 0)
+							(System.IO.Directory.GetFiles(this.MyForm.ApplicationPath).Length != 0)
 						)
 					) {
 						switch(System.Windows.Forms.MessageBox.Show(
@@ -107,7 +107,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							}
 						}
 					}
-					if (MyForm.ApplicationName.Trim() == string.Empty) {
+					if (string.IsNullOrEmpty(this.MyForm.ApplicationName)) {
 						System.Windows.Forms.MessageBox.Show(
 							"must provide a valid Application Name",
 							"Warning",
@@ -116,7 +116,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						);
 						return;
 					}
-					if (MyForm.Namespace.Trim() == string.Empty) {
+					if (string.IsNullOrEmpty(this.MyForm.Namespace)) {
 						System.Windows.Forms.MessageBox.Show(
 							"must provide a valid Application Namespace",
 							"Warning",
@@ -127,7 +127,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					}
 					#endregion
 					OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[]
-						_dbs = MyForm.UnBind_DBConnections();
+						_dbs = this.MyForm.UnBind_DBConnections();
 					#region More Checking...
 					if (_dbs.Length == 0) {
 						System.Windows.Forms.MessageBox.Show(
@@ -139,7 +139,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						return;
 					}
 					#endregion
-					if (mode_ == eMode.Update) {
+					if (this.mode_ == eMode.Update) {
 						#region Updating...
 						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection.Clear();
 						int _justadded = -1;
@@ -165,23 +165,23 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						}
 
 						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationName
-							= MyForm.ApplicationName;
+							= this.MyForm.ApplicationName;
 						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace
-							= MyForm.Namespace;
+							= this.MyForm.Namespace;
 						#endregion
 						frm_Main.NTierProject.hasChanges = true;
 					} else {
 						#region Creating...
-						MyForm.Hide();
+						this.MyForm.Hide();
 
 						frmProcessOutput _output = new frmProcessOutput("Output");
-						_output.MdiParent = Base_ref;
+						_output.MdiParent = this.Base_ref;
 						_output.Show();
 
 						frm_Main.ntierproject.New(
-							MyForm.ApplicationPath, 
-							MyForm.ApplicationName, 
-							MyForm.Namespace, 
+							this.MyForm.ApplicationPath,
+							this.MyForm.ApplicationName,
+							this.MyForm.Namespace, 
 							_dbs,
 							new OGen.NTier.Libraries.Generator.NTierGenerator.dNotifyBack(
 								_output.DisplayMessage
@@ -191,10 +191,10 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						_output.DisplayMessage();
 						#endregion
 					}
-					Base_ref.Form_Refresh();
+					this.Base_ref.Form_Refresh();
 
-					MyForm.Hide();
-					NotifyBase(FlowformEvents.Closed, this);
+					this.MyForm.Hide();
+					this.NotifyBase(FlowformEvents.Closed, this);
 					break;
 			}
 		}
@@ -204,7 +204,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 //		private PO_Tweak_Project MyProcess;
 		private frmTweak_Project_s000 MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		private eMode mode_;
 		#endregion
@@ -215,13 +215,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		//#region public Methods...
 		public override void Show() {
-			if (mode_ == eMode.Update) {
+			if (this.mode_ == eMode.Update) {
 				#region MyForm. ... = frm_Main.ntierproject. ...;
-				MyForm.ApplicationName 
+				this.MyForm.ApplicationName 
 					= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationName;
-				MyForm.Namespace 
+				this.MyForm.Namespace 
 					= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace;
-				MyForm.ApplicationPath 
+				this.MyForm.ApplicationPath 
 					= System.IO.Path.GetDirectoryName(
 						frm_Main.ntierproject.Filename
 					);
@@ -236,16 +236,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection[d];
 				}
 				#endregion
-				MyForm.Bind_DBConnections(
+				this.MyForm.Bind_DBConnections(
 					_dbmetadata_dbs
 					//, frm_Main.ntierproject.Metadata.Default_DBServerType, 
 					//frm_Main.ntierproject.Metadata.Default_ConfigMode
 				);
 			} else {
-				MyForm.ApplicationName = string.Empty;
-				MyForm.Namespace  = string.Empty;
-				MyForm.ApplicationPath  = string.Empty;
-				MyForm.Bind_DBConnections();
+				this.MyForm.ApplicationName = string.Empty;
+				this.MyForm.Namespace = string.Empty;
+				this.MyForm.ApplicationPath = string.Empty;
+				this.MyForm.Bind_DBConnections();
 			}
 
 			base.Show();

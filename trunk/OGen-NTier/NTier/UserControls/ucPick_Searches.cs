@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class ucPick_Searches : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 
@@ -34,8 +35,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -84,27 +85,27 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public ucPick_Searches() {
 			#region This call is required by the Windows.Forms Form Designer...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 		}
 
 		#region public void Bind_Searches(...);
 		public void Bind_Searches(int Table_, bool MultipleSelection_) {
-			lvwSearches.Items.Clear();
+			this.lvwSearches.Items.Clear();
 			for (int s = 0; s < frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[Table_].TableSearches.TableSearchCollection.Count; s++) {
-				lvwSearches.Items.Add(
+				this.lvwSearches.Items.Add(
 					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[Table_].TableSearches.TableSearchCollection[s].Name
 				);
 			}
-			lvwSearches.MultiSelect = MultipleSelection_;
+			this.lvwSearches.MultiSelect = MultipleSelection_;
 		}
 		#endregion
 		#region public string[] SelectedSearches();
 		public string[] SelectedSearches() {
-			string[] SelectedSearches_out = new string[lvwSearches.SelectedItems.Count];
+			string[] SelectedSearches_out = new string[this.lvwSearches.SelectedItems.Count];
 
-			for (int t = 0; t < lvwSearches.SelectedItems.Count; t++) {
-				SelectedSearches_out[t] = lvwSearches.SelectedItems[t].Text;
+			for (int t = 0; t < this.lvwSearches.SelectedItems.Count; t++) {
+				SelectedSearches_out[t] = this.lvwSearches.SelectedItems[t].Text;
 			}
 
 			return SelectedSearches_out;

@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+
 	public class PO_Manage_Views_PK : IDisposable {
 		#region public PO_Manage_Views_PK(...);
 		public PO_Manage_Views_PK(frm_Main MainForm_) {
-			MainForm = MainForm_;
+			this.MainForm = MainForm_;
 		}
 		~PO_Manage_Views_PK() {
 			this.Dispose(false);
@@ -36,27 +37,27 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public bool Undefined_orAll { get; set; }
 		private bool undefined_orall;
 		public bool Undefined_orAll {
-			get { return undefined_orall; }
-			set { undefined_orall = value; }
+			get { return this.undefined_orall; }
+			set { this.undefined_orall = value; }
 		}
 		#endregion
 		#region public string ViewName { get; set; }
 		private string viewname;
 		public string ViewName {
-			get { return viewname; }
-			set { viewname = value; }
+			get { return this.viewname; }
+			set { this.viewname = value; }
 		}
 		#endregion
 		#region public string[] ViewPKs { get; set; }
 		private string[] viewpks;
 		public string[] ViewPKs {
-			get { return viewpks; }
-			set { viewpks = value; }
+			get { return this.viewpks; }
+			set { this.viewpks = value; }
 		}
 		#endregion
 
 		public void Manage_Views_PK() {
-			int t = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Search(ViewName);
+			int t = frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Search(this.ViewName);
 
 			// Clean Keys:
 			for (int f = 0; f < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Count; f++) {
@@ -65,16 +66,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			}
 
 			// Reset Keys:
-			for (int k = 0; k < ViewPKs.Length; k++) {
+			for (int k = 0; k < this.ViewPKs.Length; k++) {
 				frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[
 					frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection.Search(
-						ViewPKs[k]
+						this.ViewPKs[k]
 					)
 				].IsPK = true;
 			}
 
 			frm_Main.NTierProject.hasChanges = true;
-			MainForm.Form_Refresh();
+			this.MainForm.Form_Refresh();
 		}
 	}
 }

@@ -27,25 +27,25 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmMODEL(
+			this.MyForm = new frmMODEL(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
+			this.MyForm.MdiParent = this.Base_ref;
 			//MyForm.MaximizeBox = false;
 			//MyForm_ref = MyForm;
 
-			MyProcess = MyProcess_;
+			this.MyProcess = MyProcess_;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
+			this.MyForm.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -59,15 +59,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 					#region ((cMODEL_s020)MyFlowforms[0]).Show();
-					if (MyFlowforms[0] == null) {
+					if (this.MyFlowforms[0] == null) {
 						//MyFlowforms[0] = new cMODEL_s020(
 						//	Base_ref, 
 						//	new Flowform.dNotifyBase(MyFlowforms_notifiedMe), 
 						//	MyProcess
 						//);
 					}
-					MyForm.Hide();
-					MyFlowforms[0].Show();
+					this.MyForm.Hide();
+					this.MyFlowforms[0].Show();
 					#endregion
 					// IF LAST FORM:
 					//NotifyBase(FlowformEvents.Closed, this);
@@ -83,7 +83,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_MODEL MyProcess;
 		private frmMODEL MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...

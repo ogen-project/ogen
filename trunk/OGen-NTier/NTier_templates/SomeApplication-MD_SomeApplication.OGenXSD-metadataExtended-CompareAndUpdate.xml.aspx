@@ -40,7 +40,7 @@ XS_tableUpdateType _aux_ex_update;
 XS_tableFieldRefType _aux_ex_field_ref;
 #endregion
 //-----------------------------------------------------------------------------------------
-if ((_aux_ex_metadata.CopyrightText != string.Empty) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
+if ((!string.IsNullOrEmpty(_aux_ex_metadata.CopyrightText)) && (_aux_ex_metadata.CopyrightTextLong != string.Empty)) {
 %><!--
 
 <%=_aux_ex_metadata.CopyrightTextLong%>

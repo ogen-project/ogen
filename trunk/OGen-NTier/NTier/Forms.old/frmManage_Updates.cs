@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class frmManage_Updates : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -36,8 +37,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -128,7 +129,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public frmManage_Updates(frm_Main Parent_ref_) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.btnNext.Click += new System.EventHandler(this.btnNext_Click);

@@ -32,26 +32,26 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmManage_ConfigTables(
+			this.MyForm = new frmManage_ConfigTables(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 
-			//MyProcess = MyProcess_;
-			MyProcess = new PO_ConfigTables(Base_ref);
+			//this.MyProcess = MyProcess_;
+			this.MyProcess = new PO_ConfigTables(this.Base_ref);
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyProcess.Dispose();
+			this.MyProcess.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -64,17 +64,17 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 
-					MyProcess.Choice = MyForm.Choice;
+					this.MyProcess.Choice = this.MyForm.Choice;
 					#region ((cManage_ConfigTables_CreateOrChange_s010)MyFlowforms[0]).Show();
-					if (MyFlowforms[0] == null) {
-						MyFlowforms[0] = new cManage_ConfigTables_CreateOrChange_s010(
-							Base_ref, 
-							new Flowform.dNotifyBase(MyFlowforms_notifiedMe), 
-							MyProcess
+					if (this.MyFlowforms[0] == null) {
+						this.MyFlowforms[0] = new cManage_ConfigTables_CreateOrChange_s010(
+							this.Base_ref,
+							new Flowform.dNotifyBase(this.MyFlowforms_notifiedMe),
+							this.MyProcess
 						);
 					}
-					MyForm.Hide();
-					MyFlowforms[0].Show();
+					this.MyForm.Hide();
+					this.MyFlowforms[0].Show();
 					#endregion
 
 
@@ -88,7 +88,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_ConfigTables MyProcess;
 		private frmManage_ConfigTables MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...
@@ -98,7 +98,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		//#region public Methods...
 		public override void Show() {
-			MyForm.hasConfigTable
+			this.MyForm.hasConfigTable
 				= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.hasConfigTable;
 
 			base.Show();

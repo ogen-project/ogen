@@ -37,8 +37,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -118,16 +118,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnBack.Click += new System.EventHandler(flowformform_.btnBack_Click);
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnBack.Click += new System.EventHandler(this.flowformform_.btnBack_Click);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
@@ -138,7 +138,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public string TableName { get; }
 		public string TableName {
 			get {
-				string[] _SelectedTables = Pick_Tables.SelectedTables();
+				string[] _SelectedTables = this.Pick_Tables.SelectedTables();
 				if (_SelectedTables.Length != 0) {
 					return _SelectedTables[0];
 				}

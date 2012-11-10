@@ -39,8 +39,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -146,15 +146,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
@@ -164,19 +164,19 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//#region public Properties...
 		public OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration SQLscriptOptions {
 			get {
-				if (rbtOneScriptFile.Checked)
+				if (this.rbtOneScriptFile.Checked)
 					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.OneScriptFile;
-				if (rbtSeparateScriptFiles.Checked)
+				if (this.rbtSeparateScriptFiles.Checked)
 					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.SeparateScriptFiles;
 
 				// make it default:
-				//if (rbtRunImmediately.Checked)
+				//if (this.rbtRunImmediately.Checked)
 					return OGen.NTier.Libraries.Metadata.MetadataExtended.XS_SQLScriptOptionEnumeration.RunImmediately;
 			}
 		}
 		public bool pReflection {
-			get { return chkPReflection.Checked; }
-			set { chkPReflection.Checked = value; }
+			get { return this.chkPReflection.Checked; }
+			set { this.chkPReflection.Checked = value; }
 		}
 		//#endregion
 

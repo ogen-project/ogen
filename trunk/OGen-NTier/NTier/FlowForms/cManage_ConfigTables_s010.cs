@@ -27,25 +27,25 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmManage_ConfigTables_CreateOrChange_s010(
+			this.MyForm = new frmManage_ConfigTables_CreateOrChange_s010(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 
-			MyProcess = MyProcess_;
+			this.MyProcess = MyProcess_;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
+			this.MyForm.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -57,7 +57,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 
-					if (MyForm.TableName == "") {
+					if (string.IsNullOrEmpty(this.MyForm.TableName)) {
 						System.Windows.Forms.MessageBox.Show(
 							"must choose one table",
 							"Warning",
@@ -65,24 +65,24 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							System.Windows.Forms.MessageBoxIcon.Warning
 						);
 					} else {
-						MyProcess.TableName = MyForm.TableName;
-						switch (MyProcess.Choice) {
+						this.MyProcess.TableName = this.MyForm.TableName;
+						switch (this.MyProcess.Choice) {
 							case eInsUpdDel.Delete:
-								MyProcess.ConfigTables();
-								NotifyBase(FlowformEvents.Closed, this);
+								this.MyProcess.ConfigTables();
+								this.NotifyBase(FlowformEvents.Closed, this);
 								break;
 							case eInsUpdDel.Insert:
 							case eInsUpdDel.Update:
 								#region ((cManage_ConfigTables_CreateOrChange_s020)MyFlowforms[0]).Show();
-								if (MyFlowforms[0] == null) {
-									MyFlowforms[0] = new cManage_ConfigTables_CreateOrChange_s020(
-										Base_ref, 
-										new Flowform.dNotifyBase(MyFlowforms_notifiedMe), 
-										MyProcess
+								if (this.MyFlowforms[0] == null) {
+									this.MyFlowforms[0] = new cManage_ConfigTables_CreateOrChange_s020(
+										Base_ref,
+										new Flowform.dNotifyBase(this.MyFlowforms_notifiedMe),
+										this.MyProcess
 									);
 								}
-								MyForm.Hide();
-								MyFlowforms[0].Show();
+								this.MyForm.Hide();
+								this.MyFlowforms[0].Show();
 								#endregion
 								break;
 						}
@@ -99,7 +99,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_ConfigTables MyProcess;
 		private frmManage_ConfigTables_CreateOrChange_s010 MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...
@@ -107,7 +107,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		//#region private Methods...
 		public override void Show() {
-			MyForm.Bind(MyProcess.Choice);
+			this.MyForm.Bind(this.MyProcess.Choice);
 
 			base.Show();
 		}

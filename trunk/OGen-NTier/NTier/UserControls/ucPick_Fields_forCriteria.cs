@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms._controls {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class ucPick_Fields_forCriteria : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 
@@ -44,8 +45,8 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -209,7 +210,7 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 
 		public ucPick_Fields_forCriteria() {
 			#region This call is required by the Windows.Forms Form Designer...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -225,10 +226,10 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 		#region public string[] FieldsName { get; }
 		public string[, ] FieldsName {
 			get {
-				string[, ] FieldsName_out = new string[lvwFields.Items.Count, 2];
-				for (int f = 0; f < lvwFields.Items.Count; f++) {
-					FieldsName_out[f, 0] = lvwFields.Items[f].SubItems[0].Text;
-					FieldsName_out[f, 1] = lvwFields.Items[f].SubItems[1].Text;
+				string[, ] FieldsName_out = new string[this.lvwFields.Items.Count, 2];
+				for (int f = 0; f < this.lvwFields.Items.Count; f++) {
+					FieldsName_out[f, 0] = this.lvwFields.Items[f].SubItems[0].Text;
+					FieldsName_out[f, 1] = this.lvwFields.Items[f].SubItems[1].Text;
 				}
 				return FieldsName_out;
 			}
@@ -257,7 +258,7 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 			string[] _SelectedFields = this.Pick_Fields.SelectedFields();
 			for (int f = 0; f < _SelectedFields.Length; f++) {
 				if (_SelectedFields[f].IndexOf("\\") >= 0) {
-					lvwFields.Items.Add(
+					this.lvwFields.Items.Add(
 						new ListViewItem(
 							new string[] {
 								_SelectedFields[f].Split(new char[] { '\\' })[1], 
@@ -266,7 +267,7 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 						)
 					);
 				} else {
-					lvwFields.Items.Add(
+					this.lvwFields.Items.Add(
 						new ListViewItem(
 							new string[] {
 								_SelectedFields[f], 
@@ -291,9 +292,9 @@ namespace OGen.NTier.PresentationLayer.WinForms._controls {
 		//#endregion
 		#region private void btnRemove_Click(...);
 		private void btnRemove_Click(object sender, System.EventArgs e) {
-			for (int f = 0; f < lvwFields.Items.Count; f++) {
-				if (lvwFields.Items[f].Selected) {
-					lvwFields.Items.RemoveAt(f);
+			for (int f = 0; f < this.lvwFields.Items.Count; f++) {
+				if (this.lvwFields.Items[f].Selected) {
+					this.lvwFields.Items.RemoveAt(f);
 				}
 			}
 		}

@@ -38,8 +38,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -132,15 +132,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
@@ -151,9 +151,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public eInsUpdDel Choice { get; }
 		public eInsUpdDel Choice {
 			get {
-				if (rbtCreate.Checked) return eInsUpdDel.Insert;
-				if (rbtDelete.Checked) return eInsUpdDel.Delete;
-				if (rbtChange.Checked) return eInsUpdDel.Update;
+				if (this.rbtCreate.Checked) return eInsUpdDel.Insert;
+				if (this.rbtDelete.Checked) return eInsUpdDel.Delete;
+				if (this.rbtChange.Checked) return eInsUpdDel.Update;
 
 				return eInsUpdDel.Insert;
 			}
@@ -161,8 +161,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		public bool hasConfigTable {
 			set {
-				rbtChange.Enabled = value;
-				rbtDelete.Enabled = value;
+				this.rbtChange.Enabled = value;
+				this.rbtDelete.Enabled = value;
 			}
 		}
 		//#endregion

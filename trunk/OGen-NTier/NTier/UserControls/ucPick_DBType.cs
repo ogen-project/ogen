@@ -12,16 +12,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
-
-using OGen.Libraries.DataLayer;
 
 namespace OGen.NTier.PresentationLayer.WinForms.UserControls {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Windows.Forms;
+
+	using OGen.Libraries.DataLayer;
+
 	public class ucPick_DBType : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 
@@ -35,8 +36,8 @@ namespace OGen.NTier.PresentationLayer.WinForms.UserControls {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -74,36 +75,36 @@ namespace OGen.NTier.PresentationLayer.WinForms.UserControls {
 
 		public ucPick_DBType() {
 			#region This call is required by the Windows.Forms Form Designer...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 
 			string[] DBTypes = Enum.GetNames(typeof(DBServerTypes));
-			cbxDBTypes.Items.Clear();
+			this.cbxDBTypes.Items.Clear();
 			for (int d = 0; d < 
 				// skipping invalid, hence -1
 				DBTypes.Length - 1; 
 			d++) {
-				cbxDBTypes.Items.Add(DBTypes[d]);
+				this.cbxDBTypes.Items.Add(DBTypes[d]);
 			}
 		}
 
 		public DBServerTypes DBServerType {
 			get {
 				return (
-					(cbxDBTypes.SelectedItem == null)
+					(this.cbxDBTypes.SelectedItem == null)
 					||
-					(cbxDBTypes.SelectedItem.GetType() != typeof(string))
+					(this.cbxDBTypes.SelectedItem.GetType() != typeof(string))
 					||
-					string.IsNullOrEmpty((string)cbxDBTypes.SelectedItem)
+					string.IsNullOrEmpty((string)this.cbxDBTypes.SelectedItem)
 				)
 					? DBServerTypes.invalid 
 					: (DBServerTypes)Enum.Parse(
 						typeof(DBServerTypes),
-						(string)cbxDBTypes.SelectedItem
+						(string)this.cbxDBTypes.SelectedItem
 					);
 			}
 			set {
-				cbxDBTypes.SelectedItem = value.ToString();
+				this.cbxDBTypes.SelectedItem = value.ToString();
 			}
 		}
 	}

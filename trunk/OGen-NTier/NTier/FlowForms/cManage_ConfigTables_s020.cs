@@ -27,25 +27,25 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmManage_ConfigTables_CreateOrChange_s020(
+			this.MyForm = new frmManage_ConfigTables_CreateOrChange_s020(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 
-			MyProcess = MyProcess_;
+			this.MyProcess = MyProcess_;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
+			this.MyForm.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -58,9 +58,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 					if (
-						(MyForm.ConfigField == "") || 
-						(MyForm.NameField == "") || 
-						(MyForm.DatatypeField == "")
+						string.IsNullOrEmpty(this.MyForm.ConfigField) ||
+						string.IsNullOrEmpty(this.MyForm.NameField) ||
+						string.IsNullOrEmpty(this.MyForm.DatatypeField)
 					) {
 						System.Windows.Forms.MessageBox.Show(
 							"must choose fields",
@@ -69,7 +69,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							System.Windows.Forms.MessageBoxIcon.Warning
 						);
 					} else {
-						if (MyForm.ConfigField == MyForm.NameField) {
+						if (this.MyForm.ConfigField == MyForm.NameField) {
 							System.Windows.Forms.MessageBox.Show(
 								"Name Field must be diferente from Config Field",
 								"Warning",
@@ -77,12 +77,12 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 								System.Windows.Forms.MessageBoxIcon.Warning
 							);
 						} else {
-							MyProcess.ConfigField = MyForm.ConfigField;
-							MyProcess.NameField = MyForm.NameField;
-							MyProcess.DatatypeField = MyForm.DatatypeField;
+							this.MyProcess.ConfigField = this.MyForm.ConfigField;
+							this.MyProcess.NameField = this.MyForm.NameField;
+							this.MyProcess.DatatypeField = this.MyForm.DatatypeField;
 
-							MyProcess.ConfigTables();
-							NotifyBase(FlowformEvents.Closed, this);
+							this.MyProcess.ConfigTables();
+							this.NotifyBase(FlowformEvents.Closed, this);
 						}
 					}
 
@@ -97,7 +97,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_ConfigTables MyProcess;
 		private frmManage_ConfigTables_CreateOrChange_s020 MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...
@@ -105,9 +105,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		//#region private Methods...
 		public override void Show() {
-			MyForm.Bind(
-				MyProcess.TableName, 
-				MyProcess.Choice
+			this.MyForm.Bind(
+				this.MyProcess.TableName,
+				this.MyProcess.Choice
 			);
 			base.Show();
 		}

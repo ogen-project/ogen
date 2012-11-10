@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class frm_about : System.Windows.Forms.Form {
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btnOK;
@@ -95,7 +96,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public frm_about() {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 
 			this.FormBorderStyle = FormBorderStyle.FixedDialog;

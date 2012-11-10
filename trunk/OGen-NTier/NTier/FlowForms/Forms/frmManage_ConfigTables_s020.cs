@@ -41,8 +41,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -168,16 +168,16 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			FlowformForm.dNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
-			flowformform_ = new FlowformForm(
+			this.flowformform_ = new FlowformForm(
 				NotifyBase_, 
 				NotifyBase_aboutNext_
 			);
 			#region Event safeguard...
-			this.btnBack.Click += new System.EventHandler(flowformform_.btnBack_Click);
-			this.btnNext.Click += new System.EventHandler(flowformform_.btnNext_Click);
-			this.Closed += new System.EventHandler(flowformform_.FlowformForm_Closed);
+			this.btnBack.Click += new System.EventHandler(this.flowformform_.btnBack_Click);
+			this.btnNext.Click += new System.EventHandler(this.flowformform_.btnNext_Click);
+			this.Closed += new System.EventHandler(this.flowformform_.FlowformForm_Closed);
 			#endregion
 		}
 
@@ -186,13 +186,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		//#region public Properties...
 		public string ConfigField {
-			get { return cbxConfig.Items[cbxConfig.SelectedIndex].ToString(); }
+			get { return this.cbxConfig.Items[this.cbxConfig.SelectedIndex].ToString(); }
 		}
 		public string DatatypeField {
-			get { return cbxDatatype.Items[cbxDatatype.SelectedIndex].ToString(); }
+			get { return this.cbxDatatype.Items[this.cbxDatatype.SelectedIndex].ToString(); }
 		}
 		public string NameField {
-			get { return cbxName.Items[cbxName.SelectedIndex].ToString(); }
+			get { return this.cbxName.Items[this.cbxName.SelectedIndex].ToString(); }
 		}
 		//#endregion
 
@@ -203,14 +203,14 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private string tablename = "";
 		private eInsUpdDel choice;
 		public void Bind(string TableName_, eInsUpdDel Choice_) {
-			if (TableName_ == tablename) return;
+			if (TableName_ == this.tablename) return;
 
-			tablename = TableName_;
-			choice = Choice_;
+			this.tablename = TableName_;
+			this.choice = Choice_;
 
-			cbxName.Items.Clear();
-			cbxConfig.Items.Clear();
-			cbxDatatype.Items.Clear();
+			this.cbxName.Items.Clear();
+			this.cbxConfig.Items.Clear();
+			this.cbxDatatype.Items.Clear();
 			//for (int f = frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection.Count - 1; f >= 0; f--) {
 			for (int f = 0; f < frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection.Count; f++) {
 				if (
@@ -225,11 +225,11 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 	].TableFields.TableFieldCollection[f].Name
 ].canBeConfig_Type
 				) {
-					cbxDatatype.Items.Add(
+					this.cbxDatatype.Items.Add(
 						frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name
 					);
-					cbxDatatype.SelectedIndex
-						= cbxDatatype.Items.Count - 1;
+					this.cbxDatatype.SelectedIndex
+						= this.cbxDatatype.Items.Count - 1;
 				} else if (
 //frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 //	TableName_
@@ -244,7 +244,7 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 	].Name
 ].canBeConfig_Name
 				) {
-					cbxName.Items.Add(
+					this.cbxName.Items.Add(
 						frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name
 					);
 					if (
@@ -268,8 +268,8 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 							(frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name.ToLower().IndexOf("name") >= 0)
 						)
 					)
-						cbxName.SelectedIndex
-							= cbxName.Items.Count - 1;
+						this.cbxName.SelectedIndex
+							= this.cbxName.Items.Count - 1;
 				} else if (
 //frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[
 //	TableName_
@@ -286,7 +286,7 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 	].Name
 ].canBeConfig_Config
 				) {
-					cbxConfig.Items.Add(
+					this.cbxConfig.Items.Add(
 						frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name
 					);
 					if (
@@ -310,16 +310,16 @@ frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 							(frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName_].TableFields.TableFieldCollection[f].Name.ToLower().IndexOf("config") >= 0)
 						)
 					)
-						cbxConfig.SelectedIndex
-							= cbxConfig.Items.Count - 1;
+						this.cbxConfig.SelectedIndex
+							= this.cbxConfig.Items.Count - 1;
 				}
 			}
 			switch (Choice_) {
 				case eInsUpdDel.Insert:
-					btnNext.Text = "Create!";
+					this.btnNext.Text = "Create!";
 					break;
 				case eInsUpdDel.Update:
-					btnNext.Text = "Change!";
+					this.btnNext.Text = "Change!";
 					break;
 			}
 		}

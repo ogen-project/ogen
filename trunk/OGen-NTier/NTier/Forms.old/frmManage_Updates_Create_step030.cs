@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class frmManage_Updates_Create_step030 : System.Windows.Forms.Form {
 		#region Required designer variable...
 		/// <summary>
@@ -34,8 +35,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -98,7 +99,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public frmManage_Updates_Create_step030(frmManage_Updates_Create_step020 Parent_ref_) {
 			#region Required for Windows Form Designer support...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -143,7 +144,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		public void Bind_Fields() {
 			this.Pick_Fields_forCriteria.Bind_Fields(
 				frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection.Search(
-					Parent_ref.Parent_ref.TableName
+					this.Parent_ref.Parent_ref.TableName
 				)
 			);
 		}

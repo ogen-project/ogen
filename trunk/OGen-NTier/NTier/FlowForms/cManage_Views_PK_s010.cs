@@ -27,25 +27,25 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmManage_Views_PK_s010(
+			this.MyForm = new frmManage_Views_PK_s010(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 
-			MyProcess = MyProcess_;
+			this.MyProcess = MyProcess_;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
+			this.MyForm.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -58,7 +58,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 
-					if (MyForm.ViewName == "") {
+					if (string.IsNullOrEmpty(this.MyForm.ViewName)) {
 						System.Windows.Forms.MessageBox.Show(
 							"must choose a view",
 							"Warning",
@@ -66,17 +66,17 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							System.Windows.Forms.MessageBoxIcon.Warning
 						);
 					} else {
-						MyProcess.ViewName = MyForm.ViewName;
+						this.MyProcess.ViewName = this.MyForm.ViewName;
 						#region ((cManage_Views_PK_s020)MyFlowforms[0]).Show();
-						if (MyFlowforms[0] == null) {
-							MyFlowforms[0] = new cManage_Views_PK_s020(
-								Base_ref, 
-								new Flowform.dNotifyBase(MyFlowforms_notifiedMe), 
-								MyProcess
+						if (this.MyFlowforms[0] == null) {
+							this.MyFlowforms[0] = new cManage_Views_PK_s020(
+								this.Base_ref,
+								new Flowform.dNotifyBase(this.MyFlowforms_notifiedMe),
+								this.MyProcess
 							);
 						}
-						MyForm.Hide();
-						MyFlowforms[0].Show();
+						this.MyForm.Hide();
+						this.MyFlowforms[0].Show();
 						#endregion
 					}
 
@@ -91,7 +91,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_Manage_Views_PK MyProcess;
 		private frmManage_Views_PK_s010 MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...
@@ -101,8 +101,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		//#region public Methods...
 		public override void Show() {
-			MyForm.Bind(
-				MyProcess.Undefined_orAll ? 
+			this.MyForm.Bind(
+				this.MyProcess.Undefined_orAll ? 
 				ucPick_Tables.eTypeSelection.OnlyViews_withNoKeys : 
 				ucPick_Tables.eTypeSelection.OnlyViews
 			);

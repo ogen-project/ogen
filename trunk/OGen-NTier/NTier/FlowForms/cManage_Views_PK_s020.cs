@@ -27,25 +27,25 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			1
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmManage_Views_PK_s020(
+			this.MyForm = new frmManage_Views_PK_s020(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 
-			MyProcess = MyProcess_;
+			this.MyProcess = MyProcess_;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
+			this.MyForm.Dispose();
 
 			base.Dispose(disposing_in);
 		}
@@ -58,9 +58,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 
 
-					MyProcess.ViewPKs = MyForm.ViewPKs;
-					MyProcess.Manage_Views_PK();
-					NotifyBase(FlowformEvents.Closed, this);
+					this.MyProcess.ViewPKs = this.MyForm.ViewPKs;
+					this.MyProcess.Manage_Views_PK();
+					this.NotifyBase(FlowformEvents.Closed, this);
 
 
 
@@ -73,7 +73,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private PO_Manage_Views_PK MyProcess;
 		private frmManage_Views_PK_s020 MyForm;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		#endregion
 		#region public Properties...
@@ -83,9 +83,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		//#region public Methods...
 		public override void Show() {
-			MyForm.Bind(
+			this.MyForm.Bind(
 				frm_Main.ntierproject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Search(
-					MyProcess.ViewName
+					this.MyProcess.ViewName
 				)
 			);
 			base.Show();

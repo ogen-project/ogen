@@ -32,26 +32,26 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			NotifyBase_, 
 			0
 		) {
-			Base_ref = Base_ref_;
+			this.Base_ref = Base_ref_;
 
-			MyForm = new frmGenerator_Generate_s000(
+			this.MyForm = new frmGenerator_Generate_s000(
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe
+					this.MyForm_notifiedMe
 				),
 				new FlowformForm.dNotifyBase(
-					MyForm_notifiedMe_aboutNext
+					this.MyForm_notifiedMe_aboutNext
 				)
 			);
-			MyForm.MdiParent = Base_ref;
-			//MyForm.MaximizeBox = false;
-			//MyForm_ref = MyForm;
+			this.MyForm.MdiParent = this.Base_ref;
+			//this.MyForm.MaximizeBox = false;
+			//this.MyForm_ref = MyForm;
 		}
 
 		protected override void Dispose(bool disposing_in) {
-			MyForm.Dispose();
-			if (Manage_Views_PK_s010 != null) {
-				Manage_Views_PK_s010.Dispose();
-				Manage_Views_PK_s010 = null;
+			this.MyForm.Dispose();
+			if (this.Manage_Views_PK_s010 != null) {
+				this.Manage_Views_PK_s010.Dispose();
+				this.Manage_Views_PK_s010 = null;
 			}
 
 			base.Dispose(disposing_in);
@@ -61,19 +61,19 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private void MyForm_notifiedMe_aboutNext(FlowformFormEvents SomeEvent_) {
 			switch (SomeEvent_) {
 				case FlowformFormEvents.Next:
-					MyForm.Hide();
+					this.MyForm.Hide();
 					//---
 					frmProcessOutput output = new frmProcessOutput("Output");
-					output.MdiParent = Base_ref;
+					output.MdiParent = this.Base_ref;
 					output.Show();
 					//---
-					MyForm.Refresh(); MyForm.Hide();
+					this.MyForm.Refresh(); this.MyForm.Hide();
 					output.Refresh();
-					Base_ref.Refresh();
+					this.Base_ref.Refresh();
 					//---
 					//output.DisplayMessage("generating...", true);
-					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = MyForm.SQLscriptOptions;
-//					frm_Main.NTierProject.Metadata.PseudoReflectionable = MyForm.pReflection;
+					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = this.MyForm.SQLscriptOptions;
+//					frm_Main.NTierProject.Metadata.PseudoReflectionable = this.MyForm.pReflection;
 					frm_Main.NTierProject.Build(
 						new OGen.Libraries.Generator.OGenGenerator.dBuild(
 							output.DisplayMessage
@@ -82,7 +82,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					//output.DisplayMessage("... finished!", true);
 					output.DisplayMessage();
 					//---
-					NotifyBase(FlowformEvents.Closed, this);
+					this.NotifyBase(FlowformEvents.Closed, this);
 					break;
 			}
 		}
@@ -92,7 +92,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private frmGenerator_Generate_s000 MyForm;
 		private cManage_Views_PK_s010 Manage_Views_PK_s010;
 		protected override System.Windows.Forms.Form myform_ {
-			get { return MyForm; }
+			get { return this.MyForm; }
 		}
 		//#endregion
 		#region public Properties...
@@ -100,8 +100,9 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		//#region private Methods...
 		public void LetMeKnowWhen_NoMoreUndefinedViews(FlowformEvents SomeEvent_, Flowform Flowform_) {
-			Manage_Views_PK_s010.Hide();
-			Manage_Views_PK_s010.Dispose(); Manage_Views_PK_s010 = null;
+			this.Manage_Views_PK_s010.Hide();
+			this.Manage_Views_PK_s010.Dispose();
+			this.Manage_Views_PK_s010 = null;
 
 			this.Show();
 		}
@@ -117,28 +118,28 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					System.Windows.Forms.MessageBoxIcon.Warning
 				)) {
 					case System.Windows.Forms.DialogResult.OK:
-						PO_Manage_Views_PK manage_views_pk = new PO_Manage_Views_PK(Base_ref);
+						PO_Manage_Views_PK manage_views_pk = new PO_Manage_Views_PK(this.Base_ref);
 						manage_views_pk.Undefined_orAll = true;
 
-						Manage_Views_PK_s010 = new cManage_Views_PK_s010(
-							Base_ref, 
-							new Flowform.dNotifyBase(LetMeKnowWhen_NoMoreUndefinedViews), 
+						this.Manage_Views_PK_s010 = new cManage_Views_PK_s010(
+							this.Base_ref,
+							new Flowform.dNotifyBase(this.LetMeKnowWhen_NoMoreUndefinedViews), 
 							manage_views_pk
 						);
-						Manage_Views_PK_s010.Show();
+						this.Manage_Views_PK_s010.Show();
 
 						break;
 					case System.Windows.Forms.DialogResult.Cancel:
-						NotifyBase(FlowformEvents.Closed, this);
+						this.NotifyBase(FlowformEvents.Closed, this);
 						break;
 				}
 			} else {
 				base.Show();
-				switch (Base_ref.ProjectSave(true, true, false)) {
+				switch (this.Base_ref.ProjectSave(true, true, false)) {
 					case System.Windows.Forms.DialogResult.OK:
 						break;
 					case System.Windows.Forms.DialogResult.Cancel:
-						NotifyBase(FlowformEvents.Closed, this);
+						this.NotifyBase(FlowformEvents.Closed, this);
 						break;
 				}
 			}

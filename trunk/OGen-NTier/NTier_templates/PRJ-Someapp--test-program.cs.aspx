@@ -34,8 +34,8 @@ XS__metadataBusiness _aux_business_metadata = _aux_root_metadata.MetadataBusines
 OGen.NTier.Libraries.Metadata.MetadataBusiness.XS_classType _aux_class;
 #endregion
 //-----------------------------------------------------------------------------------------
-if (_aux_ex_metadata.CopyrightText != string.Empty) {
-	if (_aux_ex_metadata.CopyrightTextLong == string.Empty) {
+if (!string.IsNullOrEmpty(_aux_ex_metadata.CopyrightText)) {
+	if (string.IsNullOrEmpty(_aux_ex_metadata.CopyrightTextLong)) {
 %>#region <%=_aux_ex_metadata.CopyrightText%>
 #endregion
 <%

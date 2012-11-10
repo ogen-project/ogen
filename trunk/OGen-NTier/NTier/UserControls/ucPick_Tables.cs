@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class ucPick_Tables : System.Windows.Forms.UserControl {
 		#region Required designer variable
 		/// <summary> 
@@ -34,8 +35,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -84,7 +85,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public ucPick_Tables() {
 			#region This call is required by the Windows.Forms Form Designer...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 		}
 
@@ -101,7 +102,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public void Bind_Tables(...);
 		public void Bind_Tables(eTypeSelection TypeSelection_, bool MultipleSelection_) {
 			bool _canAdd;
-			lvwTables.Items.Clear();
+			this.lvwTables.Items.Clear();
 			for (int t = 0; t < frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection.Count; t++) {
 				_canAdd = false;
 
@@ -144,7 +145,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						break;
 				}
 				if (_canAdd) {
-					lvwTables.Items.Add(
+					this.lvwTables.Items.Add(
 						//new ListViewItem(
 							frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[
 								t
@@ -153,15 +154,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					);
 				}
 			}
-			lvwTables.MultiSelect = MultipleSelection_;
+			this.lvwTables.MultiSelect = MultipleSelection_;
 		}
 		#endregion
 		#region public string[] SelectedTables();
 		public string[] SelectedTables() {
-			string[] SelectedTables_out = new string[lvwTables.SelectedItems.Count];
+			string[] SelectedTables_out = new string[this.lvwTables.SelectedItems.Count];
 
-			for (int t = 0; t < lvwTables.SelectedItems.Count; t++) {
-				SelectedTables_out[t] = lvwTables.SelectedItems[t].Text;
+			for (int t = 0; t < this.lvwTables.SelectedItems.Count; t++) {
+				SelectedTables_out[t] = this.lvwTables.SelectedItems[t].Text;
 			}
 
 			return SelectedTables_out;

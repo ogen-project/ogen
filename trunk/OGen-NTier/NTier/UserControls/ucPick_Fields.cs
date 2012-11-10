@@ -12,14 +12,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Windows.Forms;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Data;
+	using System.Drawing;
+	using System.Windows.Forms;
+
 	public class ucPick_Fields : System.Windows.Forms.UserControl {
 		#region Required designer variable...
 		/// <summary> 
@@ -34,8 +35,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -84,7 +85,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public ucPick_Fields() {
 			#region This call is required by the Windows.Forms Form Designer...
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 		}
 
@@ -105,7 +106,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			eType SelectionType_
 		) {
 			bool _canAdd;
-			lvwFields.Items.Clear();
+			this.lvwFields.Items.Clear();
 			
 			for ( // tweaked for-cycle!
 				int t = (SpecificTable_ >= 0) ? SpecificTable_ : 0; 
@@ -133,7 +134,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							break;
 					}
 					if (_canAdd) {
-						lvwFields.Items.Add(
+						this.lvwFields.Items.Add(
 							//new ListViewItem(
 								string.Format(
 									System.Globalization.CultureInfo.CurrentCulture,
@@ -146,22 +147,22 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 						switch (SelectionType_) {
 							case eType.OnlyIdentityKey:
-								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
+								this.lvwFields.Items[this.lvwFields.Items.Count - 1].Selected = 
 									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsIdentity;
 								break;
 							case eType.OnlyPrimaryKeys:
-								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
+								this.lvwFields.Items[this.lvwFields.Items.Count - 1].Selected = 
 									frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 								break;
 							case eType.NoKeys:
-								lvwFields.Items[lvwFields.Items.Count - 1].Selected = 
+								this.lvwFields.Items[this.lvwFields.Items.Count - 1].Selected = 
 									!frm_Main.NTierProject.Metadata.MetadataDBCollection[0].Tables.TableCollection[t].TableFields.TableFieldCollection[f].IsPK;
 								break;
 							case eType.All:
-								lvwFields.Items[lvwFields.Items.Count - 1].Selected = true;
+								this.lvwFields.Items[this.lvwFields.Items.Count - 1].Selected = true;
 								break;
 							case eType.None:
-								lvwFields.Items[lvwFields.Items.Count - 1].Selected = false;
+								this.lvwFields.Items[this.lvwFields.Items.Count - 1].Selected = false;
 								break;
 						}
 					}
@@ -170,15 +171,15 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 				// tweaked for-cycle!
 				if (SpecificTable_ >= 0) break;
 			}
-			lvwFields.MultiSelect = MultipleSelection_;
+			this.lvwFields.MultiSelect = MultipleSelection_;
 		}
 		#endregion
 		#region public string[] SelectedFields(...);
 		public string[] SelectedFields() {
-			string[] SelectedFields_out = new string[lvwFields.SelectedItems.Count];
+			string[] SelectedFields_out = new string[this.lvwFields.SelectedItems.Count];
 
-			for (int t = 0; t < lvwFields.SelectedItems.Count; t++) {
-				SelectedFields_out[t] = lvwFields.SelectedItems[t].Text;
+			for (int t = 0; t < this.lvwFields.SelectedItems.Count; t++) {
+				SelectedFields_out[t] = this.lvwFields.SelectedItems[t].Text;
 			}
 
 			return SelectedFields_out;
@@ -186,11 +187,11 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		#region //public void SelectThisFields(...);
 		public void SelectThisFields(params int[] ThisFields_) {
-			for (int f = 0; f < lvwFields.Items.Count; f++) {
-				lvwFields.Items[f].Selected = false;
+			for (int f = 0; f < this.lvwFields.Items.Count; f++) {
+				this.lvwFields.Items[f].Selected = false;
 				for (int s = 0; s < ThisFields_.Length; s++) {
 					if (ThisFields_[s] == f) {
-						lvwFields.Items[f].Selected = true;
+						this.lvwFields.Items[f].Selected = true;
 						break;
 					}
 				}

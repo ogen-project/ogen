@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+
 	public class PO_ConfigTables : IDisposable {
 		#region public PO_ConfigTables(...);
 		public PO_ConfigTables(frm_Main MainForm_) {
-			MainForm = MainForm_;
+			this.MainForm = MainForm_;
 		}
 		~PO_ConfigTables() {
 			this.Dispose(false);
@@ -43,62 +44,62 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public string TableName { get; set; }
 		private string tablename;
 		public string TableName {
-			get { return tablename; }
-			set { tablename = value; }
+			get { return this.tablename; }
+			set { this.tablename = value; }
 		}
 		#endregion
 		#region public string ConfigField { get; set; }
 		private string configfield;
 		public string ConfigField {
-			get { return configfield; }
-			set { configfield = value; }
+			get { return this.configfield; }
+			set { this.configfield = value; }
 		}
 		#endregion
 		#region public string NameField { get; set; }
 		private string namefield;
 		public string NameField {
-			get { return namefield; }
-			set { namefield = value; }
+			get { return this.namefield; }
+			set { this.namefield = value; }
 		}
 		#endregion
 		#region public string DatatypeField { get; set; }
 		private string datatypefield;
 		public string DatatypeField {
-			get { return datatypefield; }
-			set { datatypefield = value; }
+			get { return this.datatypefield; }
+			set { this.datatypefield = value; }
 		}
 		#endregion
 
 		public void ConfigTables() {
-			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigName = string.Empty;
-			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigConfig = string.Empty;
-			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigDatatype = string.Empty;
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigName = string.Empty;
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigConfig = string.Empty;
+			frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigDatatype = string.Empty;
 
-			switch (Choice) {
+			switch (this.Choice) {
 				case eInsUpdDel.Delete:
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].IsConfig = false;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].IsConfig = false;
 					break;
 				case eInsUpdDel.Update:
 				case eInsUpdDel.Insert:
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].IsConfig = true;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].IsConfig = true;
 
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigName = NameField;
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigConfig = ConfigField;
-					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].ConfigDatatype = DatatypeField;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigName = this.NameField;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigConfig = this.ConfigField;
+					frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].ConfigDatatype = this.DatatypeField;
 
-					//int s = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches.Add("byName", true);
-					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].IsExplicitUniqueIndex = true;
-					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].IsRange = false;
-					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[TableName].Searches[s].SearchParameters.Add(
-					//	TableName, 
-					//	NameField, 
+					//int s = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].Searches.Add("byName", true);
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].Searches[s].IsExplicitUniqueIndex = true;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].Searches[s].IsRange = false;
+					//frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].Tables.TableCollection[this.TableName].Searches[s].SearchParameters.Add(
+					//	this.TableName, 
+					//	this.NameField, 
 					//	true, 
-					//	NameField
+					//	this.NameField
 					//);
 					break;
 			}
 			frm_Main.NTierProject.hasChanges = true;
-			MainForm.Form_Refresh();
+			this.MainForm.Form_Refresh();
 		}
 	}
 }

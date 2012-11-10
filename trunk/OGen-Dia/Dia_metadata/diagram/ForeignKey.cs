@@ -45,9 +45,9 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 		public override int GetHashCode() {
 			unchecked {
 				int _output = 17;
-				_output = _output * 23 + this.TableFieldName.GetHashCode();
-				_output = _output * 23 + this.ForeignKey_TableName.GetHashCode();
-				_output = _output * 23 + this.ForeignKey_TableFieldName.GetHashCode();
+				_output = (_output * 23) + this.TableFieldName.GetHashCode();
+				_output = (_output * 23) + this.ForeignKey_TableName.GetHashCode();
+				_output = (_output * 23) + this.ForeignKey_TableFieldName.GetHashCode();
 				return _output;
 			}
 		}
@@ -61,7 +61,7 @@ namespace OGen.Dia.Libraries.Metadata.Diagram {
 			if (!(obj is ForeignKey))
 				return false;
 
-			return Equals((ForeignKey)obj);
+			return this.Equals((ForeignKey)obj);
 		}
 
 		public static bool operator ==(ForeignKey aux1, ForeignKey aux2) {

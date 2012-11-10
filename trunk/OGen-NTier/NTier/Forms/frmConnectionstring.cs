@@ -12,15 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-
-using OGen.Libraries.DataLayer;
 
 namespace OGen.NTier.PresentationLayer.WinForms {
+	using System;
+	using System.Collections;
+	using System.ComponentModel;
+	using System.Drawing;
+	using System.Windows.Forms;
+
+	using OGen.Libraries.DataLayer;
+
 	public class frmConnectionstring : System.Windows.Forms.Form {
 		#region Required designer variable.
 		/// <summary>
@@ -49,8 +50,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if(components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -271,7 +272,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		public frmConnectionstring() {
 			#region Required for Windows Form Designer support
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -286,32 +287,32 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.ShowInTaskbar = false;
-			this.AcceptButton = btnOK;
-			this.CancelButton = btnCancel;
+			this.AcceptButton = this.btnOK;
+			this.CancelButton = this.btnCancel;
 		}
 
 		//#region Properties...
 		#region public OGen.Libraries.DataLayer.DBServerTypes DBServerType { get; set; }
 		public OGen.Libraries.DataLayer.DBServerTypes DBServerType {
-			get { return Pick_DBType.DBServerType; }
-			set { Pick_DBType.DBServerType = value; }
+			get { return this.Pick_DBType.DBServerType; }
+			set { this.Pick_DBType.DBServerType = value; }
 		}
 		#endregion
 		#region public string DBConnectionstring { get; set; }
 		public string DBConnectionstring {
 			get {
-				return rbtConnectionstring.Checked 
-					? txtConnectionString.Text 
-					: DBUtilitiesSupport.GetInstance(DBServerType).ConnectionString.Build(
-						txtServer.Text, 
-						txtUserName.Text, 
-						txtPassword.Text, 
-						txtDatabase.Text
+				return this.rbtConnectionstring.Checked
+					? this.txtConnectionString.Text
+					: DBUtilitiesSupport.GetInstance(this.DBServerType).ConnectionString.Build(
+						this.txtServer.Text,
+						this.txtUserName.Text,
+						this.txtPassword.Text,
+						this.txtDatabase.Text
 					);
 			}
 			set {
-				bind_ConnectionstringFields(false);
-				txtConnectionString.Text = value;
+				this.bind_ConnectionstringFields(false);
+				this.txtConnectionString.Text = value;
 			}
 		}
 		#endregion
@@ -320,34 +321,34 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//#region Methods...
 		#region private void bind_ConnectionstringFields(bool useTweak_in);
 		private void bind_ConnectionstringFields(bool useTweak_in) {
-			txtConnectionString.Enabled = !useTweak_in;	lblConnectionstring.Enabled = !useTweak_in;
+			this.txtConnectionString.Enabled = !useTweak_in;	this.lblConnectionstring.Enabled = !useTweak_in;
 			//---
-			txtServer.Enabled = useTweak_in;			lblServer.Enabled = useTweak_in;
-			txtUserName.Enabled = useTweak_in;			lblUserName.Enabled = useTweak_in;
-			txtPassword.Enabled = useTweak_in;			lblPassword.Enabled = useTweak_in;
-			txtDatabase.Enabled = useTweak_in;			lblDatabase.Enabled = useTweak_in;
+			this.txtServer.Enabled = useTweak_in;			this.lblServer.Enabled = useTweak_in;
+			this.txtUserName.Enabled = useTweak_in;			this.lblUserName.Enabled = useTweak_in;
+			this.txtPassword.Enabled = useTweak_in;			this.lblPassword.Enabled = useTweak_in;
+			this.txtDatabase.Enabled = useTweak_in;			this.lblDatabase.Enabled = useTweak_in;
 
 			//if (useTweak_in) {
 			//    DBConnection _con = DBConnectionsupport.CreateInstance(
 			//        DBServerType,
-			//        txtConnectionString.Text
+			//        this.txtConnectionString.Text
 			//    );
 
 			//    txtServer.Text
 			//        = _con.Utilities.ConnectionString.ParseParameter(
-			//            txtConnectionString.Text,
+			//            this.txtConnectionString.Text,
 			//            DBUtilities_connectionString.ParameterName.Server
 			//        );
 			//    txtUserName.Text
 			//        = _con.Utilities.ConnectionString.ParseParameter(
-			//            txtConnectionString.Text,
+			//            this.txtConnectionString.Text,
 			//            DBUtilities_connectionString.ParameterName.User
 			//        );
 			//    txtPassword.Text
 			//        = "***************";
 			//    txtDatabase.Text
 			//        = _con.Utilities.ConnectionString.ParseParameter(
-			//            txtConnectionString.Text,
+			//            this.txtConnectionString.Text,
 			//            DBUtilities_connectionString.ParameterName.DBName
 			//        );
 
@@ -362,66 +363,66 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//#region Events...
 		#region private void rbtTweak_CheckedChanged(object sender, System.EventArgs e);
 		private void rbtTweak_CheckedChanged(object sender, System.EventArgs e) {
-			bind_ConnectionstringFields(true);
+			this.bind_ConnectionstringFields(true);
 		}
 		#endregion
 		#region private void rbtConnectionstring_CheckedChanged(object sender, System.EventArgs e);
 		private void rbtConnectionstring_CheckedChanged(object sender, System.EventArgs e) {
-			bind_ConnectionstringFields(false);
+			this.bind_ConnectionstringFields(false);
 		}
 		#endregion
 		#region private void btnOK_Click(object sender, System.EventArgs e);
 		private void btnOK_Click(object sender, System.EventArgs e) {
-			if (DBServerType == OGen.Libraries.DataLayer.DBServerTypes.invalid) {
+			if (this.DBServerType == OGen.Libraries.DataLayer.DBServerTypes.invalid) {
 				System.Windows.Forms.MessageBox.Show(
 					"a valid 'DB Type' must be provided",
 					"Warning",
 					System.Windows.Forms.MessageBoxButtons.OK,
 					System.Windows.Forms.MessageBoxIcon.Warning
 				);
-				Pick_DBType.Focus();
+				this.Pick_DBType.Focus();
 				return;
 			}
-			if (rbtConnectionstring.Checked) {
-				if (txtConnectionString.Text.Trim() == string.Empty) {
+			if (this.rbtConnectionstring.Checked) {
+				if (string.IsNullOrEmpty(this.txtConnectionString.Text)) {
 					System.Windows.Forms.MessageBox.Show(
 						"a valid 'Connectionstring' must be provided",
 						"Warning",
 						System.Windows.Forms.MessageBoxButtons.OK,
 						System.Windows.Forms.MessageBoxIcon.Warning
 					);
-					txtConnectionString.Focus();
+					this.txtConnectionString.Focus();
 					return;
 				}
 			} else {
-				if (txtServer.Text.Trim() == string.Empty) {
+				if (string.IsNullOrEmpty(this.txtServer.Text)) {
 					System.Windows.Forms.MessageBox.Show(
 						"a valid 'Server' must be provided",
 						"Warning",
 						System.Windows.Forms.MessageBoxButtons.OK,
 						System.Windows.Forms.MessageBoxIcon.Warning
 					);
-					txtServer.Focus();
+					this.txtServer.Focus();
 					return;
 				}
-				if (txtUserName.Text.Trim() == string.Empty) {
+				if (string.IsNullOrEmpty(this.txtUserName.Text)) {
 					System.Windows.Forms.MessageBox.Show(
 						"a valid 'User Name' must be provided",
 						"Warning",
 						System.Windows.Forms.MessageBoxButtons.OK,
 						System.Windows.Forms.MessageBoxIcon.Warning
 					);
-					txtUserName.Focus();
+					this.txtUserName.Focus();
 					return;
 				}
-				if (txtDatabase.Text.Trim() == string.Empty) {
+				if (string.IsNullOrEmpty(this.txtDatabase.Text)) {
 					System.Windows.Forms.MessageBox.Show(
 						"a valid 'Database' must be provided",
 						"Warning",
 						System.Windows.Forms.MessageBoxButtons.OK,
 						System.Windows.Forms.MessageBoxIcon.Warning
 					);
-					txtDatabase.Focus();
+					this.txtDatabase.Focus();
 					return;
 				}
 			}

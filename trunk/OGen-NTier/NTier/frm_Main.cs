@@ -70,8 +70,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		protected override void Dispose( bool disposing ) {
 			if( disposing ) {
-				if (components != null) {
-					components.Dispose();
+				if (this.components != null) {
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
@@ -381,13 +381,13 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 		#region [STAThread]
 		[STAThread]
-		static void Main() {
+		public static void Main() {
 			Application.Run(new frm_Main());
 		}
 		#endregion
 		public frm_Main() {
 			#region Required for Windows Form Designer support
-			InitializeComponent();
+			this.InitializeComponent();
 			#endregion
 			#region Event safeguard...
 			this.Closing += new System.ComponentModel.CancelEventHandler(this.frm_Main_Closing);
@@ -426,7 +426,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		public bool ProjectClose(bool Refresh_) {
 			bool ProjectClosed_out = false;
 
-			switch (ProjectSave(false, true, true)) {
+			switch (this.ProjectSave(false, true, true)) {
 				case DialogResult.Yes:
 				case DialogResult.No:
 					frm_Main.NTierProject.Close(true);
@@ -549,7 +549,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 		#region public void ProjectNew();
 		public void ProjectNew(bool Refresh_) {
-			if (ProjectClose(true)) {
+			if (this.ProjectClose(true)) {
 				new cTweak_Project_s000(
 					this, 
 					cTweak_Project_s000.eMode.New
