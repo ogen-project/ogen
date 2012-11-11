@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].hasProfile = (bool)dataTable_in.Rows[r][_dc_hasprofile];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

@@ -224,7 +224,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Email = (string)dataTable_in.Rows[r][_dc_email];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

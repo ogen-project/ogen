@@ -168,7 +168,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 				}<%
 				}%>
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -339,7 +339,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 			<%if (!_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {
 				%>bool ConstraintExist_out;
 			<%}
-			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
+			%>if (forceUpdate_in || <%=_aux_db_table.Name%>_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -374,7 +374,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 
 				ConstraintExist_out = (((int)_dataparameters[<%=_aux_db_table.TableFields.TableFieldCollection.Count%>].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					<%=_aux_db_table.Name%>_in.hasChanges = false;<%
+					<%=_aux_db_table.Name%>_in.HasChanges = false;<%
 
 
 
@@ -539,10 +539,10 @@ if (!_aux_db_table.IsVirtualTable) {%>
 			if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			constraintExist_out = (<%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%> == -1L);
 			if (!constraintExist_out) {
-				<%=_aux_db_table.Name%>_in.hasChanges = false;
+				<%=_aux_db_table.Name%>_in.HasChanges = false;
 			}<%
 			} else {%>
-			<%=_aux_db_table.Name%>_in.hasChanges = false;
+			<%=_aux_db_table.Name%>_in.HasChanges = false;
 			<%}%>
 
 			return <%=_aux_db_table.Name%>_in.<%=_aux_db_field.Name%>;
@@ -586,7 +586,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 			out bool constraintExist_out, " : ""%>
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.hasChanges) {
+			if (forceUpdate_in || <%=_aux_db_table.Name%>_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -618,10 +618,10 @@ if (!_aux_db_table.IsVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					<%=_aux_db_table.Name%>_in.hasChanges = false;
+					<%=_aux_db_table.Name%>_in.HasChanges = false;
 				}<%
 				} else {
-				%><%=_aux_db_table.Name%>_in.hasChanges = false;<%
+				%><%=_aux_db_table.Name%>_in.HasChanges = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
@@ -737,7 +737,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 				}<%
 				}%>
 
-				<%--_output.hasChanges = false;
+				<%--_output.HasChanges = false;
 				--%>return _output;
 			}
 
@@ -921,7 +921,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 			bool forceUpdate_in<%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? @", 
 			out bool constraintExist_out" : ""%>
 		) {
-			if (forceUpdate_in || fields_.hasChanges) {
+			if (forceUpdate_in || fields_.HasChanges) {
 				IDbDataParameter[] _dataparameters = new IDbDataParameter[] {<%
 					for (int f = 0; f < _aux_db_table.TableFields_onlyPK.TableFieldCollection.Count; f++) {
 						_aux_db_field = _aux_db_table.TableFields_onlyPK.TableFieldCollection[f];
@@ -945,10 +945,10 @@ if (!_aux_db_table.IsVirtualTable) {%>
 				<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 				constraintExist_out = <%=(_aux_ex_table.TableSearches.hasExplicitUniqueIndex) ? "(bool)_dataparameters[" + (_aux_db_table.TableFields.TableFieldCollection.Count) + "].Value" : "false"%>;
 				if (!constraintExist_out) {
-					fields_.hasChanges = false;
+					fields_.HasChanges = false;
 				}<%
 				} else {
-				%>fields_.hasChanges = false;<%
+				%>fields_.HasChanges = false;<%
 				}%>
 			<%if (_aux_ex_table.TableSearches.hasExplicitUniqueIndex) {%>
 			} else {
@@ -1001,7 +1001,7 @@ if (!_aux_db_table.IsVirtualTable) {%>
 				}<%
 				}%>
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

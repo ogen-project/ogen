@@ -66,16 +66,16 @@ namespace OGen.NTier.Libraries.Generator {
 			get { return this.parentdirectoryname__; }
 		}
 		#endregion
-		#region public bool hasChanges { get; }
+		#region public bool HasChanges { get; }
 		private bool haschanges_;
 
-		public bool hasChanges {
+		public bool HasChanges {
 			get { return this.haschanges_; }
 			set { this.haschanges_ = value; }
 		}
 		#endregion
-		#region public bool isOpened { get; }
-		public bool isOpened {
+		#region public bool IsOpened { get; }
+		public bool IsOpened {
 			get { return !string.IsNullOrEmpty(this.Filename); }
 		}
 		#endregion
@@ -187,7 +187,7 @@ throw new Exception("// ToDos: not implemented!");
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
-			if (this.hasChanges) {
+			if (this.HasChanges) {
 				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
@@ -357,7 +357,7 @@ throw new Exception("// ToDos: not implemented!");
 		#region public void Close(...);
 		public void Close(bool force_doNOTSave_in) {
 			if (
-				(this.hasChanges) && 
+				(this.HasChanges) && 
 				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
@@ -375,7 +375,7 @@ throw new Exception("// ToDos: not implemented!");
 		public void Save() {
 			throw new Exception("// ToDos: not implemented!");
 
-			//if (this.hasChanges) {
+			//if (this.HasChanges) {
 
 			//    metadata_.SaveState_toFile(
 			//        Filename

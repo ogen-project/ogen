@@ -315,7 +315,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Login = (string)dataTable_in.Rows[r][_dc_login];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

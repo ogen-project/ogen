@@ -94,7 +94,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.Name = (string)_dataparameters[1].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -233,7 +233,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			APP_Application_in.IDApplication = (int)_dataparameters[0].Value;APP_Application_in.hasChanges = false;
+			APP_Application_in.IDApplication = (int)_dataparameters[0].Value;APP_Application_in.HasChanges = false;
 			
 
 			return APP_Application_in.IDApplication;
@@ -265,7 +265,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || APP_Application_in.hasChanges) {
+			if (forceUpdate_in || APP_Application_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -283,7 +283,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				APP_Application_in.hasChanges = false;
+				APP_Application_in.HasChanges = false;
 			}
 		}
 		#endregion

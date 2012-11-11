@@ -148,7 +148,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IFBrowser__OPT = (long)_dataparameters[10].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -296,7 +296,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			LOG_Log_in.IDLog = (long)_dataparameters[0].Value;LOG_Log_in.hasChanges = false;
+			LOG_Log_in.IDLog = (long)_dataparameters[0].Value;LOG_Log_in.HasChanges = false;
 			
 
 			return LOG_Log_in.IDLog;
@@ -328,7 +328,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || LOG_Log_in.hasChanges) {
+			if (forceUpdate_in || LOG_Log_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -355,7 +355,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				LOG_Log_in.hasChanges = false;
+				LOG_Log_in.HasChanges = false;
 			}
 		}
 		#endregion
@@ -456,7 +456,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].IFBrowser__OPT = (long)dataTable_in.Rows[r][_dc_ifbrowser__opt];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

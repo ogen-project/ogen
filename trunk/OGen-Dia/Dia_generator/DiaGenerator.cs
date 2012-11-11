@@ -29,21 +29,21 @@ namespace OGen.Dia.Libraries.Generator {
 		#endregion
 
 		//#region public Properties...
-		#region public string Filename { get; }
+		#region public string FileName { get; }
 		private string filename_;
-		public string Filename {
+		public string FileName {
 			get { return this.filename_; }
 		}
 		#endregion
-		#region public bool hasChanges { get; }
+		#region public bool HasChanges { get; }
 		private bool haschanges_;
-		public bool hasChanges {
+		public bool HasChanges {
 			get { return this.haschanges_; }
 			set { this.haschanges_ = value; }
 		}
 		#endregion
-		#region public bool isOpened { get; }
-		public bool isOpened {
+		#region public bool IsOpened { get; }
+		public bool IsOpened {
 			get { return !string.IsNullOrEmpty(this.filename_); }
 		}
 		#endregion
@@ -96,12 +96,12 @@ namespace OGen.Dia.Libraries.Generator {
 		#endregion
 		#region public void Open(...);
 		public void Open(
-			string filename_in, 
+			string fileName_in, 
 			bool force_doNOTSave_in, 
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
-			if (this.hasChanges) {
+			if (this.HasChanges) {
 				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
@@ -112,7 +112,7 @@ namespace OGen.Dia.Libraries.Generator {
 				}
 			}
 			#endregion
-			this.filename_ = filename_in;
+			this.filename_ = fileName_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading metadata from xml file", true);
@@ -497,7 +497,7 @@ namespace OGen.Dia.Libraries.Generator {
 		#region public void Close(...);
 		public void Close(bool force_doNOTSave_in) {
 			if (
-				(this.hasChanges) && 
+				(this.HasChanges) && 
 				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
@@ -513,7 +513,7 @@ namespace OGen.Dia.Libraries.Generator {
 		#endregion
 		#region //public void Save(...);
 //		public void Save() {
-//			if (this.hasChanges) {
+//			if (this.HasChanges) {
 //
 //				metadata_.SaveState_toFile(
 //					filename_

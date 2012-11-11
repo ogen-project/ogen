@@ -29,7 +29,7 @@ namespace OGen.NTier.Libraries.DataLayer {
 		/// <summary>
 		/// Indicates if Record is open, True if is open, False if not.
 		/// </summary>
-		bool isOpened { get; }
+		bool IsOpened { get; }
 
 		/// <summary>
 		/// Represents number of items in the Record.

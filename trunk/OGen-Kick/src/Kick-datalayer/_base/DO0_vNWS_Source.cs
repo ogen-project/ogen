@@ -108,7 +108,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].ManagerName = (string)dataTable_in.Rows[r][_dc_managername];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

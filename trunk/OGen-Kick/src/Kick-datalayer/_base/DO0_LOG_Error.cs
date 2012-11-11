@@ -106,7 +106,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IFApplication = (int)_dataparameters[3].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -227,7 +227,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || LOG_Error_in.hasChanges) {
+			if (forceUpdate_in || LOG_Error_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -252,7 +252,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					LOG_Error_in.hasChanges = false;
+					LOG_Error_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);

@@ -307,7 +307,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						_parameter_index
 					].TableFieldName = this.lbxFields.Items[f].ToString();
 				}
-				frm_Main.NTierProject.hasChanges = true;
+				frm_Main.NTierProject.HasChanges = true;
 
 				this.Parent_ref.Parent_ref.Parent_ref.Parent_ref.Parent_ref.Form_Refresh();
 				this.Close();

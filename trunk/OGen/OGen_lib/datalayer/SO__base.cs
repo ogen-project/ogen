@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 //        /// <summary>
 //        /// Indicates if changes have been made to SerializableObject's properties since last time getObject method was run.
 //        /// </summary>
-//        public abstract bool hasChanges {
+//        public abstract bool HasChanges {
 //            get;
 //            set;
 //        }

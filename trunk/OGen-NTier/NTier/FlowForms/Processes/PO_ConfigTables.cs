@@ -98,7 +98,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					//);
 					break;
 			}
-			frm_Main.NTierProject.hasChanges = true;
+			frm_Main.NTierProject.HasChanges = true;
 			this.MainForm.Form_Refresh();
 		}
 	}

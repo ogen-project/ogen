@@ -169,7 +169,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace
 							= this.MyForm.Namespace;
 						#endregion
-						frm_Main.NTierProject.hasChanges = true;
+						frm_Main.NTierProject.HasChanges = true;
 					} else {
 						#region Creating...
 						this.MyForm.Hide();

@@ -111,7 +111,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.Text__large = (string)_dataparameters[3].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -244,7 +244,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || DIC_TextLanguage_in.hasChanges) {
+			if (forceUpdate_in || DIC_TextLanguage_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -269,7 +269,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[4].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					DIC_TextLanguage_in.hasChanges = false;
+					DIC_TextLanguage_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[4].Value & 1) != 1);
@@ -328,7 +328,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Text__large = (string)dataTable_in.Rows[r][_dc_text__large];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

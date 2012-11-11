@@ -166,7 +166,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IsNews_notForum = (bool)_dataparameters[13].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -317,7 +317,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NWS_Content_in.IDContent = (long)_dataparameters[0].Value;NWS_Content_in.hasChanges = false;
+			NWS_Content_in.IDContent = (long)_dataparameters[0].Value;NWS_Content_in.HasChanges = false;
 			
 
 			return NWS_Content_in.IDContent;
@@ -349,7 +349,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NWS_Content_in.hasChanges) {
+			if (forceUpdate_in || NWS_Content_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -379,7 +379,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NWS_Content_in.hasChanges = false;
+				NWS_Content_in.HasChanges = false;
 			}
 		}
 		#endregion
@@ -501,7 +501,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].IsNews_notForum = (bool)dataTable_in.Rows[r][_dc_isnews_notforum];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

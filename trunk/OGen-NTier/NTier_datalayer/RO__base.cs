@@ -65,13 +65,13 @@ namespace OGen.NTier.Libraries.DataLayer {
 			}
 		}
 		#endregion
-		#region public bool isOpened { get; }
+		#region public bool IsOpened { get; }
 		private bool isopened_;
 
 		/// <summary>
 		/// Indicates if Record is open, True if is open, False if not.
 		/// </summary>
-		public bool isOpened {
+		public bool IsOpened {
 			get { return this.isopened_; }
 		}
 		#endregion

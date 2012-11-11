@@ -35,15 +35,15 @@ namespace OGen.Doc.Libraries.Generator {
 			get { return this.filename_; }
 		}
 		#endregion
-		#region public bool hasChanges { get; }
+		#region public bool HasChanges { get; }
 		private bool haschanges_;
-		public bool hasChanges {
+		public bool HasChanges {
 			get { return this.haschanges_; }
 			set { this.haschanges_ = value; }
 		}
 		#endregion
-		#region public bool isOpened { get; }
-		public bool isOpened {
+		#region public bool IsOpened { get; }
+		public bool IsOpened {
 			get { return !string.IsNullOrEmpty(this.filename_); }
 		}
 		#endregion
@@ -101,7 +101,7 @@ namespace OGen.Doc.Libraries.Generator {
 			dNotifyBack notifyBack_in
 		) {
 			#region Checking...
-			if (this.hasChanges) {
+			if (this.HasChanges) {
 				if (!force_doNOTSave_in) {
 					throw new Exception(string.Format(
 						System.Globalization.CultureInfo.CurrentCulture,
@@ -129,7 +129,7 @@ namespace OGen.Doc.Libraries.Generator {
 		#region public void Close(...);
 		public void Close(bool force_doNOTSave_in) {
 			if (
-				(this.hasChanges) && 
+				(this.HasChanges) && 
 				(!force_doNOTSave_in)
 			) {
 				throw new Exception(string.Format(
@@ -145,7 +145,7 @@ namespace OGen.Doc.Libraries.Generator {
 		#endregion
 //		#region public void Save(...);
 //		public void Save() {
-//			if (this.hasChanges) {
+//			if (this.HasChanges) {
 //
 //				metadata_.SaveState_toFile(
 //					filename_

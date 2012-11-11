@@ -118,7 +118,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.Approved_date = (DateTime)_dataparameters[5].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -261,7 +261,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NWS_Source_in.IDSource = (long)_dataparameters[0].Value;NWS_Source_in.hasChanges = false;
+			NWS_Source_in.IDSource = (long)_dataparameters[0].Value;NWS_Source_in.HasChanges = false;
 			
 
 			return NWS_Source_in.IDSource;
@@ -293,7 +293,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NWS_Source_in.hasChanges) {
+			if (forceUpdate_in || NWS_Source_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -315,7 +315,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NWS_Source_in.hasChanges = false;
+				NWS_Source_in.HasChanges = false;
 			}
 		}
 		#endregion
@@ -381,7 +381,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

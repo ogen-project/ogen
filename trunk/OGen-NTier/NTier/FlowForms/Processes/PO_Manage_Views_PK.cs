@@ -74,7 +74,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 				].IsPK = true;
 			}
 
-			frm_Main.NTierProject.hasChanges = true;
+			frm_Main.NTierProject.HasChanges = true;
 			this.MainForm.Form_Refresh();
 		}
 	}

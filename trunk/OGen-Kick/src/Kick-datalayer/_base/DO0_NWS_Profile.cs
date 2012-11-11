@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.Approved_date = (DateTime)_dataparameters[2].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -221,7 +221,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || NWS_Profile_in.hasChanges) {
+			if (forceUpdate_in || NWS_Profile_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -245,7 +245,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[3].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NWS_Profile_in.hasChanges = false;
+					NWS_Profile_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[3].Value & 1) != 1);

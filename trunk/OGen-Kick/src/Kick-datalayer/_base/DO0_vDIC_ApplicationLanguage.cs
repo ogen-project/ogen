@@ -80,7 +80,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Language = (string)dataTable_in.Rows[r][_dc_language];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

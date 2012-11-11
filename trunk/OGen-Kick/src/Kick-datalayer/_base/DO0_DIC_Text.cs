@@ -100,7 +100,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.SourceTableField_ref = (int)_dataparameters[2].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -240,7 +240,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			DIC_Text_in.IDText = (long)_dataparameters[0].Value;DIC_Text_in.hasChanges = false;
+			DIC_Text_in.IDText = (long)_dataparameters[0].Value;DIC_Text_in.HasChanges = false;
 			
 
 			return DIC_Text_in.IDText;
@@ -272,7 +272,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || DIC_Text_in.hasChanges) {
+			if (forceUpdate_in || DIC_Text_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -291,7 +291,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				DIC_Text_in.hasChanges = false;
+				DIC_Text_in.HasChanges = false;
 			}
 		}
 		#endregion

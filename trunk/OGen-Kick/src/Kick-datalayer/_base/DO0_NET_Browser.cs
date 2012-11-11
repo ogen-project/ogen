@@ -160,7 +160,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.HTTP_USER_AGENT__CRC = (long)_dataparameters[12].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -310,7 +310,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NET_Browser_in.IDBrowser = (long)_dataparameters[0].Value;NET_Browser_in.hasChanges = false;
+			NET_Browser_in.IDBrowser = (long)_dataparameters[0].Value;NET_Browser_in.HasChanges = false;
 			
 
 			return NET_Browser_in.IDBrowser;
@@ -342,7 +342,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NET_Browser_in.hasChanges) {
+			if (forceUpdate_in || NET_Browser_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -371,7 +371,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NET_Browser_in.hasChanges = false;
+				NET_Browser_in.HasChanges = false;
 			}
 		}
 		#endregion

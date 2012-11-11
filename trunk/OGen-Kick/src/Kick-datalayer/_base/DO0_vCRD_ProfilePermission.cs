@@ -87,7 +87,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].hasPermission = (bool)dataTable_in.Rows[r][_dc_haspermission];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

@@ -112,7 +112,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IFAction = (long)_dataparameters[4].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -233,7 +233,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || CRD_Permission_in.hasChanges) {
+			if (forceUpdate_in || CRD_Permission_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -259,7 +259,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[5].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					CRD_Permission_in.hasChanges = false;
+					CRD_Permission_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[5].Value & 1) != 1);
@@ -325,7 +325,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].IFAction = (long)dataTable_in.Rows[r][_dc_ifaction];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

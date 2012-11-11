@@ -505,8 +505,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		public DialogResult ProjectSave(bool Refresh_, bool AskForConfirmation_, bool truefor_YesNoCancel_falsefor_OKCancel) {
 			DialogResult Result_out = DialogResult.Cancel;
 
-			if (frm_Main.NTierProject.isOpened) {
-				if (frm_Main.NTierProject.hasChanges) {
+			if (frm_Main.NTierProject.IsOpened) {
+				if (frm_Main.NTierProject.HasChanges) {
 					if (AskForConfirmation_) {
 						switch (MessageBox.Show(
 							string.Format(
@@ -561,8 +561,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		//--
 		#region public void Form_Refresh();
 		public void Form_Refresh() {
-			if (frm_Main.NTierProject.isOpened) {
-				if (frm_Main.NTierProject.hasChanges) {
+			if (frm_Main.NTierProject.IsOpened) {
+				if (frm_Main.NTierProject.HasChanges) {
 					this.Text = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture, 
 						"OGen: - {0}*", 

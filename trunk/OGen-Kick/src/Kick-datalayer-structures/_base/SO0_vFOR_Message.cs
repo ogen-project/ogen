@@ -116,7 +116,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures {
 		#endregion
 
 		#region Properties...
-		#region public bool hasChanges { get; }
+		#region public bool HasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
@@ -127,7 +127,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures {
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool hasChanges {
+		public bool HasChanges {
 			get { return this.haschanges_; }
 			set { this.haschanges_ = value; }
 		}

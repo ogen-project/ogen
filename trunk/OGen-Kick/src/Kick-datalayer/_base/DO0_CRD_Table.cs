@@ -94,7 +94,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.Name = (string)_dataparameters[1].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -215,7 +215,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || CRD_Table_in.hasChanges) {
+			if (forceUpdate_in || CRD_Table_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -238,7 +238,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[2].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					CRD_Table_in.hasChanges = false;
+					CRD_Table_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[2].Value & 1) != 1);

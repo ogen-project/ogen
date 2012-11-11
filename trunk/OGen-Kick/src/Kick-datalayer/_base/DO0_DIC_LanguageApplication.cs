@@ -99,7 +99,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IFApplication = (int)_dataparameters[1].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -232,7 +232,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || DIC_LanguageApplication_in.hasChanges) {
+			if (forceUpdate_in || DIC_LanguageApplication_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -255,7 +255,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[2].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					DIC_LanguageApplication_in.hasChanges = false;
+					DIC_LanguageApplication_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[2].Value & 1) != 1);
@@ -300,7 +300,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].IFApplication = (int)dataTable_in.Rows[r][_dc_ifapplication];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

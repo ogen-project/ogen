@@ -88,7 +88,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.IFProfile = (long)_dataparameters[0].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -209,7 +209,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			DBConnection dbConnection_in
 		) {
 			bool ConstraintExist_out;
-			if (forceUpdate_in || NET_Profile__default_in.hasChanges) {
+			if (forceUpdate_in || NET_Profile__default_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -231,7 +231,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 
 				ConstraintExist_out = (((int)_dataparameters[1].Value & 2) == 1);
 				if (!ConstraintExist_out) {
-					NET_Profile__default_in.hasChanges = false;
+					NET_Profile__default_in.HasChanges = false;
 				}
 
 				return (((int)_dataparameters[1].Value & 1) != 1);
@@ -269,7 +269,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].IFProfile = (long)dataTable_in.Rows[r][_dc_ifprofile];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

@@ -122,7 +122,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		#endregion
 
 		#region Properties...
-		#region public bool hasChanges { get; }
+		#region public bool HasChanges { get; }
 		[NonSerialized()]
 		[XmlIgnore()]
 		[SoapIgnore()]
@@ -133,7 +133,7 @@ namespace <%=_aux_ex_metadata.ApplicationNamespace%>.Libraries.DataLayer.Shared.
 		/// </summary>
 		[XmlIgnore()]
 		[SoapIgnore()]
-		public bool hasChanges {
+		public bool HasChanges {
 			get { return this.haschanges_; }
 			set { this.haschanges_ = value; }
 		}

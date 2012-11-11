@@ -122,7 +122,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].FileName = (string)dataTable_in.Rows[r][_dc_filename];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

@@ -130,7 +130,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output.FileName = (string)_dataparameters[7].Value;
 				}
 
-				_output.hasChanges = false;
+				_output.HasChanges = false;
 				return _output;
 			}
 
@@ -275,7 +275,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			);
 			if (dbConnection_in == null) { _connection.Dispose(); }
 
-			NWS_Attachment_in.IDAttachment = (long)_dataparameters[0].Value;NWS_Attachment_in.hasChanges = false;
+			NWS_Attachment_in.IDAttachment = (long)_dataparameters[0].Value;NWS_Attachment_in.HasChanges = false;
 			
 
 			return NWS_Attachment_in.IDAttachment;
@@ -307,7 +307,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 			bool forceUpdate_in, 
 			DBConnection dbConnection_in
 		) {
-			if (forceUpdate_in || NWS_Attachment_in.hasChanges) {
+			if (forceUpdate_in || NWS_Attachment_in.HasChanges) {
 				DBConnection _connection = (dbConnection_in == null)
 					? DO__Utilities.DBConnection_createInstance(
 						DO__Utilities.DBServerType,
@@ -331,7 +331,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_dataparameters
 				);
 				if (dbConnection_in == null) { _connection.Dispose(); }
-				NWS_Attachment_in.hasChanges = false;
+				NWS_Attachment_in.HasChanges = false;
 			}
 		}
 		#endregion
@@ -411,7 +411,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].FileName = (string)dataTable_in.Rows[r][_dc_filename];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;

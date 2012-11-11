@@ -101,7 +101,7 @@ namespace OGen.NTier.Kick.Libraries.DataLayer {
 					_output[r].Approved_date = (DateTime)dataTable_in.Rows[r][_dc_approved_date];
 				}
 
-				_output[r].hasChanges = false;
+				_output[r].HasChanges = false;
 			}
 
 			return _output;
