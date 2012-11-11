@@ -22,11 +22,11 @@ namespace OGen.Libraries.Metadata {
 	using OGen.Libraries.Collections;
 
 	public class Metadata {
-		#region public string XMLFilename { get; set; }
+		#region public string XMLFileName { get; set; }
 		private string xmlfilename_;
 
 		[XmlAttribute("xmlFilename")]
-		public string XMLFilename {
+		public string XMLFileName {
 			get {
 				return this.xmlfilename_;
 			}

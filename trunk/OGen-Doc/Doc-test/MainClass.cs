@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace Doc_test {
+namespace OGen.Doc.PresentationLayer.Test {
 	using System;
 	using System.IO;
 	using System.Xml;
@@ -141,7 +141,7 @@ namespace Doc_test {
 //				_metafiles[i] = new MetaFile(
 //					Path.Combine(
 //						Path.GetDirectoryName(filename_), 
-//						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+//						rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 //					),
 //					XS__documentation.DOCUMENTATION
 //				);

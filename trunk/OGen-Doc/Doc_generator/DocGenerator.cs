@@ -29,9 +29,9 @@ namespace OGen.Doc.Libraries.Generator {
 		#endregion
 
 		//#region public Properties...
-		#region public string Filename { get; }
+		#region public string FileName { get; }
 		private string filename_;
-		public string Filename {
+		public string FileName {
 			get { return this.filename_; }
 		}
 		#endregion
@@ -169,7 +169,7 @@ namespace OGen.Doc.Libraries.Generator {
 				_metafiles[i] = new MetaFile(
 					Path.Combine(
 						Path.GetDirectoryName(this.filename_),
-						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 					),
 					XS__documentation.DOCUMENTATION
 				);

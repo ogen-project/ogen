@@ -71,14 +71,14 @@ namespace OGen.XSD.Libraries.Metadata {
 					case XS__metadata.METADATA:
 						_metadataFilePath[_total_metadata] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_metadata++;
 						break;
 					case XS__schema.SCHEMA:
 						_schemaFilePath[_total_schema] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_schema++;
 						break;

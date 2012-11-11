@@ -120,7 +120,7 @@ namespace <%=_aux_rootmetadata.MetadataCollection[0].Namespace%> {
 					case <%=XS__%><%=_aux_rootmetadata.SchemaCollection[s].Element.Name%>.<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToUpper()%>:
 						_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>FilePath[_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_<%=_aux_rootmetadata.SchemaCollection[s].Element.Name.ToLower(System.Globalization.CultureInfo.CurrentCulture)%>++;
 						break;<%

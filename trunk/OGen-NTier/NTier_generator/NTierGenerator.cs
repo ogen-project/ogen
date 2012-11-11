@@ -25,7 +25,7 @@ namespace OGen.NTier.Libraries.Generator {
 	public class NTierGenerator {
 		#region	public NTierGenerator();
 		public NTierGenerator() {
-			this.Filename = string.Empty;
+			this.FileName = string.Empty;
 		}
 		#endregion
 
@@ -34,10 +34,10 @@ namespace OGen.NTier.Libraries.Generator {
 		#endregion
 
 		//#region public Properties...
-		#region public string Filename { get; }
+		#region public string FileName { get; }
 		private string filename__;
 
-		public string Filename {
+		public string FileName {
 			get { return this.filename__; }
 			set {
 				this.filename__ = value;
@@ -76,7 +76,7 @@ namespace OGen.NTier.Libraries.Generator {
 		#endregion
 		#region public bool IsOpened { get; }
 		public bool IsOpened {
-			get { return !string.IsNullOrEmpty(this.Filename); }
+			get { return !string.IsNullOrEmpty(this.FileName); }
 		}
 		#endregion
 		#region public XS__RootMetadata Metadata { get ; }
@@ -198,12 +198,12 @@ throw new Exception("// ToDos: not implemented!");
 				}
 			}
 			#endregion
-			this.Filename = filename_in;
+			this.FileName = filename_in;
 
 			if (notifyBack_in != null) notifyBack_in("opening...", true);
 			if (notifyBack_in != null) notifyBack_in("- reading configuration from xml file", true);
 			this.metadata_ = XS__RootMetadata.Load_fromFile(
-				this.Filename,
+				this.FileName,
 				false,
 				true
 			);
@@ -328,7 +328,7 @@ throw new Exception("// ToDos: not implemented!");
 					//metadata_.MetadataDBCollection[0].SaveState_toFile(
 					//    Path.Combine(
 					//        Directoryname,
-					//        metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+					//        metadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 					//    )
 					//);
 
@@ -336,7 +336,7 @@ throw new Exception("// ToDos: not implemented!");
 					_metadatadb.SaveState_toFile(
 						Path.Combine(
 							this.Directoryname,
-							this.metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+							this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 						)
 					);
 					break;
@@ -346,7 +346,7 @@ throw new Exception("// ToDos: not implemented!");
 
 			if (notifyBack_in != null) notifyBack_in("- re-reading configuration from xml file", true);
 			this.metadata_ = XS__RootMetadata.Load_fromFile(
-				this.Filename,
+				this.FileName,
 				false,
 				true
 			);
@@ -368,7 +368,7 @@ throw new Exception("// ToDos: not implemented!");
 				));
 			}
 
-			this.Filename = string.Empty;
+			this.FileName = string.Empty;
 		}
 		#endregion
 		//#region public void Save(...);
@@ -378,7 +378,7 @@ throw new Exception("// ToDos: not implemented!");
 			//if (this.HasChanges) {
 
 			//    metadata_.SaveState_toFile(
-			//        Filename
+			//        FileName
 			//    );
 
 			//    haschanges_ = false;
@@ -413,7 +413,7 @@ throw new Exception("// ToDos: not implemented!");
 				_metafiles[i] = new MetaFile(
 					Path.Combine(
 						this.Directoryname,
-						this.metadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 					),
 					this.metadata_.MetadataFiles.MetadataFiles[i].XMLFileType
 				);

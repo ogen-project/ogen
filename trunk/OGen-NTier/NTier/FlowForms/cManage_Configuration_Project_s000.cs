@@ -223,7 +223,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					= frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].ApplicationNamespace;
 				this.MyForm.ApplicationPath 
 					= System.IO.Path.GetDirectoryName(
-						frm_Main.ntierproject.Filename
+						frm_Main.ntierproject.FileName
 					);
 				#endregion
 				#region XS_dbType[] _dbmetadata_dbs = frm_Main.ntierproject.Metadata.MetadataExtendedCollection[0].DBs.DBCollection;

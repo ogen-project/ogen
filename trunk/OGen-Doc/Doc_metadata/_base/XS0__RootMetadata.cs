@@ -62,7 +62,7 @@ namespace OGen.Doc.Libraries.Metadata {
 					case XS__documentation.DOCUMENTATION:
 						_documentationFilePath[_total_documentation] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_documentation++;
 						break;

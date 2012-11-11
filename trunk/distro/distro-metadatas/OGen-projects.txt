@@ -79,7 +79,7 @@ OGen-Doc, Doc_metadata, OGen.Doc.Libraries.Metadata, t, f, f, MIT, f, t, f
 OGen-Doc, Doc_templates, OGen.Doc.Libraries.Templates, f, t, f, MIT, f, t, f
 OGen-Doc, Doc, OGen.Doc.PresentationLayer.WinForms, f, f, t, MIT, f, f, f
 OGen-Doc, Doc-console, OGen.Doc.PresentationLayer.ConsoleApplication, f, f, t, MIT, f, t, f
-OGen-Doc, Doc-test, OGen.Doc.Test, f, f, t, MIT, f, f, f
+OGen-Doc, Doc-test, OGen.Doc.PresentationLayer.Test, f, f, t, MIT, f, f, f
 OGen-XSD, XSD_generator, OGen.XSD.Libraries.Generator, t, f, f, MIT, f, t, f
 OGen-XSD, XSD_metadata, OGen.XSD.Libraries.Metadata, t, f, f, MIT, f, t, f
 OGen-XSD, XSD_templates, OGen.XSD.Libraries.Templates, f, t, f, MIT, f, t, f

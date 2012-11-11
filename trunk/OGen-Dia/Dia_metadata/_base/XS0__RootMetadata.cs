@@ -62,7 +62,7 @@ namespace OGen.Dia.Libraries.Metadata {
 					case XS__diagram.DIAGRAM:
 						_diagramFilePath[_total_diagram] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_diagram++;
 						break;

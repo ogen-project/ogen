@@ -62,7 +62,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata {
 					case XS__spreadsheet.SPREADSHEET:
 						_spreadsheetFilePath[_total_spreadsheet] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_spreadsheet++;
 						break;

@@ -513,7 +513,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 								System.Globalization.CultureInfo.CurrentCulture,
 								"Save Changes to \"{0}\"?", 
 								Path.GetFileName(
-									NTierProject.Filename
+									NTierProject.FileName
 								)
 							), 
 							"Confirm", 
@@ -566,14 +566,14 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					this.Text = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture, 
 						"OGen: - {0}*", 
-						Path.GetFileName(NTierProject.Filename)
+						Path.GetFileName(NTierProject.FileName)
 					);
 					this.miProject_Save.Enabled = true;
 				} else {
 					this.Text = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture, 
 						"OGen: - {0}", 
-						Path.GetFileName(NTierProject.Filename)
+						Path.GetFileName(NTierProject.FileName)
 					);
 					this.miProject_Save.Enabled = false;
 				}

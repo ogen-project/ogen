@@ -31,10 +31,10 @@ namespace OGen.XSD.Libraries.Generator {
 		#endregion
 
 		//#region Properties...
-		#region public string FilenameExtendedMetadata { get; }
+		#region public string FileNameExtendedMetadata { get; }
 		private string filenameextendedmetadata_;
 
-		public string FilenameExtendedMetadata {
+		public string FileNameExtendedMetadata {
 			get { return this.filenameextendedmetadata_; }
 		}
 		#endregion
@@ -159,7 +159,7 @@ namespace OGen.XSD.Libraries.Generator {
 //					rootmetadata_.SchemaCollection[i].SaveState_toFile(
 //						Path.Combine(
 //							Path.GetDirectoryName(filenameextendedmetadata_),
-//							rootmetadata_.ExtendedMetadata.MetadataIndex[i].XMLFilename
+//							rootmetadata_.ExtendedMetadata.MetadataIndex[i].XMLFileName
 //						)
 //					);
 //				}
@@ -186,7 +186,7 @@ namespace OGen.XSD.Libraries.Generator {
 				_metafiles[1 + i] = new MetaFile(
 					Path.Combine(
 						Path.GetDirectoryName(this.filenameextendedmetadata_),
-						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFilename
+						this.rootmetadata_.MetadataFiles.MetadataFiles[i].XMLFileName
 					),
 					XS__schema.SCHEMA
 				);

@@ -80,21 +80,21 @@ namespace OGen.NTier.Libraries.Metadata {
 					case XS__metadataExtended.METADATAEXTENDED:
 						_metadataextendedFilePath[_total_metadataextended] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_metadataextended++;
 						break;
 					case XS__metadataDB.METADATADB:
 						_metadatadbFilePath[_total_metadatadb] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_metadatadb++;
 						break;
 					case XS__metadataBusiness.METADATABUSINESS:
 						_metadatabusinessFilePath[_total_metadatabusiness] = System.IO.Path.Combine(
 							_metadataPath,
-							this.metadatafiles_.MetadataFiles[f].XMLFilename
+							this.metadatafiles_.MetadataFiles[f].XMLFileName
 						);
 						_total_metadatabusiness++;
 						break;
