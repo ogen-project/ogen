@@ -19,9 +19,12 @@ IF NOT EXIST "%thisdir%..\distro-metadatas\OGen-projects.txt" GOTO error3
 
 
 SET errorFound=
+type "%thisdir%..\distro-templates\OGen-2.0-1.FxCop.txt">"..\..\OGen-2.0.FxCop"
 FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9,10 delims=, " %%a IN (`TYPE "%thisdir%..\distro-metadatas\OGen-projects.txt"`) DO (
 	CALL :test %%a %%b %%c %%d %%e %%f %%g %%h %%i %%j
 )
+type "%thisdir%..\distro-templates\OGen-2.0-2.FxCop.txt">>"..\..\OGen-2.0.FxCop"
+
 IF '%errorFound%' == '' ECHO no errors!
 SET errorFound=
 PAUSE
@@ -31,25 +34,38 @@ GOTO eof
 :test
 	SHIFT
 
-	SET paramError=
+	IF '%3' == 'f' IF '%4' == 'f' IF '%5' == 'f' IF '%8' == 'f' IF '%9' == 'f' (
+		SET error=
+		GOTO eof
+	)
+	IF '%0' == 'OGen-NTier_UTs' (
+		SET error=
+		GOTO eof
+	)
 
-	IF '%0' == '' SET paramError=%0#%paramError%
-	IF '%1' == '' SET paramError=%1#%paramError%
-	IF '%2' == '' SET paramError=%2#%paramError%
-	IF NOT '%3' == 't' IF NOT '%3' == 'f' SET paramError=%3#%paramError%
-	IF NOT '%4' == 't' IF NOT '%4' == 'f' SET paramError=%4#%paramError%
-	IF NOT '%5' == 't' IF NOT '%5' == 'f' SET paramError=%5#%paramError%
-	IF NOT '%6' == 'MIT' IF NOT '%6' == 'GNU_GPL' IF NOT '%6' == 'GNU_LGPL' IF NOT '%6' == 'GNU_FDL' SET paramError=%6#%paramError%
-	IF NOT '%7' == 't' IF NOT '%7' == 'f' SET paramError=%7#%paramError%
-	IF NOT '%8' == 't' IF NOT '%8' == 'f' SET paramError=%8#%paramError%
-	IF NOT '%9' == 't' IF NOT '%9' == 'f' SET paramError=%9#%paramError%
-	IF NOT EXIST "..\..\%0" SET paramError="solution does not exist"#%paramError%
-	IF NOT EXIST "..\..\%0\%1" SET paramError="project does not exist"#%paramError%
+	SET slash=
+	FOR /F "usebackq tokens=1,2,3,4,5,6,7,8,9,10 delims=\" %%a IN (`ECHO %1`) DO (
+		IF NOT '%%a' == '' SET slash=%%a
+		IF NOT '%%b' == '' SET slash=%%a/%%b
+		IF NOT '%%c' == '' SET slash=%%a/%%b/%%c
+		IF NOT '%%d' == '' SET slash=%%a/%%b/%%c/%%d
+		IF NOT '%%e' == '' SET slash=%%a/%%b/%%c/%%d/%%e
+		IF NOT '%%f' == '' SET slash=%%a/%%b/%%c/%%d/%%e/%%f
+		IF NOT '%%g' == '' SET slash=%%a/%%b/%%c/%%d/%%e/%%f/%%g
+		IF NOT '%%h' == '' SET slash=%%a/%%b/%%c/%%d/%%e/%%f/%%g/%%h
+		IF NOT '%%i' == '' SET slash=%%a/%%b/%%c/%%d/%%e/%%f/%%g/%%h/%%i
+		IF NOT '%%j' == '' SET slash=%%a/%%b/%%c/%%d/%%e/%%f/%%g/%%h/%%i/%%j
+	)
 
-	IF NOT '%paramError%' == '' ECHO %0 %1, %2, %3, %4, %5, %6, %7, %8, %9
-	IF NOT '%paramError%' == '' ECHO %paramError%
-	IF NOT '%paramError%' == '' SET errorFound=1
+	IF '%5' == 'f' SET extension=dll
+	IF '%5' == 't' SET extension=exe
+	IF '%4' == 'f' SET debug=/Debug
+	IF '%4' == 't' SET debug=
+	echo   ^<Target Name="$(ProjectDir)/%0/%slash%/bin%debug%/%2-2.0.%extension%" Analyze="True" AnalyzeAllChildren="True" /^>>>"..\..\OGen-2.0.FxCop"
 
+	SET debug=
+	SET extension=
+	SET slash=
 	SET error=
 GOTO eof
 
