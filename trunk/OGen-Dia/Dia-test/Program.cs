@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.Dia.presentationlayer.test {
+namespace OGen.Dia.PresentationLayer.Test {
 	using System;
 	using System.Collections.Generic;
 	using System.Text;
@@ -21,7 +21,7 @@ namespace OGen.Dia.presentationlayer.test {
 	using OGen.Dia.Libraries.Metadata;
 	using OGen.Dia.Libraries.Metadata.Diagram;
 
-	public class Program {
+	public static class Program {
 
 		[STAThread]
 		public static void Main(string[] args) {

@@ -13,7 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-namespace OGen.XSD.presentationlayer.test {
+namespace OGen.XSD.PresentationLayer.Test {
 	using System;
 	//using System.Collections;
 	using System.IO;
@@ -26,7 +26,7 @@ namespace OGen.XSD.presentationlayer.test {
 	using OGen.XSD.Libraries.Metadata.Metadata;
 	using OGen.XSD.Libraries.Metadata.Schema;
 
-	public class Program {
+	public static class Program {
 
 		public static void PressAnyKey() {
 			Console.Write("Press any key to continue . . . ");
