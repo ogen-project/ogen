@@ -70,7 +70,11 @@ namespace OGen.Libraries.PresentationLayer.WebForms.UnitTests {
 				(
 					_urlparam1 
 					== 
-					string.Format("?{0}", _urlparam2)
+					string.Format(
+						System.Globalization.CultureInfo.CurrentCulture,
+						"?{0}", 
+						_urlparam2
+					)
 				), 
 				"{0} != ?{1}", 
 				_urlparam1, 

@@ -42,10 +42,39 @@ namespace OGen.Libraries.Worker {
 		public bool DoWork<T>(
 			WorkItem<T>[] workItems_in,
 			IsReadyToWork<T> isReadyToWork_in,
+			MakeItWork<T> makeItWork_in
+#endif
+		) {
+			return DoWork<T>(
+				workItems_in,
+				isReadyToWork_in,
+				makeItWork_in,
+				null
+			);
+		}
+
+		/// <summary>
+		/// method to be invoked when thread begins executing
+		/// </summary>
+		/// <param name="workItems_in">work items list</param>
+		/// <param name="isReadyToWork_in">used to verify that work item is ready to work (check any priority rule)</param>
+		/// <param name="makeItWork_in">fired when work item is ready to do work</param>
+		/// <param name="threadFinished_in">optional, fired when current thread finishes work (other threads may still be doing work)</param>
+		/// <returns>true if some threads still doing work, false if all threads finished work</returns>
+#if NET_1_1
+		public bool DoWork(
+			WorkItem[] workItems_in,
+			IsReadyToWork isReadyToWork_in,
+			MakeItWork makeItWork_in,
+#else
+		/// <typeparam name="T">type of work item</typeparam>
+		public bool DoWork<T>(
+			WorkItem<T>[] workItems_in,
+			IsReadyToWork<T> isReadyToWork_in,
 			MakeItWork<T> makeItWork_in,
 #endif
 
-			ThreadFinished threadFinished_in = null
+			ThreadFinished threadFinished_in
 		) {
 #if NET_1_1
 			WorkItem _item;

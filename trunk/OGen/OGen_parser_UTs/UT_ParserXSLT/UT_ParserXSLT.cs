@@ -92,7 +92,7 @@ namespace OGen.Libraries.Parser.UnitTests {
 
 		[Test]
 		public void UT_SomeTest() {
-			StringWriter _parsedOutput = new StringWriter();
+			StringWriter _parsedOutput = new StringWriter(System.Globalization.CultureInfo.CurrentCulture);
 			Hashtable _hash = new Hashtable();
 			_hash.Add("TableName", "User");
 
