@@ -21,7 +21,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public cManage_Views_PK_s010(...);
 		public cManage_Views_PK_s010(
 			frm_Main Base_ref_, 
-			dNotifyBase NotifyBase_, 
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase NotifyBase_, 
 			PO_Manage_Views_PK MyProcess_
 		) : base (
 			NotifyBase_, 
@@ -30,12 +30,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.Base_ref = Base_ref_;
 
 			this.MyForm = new frmManage_Views_PK_s010(
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe
-				),
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe_aboutNext
-				)
+				this.MyForm_notifiedMe,
+				this.MyForm_notifiedMe_aboutNext
 			);
 			this.MyForm.MdiParent = this.Base_ref;
 			//this.MyForm.MaximizeBox = false;
@@ -71,7 +67,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						if (this.MyFlowforms[0] == null) {
 							this.MyFlowforms[0] = new cManage_Views_PK_s020(
 								this.Base_ref,
-								new Flowform.dNotifyBase(this.MyFlowforms_notifiedMe),
+								this.MyFlowforms_notifiedMe,
 								this.MyProcess
 							);
 						}

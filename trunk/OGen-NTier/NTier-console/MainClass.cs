@@ -128,12 +128,10 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			_generator.Open(
 				filePath_in, 
 				true,
-				new NTierGenerator.dNotifyBack(
-					Notify
-				)
+				Notify
 			);
 			_generator.Build(
-				new OGenGenerator.dBuild(Notify),
+				Notify,
 				statistics_in,
 				templateTypes_in
 			);
@@ -199,9 +197,7 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 //				_metadata_temp.DBs.Default.Connectionstring, 
 //				_outputDir
 //			).Build(
-//				new OGenGenerator.dBuild(
-//					Notify
-//				), 
+//				Notify,
 //				_metadata
 //			);
 //			#endregion

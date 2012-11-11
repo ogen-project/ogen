@@ -317,7 +317,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 			private static bool logon(
 				string login_in, 
 				string password_in,
-				ErrorType.hasErrors_errorFound errorFound_in, 
+				OGen.NTier.Kick.Libraries.BusinessLayer.Shared.hasErrors_errorFound errorFound_in, 
 				out int[] errors_out
 			) {
 				long _iduser;
@@ -387,7 +387,7 @@ namespace OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer {
 			public static bool LogOn(
 				string login_in,
 				string password_in,
-				ErrorType.hasErrors_errorFound errorFound_in
+				OGen.NTier.Kick.Libraries.BusinessLayer.Shared.hasErrors_errorFound errorFound_in
 			) {
 				int[] _errors;
 				return logon(

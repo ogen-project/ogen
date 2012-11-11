@@ -71,6 +71,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="delegates\hasErrors_errorFound.cs" />
     <Compile Include="enums\PseudoEnumItem.cs" />
     <Compile Include="enums\ErrorItem.cs" />
     <Compile Include="enums\ErrorType.cs" />

@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="delegates\NotifyBack.cs" />
     <Compile Include="XSDGenerator.cs" />
     <None Include="COPYING.MIT" />
     <None Include="LICENSE.MIT.txt" />

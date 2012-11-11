@@ -19,7 +19,7 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 	public abstract class Flowform : IDisposable {
 		#region public Flowform(...);
 		protected Flowform(
-			dNotifyBase notifyBase_in, 
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase notifyBase_in, 
 			int numFlowformForms_in
 		) {
 			this.notifybase_ = notifyBase_in;
@@ -47,8 +47,7 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 		#endregion
 
 		#region Delegations...
-		public delegate void dNotifyBase(FlowformEvents someEvent_in, Flowform flowform_in);
-		private dNotifyBase notifybase_ = null;
+		private OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase notifybase_ = null;
 
 		public void NotifyBase(FlowformEvents someEvent_in, Flowform flowform_in) {
 			if (this.notifybase_ != null) {

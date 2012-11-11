@@ -126,6 +126,10 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="delegates\DictionaryText.cs" />
+    <Compile Include="delegates\ListitemConditionalSet.cs" />
+    <Compile Include="delegates\ListitemText.cs" />
+    <Compile Include="delegates\ListitemValue.cs" />
     <Compile Include="IXXXListControl.cs" />
     <Compile Include="IXXXListItem.cs" />
     <Compile Include="KickCheckBoxList.cs" />

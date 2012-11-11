@@ -150,11 +150,6 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer.Shared {
 		#endregion
 
 		#region public static bool hasErrors(...);
-		public delegate void hasErrors_errorFound(
-			string message_in,
-			bool isError_in
-		);
-
 		public static bool hasErrors(
 			int[] errors_in
 		) {

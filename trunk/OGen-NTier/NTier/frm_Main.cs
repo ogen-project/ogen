@@ -466,9 +466,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							frm_Main.NTierProject.Open(
 								openfile.FileName, 
 								false,
-								new OGen.NTier.Libraries.Generator.NTierGenerator.dNotifyBack(
-									output.DisplayMessage
-								)
+								output.DisplayMessage
 							);
 
 							//output.DisplayMessage("... finished!", true);

@@ -30,7 +30,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		public cTweak_Project_s000(
 			frm_Main base_ref_in, 
 			cTweak_Project_s000.eMode mode_in, 
-			dNotifyBase notifyBase_in
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase notifyBase_in
 		) : base (
 			notifyBase_in, 
 			1
@@ -39,12 +39,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.mode_ = mode_in;
 
 			this.MyForm = new frmTweak_Project_s000(
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe
-				),
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe_aboutNext
-				), 
+				this.MyForm_notifiedMe,
+				this.MyForm_notifiedMe_aboutNext, 
 				mode_in
 			);
 			this.MyForm.MdiParent = this.Base_ref;
@@ -183,9 +179,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 							this.MyForm.ApplicationName,
 							this.MyForm.Namespace, 
 							_dbs,
-							new OGen.NTier.Libraries.Generator.NTierGenerator.dNotifyBack(
-								_output.DisplayMessage
-							)
+							_output.DisplayMessage
 						);
 
 						_output.DisplayMessage();

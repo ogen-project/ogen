@@ -29,10 +29,6 @@ namespace OGen.NTier.Libraries.Generator {
 		}
 		#endregion
 
-		#region public Delegates...
-		public delegate void dNotifyBack(string message_in, bool onANewLine_in);
-		#endregion
-
 		//#region public Properties...
 		#region public string FileName { get; }
 		private string filename__;
@@ -117,7 +113,7 @@ namespace OGen.NTier.Libraries.Generator {
 			string applicationName_in, 
 			string namespace_in, 
 			OGen.NTier.Libraries.Metadata.MetadataExtended.XS_dbType[] dbs_in,
-			dNotifyBack notifyBack_in
+			OGen.NTier.Libraries.Generator.NotifyBack notifyBack_in
 		) {
 throw new Exception("// ToDos: not implemented!");
 			//int _justadded;
@@ -184,7 +180,7 @@ throw new Exception("// ToDos: not implemented!");
 		public void Open(
 			string filename_in, 
 			bool force_doNOTSave_in,
-			dNotifyBack notifyBack_in
+			OGen.NTier.Libraries.Generator.NotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.HasChanges) {
@@ -385,9 +381,9 @@ throw new Exception("// ToDos: not implemented!");
 			//}
 		}
 		//#endregion
-//		#region public void Build(OGenGenerator.dBuild notifyBase_in);
+//		#region public void Build(...);
 		public void Build(
-			OGenGenerator.dBuild notifyBase_in,
+			OGen.Libraries.Generator.Build notifyBase_in,
 			params string[] templateTypes_in
 		) {
 			this.Build(
@@ -397,7 +393,7 @@ throw new Exception("// ToDos: not implemented!");
 			);
 		}
 		public void Build(
-			OGenGenerator.dBuild notifyBase_in,
+			OGen.Libraries.Generator.Build notifyBase_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in
 		) {

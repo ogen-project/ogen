@@ -119,7 +119,7 @@ namespace OGen.Libraries.Metadata {
 
 		public void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.IterationFound iteration_found_in,
 			ref bool valueHasBeenFound_out
 		) {
 			OGen.Libraries.Generator.Utilities.ReflectThrough(

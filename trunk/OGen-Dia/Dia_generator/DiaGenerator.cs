@@ -55,10 +55,6 @@ namespace OGen.Dia.Libraries.Generator {
 		#endregion
 		//#endregion
 
-		#region public Delegates...
-		public delegate void dNotifyBack(string message_in, bool onANewLine_in);
-		#endregion
-
 		#region public Methods...
 		#region //public void New(...);
 //		public void New(
@@ -98,7 +94,7 @@ namespace OGen.Dia.Libraries.Generator {
 		public void Open(
 			string fileName_in, 
 			bool force_doNOTSave_in, 
-			dNotifyBack notifyBack_in
+			OGen.Dia.Libraries.Generator.NotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.HasChanges) {
@@ -523,8 +519,8 @@ namespace OGen.Dia.Libraries.Generator {
 //			}
 //		}
 		#endregion
-		#region public void Build(OGenGenerator.dBuild notifyBase_in);
-		public void Build(OGenGenerator.dBuild notifyBase_in) {
+		#region public void Build(...);
+		public void Build(OGen.Libraries.Generator.Build notifyBase_in) {
 			string _outputDir = Path.GetDirectoryName(this.filename_);
 			if (notifyBase_in != null) notifyBase_in("generating...", true);
 

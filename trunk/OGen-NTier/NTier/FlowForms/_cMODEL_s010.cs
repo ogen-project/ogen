@@ -21,7 +21,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#region public cMODEL_s010(...);
 		public cMODEL_s010(
 			frm_Main Base_ref_, 
-			dNotifyBase NotifyBase_, 
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase NotifyBase_, 
 			PO_MODEL MyProcess_
 		) : base (
 			NotifyBase_, 
@@ -30,12 +30,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.Base_ref = Base_ref_;
 
 			this.MyForm = new frmMODEL(
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe
-				),
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe_aboutNext
-				)
+				this.MyForm_notifiedMe,
+				this.MyForm_notifiedMe_aboutNext
 			);
 			this.MyForm.MdiParent = this.Base_ref;
 			//MyForm.MaximizeBox = false;

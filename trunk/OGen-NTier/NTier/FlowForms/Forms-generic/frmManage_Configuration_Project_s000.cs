@@ -281,8 +281,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		public frmTweak_Project_s000(
-			FlowformForm.dNotifyBase notifyBase_in, 
-			FlowformForm.dNotifyBase notifyBase_aboutNext_in, 
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifyBase_in,
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifyBase_aboutNext_in, 
 			cTweak_Project_s000.eMode mode_in
 		) {
 			#region Required for Windows Form Designer support...

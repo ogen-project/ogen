@@ -82,11 +82,9 @@ THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMP
 			_generator.Open(
 				filePath_in, 
 				true, 
-				new DiaGenerator.dNotifyBack(
-					Notify
-				)
+				Notify
 			);
-			_generator.Build(new OGenGenerator.dBuild(Notify));
+			_generator.Build(Notify);
 
 		}
 		#region private static void Notify(string message_in, bool onANewLine_in);

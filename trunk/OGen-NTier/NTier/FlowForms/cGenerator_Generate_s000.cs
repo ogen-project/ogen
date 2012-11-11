@@ -27,7 +27,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		) {}
 		public cGenerator_Generate_s000(
 			frm_Main Base_ref_, 
-			dNotifyBase NotifyBase_
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformNotifyBase NotifyBase_
 		) : base (
 			NotifyBase_, 
 			0
@@ -35,12 +35,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 			this.Base_ref = Base_ref_;
 
 			this.MyForm = new frmGenerator_Generate_s000(
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe
-				),
-				new FlowformForm.dNotifyBase(
-					this.MyForm_notifiedMe_aboutNext
-				)
+				this.MyForm_notifiedMe,
+				this.MyForm_notifiedMe_aboutNext
 			);
 			this.MyForm.MdiParent = this.Base_ref;
 			//this.MyForm.MaximizeBox = false;
@@ -74,11 +70,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 					//output.DisplayMessage("generating...", true);
 					frm_Main.NTierProject.Metadata.MetadataExtendedCollection[0].SQLScriptOption = this.MyForm.SQLscriptOptions;
 //					frm_Main.NTierProject.Metadata.PseudoReflectionable = this.MyForm.pReflection;
-					frm_Main.NTierProject.Build(
-						new OGen.Libraries.Generator.OGenGenerator.dBuild(
-							output.DisplayMessage
-						)
-					);
+					frm_Main.NTierProject.Build(output.DisplayMessage);
 					//output.DisplayMessage("... finished!", true);
 					output.DisplayMessage();
 					//---
@@ -123,7 +115,7 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 
 						this.Manage_Views_PK_s010 = new cManage_Views_PK_s010(
 							this.Base_ref,
-							new Flowform.dNotifyBase(this.LetMeKnowWhen_NoMoreUndefinedViews), 
+							this.LetMeKnowWhen_NoMoreUndefinedViews, 
 							manage_views_pk
 						);
 						this.Manage_Views_PK_s010.Show();

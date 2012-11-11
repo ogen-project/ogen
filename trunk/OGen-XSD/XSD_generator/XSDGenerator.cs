@@ -60,10 +60,6 @@ namespace OGen.XSD.Libraries.Generator {
 		#endregion
 		//#endregion
 
-		#region public Delegates...
-		public delegate void dNotifyBack(string message_in, bool onANewLine_in);
-		#endregion
-
 //		#region Methods...
 		#region //public void New(...);
 //		public void New(
@@ -103,7 +99,7 @@ namespace OGen.XSD.Libraries.Generator {
 		public void Open(
 			string fileNameExtendedMetadata_in,
 			bool force_doNOTSave_in, 
-			dNotifyBack notifyBack_in
+			OGen.XSD.Libraries.Generator.NotifyBack notifyBack_in
 		) {
 			#region Checking...
 			if (this.HasChanges) {
@@ -168,8 +164,8 @@ namespace OGen.XSD.Libraries.Generator {
 //			}
 //		}
 //		#endregion
-//		#region public void Build(OGenGenerator.dBuild notifyBase_in);
-		public void Build(OGenGenerator.dBuild notifyBase_in) {
+//		#region public void Build(...);
+		public void Build(OGen.Libraries.Generator.Build notifyBase_in) {
 			#region string _outputDir = ...;
 			string _outputDir = System.IO.Directory.GetParent(
 				Path.GetDirectoryName(this.filenameextendedmetadata_)

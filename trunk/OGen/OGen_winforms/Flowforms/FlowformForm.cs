@@ -18,17 +18,16 @@ namespace OGen.Libraries.PresentationLayer.WinForms.FlowForms {
 
 	public class FlowformForm {
 		public FlowformForm(
-			dNotifyBase notifyBase_in, 
-			dNotifyBase notifyBase_aboutNext_in
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifyBase_in,
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifyBase_aboutNext_in
 		) {
 			this.notifybase_ = notifyBase_in;
 			this.notifybase_aboutnext_ = notifyBase_aboutNext_in;
 		}
 
 		#region Delegations...
-		public delegate void dNotifyBase(FlowformFormEvents someEvent_in);
-		private dNotifyBase notifybase_ = null;
-		private dNotifyBase notifybase_aboutnext_ = null;
+		private OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifybase_ = null;
+		private OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase notifybase_aboutnext_ = null;
 
 		public void NotifyBase(FlowformFormEvents someEvent_in) {
 			if (someEvent_in == FlowformFormEvents.Next) {

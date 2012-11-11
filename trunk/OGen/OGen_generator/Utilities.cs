@@ -74,7 +74,7 @@ namespace OGen.Libraries.Generator {
 
 		void IterateThrough_fromRoot(
 			string iteration_in,
-			OGen.Libraries.Generator.Utilities.IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.IterationFound iteration_found_in,
 			ref bool valueHasBeenFound_out
 		);
 	}
@@ -85,8 +85,6 @@ namespace OGen.Libraries.Generator {
 #else
 	public static class Utilities {
 #endif
-
-		public delegate void IterationFoundDelegate(string message_in);
 
 		#region public static int MetaFile_find(...);
 		public static int MetaFile_find(
@@ -143,7 +141,7 @@ namespace OGen.Libraries.Generator {
 		public static string ReflectThrough(
 			object someClass_in,
 			string path_in,
-			IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.IterationFound iteration_found_in,
 			string iteration_in,
 			string pathTranslated_in,
 			bool returnValue_in,
@@ -166,7 +164,7 @@ namespace OGen.Libraries.Generator {
 		public static string ReflectThrough(
 			object someClass_in,
 			string path_in,
-			IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.IterationFound iteration_found_in,
 			string iteration_in,
 			string pathTranslated_in,
 			bool returnValue_in,
@@ -210,7 +208,7 @@ namespace OGen.Libraries.Generator {
 		}
 
 		private static string ReflectThroughRunAndCache(
-			IterationFoundDelegate iteration_found_in,
+			OGen.Libraries.Generator.IterationFound iteration_found_in,
 			System.Collections.Generic.List<string> iterations_in,
 			string what_in,
 			string translation_in,
@@ -262,7 +260,7 @@ namespace OGen.Libraries.Generator {
 		public static string ReflectThrough(
 			object someClass_in, 
 			string path_in, 
-			IterationFoundDelegate iteration_found_in, 
+			OGen.Libraries.Generator.IterationFound iteration_found_in, 
 			string iteration_in, 
 			string pathTranslated_in, 
 			bool returnValue_in, 

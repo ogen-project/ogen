@@ -114,8 +114,8 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		#endregion
 
 		public frmManage_ConfigTables_CreateOrChange_s010(
-			FlowformForm.dNotifyBase NotifyBase_, 
-			FlowformForm.dNotifyBase NotifyBase_aboutNext_
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase NotifyBase_,
+			OGen.Libraries.PresentationLayer.WinForms.FlowForms.FlowformFormNotifyBase NotifyBase_aboutNext_
 		) {
 			#region Required for Windows Form Designer support...
 			this.InitializeComponent();

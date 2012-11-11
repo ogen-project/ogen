@@ -65,7 +65,7 @@ namespace OGen.Libraries.Generator {
 		private string xmltemplatesdir_;
 		private IMetadata metadata_;
 		private XS__templates templates_;
-		private dBuild notifyback_;
+		private OGen.Libraries.Generator.Build notifyback_;
 		#endregion
 		#region public Fields/Properties...
 		#region public MetaFile Metafile { get; set; }
@@ -634,7 +634,6 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 //		#endregion
 		#region public Methods...
 		#region public void Build();
-		public delegate void dBuild(string message_in, bool onANewLine_in);
 		#region private void Build(...);
 		#region private class WorkerThread { ... }
 		private class WorkerThread {
@@ -655,7 +654,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		#endregion
 
 		private void build(
-			dBuild notifyBack_in, 
+			OGen.Libraries.Generator.Build notifyBack_in, 
 //			bool loadMetadata_in, 
 			IMetadata metadata_in,
 			Statistics statistics_in,
@@ -845,16 +844,14 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 							bool _valuehasbeenfound_out = false;
 							this.metadata_.IterateThrough_fromRoot(
 								_template.IterationType,
-								new Utilities.IterationFoundDelegate(
-									delegate(string message_in) {
-										this.notifyme(
-											message_in,
-											_template,
-											_dbconnectionstrings,
-											statistics_in
-										);
-									}
-								),
+								delegate(string message_in) {
+									this.notifyme(
+										message_in,
+										_template,
+										_dbconnectionstrings,
+										statistics_in
+									);
+								},
 								ref _valuehasbeenfound_out
 							);
 							#endregion
@@ -942,7 +939,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 		}
 		#endregion
 //		public void Build(
-//			dBuild notifyBack_in, 
+//			OGen.Libraries.Generator.Build notifyBack_in, 
 //			Type[] typeofClaSSe_in
 //		) {
 //			#region Checking...
@@ -971,7 +968,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 //			);
 //		}
 		public void Build(
-			dBuild notifyBack_in,
+			OGen.Libraries.Generator.Build notifyBack_in,
 			IMetadata metadata_in,
 			params string[] templateTypes_in
 		) {
@@ -983,7 +980,7 @@ for (int d = 0; d < dbConnectionStrings_in.Count; d++) {
 			);
 		}
 		public void Build(
-			dBuild notifyBack_in,
+			OGen.Libraries.Generator.Build notifyBack_in,
 			IMetadata metadata_in,
 			Statistics statistics_in,
 			params string[] templateTypes_in

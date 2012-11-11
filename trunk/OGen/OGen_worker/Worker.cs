@@ -25,35 +25,6 @@ namespace OGen.Libraries.Worker {
 		private object WorkLocker = new object();
 
 		/// <summary>
-		/// used to verify that work item is ready to work (check any priority rule)
-		/// </summary>
-		/// <param name="workItem">work item</param>
-		/// <returns></returns>
-#if NET_1_1
-		public delegate bool IsReadyToWork(object workItem);
-#else
-		/// <typeparam name="T">type of work item</typeparam>
-		public delegate bool IsReadyToWork<T>(T workItem);
-#endif
-
-		/// <summary>
-		/// fired when work item is ready to do work
-		/// </summary>
-		/// <param name="workItem">work item</param>
-#if NET_1_1
-		public delegate void MakeItWork(object workItem);
-#else
-		/// <typeparam name="T">type of work item</typeparam>
-		public delegate void MakeItWork<T>(T workItem);
-#endif
-
-		/// <summary>
-		/// fired when current thread finishes work (other threads may still be doing work)
-		/// </summary>
-		/// <param name="othersStillWorking_in">true if some threads still doing work, false if all threads finished work</param>
-		public delegate void ThreadFinished(bool othersStillWorking_in);
-
-		/// <summary>
 		/// method to be invoked when thread begins executing
 		/// </summary>
 		/// <param name="workItems_in">work items list</param>

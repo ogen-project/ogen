@@ -99,15 +99,12 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 
 
 		#region public void Bind__arrayOf<T>(...);
-		public delegate string ListitemValueDelegate<T>(T item_in);
-		public delegate string ListitemTextDelegate<T>(T item_in);
-
 		public void Bind__arrayOf<T>(
 			string selectedValue_in,
 			bool allowNull_in,
 			T[] items_in,
-			ListitemValueDelegate<T> listitemValue_in,
-			ListitemTextDelegate<T> listitemText_in
+			OGen.Libraries.PresentationLayer.WebForms.ListitemValue<T> listitemValue_in,
+			OGen.Libraries.PresentationLayer.WebForms.ListitemText<T> listitemText_in
 		) {
 			if (items_in == null) {
 				this.listitemcollection_ref_.Clear();
@@ -216,7 +213,7 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 		#region public void SelectedValues__set_arrayOf<T>(...);
 		public void SelectedValues__set_arrayOf<T>(
 			T[] items_in,
-			ListitemValueDelegate<T> listitemValue_in
+			OGen.Libraries.PresentationLayer.WebForms.ListitemValue<T> listitemValue_in
 		) {
 			if (items_in == null) return;
 
@@ -229,12 +226,10 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 			this.SelectedValue__set(_selection);
 		}
 
-		//public delegate bool ListitemConditionalSetDelegate<T>(T item_in);
-
 		public void SelectedValues__set_arrayOf<T>(
 			T[] items_in,
-			ListitemValueDelegate<T> listitemValue_in,
-			ListitemConditionalSetDelegate<T> setConditionVerifies_in
+			OGen.Libraries.PresentationLayer.WebForms.ListitemValue<T> listitemValue_in,
+			OGen.Libraries.PresentationLayer.WebForms.ListitemConditionalSet<T> setConditionVerifies_in
 		) {
 			if (items_in == null) return;
 
@@ -271,19 +266,16 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 			this.SelectedValue__set(_selection);
 		}
 
-		public delegate bool ListitemConditionalSetDelegate<I>(
-			I item_in
-		);
 		public void SelectedValues__set_arrayOf<TValue, TText, I>(
 			I[] items_in,
-			ListitemConditionalSetDelegate<I> setConditionVerifies_in
+			OGen.Libraries.PresentationLayer.WebForms.ListitemConditionalSet<I> setConditionVerifies_in
 		)
 			where I : OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>
 		{
 
 			//public void SelectedValues__set_arrayOf<TValue, TText>(
 			//    OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>[] items_in,
-			//    ListitemConditionalSetDelegate<OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>> setConditionVerifies_in
+			//    OGen.Libraries.PresentationLayer.WebForms.ListitemConditionalSet<OGen.NTier.Libraries.DataLayer.ISO__ListItem<TValue, TText>> setConditionVerifies_in
 			//) {
 
 			if (items_in == null) return;
@@ -418,10 +410,6 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 		#endregion
 
 		#region public void Bind__Dictionary<TKey, TValue>(...);
-		public delegate string DictionaryTextDelegate<TKey, TValue>(
-			KeyValuePair<TKey, TValue> keyValuePair_in
-		);
-
 		public void Bind__Dictionary<TKey, TValue>(
 			string selectedValue_in,
 			bool allowNull_in,
@@ -430,7 +418,7 @@ namespace OGen.Libraries.PresentationLayer.WebForms {
 
 			Dictionary<TKey, TValue> enums_in,
 
-			DictionaryTextDelegate<TKey, TValue> dictionaryText_in
+			OGen.Libraries.PresentationLayer.WebForms.DictionaryText<TKey, TValue> dictionaryText_in
 		) {
 			List<KeyValuePair<TKey, TValue>> _penums
 				= new List<KeyValuePair<TKey, TValue>>(

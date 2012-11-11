@@ -152,6 +152,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="delegates\NotifyBack.cs" />
     <Compile Include="NTierGenerator.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -134,6 +134,8 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="delegates\FlowformNotifyBase.cs" />
+    <Compile Include="delegates\FlowformFormNotifyBase.cs" />
     <Compile Include="Flowforms\Flowform.cs">
       <SubType>Code</SubType>
     </Compile>
