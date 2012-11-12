@@ -12,13 +12,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using OGen.lib.datalayer;
-using OGen.lib.datalayer.PostgreSQL;
 
-namespace OGen.test {
-	class Program {
+namespace OGen.PresentationLayer.Test {
+	using System;
+	using System.Data;
+	using OGen.Libraries.DataLayer;
+	using OGen.Libraries.DataLayer.PostgreSQL;
+
+	public static class Program {
 		public static void Main(string[] args) {
 			
 			DBConnection _con = new DBConnection_PostgreSQL(
@@ -50,13 +51,13 @@ namespace OGen.test {
 				#endregion
 				
 				#region ...; _con.getTables(); ...
-				string[] _dbs = _con.getDBs();
+				string[] _dbs = _con.SchemaDatabases();
 				for (int d = 0; d < _dbs.Length; d++) {
 					Console.WriteLine("#{0}/{1} - {2}", d + 1, _dbs.Length, _dbs[d]);
 				}
 				
 				DBTableField[] _fields;
-				DBTable[] _tables = _con.getTables();
+				DBTable[] _tables = _con.SchemaDatabaseTables();
 				for (int t = 0; t < _tables.Length; t++) {
 					Console.WriteLine(
 						"\t#{0}/{1} - {2}", 
@@ -65,7 +66,7 @@ namespace OGen.test {
 						_tables[t].Name
 					);
 
-					_fields = _con.getTableFields(_tables[t].Name);
+					_fields = _con.SchemaDatabaseTableFields(_tables[t].Name);
 					for (int f = 0; f < _fields.Length; f++) {
 						Console.WriteLine(
 							"\t\t#{0}/{1} - {2}", 

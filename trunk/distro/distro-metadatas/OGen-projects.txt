@@ -17,7 +17,7 @@ OGen, OGen_parser, OGen.Libraries.Parser, t, f, f, MIT, f, t, f
 OGen, OGen_parser_UTs, OGen.Libraries.Parser.UnitTests, f, f, f, MIT, f, f, t
 OGen, OGen_generator, OGen.Libraries.Generator, t, f, f, MIT, f, t, f
 OGen, OGen_worker, OGen.Libraries.Worker, t, f, f, MIT, f, t, f
-OGen, OGen-test, OGen.Test, f, f, t, MIT, f, f, f
+OGen, OGen-test, OGen.PresentationLayer.Test, f, f, t, MIT, f, f, f
 OGen, OGen-Doc, OGen-Doc, f, f, f, GNU_FDL, t, f, f
 OGen-NTier, NTier_metadata, OGen.NTier.Libraries.Metadata, t, f, f, MIT, f, t, f
 OGen-NTier, NTier_metadata_UTs, OGen.NTier.Libraries.Metadata.UnitTests, f, f, f, MIT, f, f, t

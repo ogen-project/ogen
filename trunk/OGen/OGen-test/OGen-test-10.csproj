@@ -5,8 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <OutputType>Exe</OutputType>
-    <RootNamespace>OGen.test</RootNamespace>
-    <AssemblyName>OGen.test-2.0</AssemblyName>
+    <RootNamespace>OGen.PresentationLayer.Test</RootNamespace>
+    <AssemblyName>OGen.PresentationLayer.Test-2.0</AssemblyName>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <WarningLevel>4</WarningLevel>
@@ -94,6 +94,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <None Include="app.config" />
+    <None Include="COPYING.MIT" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OGen_datalayer_PostgreSQL\OGen_datalayer_PostgreSQL-10.csproj">
@@ -125,5 +126,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
   </ItemGroup>
 </Project>
