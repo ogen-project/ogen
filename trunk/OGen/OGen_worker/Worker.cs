@@ -36,7 +36,7 @@ namespace OGen.Libraries.Worker {
 		public bool DoWork(
 			WorkItem[] workItems_in,
 			IsReadyToWork isReadyToWork_in,
-			MakeItWork makeItWork_in,
+			MakeItWork makeItWork_in
 #else
 		/// <typeparam name="T">type of work item</typeparam>
 		public bool DoWork<T>(
@@ -45,7 +45,11 @@ namespace OGen.Libraries.Worker {
 			MakeItWork<T> makeItWork_in
 #endif
 		) {
+#if NET_1_1
+			return DoWork(
+#else
 			return DoWork<T>(
+#endif
 				workItems_in,
 				isReadyToWork_in,
 				makeItWork_in,
