@@ -27,13 +27,8 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 	#endif
 
 //		#region public static XS__metadataDB Load_fromDB(...);
-		public delegate void Load_fromDBDelegate(
-			string message_in, 
-			bool onANewLine_in
-		);
-
 		public static XS__metadataDB Load_fromDB(
-			XS__metadataDB.Load_fromDBDelegate notifyBack_in, 
+			OGen.NTier.Libraries.Metadata.MetadataDB.Load_fromDatabase notifyBack_in, 
 			string subAppName_in,
 
 			params DBSimpleConnectionstring[] dbConnectionParam_in
@@ -49,7 +44,7 @@ namespace OGen.NTier.Libraries.Metadata.MetadataDB {
 			);
 		}
 		public static XS__metadataDB Load_fromDB(
-			XS__metadataDB.Load_fromDBDelegate notifyBack_in, 
+			OGen.NTier.Libraries.Metadata.MetadataDB.Load_fromDatabase notifyBack_in, 
 			string subAppName_in, 
 
 			XS__RootMetadata root_ref_in, 

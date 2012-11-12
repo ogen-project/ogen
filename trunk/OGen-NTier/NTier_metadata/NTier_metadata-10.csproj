@@ -131,6 +131,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="delegates\Load_fromDatabase.cs" />
     <Compile Include="metadataBusiness\XS_classesType.cs" />
     <Compile Include="metadataBusiness\XS_classesTypeCollection.cs" />
     <Compile Include="metadataBusiness\XS_classType.cs" />
