@@ -1,0 +1,90 @@
+main dir;sub dir;assembly name;install on GAC;web app;is an exe;license;is a doc project;is a Release;is unit test;project guid
+OGen; OGen_crypt; OGen.Libraries.Crypt; t; f; f; MIT; f; t; f; 98DEBF89-FC67-43EF-BB19-7E70F939A8D6
+OGen; OGen_lib; OGen.Libraries; t; f; f; MIT; f; t; f; C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB
+OGen; OGen_mail; OGen.Libraries.Mail; t; f; f; MIT; f; t; f; FA349CD4-2751-4160-9C78-7DFC16A41A17
+OGen; OGen_datalayer__base; OGen.Libraries.DataLayer; t; f; f; MIT; f; t; f; D66D0E69-852C-4695-9D63-C9AB1A959E0B
+OGen; OGen_datalayer_PostgreSQL; OGen.Libraries.DataLayer.PostgreSQL; t; f; f; MIT; f; t; f; 07D7D1E0-A4F9-45C3-8100-FC60AC3BF8FA
+OGen; OGen_datalayer_SQLServer; OGen.Libraries.DataLayer.SQLServer; t; f; f; MIT; f; t; f; F26C7DB4-A67C-48A9-8B20-873EE8CFA5E7
+OGen; OGen_datalayer_MySQL; OGen.Libraries.DataLayer.MySQL; f; f; f; MIT; f; f; f; 8F5F21DB-FED4-46A9-9E7E-B50B678D12B2
+OGen; OGen_datalayer_UTs; OGen.Libraries.DataLayer.UnitTests; f; f; f; MIT; f; f; t; 46D90ABA-A5C9-4730-A585-8D91EFC7B398
+OGen; OGen_datalayersupport; OGen.Libraries.DataLayer.Support; t; f; f; MIT; f; t; f; 88D87481-CC3F-49C7-A013-758387F3452E
+OGen; OGen_collections; OGen.Libraries.Collections; t; f; f; MIT; f; t; f; A6E837F8-780F-4D05-B3ED-2FF1906B5766
+OGen; OGen_collections_UTs; OGen.Libraries.Collections.UnitTests; f; f; f; MIT; f; f; t; 67566F92-0B16-47AF-912E-22FED2ECA819
+OGen; OGen_webforms; OGen.Libraries.PresentationLayer.WebForms; t; f; f; MIT; f; t; f; 196FD9A0-3C2F-4B84-BDFF-0DADC2A03791
+OGen; OGen_webforms_UTs; OGen.Libraries.PresentationLayer.WebForms.UnitTests; f; f; f; MIT; f; f; t; 73D08732-CC2D-432D-BF9D-AA669059446A
+OGen; OGen_winforms; OGen.Libraries.PresentationLayer.WinForms; t; f; f; MIT; f; t; f; B3835B3F-C899-416F-BA94-625A4B32A4AC
+OGen; OGen_winforms_UTs; OGen.Libraries.PresentationLayer.WinForms.UnitTests; f; f; f; MIT; f; f; t; 78AF375C-E64E-49D0-AD35-24447821F7CD
+OGen; OGen_parser; OGen.Libraries.Parser; t; f; f; MIT; f; t; f; 981BC7DE-D93C-446E-861E-60A20E4E3391
+OGen; OGen_parser_UTs; OGen.Libraries.Parser.UnitTests; f; f; f; MIT; f; f; t; 41D123D7-BA39-4661-8285-8FE17E89AB33
+OGen; OGen_generator; OGen.Libraries.Generator; t; f; f; MIT; f; t; f; 668ACF34-6104-4DD9-BB8A-65D9D94B0BB6
+OGen; OGen_worker; OGen.Libraries.Worker; t; f; f; MIT; f; t; f; 210F2BDA-5508-4587-9E39-E4C9C8752B05
+OGen; OGen-test; OGen.PresentationLayer.Test; f; f; t; MIT; f; f; f; 4445DA1C-CAFF-4555-B468-7F84B87CD98B
+OGen; OGen-Doc; OGen-Doc; f; f; f; GNU_FDL; t; f; f; -
+OGen-NTier; NTier_metadata; OGen.NTier.Libraries.Metadata; t; f; f; MIT; f; t; f; 0E77A4DB-AF8B-4290-BB33-F9EC97655433
+OGen-NTier; NTier_metadata_UTs; OGen.NTier.Libraries.Metadata.UnitTests; f; f; f; MIT; f; f; t; 9F1EEE8C-2097-4B8D-87D8-DA171FAE3480
+OGen-NTier; NTier_generator; OGen.NTier.Libraries.Generator; t; f; f; MIT; f; t; f; BC9835E7-8878-479D-BC0F-909FA77344DD
+OGen-NTier; NTier_datalayer; OGen.NTier.Libraries.DataLayer; t; f; f; MIT; f; t; f; 38BEF535-92F1-4C55-9CEA-8F8D3E82CAFD
+OGen-NTier; NTier_datalayer_UTs; OGen.NTier.Libraries.DataLayer.UnitTests; f; f; f; MIT; f; f; t; CC28B2F4-2235-4605-98B5-8889F7BBC118
+OGen-NTier; NTier_datalayer_proxy; OGen.NTier.Libraries.DataLayer.Shared; t; f; f; MIT; f; t; f; F17F7FA0-920E-4AE1-908F-2798D0124996
+OGen-NTier; NTier_businesslayer; OGen.NTier.Libraries.BusinessLayer; t; f; f; MIT; f; t; f; 8AEBEA64-6FC4-430C-922C-B88D105AE91C
+OGen-NTier; NTier_businesslayer_UTs; OGen.NTier.Libraries.BusinessLayer.UnitTests; f; f; f; MIT; f; f; t; 21037A3C-D93B-45B2-B78A-76C92BA93A11
+OGen-NTier; NTier_distributedlayer_remoting; OGen.NTier.Libraries.DistributedLayer.Remoting; t; f; f; MIT; f; t; f; 504D4214-DA98-4CA2-8849-70796D05F41B
+OGen-NTier; NTier_distributedlayer_remoting_client; OGen.NTier.Libraries.DistributedLayer.Remoting.Client; t; f; f; MIT; f; t; f; A1711840-2FC2-457D-BA6B-0E36B54E395F
+OGen-NTier; NTier_distributedlayer_remoting_server; OGen.NTier.Libraries.DistributedLayer.Remoting.Server; t; f; f; MIT; f; t; f; 29413A02-D0EB-4BFF-8EB6-A65AB1166FF3
+OGen-NTier; NTier_distributedlayer_webservices_client; OGen.NTier.Libraries.DistributedLayer.WebServices.Client; t; f; f; MIT; f; t; f; 7A52E316-CA44-4710-AF93-CC495DE77F6C
+OGen-NTier; NTier_templates; OGen.NTier.Libraries.Templates; f; t; f; MIT; f; t; f; D5FDB433-994F-404C-B535-FB90B005B6B8
+OGen-NTier; NTier; OGen.NTier.PresentationLayer.WinForms; f; f; t; MIT; f; t; f; 37C5F3D1-D158-4E05-BB2D-CD32553FB993
+OGen-NTier; NTier-console; OGen.NTier.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; E853AF0F-1F72-4B4E-946F-2E9C4661C903
+OGen-NTier; NTier-test; OGen.NTier.PresentationLayer.Test; f; f; t; MIT; f; f; f; 2AAFDEA0-0EC3-4757-AEA9-C142BEDAA545
+OGen-NTier; OGen-NTier-Doc; OGen-NTier-Doc; f; f; f; GNU_FDL; t; f; f; -
+OGen-Kick; src\Kick-businesslayer; OGen.NTier.Kick.Libraries.BusinessLayer; t; f; f; MIT; f; t; f; 82A42F01-E060-43BA-8580-3AA3B55B8835
+OGen-Kick; src\Kick-businesslayer-instances; OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances; t; f; f; MIT; f; t; f; 739B6C77-728E-47D5-9035-E366CF056CCC
+OGen-Kick; src\Kick-businesslayer-instances; OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.BusinessObject; t; f; f; MIT; f; t; f; 0872F13E-F31D-4E15-BCDF-2AC7449D6B29
+OGen-Kick; src\Kick-businesslayer-instances; OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.RemotingClient; t; f; f; MIT; f; t; f; 3199D08A-E34B-4276-A685-0E4E0B8404EB
+OGen-Kick; src\Kick-businesslayer-instances; OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Instances.WebServicesClient; t; f; f; MIT; f; t; f; E2282206-F42F-4302-AABA-70C15CF875F7
+OGen-Kick; src\Kick-businesslayer-shared; OGen.NTier.Kick.Libraries.BusinessLayer.Shared; t; f; f; MIT; f; t; f; 13DD2252-A8D0-4672-86E4-67AFB821F03D
+OGen-Kick; src\Kick-businesslayer-structures; OGen.NTier.Kick.Libraries.BusinessLayer.Shared.Structures; t; f; f; MIT; f; t; f; C25672B4-7EB7-485C-8486-DB71206ED6B3
+OGen-Kick; src\Kick-datalayer; OGen.NTier.Kick.Libraries.DataLayer; t; f; f; MIT; f; t; f; 4072BCFE-FD4C-49C2-AA7B-0B63C97795F7
+OGen-Kick; src\Kick-datalayer-structures; OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures; t; f; f; MIT; f; t; f; 11DBCAAE-7838-4204-B8BE-53B96864D928
+OGen-Kick; src\Kick-remoting-client; OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Client; t; f; f; MIT; f; t; f; 16AA0F44-C31C-4FA2-B461-A74946CD3224
+OGen-Kick; src\Kick-remoting-server; OGen.NTier.Kick.Libraries.DistributedLayer.Remoting.Server; t; f; f; MIT; f; t; f; 5DBF8339-8FB9-4040-BB96-B770EF093BA1
+OGen-Kick; src\Kick-remoting-simpleserver; OGen.NTier.Kick.DistributedLayer.Remoting.SimpleServer; f; f; t; MIT; f; f; f; 6720D906-E3C5-446A-A255-1F9D67F5A085
+OGen-Kick; src\Kick--test; OGen.NTier.Kick.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; f; f; 5D0280A7-2A09-422F-87BA-683ACE9AA187
+OGen-Kick; src\Kick-web; OGen.NTier.Kick.PresentationLayer.WebLayer; f; t; f; MIT; f; f; f; 0B35936C-5B19-4A87-B9BF-1E59879CED6B
+OGen-Kick; src\Kick-weblayer; OGen.NTier.Kick.Libraries.PresentationLayer.WebLayer; t; f; f; MIT; f; t; f; F631FEFC-77DF-4F4C-BBE2-F9474A6690F2
+OGen-Kick; src\Kick-webservices-client; OGen.NTier.Kick.Libraries.DistributedLayer.WebServices.Client; t; f; f; MIT; f; t; f; 255CFEA8-71C6-45DE-82AB-1C99A91194A5
+OGen-Kick; src\Kick-webservices-server; OGen.NTier.Kick.DistributedLayer.WebServices.Server; f; t; f; MIT; f; f; f; 08F3001E-7C45-4A78-A295-48684AC9323E
+OGen-NTier_UTs; OGen-NTier_UTs_businesslayer; OGen.NTier.UTs.lib.businesslayer; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_businesslayer_proxy; OGen.NTier.UTs.lib.businesslayer.proxy; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_businesslayer_UTs; OGen.NTier.UTs.lib.businesslayer.UTs; f; f; f; MIT; f; f; t;
+OGen-NTier_UTs; OGen-NTier_UTs_datalayer; OGen.NTier.UTs.lib.datalayer; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_datalayer_proxy; OGen.NTier.UTs.lib.datalayer.proxy; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_datalayer_UTs; OGen.NTier.UTs.lib.datalayer.UTs; f; f; f; MIT; f; f; t;
+OGen-NTier_UTs; OGen-NTier_UTs_test; OGen.NTier.UTs.test; f; f; t; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs-PostgreSQL; OGen-NTier_UTs-PostgreSQL; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs-SQLServer; OGen-NTier_UTs-SQLServer; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-metadatas; OGen-metadatas; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs-Doc; OGen-NTier_UTs-Doc; f; f; f; GNU_FDL; t; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_webservices_server; OGen.NTier.UTs.distributedlayer.webservices.server; f; t; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_webservices_client; OGen.NTier.UTs.lib.distributedlayer.webservices.client; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_remoting_server; OGen.NTier.UTs.distributedlayer.remoting.server; f; f; t; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_remoting_client; OGen.NTier.UTs.lib.distributedlayer.remoting.client; f; f; f; MIT; f; f; f;
+OGen-NTier_UTs; OGen-NTier_UTs_business_client; OGen.NTier.UTs.lib.business.client; f; f; f; MIT; f; f; f;
+OGen-Dia; Dia_generator; OGen.Dia.Libraries.Generator; t; f; f; MIT; f; t; f; BE3E31C9-69AA-4F21-B945-225E78D62D03
+OGen-Dia; Dia_metadata; OGen.Dia.Libraries.Metadata; t; f; f; MIT; f; t; f; 8D5C03A2-FA8C-40C3-BF9A-B12ABBC3E158
+OGen-Dia; Dia_templates; OGen.Dia.Libraries.Templates; f; t; f; MIT; f; t; f; C6ED2E91-EE27-4F91-A0DC-A36A0C2EE58E
+OGen-Dia; Dia-console; OGen.Dia.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; AE492C5A-D818-4038-8AC8-543874359670
+OGen-Dia; Dia-test; OGen.Dia.PresentationLayer.Test; f; f; t; MIT; f; f; f; 175AC1D5-6F73-407E-BC03-1AC3D0589409
+OGen-Doc; Doc_generator; OGen.Doc.Libraries.Generator; t; f; f; MIT; f; t; f; 0D8CBBD6-841B-4A03-9733-8AFE3B4D5C86
+OGen-Doc; Doc_metadata; OGen.Doc.Libraries.Metadata; t; f; f; MIT; f; t; f; 9DF6791A-1771-4EB6-8FEB-7F54AC2D9078
+OGen-Doc; Doc_templates; OGen.Doc.Libraries.Templates; f; t; f; MIT; f; t; f; 82FA3D98-C5E7-42EC-A117-21C14D117EFD
+OGen-Doc; Doc; OGen.Doc.PresentationLayer.WinForms; f; f; t; MIT; f; f; f;
+OGen-Doc; Doc-console; OGen.Doc.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; D4BA7561-1BEB-403C-933C-AE740D4889BE
+OGen-Doc; Doc-test; OGen.Doc.PresentationLayer.Test; f; f; t; MIT; f; f; f; D3537355-C003-41A9-8B12-ED4F3D67B99B
+OGen-XSD; XSD_generator; OGen.XSD.Libraries.Generator; t; f; f; MIT; f; t; f; 8FBFD76E-FD3D-415C-B046-EFC947BE4259
+OGen-XSD; XSD_metadata; OGen.XSD.Libraries.Metadata; t; f; f; MIT; f; t; f; 4DF3D49D-AE3E-47F9-A33F-EB335D7B418E
+OGen-XSD; XSD_templates; OGen.XSD.Libraries.Templates; f; t; f; MIT; f; t; f; 327AF732-DFFD-488F-85C7-92B23D03BD34
+OGen-XSD; XSD-console; OGen.XSD.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; B716D6F2-D45A-49A0-BEFA-D5A206303304
+OGen-XSD; XSD-Test; OGen.XSD.PresentationLayer.Test; f; f; t; MIT; f; f; f; E91AFBB5-F6BE-47D1-90B1-811EEB9D42DC
+OGen-SpreadsheetXML; SpreadsheetXML_metadata; OGen.SpreadsheetXML.Libraries.Metadata; t; f; f; MIT; f; t; f; 4F32A87A-8C41-4FEA-B683-4E6310E04CCF
+OGen-SpreadsheetXML; SpreadsheetXML-Console; OGen.SpreadsheetXML.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; 0B245CBE-7DF0-424A-A7A7-6BD904262F11
