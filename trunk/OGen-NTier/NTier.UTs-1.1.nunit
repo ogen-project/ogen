@@ -13,8 +13,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <NUnitProject>
   <Settings activeconfig="Default" />
   <Config name="Default" binpathtype="Auto">
-    <assembly path="NTier_businesslayer_UTs\bin\Debug\OGen.NTier.Libraries.BusinessLayer.UTs-1.1.dll" />
-    <assembly path="NTier_datalayer_UTs\bin\Debug\OGen.NTier.Libraries.DataLayer.UTs-1.1.dll" />
-    <assembly path="NTier_metadata_UTs\bin\Debug\OGen.NTier.Libraries.Metadata.UTs-1.1.dll" />
+    <assembly path="NTier_businesslayer_UTs\bin\Debug\OGen.NTier.Libraries.BusinessLayer.UnitTests-1.1.dll" />
+    <assembly path="NTier_datalayer_UTs\bin\Debug\OGen.NTier.Libraries.DataLayer.UnitTests-1.1.dll" />
+    <assembly path="NTier_metadata_UTs\bin\Debug\OGen.NTier.Libraries.Metadata.UnitTests-1.1.dll" />
   </Config>
 </NUnitProject>

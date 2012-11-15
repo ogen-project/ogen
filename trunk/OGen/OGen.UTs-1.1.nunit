@@ -13,10 +13,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <NUnitProject>
   <Settings activeconfig="Default" />
   <Config name="Default" binpathtype="Auto">
-    <assembly path="OGen_datalayer_UTs\bin\Debug\OGen.Libraries.DataLayer.UTs-1.1.dll" />
-    <assembly path="OGen_collections_UTs\bin\Debug\OGen.Libraries.Collections.UTs-1.1.dll" />
-    <assembly path="OGen_webforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WebForms.UTs-1.1.dll" />
-    <assembly path="OGen_winforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WinForms.UTs-1.1.dll" />
-    <assembly path="OGen_parser_UTs\bin\Debug\OGen.Libraries.Parser.UTs-1.1.dll" />
+    <assembly path="OGen_datalayer_UTs\bin\Debug\OGen.Libraries.DataLayer.UnitTests-1.1.dll" />
+    <assembly path="OGen_collections_UTs\bin\Debug\OGen.Libraries.Collections.UnitTests-1.1.dll" />
+    <assembly path="OGen_webforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WebForms.UnitTests-1.1.dll" />
+    <assembly path="OGen_winforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WinForms.UnitTests-1.1.dll" />
+    <assembly path="OGen_parser_UTs\bin\Debug\OGen.Libraries.Parser.UnitTests-1.1.dll" />
   </Config>
 </NUnitProject>
