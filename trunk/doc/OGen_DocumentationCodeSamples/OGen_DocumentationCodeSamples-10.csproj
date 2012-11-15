@@ -68,6 +68,9 @@
     <Compile Include="OGen__Docs__Develop_HowTo_List_Database_Tables.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_UseDatabaseTransactions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
