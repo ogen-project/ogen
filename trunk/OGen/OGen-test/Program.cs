@@ -21,6 +21,13 @@ namespace OGen.PresentationLayer.Test {
 
 	public static class Program {
 		public static void Main(string[] args) {
+
+			//OGen.Libraries.DataLayer.UnitTests.UT_DBConnection _unittest 
+			//    = new OGen.Libraries.DataLayer.UnitTests.UT_DBConnection();
+			//_unittest.TestFixtureSetUp();
+			//_unittest.UT_getBDs();
+			//_unittest.TestFixtureTearDown();
+			//return;
 			
 			DBConnection _con = new DBConnection_PostgreSQL(
 				"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;", 

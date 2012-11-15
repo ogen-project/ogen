@@ -24,13 +24,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OGen.Libraries.DataLayer;
 
 #if PostgreSQL
-namespace OGen.Libraries.DataLayer.UTs {
+namespace OGen.Libraries.DataLayer.UnitTests {
 #if NUnit
 	[TestFixture]
 #else
 	[TestClass]
 #endif
-	public class UT_DBConnection { public UT_DBConnection() {}
+	public class UT_DBConnection {
+		public UT_DBConnection() {}
+
         private DBConnection[] dbconnections_;
         private string dbname_;
         private string testid_;
@@ -116,13 +118,14 @@ namespace OGen.Libraries.DataLayer.UTs {
 			//---
 			DBServerTypes _dbtype;
 			DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
-			dbconnections_ = new DBConnection[_dbtypes.Length];
+			dbconnections_ = new DBConnection[_dbtypes.Length -1]; // exclude DBServerTypes.invalid
+			int _dbconnections_index = 0;
 			for (int d = 0; d < _dbtypes.Length; d++) {
 				if (_dbtypes[d] == DBServerTypes.invalid) continue;
 
 				_dbtype = _dbtypes[d];
 
-				dbconnections_[d] = DBConnectionsupport.CreateInstance(
+				dbconnections_[_dbconnections_index++] = DBConnectionsupport.CreateInstance(
 					_dbtype,
 #if NET_1_1
 					System.Configuration.ConfigurationSettings.AppSettings

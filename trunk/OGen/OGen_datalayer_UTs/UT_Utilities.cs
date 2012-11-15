@@ -24,20 +24,22 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OGen.Libraries.DataLayer;
 
 #if PostgreSQL
-namespace OGen.Libraries.DataLayer.UTs {
+namespace OGen.Libraries.DataLayer.UnitTests {
 #if NUnit
 	[TestFixture]
 #else
 	[TestClass]
 #endif
-    public class UT_Utilities { public UT_Utilities() {}
-        #region public void TestFixtureSetUp();
+	public class UT_Utilities {
+		public UT_Utilities() {}
+
+		#region public void TestFixtureSetUp();
 #if NUnit
 		[TestFixtureSetUp]
 #endif
-        public void TestFixtureSetUp() {
-            // ...
-        }
+		public void TestFixtureSetUp() {
+			// ...
+		}
         #endregion
         #region public void TestFixtureTearDown();
 #if NUnit
