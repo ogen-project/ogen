@@ -139,7 +139,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in) {
 			IDbCommand _output;
 
-			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+			if ((this.transaction__ != null) && (this.transaction__.InTransaction)) {
 				_output = new NpgsqlCommand(
 					command_in, 
 					(NpgsqlConnection)connection_in,
@@ -164,7 +164,7 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 				(NpgsqlConnection)connection_in
 			);
 
-			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+			if ((this.transaction__ != null) && (this.transaction__.InTransaction)) {
 				_output.SelectCommand.Transaction
 					= (NpgsqlTransaction)this.transaction__.exposeTransaction;
 			}

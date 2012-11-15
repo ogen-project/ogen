@@ -220,7 +220,7 @@ namespace OGen.Libraries.DataLayer {
 			get { return this.logenabled_; }
 		}
 		#endregion
-		#region public bool isOpen { get; }
+		#region public bool IsOpen { get; }
 		/// <summary>
 		/// Indicates Database Connection state, True if oppened, False if closed.
 		/// </summary>
@@ -229,7 +229,7 @@ namespace OGen.Libraries.DataLayer {
 		/// <summary>
 		/// Indicates Database Connection state, True if oppened, False if closed.
 		/// </summary>
-		public bool isOpen {
+		public bool IsOpen {
 			get { return this.isopen_; }
 		}
 		#endregion
@@ -390,7 +390,7 @@ namespace OGen.Libraries.DataLayer {
 		public void Close() {
 			if (!this.isopen_) {
 				throw new CloseException_alreadyClosed();
-			} else if ((this.transaction__ != null) && this.transaction__.inTransaction) {
+			} else if ((this.transaction__ != null) && this.transaction__.InTransaction) {
 				throw new CloseException_unterminatedTransaction();
 			} else {
 				this.exposeConnection.Close();
@@ -743,7 +743,7 @@ namespace OGen.Libraries.DataLayer {
 					function_in,
 					(IDbConnection)this.exposeConnection
 				);
-				if ((this.transaction__ != null) && this.transaction__.inTransaction) {
+				if ((this.transaction__ != null) && this.transaction__.InTransaction) {
 					_command.Transaction = this.transaction__.exposeTransaction;
 				}
 				_output

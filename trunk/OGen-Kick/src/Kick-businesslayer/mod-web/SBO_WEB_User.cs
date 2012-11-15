@@ -258,9 +258,9 @@ A equipa {2}
 
 				#region _con.Transaction.Commit();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Commit();
 				}
@@ -268,9 +268,9 @@ A equipa {2}
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -279,8 +279,8 @@ A equipa {2}
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();
@@ -813,9 +813,9 @@ A equipa {2}
 					if (_commit) {
 						#region _con.Transaction.Commit();
 						if (
-							_con.isOpen
+							_con.IsOpen
 							&&
-							_con.Transaction.inTransaction
+							_con.Transaction.InTransaction
 						) {
 							_con.Transaction.Commit();
 						}
@@ -823,9 +823,9 @@ A equipa {2}
 					} else {
 						#region _con.Transaction.Rollback();
 						if (
-							_con.isOpen
+							_con.IsOpen
 							&&
-							_con.Transaction.inTransaction
+							_con.Transaction.InTransaction
 						) {
 							_con.Transaction.Rollback();
 						}
@@ -834,9 +834,9 @@ A equipa {2}
 				} catch (Exception _ex) {
 					#region _con.Transaction.Rollback();
 					if (
-						_con.isOpen
+						_con.IsOpen
 						&&
-						_con.Transaction.inTransaction
+						_con.Transaction.InTransaction
 					) {
 						_con.Transaction.Rollback();
 					}
@@ -845,8 +845,8 @@ A equipa {2}
 					_exception = _ex;
 				} finally {
 					#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-					if (_con.isOpen) {
-						if (_con.Transaction.inTransaction) {
+					if (_con.IsOpen) {
+						if (_con.Transaction.InTransaction) {
 							_con.Transaction.Terminate();
 						}
 						_con.Close();
@@ -1358,9 +1358,9 @@ A equipa {2}",
 				if (_commit) {
 					#region _con.Transaction.Commit();
 					if (
-						_con.isOpen
+						_con.IsOpen
 						&&
-						_con.Transaction.inTransaction
+						_con.Transaction.InTransaction
 					) {
 						_con.Transaction.Commit();
 					}
@@ -1368,9 +1368,9 @@ A equipa {2}",
 				} else {
 					#region _con.Transaction.Rollback();
 					if (
-						_con.isOpen
+						_con.IsOpen
 						&&
-						_con.Transaction.inTransaction
+						_con.Transaction.InTransaction
 					) {
 						_con.Transaction.Rollback();
 					}
@@ -1379,9 +1379,9 @@ A equipa {2}",
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -1390,8 +1390,8 @@ A equipa {2}",
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();

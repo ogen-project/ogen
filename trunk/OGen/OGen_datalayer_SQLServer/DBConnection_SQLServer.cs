@@ -139,7 +139,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in) {
 			IDbCommand _output;
 
-			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+			if ((this.transaction__ != null) && (this.transaction__.InTransaction)) {
 			    _output = new SqlCommand(
 			        command_in, 
 			        (SqlConnection)connection_in,
@@ -164,7 +164,7 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 				(SqlConnection)connection_in
 			);
 
-			if ((this.transaction__ != null) && (this.transaction__.inTransaction)) {
+			if ((this.transaction__ != null) && (this.transaction__.InTransaction)) {
 				_output.SelectCommand.Transaction
 					= (SqlTransaction)this.transaction__.exposeTransaction;
 			}

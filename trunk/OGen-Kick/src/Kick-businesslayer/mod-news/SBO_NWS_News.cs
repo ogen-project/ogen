@@ -601,9 +601,9 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -612,8 +612,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();
@@ -891,9 +891,9 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -902,8 +902,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();
@@ -1617,9 +1617,9 @@ errors_out.Add(ErrorType.profile__invalid_name);
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -1628,8 +1628,8 @@ errors_out.Add(ErrorType.profile__invalid_name);
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();

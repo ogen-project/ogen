@@ -254,9 +254,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 
 				#region _con.Transaction.Commit();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Commit();
 				}
@@ -264,9 +264,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -275,8 +275,8 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();
@@ -409,9 +409,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 
 				#region _con.Transaction.Commit();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Commit();
 				}
@@ -419,9 +419,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -430,8 +430,8 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 				_exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();
@@ -656,9 +656,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 
 				#region _con.Transaction.Commit();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Commit();
 				}
@@ -666,9 +666,9 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			} catch (Exception _ex) {
 				#region _con.Transaction.Rollback();
 				if (
-					_con.isOpen
+					_con.IsOpen
 					&&
-					_con.Transaction.inTransaction
+					_con.Transaction.InTransaction
 				) {
 					_con.Transaction.Rollback();
 				}
@@ -677,8 +677,8 @@ namespace OGen.NTier.Kick.Libraries.BusinessLayer {
 			    _exception = _ex;
 			} finally {
 				#region _con.Transaction.Terminate(); _con.Close(); _con.Dispose();
-				if (_con.isOpen) {
-					if (_con.Transaction.inTransaction) {
+				if (_con.IsOpen) {
+					if (_con.Transaction.InTransaction) {
 						_con.Transaction.Terminate();
 					}
 					_con.Close();

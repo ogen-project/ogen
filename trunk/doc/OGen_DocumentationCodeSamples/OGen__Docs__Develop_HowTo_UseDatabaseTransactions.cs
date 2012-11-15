@@ -70,12 +70,12 @@ try {
 } finally {
 
 	//// terminate transaction
-	//if (_con.Transaction.inTransaction) {
+	//if (_con.Transaction.InTransaction) {
 	//    _con.Transaction.Terminate();
 	//}
 
 	//// closing connection
-	//if (_con.isOpen) {
+	//if (_con.IsOpen) {
 	//    _con.Close();
 	//}
 

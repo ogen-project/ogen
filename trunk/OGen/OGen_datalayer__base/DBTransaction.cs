@@ -67,13 +67,13 @@ namespace OGen.Libraries.DataLayer {
 		#endregion
 
 		#region public Properties...
-		#region public bool inTransaction { get; }
+		#region public bool InTransaction { get; }
 		private bool intransaction_;
 
 		/// <summary>
 		/// Indicates the Transaction state, True if initiated, False if uninitiated.
 		/// </summary>
-		public bool inTransaction {
+		public bool InTransaction {
 			get { return this.intransaction_; }
 		}
 		#endregion
@@ -113,7 +113,7 @@ namespace OGen.Libraries.DataLayer {
 		public void Begin(IsolationLevel isolationLevel_in) {
 			if (this.intransaction_) {
 				throw new BeginException_alreadyInitiated();
-			} else if (!this.parent_.isOpen) {
+			} else if (!this.parent_.IsOpen) {
 				throw new BeginException_closedConnection();
 			} else {
 				this.transaction_ = this.parent_.exposeConnection.BeginTransaction(isolationLevel_in);
