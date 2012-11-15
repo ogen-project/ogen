@@ -25,8 +25,11 @@ using OGen.Libraries.DataLayer;
 
 #if PostgreSQL
 namespace OGen.Libraries.DataLayer.UTs {
-	[NUnit.Framework.TestFixture]
-	[Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
 	public class UT_DBConnection { public UT_DBConnection() {}
         private DBConnection[] dbconnections_;
         private string dbname_;
@@ -98,7 +101,9 @@ namespace OGen.Libraries.DataLayer.UTs {
         #endregion
 
         #region public void TestFixtureSetUp();
-		[NUnit.Framework.TestFixtureSetUp]
+#if NUnit
+		[TestFixtureSetUp]
+#endif
         public void TestFixtureSetUp() {
             testid_ = DateTime.Now.Ticks.ToString();// Guid.NewGuid().ToString();
             dbname_ = 
@@ -131,7 +136,9 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void TestFixtureTearDown();
-		[NUnit.Framework.TestFixtureTearDown]
+#if NUnit
+		[TestFixtureTearDown]
+#endif
         public void TestFixtureTearDown() {
             for (int d = 0; d < dbconnections_.Length; d++) {
                 dbconnections_[d].Dispose();
@@ -141,9 +148,12 @@ namespace OGen.Libraries.DataLayer.UTs {
         #endregion
 
         #region public void UT_getBDs();
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
-		[NUnit.Framework.Test]
-        public void UT_getBDs() {
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void UT_getBDs() {
             string[] _dbs;
             bool _found;
 
@@ -161,8 +171,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void UT_getTables_getFields_andCheckMostThings();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_getTables_getFields_andCheckMostThings() {
             DBTable[] _tables;
             DBTableField[] _fields;
@@ -416,8 +429,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         #endregion
 
         #region public void UT_Execute_SQLQuery();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
         public void UT_Execute_SQLQuery() {
             string _login;
             string _password;
@@ -444,8 +460,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void UT_Execute_SQLFunction_andCheckExistence();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
         public void UT_Execute_SQLFunction_andCheckExistence() {
             IDbDataParameter[] _dataparameters;
 
@@ -503,8 +522,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void UT_Execute_SQLStoredProcedure_andCheckExistence();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_Execute_SQLStoredProcedure_andCheckExistence() {
             IDbDataParameter[] _dataparameters;
 
@@ -585,8 +607,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         #endregion
 
         #region public void UT_Transaction_Rollback();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_Transaction_Rollback() {
             for (int c = 0; c < dbconnections_.Length; c++) {
                 dbconnections_[c].Open();
@@ -608,8 +633,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void UT_Transaction_Commit();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_Transaction_Commit() {
             for (int c = 0; c < dbconnections_.Length; c++) {
                 dbconnections_[c].Open();
@@ -633,8 +661,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
         #region public void UT_Connection_Open_andClose();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_Connection_Open_andClose() {
             for (int c = 0; c < dbconnections_.Length; c++) {
                 dbconnections_[c].Open();
@@ -656,8 +687,11 @@ namespace OGen.Libraries.DataLayer.UTs {
         }
         #endregion
 //		#region public void UT_Connection_SQLFunction_exists_and_delete();
-//		[NUnit.Framework.Test]
-//		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+//#if NUnit
+//		[Test]
+//#else
+//		[TestMethod]
+//#endif
 //		public void UT_Connection_SQLFunction_exists_and_delete() {
 //			for (int c = 0; c < dbconnections_.Length; c++) {
 //				switch (dbconnections_[c].DBServerType) {

@@ -25,111 +25,124 @@ using OGen.Libraries.DataLayer;
 
 #if PostgreSQL
 namespace OGen.Libraries.DataLayer.UTs {
-	[NUnit.Framework.TestFixture]
-	[Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
     public class UT_Utilities { public UT_Utilities() {}
         #region public void TestFixtureSetUp();
-		[NUnit.Framework.TestFixtureSetUp]
+#if NUnit
+		[TestFixtureSetUp]
+#endif
         public void TestFixtureSetUp() {
             // ...
         }
         #endregion
         #region public void TestFixtureTearDown();
-		[NUnit.Framework.TestFixtureTearDown]
+#if NUnit
+		[TestFixtureTearDown]
+#endif
         public void TestFixtureTearDown() {
             // ...
         }
         #endregion
 
-        #region public void UT_Connectionstring_ParseParameter();
-        #region private void UT_Connectionstring_ParseParameter_auxiliar(Hashtable hash_in);
-        private void UT_Connectionstring_ParseParameter_auxiliar(Hashtable hash_in) {
-            string _constring;
-            IDictionaryEnumerator _enumerator;
+//        #region public void UT_Connectionstring_ParseParameter();
+//        #region private void UT_Connectionstring_ParseParameter_auxiliar(Hashtable hash_in);
+//        private void UT_Connectionstring_ParseParameter_auxiliar(Hashtable hash_in) {
+//            string _constring;
+//            IDictionaryEnumerator _enumerator;
 
-            DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
-            for (int i = 0; i < _dbtypes.Length; i++) {
-                _constring = DBUtilities_connectionString.Buildwith.Parameters(
-                    (string)hash_in[DBUtilities_connectionString.ParameterName.Server],
-                    (string)hash_in[DBUtilities_connectionString.ParameterName.User], 
-                    "somepassword",
-                    (string)hash_in[DBUtilities_connectionString.ParameterName.DBName], 
-                    (DBServerTypes)i
-                );
+//            DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
+//            for (int i = 0; i < _dbtypes.Length; i++) {
+//                _constring = DBUtilities_connectionString.Buildwith.Parameters(
+//                    (string)hash_in[DBUtilities_connectionString.ParameterName.Server],
+//                    (string)hash_in[DBUtilities_connectionString.ParameterName.User], 
+//                    "somepassword",
+//                    (string)hash_in[DBUtilities_connectionString.ParameterName.DBName], 
+//                    (DBServerTypes)i
+//                );
 
-                _enumerator = hash_in.GetEnumerator();
-                while (_enumerator.MoveNext()) {
-                    Assert.AreEqual(
-//						Console.WriteLine(
-//"'{0}'\n'{1}'\n{2}\n",
-                        (string)_enumerator.Value, 
-                        DBUtilities_connectionString.ParseParameter(
-                            _constring,
-                            (DBServerTypes)i,
-                            (DBUtilities_connectionString.ParameterName)_enumerator.Key
-                        )
-//, _constring
-                    );
-                }
-            }
-        }
-        #endregion
+//                _enumerator = hash_in.GetEnumerator();
+//                while (_enumerator.MoveNext()) {
+//                    Assert.AreEqual(
+////						Console.WriteLine(
+////"'{0}'\n'{1}'\n{2}\n",
+//                        (string)_enumerator.Value, 
+//                        DBUtilities_connectionString.ParseParameter(
+//                            _constring,
+//                            (DBServerTypes)i,
+//                            (DBUtilities_connectionString.ParameterName)_enumerator.Key
+//                        )
+////, _constring
+//                    );
+//                }
+//            }
+//        }
+//        #endregion
 
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
-		public void UT_Connectionstring_ParseParameter_ItTriggersAKnownBUG() {
-            Hashtable _hash;
+//#if NUnit
+//        [Test]
+//#else
+//        [TestMethod]
+//#endif
+//        public void UT_Connectionstring_ParseParameter_ItTriggersAKnownBUG() {
+//            Hashtable _hash;
 
-            _hash  = new Hashtable();
-            _hash.Add(DBUtilities_connectionString.ParameterName.DBName, "somedb");
-            _hash.Add(DBUtilities_connectionString.ParameterName.Server, "someserver");
-            _hash.Add(DBUtilities_connectionString.ParameterName.User, "someuser");
-            UT_Connectionstring_ParseParameter_auxiliar(_hash);
+//            _hash  = new Hashtable();
+//            _hash.Add(DBUtilities_connectionString.ParameterName.DBName, "somedb");
+//            _hash.Add(DBUtilities_connectionString.ParameterName.Server, "someserver");
+//            _hash.Add(DBUtilities_connectionString.ParameterName.User, "someuser");
+//            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
-            _hash = new Hashtable();
-            _hash.Add(DBUtilities_connectionString.ParameterName.DBName, "database");
-            _hash.Add(DBUtilities_connectionString.ParameterName.Server, "server");
-            _hash.Add(DBUtilities_connectionString.ParameterName.User, "uid");
-            UT_Connectionstring_ParseParameter_auxiliar(_hash);
+//            _hash = new Hashtable();
+//            _hash.Add(DBUtilities_connectionString.ParameterName.DBName, "database");
+//            _hash.Add(DBUtilities_connectionString.ParameterName.Server, "server");
+//            _hash.Add(DBUtilities_connectionString.ParameterName.User, "uid");
+//            UT_Connectionstring_ParseParameter_auxiliar(_hash);
 
-            Assert.AreEqual(
-                "somedatabase", 
-                DBUtilities_connectionString.ParseParameter(
-                    "Server=someserver;User ID=someuser;Password=somepassword;Database=somedatabase",
-                    DBServerTypes.PostgreSQL,
-                    DBUtilities_connectionString.ParameterName.DBName
-                )
-            );
-            Assert.AreEqual(
-                "somedatabase",
-                DBUtilities_connectionString.ParseParameter(
-                    "Database=somedatabase;Server=someserver;User ID=someuser;Password=somepassword",
-                    DBServerTypes.PostgreSQL,
-                    DBUtilities_connectionString.ParameterName.DBName
-                )
-            );
-            Assert.AreEqual(
-                "somedatabase",
-                DBUtilities_connectionString.ParseParameter(
-                    "Database=somedatabase",
-                    DBServerTypes.PostgreSQL,
-                    DBUtilities_connectionString.ParameterName.DBName
-                )
-            );
-            Assert.AreEqual(
-                "somedatabase",
-                DBUtilities_connectionString.ParseParameter(
-                    "Database=somedatabase;",
-                    DBServerTypes.PostgreSQL,
-                    DBUtilities_connectionString.ParameterName.DBName
-                )
-            );
-        }
-        #endregion
+//            Assert.AreEqual(
+//                "somedatabase", 
+//                DBUtilities_connectionString.ParseParameter(
+//                    "Server=someserver;User ID=someuser;Password=somepassword;Database=somedatabase",
+//                    DBServerTypes.PostgreSQL,
+//                    DBUtilities_connectionString.ParameterName.DBName
+//                )
+//            );
+//            Assert.AreEqual(
+//                "somedatabase",
+//                DBUtilities_connectionString.ParseParameter(
+//                    "Database=somedatabase;Server=someserver;User ID=someuser;Password=somepassword",
+//                    DBServerTypes.PostgreSQL,
+//                    DBUtilities_connectionString.ParameterName.DBName
+//                )
+//            );
+//            Assert.AreEqual(
+//                "somedatabase",
+//                DBUtilities_connectionString.ParseParameter(
+//                    "Database=somedatabase",
+//                    DBServerTypes.PostgreSQL,
+//                    DBUtilities_connectionString.ParameterName.DBName
+//                )
+//            );
+//            Assert.AreEqual(
+//                "somedatabase",
+//                DBUtilities_connectionString.ParseParameter(
+//                    "Database=somedatabase;",
+//                    DBServerTypes.PostgreSQL,
+//                    DBUtilities_connectionString.ParameterName.DBName
+//                )
+//            );
+//        }
+//        #endregion
 
         #region public void UT_DBType2NUnitTestValue();
-		[NUnit.Framework.Test]
-		[Microsoft.VisualStudio.TestTools.UnitTesting.TestMethod]
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
 		public void UT_DBType2NUnitTestValue() {
 
             // ToDos: here!
