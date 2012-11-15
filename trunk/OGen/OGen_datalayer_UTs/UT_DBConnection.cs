@@ -113,29 +113,31 @@ namespace OGen.Libraries.DataLayer.UTs {
 				System.Configuration.ConfigurationManager.AppSettings
 #endif
 				["DBName"];
-            //---
-            DBServerTypes _dbtype;
-            DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
-            dbconnections_ = new DBConnection[_dbtypes.Length];
-            for (int d = 0; d < _dbtypes.Length; d++) {
-                _dbtype = _dbtypes[d];
+			//---
+			DBServerTypes _dbtype;
+			DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
+			dbconnections_ = new DBConnection[_dbtypes.Length];
+			for (int d = 0; d < _dbtypes.Length; d++) {
+				if (_dbtypes[d] == DBServerTypes.invalid) continue;
 
-                dbconnections_[d] = DBConnectionsupport.CreateInstance(
-                    _dbtype,
+				_dbtype = _dbtypes[d];
+
+				dbconnections_[d] = DBConnectionsupport.CreateInstance(
+					_dbtype,
 #if NET_1_1
-                    System.Configuration.ConfigurationSettings.AppSettings
+					System.Configuration.ConfigurationSettings.AppSettings
 #else
-                    System.Configuration.ConfigurationManager.AppSettings
+					System.Configuration.ConfigurationManager.AppSettings
 #endif
 					[
-                        string.Format("DBConnectionstring-{0}", _dbtypes[d])
-                    ]
-                );
-            }
+						string.Format("DBConnectionstring-{0}", _dbtypes[d])
+					]
+				);
+			}
 
-        }
-        #endregion
-        #region public void TestFixtureTearDown();
+		}
+		#endregion
+		#region public void TestFixtureTearDown();
 #if NUnit
 		[TestFixtureTearDown]
 #endif
