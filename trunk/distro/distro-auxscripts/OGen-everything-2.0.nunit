@@ -11,12 +11,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <NUnitProject>
-  <Settings activeconfig="Default" />
-  <Config name="Default" binpathtype="Auto">
-    <assembly path="OGen_datalayer_UTs\bin\Debug\OGen.Libraries.DataLayer.UTs-1.1.dll" />
-    <assembly path="OGen_collections_UTs\bin\Debug\OGen.Libraries.Collections.UTs-1.1.dll" />
-    <assembly path="OGen_webforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WebForms.UTs-1.1.dll" />
-    <assembly path="OGen_winforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WinForms.UTs-1.1.dll" />
-    <assembly path="OGen_parser_UTs\bin\Debug\OGen.Libraries.Parser.UTs-1.1.dll" />
-  </Config>
+	<Settings activeconfig="Default" />
+	<Config name="Default" binpathtype="Auto">
+		<assembly path="..\..\OGen\OGen_datalayer_UTs\bin\Debug\OGen.Libraries.DataLayer.UTs-2.0.dll" />
+		<assembly path="..\..\OGen\OGen_collections_UTs\bin\Debug\OGen.Libraries.Collections.UTs-2.0.dll" />
+		<assembly path="..\..\OGen\OGen_webforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WebForms.UTs-2.0.dll" />
+		<assembly path="..\..\OGen\OGen_winforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WinForms.UTs-2.0.dll" />
+		<assembly path="..\..\OGen\OGen_parser_UTs\bin\Debug\OGen.Libraries.Parser.UTs-2.0.dll" />
+		<assembly path="..\..\OGen-Doc\Doc_metadata_UTs\bin\Debug\OGen.Doc.Libraries.Metadata.UTs-2.0.dll" />
+		<assembly path="..\..\OGen-NTier\NTier_businesslayer_UTs\bin\Debug\OGen.NTier.Libraries.BusinessLayer.UTs-2.0.dll" />
+		<assembly path="..\..\OGen-NTier\NTier_datalayer_UTs\bin\Debug\OGen.NTier.Libraries.DataLayer.UTs-2.0.dll" />
+		<assembly path="..\..\OGen-NTier\NTier_metadata_UTs\bin\Debug\OGen.NTier.Libraries.Metadata.UTs-2.0.dll" />
+	</Config>
 </NUnitProject>

@@ -13,6 +13,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <NUnitProject>
 	<Settings activeconfig="Default" />
 	<Config name="Default" binpathtype="Auto">
-		<assembly path="Doc_metadata_UTs\bin\Debug\OGen.Doc.lib.metadata.UTs-1.1.dll" />
+		<assembly path="Doc_metadata_UTs\bin\Debug\OGen.Doc.Libraries.Metadata.UTs-1.1.dll" />
 	</Config>
 </NUnitProject>
