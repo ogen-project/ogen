@@ -1,3 +1,4 @@
+doc, OGen_DocumentationCodeSamples, OGen.Libraries.DocumentationCodeSamples, f, f, f, MIT, f, f, t
 OGen, OGen_crypt, OGen.Libraries.Crypt, t, f, f, MIT, f, t, f
 OGen, OGen_lib, OGen.Libraries, t, f, f, MIT, f, t, f
 OGen, OGen_mail, OGen.Libraries.Mail, t, f, f, MIT, f, t, f

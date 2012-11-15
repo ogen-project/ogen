@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <NUnitProject>
 	<Settings activeconfig="Default" />
 	<Config name="Default" binpathtype="Auto">
+		<assembly path="..\..\doc\OGen_DocumentationCodeSamples\bin\Debug\OGen.Libraries.DocumentationCodeSamples-2.0.dll" />
 		<assembly path="..\..\OGen\OGen_datalayer_UTs\bin\Debug\OGen.Libraries.DataLayer.UnitTests-2.0.dll" />
 		<assembly path="..\..\OGen\OGen_collections_UTs\bin\Debug\OGen.Libraries.Collections.UnitTests-2.0.dll" />
 		<assembly path="..\..\OGen\OGen_webforms_UTs\bin\Debug\OGen.Libraries.PresentationLayer.WebForms.UnitTests-2.0.dll" />
