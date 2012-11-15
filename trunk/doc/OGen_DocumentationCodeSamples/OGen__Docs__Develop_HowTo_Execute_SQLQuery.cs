@@ -37,8 +37,6 @@ namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
 		public void HowTo() {
 
 //<document>
-long _iduser = 0L;
-
 OGen.Libraries.DataLayer.DBConnection _con 
 	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
@@ -49,10 +47,7 @@ OGen.Libraries.DataLayer.DBConnection _con
 
 // executing your sql query
 _con.Execute_SQLQuery(
-	string.Format(
-		"delete from \"CRD_User\" where \"IDUser\" = {0}", 
-		_iduser.ToString()
-	)
+	"delete from \"CRD_User\" where \"IDUser\" = -1" // it does nothing, this is just an example
 );
 
 _con.Dispose();

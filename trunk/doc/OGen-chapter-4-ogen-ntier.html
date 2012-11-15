@@ -707,8 +707,6 @@ You can reuse the following examples to handle any of the supported db servers.<
 																id="4.2.10"
 																class="code"
 														>
-long _iduser = 0L;
-
 OGen.Libraries.DataLayer.DBConnection _con 
 	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
@@ -719,10 +717,7 @@ OGen.Libraries.DataLayer.DBConnection _con
 
 // executing your sql query
 _con.Execute_SQLQuery(
-	string.Format(
-		"delete from \"CRD_User\" where \"IDUser\" = {0}", 
-		_iduser.ToString()
-	)
+	"delete from \"CRD_User\" where \"IDUser\" = -1" // it does nothing, this is just an example
 );
 
 _con.Dispose();
@@ -1201,7 +1196,7 @@ try {
 
 	// performing some operations on database
 	_con.Execute_SQLQuery(
-		"update \"CRD_User\" set \"Login\" = \"Login\" where \"IDUser\" = -1" // it does nothing, it's just an example
+		"delete from \"CRD_User\" where \"IDUser\" = -1" // it does nothing, this is just an example
 	);
 
 	// commit transaction

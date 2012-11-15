@@ -56,7 +56,7 @@ try {
 
 	// performing some operations on database
 	_con.Execute_SQLQuery(
-		"update \"CRD_User\" set \"Login\" = \"Login\" where \"IDUser\" = -1" // it does nothing, it's just an example
+		"delete from \"CRD_User\" where \"IDUser\" = -1" // it does nothing, this is just an example
 	);
 
 	// commit transaction
