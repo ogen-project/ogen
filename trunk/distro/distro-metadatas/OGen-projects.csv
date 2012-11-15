@@ -78,7 +78,7 @@ OGen-Dia; Dia-test; OGen.Dia.PresentationLayer.Test; f; f; t; MIT; f; f; f; 175A
 OGen-Doc; Doc_generator; OGen.Doc.Libraries.Generator; t; f; f; MIT; f; t; f; 0D8CBBD6-841B-4A03-9733-8AFE3B4D5C86
 OGen-Doc; Doc_metadata; OGen.Doc.Libraries.Metadata; t; f; f; MIT; f; t; f; 9DF6791A-1771-4EB6-8FEB-7F54AC2D9078
 OGen-Doc; Doc_templates; OGen.Doc.Libraries.Templates; f; t; f; MIT; f; t; f; 82FA3D98-C5E7-42EC-A117-21C14D117EFD
-OGen-Doc; Doc; OGen.Doc.PresentationLayer.WinForms; f; f; t; MIT; f; f; f;
+OGen-Doc; Doc; OGen.Doc.PresentationLayer.WinForms; f; f; t; MIT; f; f; f; 12E87F31-F752-447D-92BC-8B3D6CD8845A
 OGen-Doc; Doc-console; OGen.Doc.PresentationLayer.ConsoleApplication; f; f; t; MIT; f; t; f; D4BA7561-1BEB-403C-933C-AE740D4889BE
 OGen-Doc; Doc-test; OGen.Doc.PresentationLayer.Test; f; f; t; MIT; f; f; f; D3537355-C003-41A9-8B12-ED4F3D67B99B
 OGen-XSD; XSD_generator; OGen.XSD.Libraries.Generator; t; f; f; MIT; f; t; f; 8FBFD76E-FD3D-415C-B046-EFC947BE4259

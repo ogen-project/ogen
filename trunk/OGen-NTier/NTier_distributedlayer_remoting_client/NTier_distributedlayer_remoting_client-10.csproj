@@ -84,7 +84,7 @@
   <ItemGroup>
     <ProjectReference Include="..\NTier_distributedlayer_remoting\NTier_distributedlayer_remoting-10.csproj">
       <Project>{504D4214-DA98-4CA2-8849-70796D05F41B}</Project>
-      <Name>NTier_distributedlayer_remoting</Name>
+      <Name>NTier_distributedlayer_remoting-10</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
