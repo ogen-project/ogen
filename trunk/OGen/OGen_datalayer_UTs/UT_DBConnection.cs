@@ -12,19 +12,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using System.Collections;
-
-#if NUnit
-using NUnit.Framework;
-#else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-#endif
-using OGen.Libraries.DataLayer;
 
 #if PostgreSQL
 namespace OGen.Libraries.DataLayer.UnitTests {
+	using System;
+	using System.Data;
+	using System.Collections;
+
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
+	using OGen.Libraries.DataLayer;
+
 #if NUnit
 	[TestFixture]
 #else

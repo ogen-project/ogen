@@ -145,7 +145,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc-test-10", "..\..\OGen-D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-test-10", "..\..\OGen\OGen-test\OGen-test-10.csproj", "{4445DA1C-CAFF-4555-B468-7F84B87CD98B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_DocumentationCodeSamples", "..\..\doc\OGen_DocumentationCodeSamples\OGen_DocumentationCodeSamples.csproj", "{40B18F60-DF7A-4325-897D-18D90C89BD54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_DocumentationCodeSamples-10", "..\..\doc\OGen_DocumentationCodeSamples\OGen_DocumentationCodeSamples-10.csproj", "{40B18F60-DF7A-4325-897D-18D90C89BD54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

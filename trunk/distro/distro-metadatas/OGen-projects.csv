@@ -1,5 +1,5 @@
 main dir;sub dir;assembly name;install on GAC;web app;is an exe;license;is a doc project;is a Release;is unit test;project guid
-doc; OGen_DocumentationCodeSamples; OGen.Libraries.DocumentationCodeSamples; f; f; f; MIT; f; f; t; 40B18F60-DF7A-4325-897D-18D90C89BD54
+doc; OGen_DocumentationCodeSamples; OGen.Libraries.DocumentationCodeSamples.UnitTests; f; f; f; MIT; f; f; t; 40B18F60-DF7A-4325-897D-18D90C89BD54
 OGen; OGen_crypt; OGen.Libraries.Crypt; t; f; f; MIT; f; t; f; 98DEBF89-FC67-43EF-BB19-7E70F939A8D6
 OGen; OGen_lib; OGen.Libraries; t; f; f; MIT; f; t; f; C40A7691-C3B6-4F9B-AABB-BAF7B1169BAB
 OGen; OGen_mail; OGen.Libraries.Mail; t; f; f; MIT; f; t; f; FA349CD4-2751-4160-9C78-7DFC16A41A17

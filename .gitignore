@@ -486,3 +486,6 @@
 /trunk/OGen/OGen-test/StyleCop.Cache
 /trunk/distro/distro-auxscripts/OGen-everything-2.0.VisualState.xml
 /trunk/distro/distro-auxscripts/TestResult.xml
+/trunk/doc/OGen_DocumentationCodeSamples/bin
+/trunk/doc/OGen_DocumentationCodeSamples/obj
+/trunk/doc/OGen_DocumentationCodeSamples/OGen_DocumentationCodeSamples-10.csproj.user
