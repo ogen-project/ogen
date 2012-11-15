@@ -709,23 +709,24 @@ You can reuse the following examples to handle any of the supported db servers.<
 														>
 long _iduser = 0L;
 
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
 // executing your sql query
 _con.Execute_SQLQuery(
 	string.Format(
-		"delete from \"User\" where \"IDUser\" = {0}", 
+		"delete from \"CRD_User\" where \"IDUser\" = {0}", 
 		_iduser.ToString()
 	)
 );
 
-_con.Dispose(); _con = null;
+_con.Dispose();
+_con = null;
 </pre></td>
 													</tr>
 													<tr>
@@ -760,22 +761,23 @@ _con.Dispose(); _con = null;
 																id="4.2.10"
 																class="code"
 														>
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
 // you now have a DataTable populated
 // with results from your sql query
 System.Data.DataTable _datatable 
 	= _con.Execute_SQLQuery_returnDataTable(
-		"select * from \"User\""
+		"select * from \"CRD_User\""
 	);
 
-_con.Dispose(); _con = null;
+_con.Dispose();
+_con = null;
 </pre></td>
 													</tr>
 													<tr>
@@ -1016,19 +1018,20 @@ This is very usefull to generate data object classes for the data layer to handl
 																id="4.2.15"
 																class="code"
 														>
-OGen.lib.datalayer.DBConnection _con
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL,
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
 // you now have a string array populated with all
 // databases (except system ones) at you db server
-string[] _dbs = _con.getDBs();
+string[] _dbs = _con.SchemaDatabases();
 
-_con.Dispose(); _con = null;
+_con.Dispose();
+_con = null;
 </pre></td>
 													</tr>
 													<tr>
@@ -1060,26 +1063,27 @@ _con.Dispose(); _con = null;
 																id="4.2.16"
 																class="code"
 														>
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
 // you now have a cDBTable array populated with all
 // table names and other properties for your database
-OGen.lib.datalayer.DBTable[] _tables = _con.getTables();
+OGen.Libraries.DataLayer.DBTable[] _tables = _con.SchemaDatabaseTables();
 
 for (int t = 0; t < _tables.Length; t++)
 	Console.WriteLine(
 		"table name: {0}\nis this a view and not a table: {1}", 
 		_tables[t].Name, 
-		_tables[t].isVirtualTable
+		_tables[t].IsVirtualTable
 	);
 
-_con.Dispose(); _con = null;
+_con.Dispose();
+_con = null;
 </pre></td>
 													</tr>
 													<tr>
@@ -1111,38 +1115,39 @@ _con.Dispose(); _con = null;
 																id="4.2.17"
 																class="code"
 														>
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+ 		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
 // you now have a cDBTableField array populated with all
 // field names and other properties for specified table
-OGen.lib.datalayer.DBTableField[] _fields = _con.getTableFields("User");
+OGen.Libraries.DataLayer.DBTableField[] _fields = _con.SchemaDatabaseTableFields("CRD_User");
 
 for (int f = 0; f < _fields.Length; f++)
 	Console.WriteLine(
 		"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
 		_fields[f].Name, 
-		_fields[f].isPK, 
-		_fields[f].isIdentity, 
-		_fields[f].isNullable, 
+		_fields[f].IsPK, 
+		_fields[f].IsIdentity, 
+		_fields[f].IsNullable, 
 
 		// many other properties available, like:
 		_fields[f].DBCollationName, 
 		_fields[f].DBDefaultValue, 
-		_fields[f].DBDescription, 
-		_fields[f].FK_FieldName, 
-		_fields[f].FK_TableName, 
+		_fields[f].DBDescription,
+		_fields[f].ForeignKey_TableName,
+		_fields[f].ForeignKey_TableFieldName, 
 		_fields[f].Numeric_Precision, 
 		_fields[f].Numeric_Scale, 
 		_fields[f].Size
 	);
 
-_con.Dispose(); _con = null;
+_con.Dispose();
+_con = null;
 </pre></td>
 													</tr>
 													<tr>
@@ -1178,42 +1183,53 @@ _con.Dispose(); _con = null;
 																id="4.2.10"
 																class="code"
 														>
-long _iduser = 0L;
-
-OGen.lib.datalayer.DBConnection _con
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL,
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL,
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
-// before beginning a transaction we need to open the connection
-_con.Open();
 try {
+
+	// before beginning a transaction we need to open the connection
+	_con.Open();
+
 	// beginning transaction
 	_con.Transaction.Begin();
 
-	// performing some operations on db
+	// performing some operations on database
 	_con.Execute_SQLQuery(
-		string.Format(
-			"delete from \"User\" where \"IDUser\" = {0}",
-			_iduser.ToString()
-		)
+		"update \"CRD_User\" set \"Login\" = \"Login\" where \"IDUser\" = -1" // it does nothing, it's just an example
 	);
 
 	// commit transaction
 	_con.Transaction.Commit();
+
 } catch (Exception _ex) {
+
 	// rollback transaction
 	_con.Transaction.Rollback();
+
 } finally {
-	// terminate transaction
-	_con.Transaction.Terminate();
+
+	//// terminate transaction
+	//if (_con.Transaction.inTransaction) {
+	//    _con.Transaction.Terminate();
+	//}
+
+	//// closing connection
+	//if (_con.isOpen) {
+	//    _con.Close();
+	//}
+
+	// no need to (conditionally) terminate transaction and close connection, 
+	// simply disposing connection will do all that
+	_con.Dispose();
+	_con = null;
+
 }
-// closing connection
-_con.Close();
-_con.Dispose(); _con = null;
 </pre></td>
 													</tr>
 													<tr>

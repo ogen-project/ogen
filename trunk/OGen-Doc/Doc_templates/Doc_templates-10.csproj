@@ -151,15 +151,14 @@
       <SubType>Code</SubType>
     </Compile>
     <None Include="COPYING.MIT" />
-    <Content Include="chapter.html.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
+    <Content Include="chapter.html.aspx" />
     <Content Include="doc.css" />
     <Content Include="emptyfile.txt" />
     <Content Include="index.html.aspx" />
     <Content Include="lib_doc.js" />
     <Content Include="LICENSE.MIT.txt" />
     <Content Include="LICENSE.txt" />
+    <Content Include="ResetCache.aspx" />
     <Content Include="templates.config.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -197,6 +196,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

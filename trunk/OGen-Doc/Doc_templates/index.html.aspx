@@ -23,7 +23,8 @@ bool _arg_all = bool.Parse(System.Web.HttpUtility.UrlDecode(Request.QueryString[
 #region varaux...
 XS__RootMetadata _aux_rootmetadata = XS__RootMetadata.Load_fromFile(
 	_arg_MetadataFilePath,
-	true
+	true,
+	false
 );
 XS__documentation _aux_doc
 	= _aux_rootmetadata.DocumentationCollection[

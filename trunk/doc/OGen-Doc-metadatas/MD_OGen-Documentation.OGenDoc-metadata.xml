@@ -564,7 +564,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Insert / insObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_insObject.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_insObject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -572,7 +572,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Select / getObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_getobject.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_getobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -580,7 +580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Update / updObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_updobject.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_updobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -588,7 +588,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Delete / delObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_delobject.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_delobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -596,7 +596,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="Insert (if not exists) or Update (if exists) / setObject"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_setobject.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_setobject.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="" />
@@ -631,7 +631,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="executing an sql query" />
@@ -648,7 +648,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="executing and retrieving data table from an sql query" />
@@ -665,7 +665,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="executing an sql function or stored procedure" />
@@ -682,7 +682,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="executing and retrieving data values from an sql function" />
@@ -699,7 +699,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="executing and retrieving data tables from an sql function or stored procedure" />
@@ -716,7 +716,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="list dbs"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DBs.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_List_Databases.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="list dbs" />
@@ -724,7 +724,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="list db tables"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_Tables.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_List_Database_Tables.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="list db tables" />
@@ -732,7 +732,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="list db table fields"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_List_DB_TableFields.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_List_Database_TableFields.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="list db table fields" />
@@ -749,7 +749,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen__Docs__Develop_HowTo_UseTransactions.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen__Docs__Develop_HowTo_UseDatabaseTransactions.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using transactions" />
@@ -766,7 +766,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_UseTransactions_inDOs.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using transactions on dataobjects" />
@@ -783,7 +783,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title=""
 							showTitle="false"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_UseTransactions_betweenDOs_operations.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using transactions between dataobjects" />
@@ -801,7 +801,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="using reflection to list dataobjects"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using reflection to list dataobjects" />
@@ -809,7 +809,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="using reflection to read from dataobject property attributes"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using reflection to read from dataobject property attributes" />
@@ -817,7 +817,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							title="using reflection to read from and write to dataobject properties"
 							showTitle="true"
 							incrementLevel="false"
-							source="../../OGen-NTier_UTs/OGen-NTier_UTs_test/HowTos_andFAQ/OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs"
+							source="../../doc/OGen_DocumentationCodeSamples/OGen-NTier__Docs__Develop_HowTo_Read_and_Write_to_DataObject_Properties.cs"
 							sourceType="file"
 							sourceContentType="code"
 							description="using reflection to read from and write to dataobject properties" />

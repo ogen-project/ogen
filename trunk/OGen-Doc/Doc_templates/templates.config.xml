@@ -11,6 +11,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -->
 <templates>
+	<template id="ResetCache.aspx"
+			name="ResetCache.aspx"
+			templateType=""
+			parserType="aspx"
+			iterationType="ROOT.documentation[n]">
+		<arguments>
+			<argument name="MetadataFilePath" value="${CONFIG.outputPath}/OGen-Doc-metadatas/MD_${ROOT.documentation[n].documentationName}.OGenDoc-metadata.xml" />
+		</arguments>
+		<conditions />
+		<outputs>
+
+			<!-- force run! -->
+			<output to="/dev/null"
+				type="File" mode="Replace" />
+
+		</outputs>
+		<dependencies />
+	</template>
+
 	<template id="doc.css"
 			name="doc.css" 
 			parserType="none"
@@ -49,7 +68,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-index.html"
 				type="File" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
 	</template>
 	<template id="index.html.aspx?allChapters=true"
 			name="index.html.aspx"
@@ -65,7 +86,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-index-all.html"
 				type="File" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
 	</template>
 	<template id="chapter.html.aspx?allChapters=false"
 			name="chapter.html.aspx"
@@ -81,7 +104,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-chapter-${ROOT.documentation[n].chapters.chapter[n].number}-${ROOT.documentation[n].chapters.chapter[n].fileName}.html"
 				type="File" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
 	</template>
 	<template id="chapter.html.aspx?allChapters=true"
 			name="chapter.html.aspx"
@@ -97,7 +122,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			<output to="${CONFIG.outputPath}/${ROOT.documentation[n].documentationName}-allchapters.html"
 				type="File" mode="Replace" />
 		</outputs>
-		<dependencies />
+		<dependencies>
+			<dependency templateID="ResetCache.aspx" />
+		</dependencies>
 	</template>
 	<template id="emptyfile.txt"
 			name="emptyfile.txt"
