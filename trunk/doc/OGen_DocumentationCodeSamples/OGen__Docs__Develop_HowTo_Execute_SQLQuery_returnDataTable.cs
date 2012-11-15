@@ -26,8 +26,8 @@ namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
 #else
 	[TestClass]
 #endif
-	public class HowTo_List_Database_TableFields {
-		public HowTo_List_Database_TableFields() { }
+	public class HowTo_Execute_SQLQuery_returnDataTable {
+		public HowTo_Execute_SQLQuery_returnDataTable() { }
 
 #if NUnit
 		[Test]
@@ -45,27 +45,11 @@ OGen.Libraries.DataLayer.DBConnection _con
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
-// you now have a cDBTableField array populated with all
-// field names and other properties for specified table
-OGen.Libraries.DataLayer.DBTableField[] _fields = _con.SchemaDatabaseTableFields("CRD_User");
-
-for (int f = 0; f < _fields.Length; f++)
-	Console.WriteLine(
-		"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
-		_fields[f].Name, 
-		_fields[f].IsPK, 
-		_fields[f].IsIdentity, 
-		_fields[f].IsNullable, 
-
-		// many other properties available, like:
-		_fields[f].DBCollationName, 
-		_fields[f].DBDefaultValue, 
-		_fields[f].DBDescription,
-		_fields[f].ForeignKey_TableName,
-		_fields[f].ForeignKey_TableFieldName, 
-		_fields[f].Numeric_Precision, 
-		_fields[f].Numeric_Scale, 
-		_fields[f].Size
+// you now have a DataTable populated
+// with results from your sql query
+System.Data.DataTable _datatable 
+	= _con.Execute_SQLQuery_returnDataTable(
+		"select * from \"CRD_User\""
 	);
 
 _con.Dispose();

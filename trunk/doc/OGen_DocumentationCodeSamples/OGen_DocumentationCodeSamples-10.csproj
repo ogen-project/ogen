@@ -61,7 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OGen__Docs__Develop_HowTo_List_Databases.cs" />
+    <Compile Include="OGen__Docs__Considerations_Contribution-CSharpCodingStyle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLQuery_returnDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_List_Databases.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OGen__Docs__Develop_HowTo_List_Database_TableFields.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -242,6 +253,13 @@
       <Project>{210F2BDA-5508-4587-9E39-E4C9C8752B05}</Project>
       <Name>OGen_worker-10</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="COPYING.MIT" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.MIT.txt" />
+    <Content Include="LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

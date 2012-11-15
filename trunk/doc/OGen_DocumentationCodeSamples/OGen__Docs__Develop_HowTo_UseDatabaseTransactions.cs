@@ -87,7 +87,7 @@ try {
 }
 //</document>
 
-			// the only porpuses are: 
+			// the only porpuses is to keep documentation code samples updated by: 
 			// 1) ensure documentation code samples are compiling 
 			// 2) no exceptions are beeing thrown by documentation code samples
 			Assert.IsTrue(

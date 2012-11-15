@@ -26,8 +26,8 @@ namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
 #else
 	[TestClass]
 #endif
-	public class HowTo_List_Database_TableFields {
-		public HowTo_List_Database_TableFields() { }
+	public class HowTo_Execute_SQLQuery {
+		public HowTo_Execute_SQLQuery() { }
 
 #if NUnit
 		[Test]
@@ -37,6 +37,8 @@ namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
 		public void HowTo() {
 
 //<document>
+long _iduser = 0L;
+
 OGen.Libraries.DataLayer.DBConnection _con 
 	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
@@ -45,28 +47,13 @@ OGen.Libraries.DataLayer.DBConnection _con
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
-// you now have a cDBTableField array populated with all
-// field names and other properties for specified table
-OGen.Libraries.DataLayer.DBTableField[] _fields = _con.SchemaDatabaseTableFields("CRD_User");
-
-for (int f = 0; f < _fields.Length; f++)
-	Console.WriteLine(
-		"field name: {0}\nis PK: {1}\nis Identity: {2}\nis nullable: {3}", 
-		_fields[f].Name, 
-		_fields[f].IsPK, 
-		_fields[f].IsIdentity, 
-		_fields[f].IsNullable, 
-
-		// many other properties available, like:
-		_fields[f].DBCollationName, 
-		_fields[f].DBDefaultValue, 
-		_fields[f].DBDescription,
-		_fields[f].ForeignKey_TableName,
-		_fields[f].ForeignKey_TableFieldName, 
-		_fields[f].Numeric_Precision, 
-		_fields[f].Numeric_Scale, 
-		_fields[f].Size
-	);
+// executing your sql query
+_con.Execute_SQLQuery(
+	string.Format(
+		"delete from \"CRD_User\" where \"IDUser\" = {0}", 
+		_iduser.ToString()
+	)
+);
 
 _con.Dispose();
 _con = null;
