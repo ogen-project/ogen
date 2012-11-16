@@ -43,7 +43,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				case DBServerTypes.SQLServer:
 				case DBServerTypes.PostgreSQL: {
 					dbconnections_in.Execute_SQLQuery(string.Format(
-						"insert into \"CRD_User\" (\"Login\", \"Password\") values ('test-{0}', 'password')",
+						"insert into \"CRD_User\" (\"Login\", \"Password\", \"IFApplication\") values ('test-{0}', 'password', null)",
 						testid_
 					));
 					break;
@@ -456,7 +456,11 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 			IDbDataParameter[] _dataparameters;
 
 			for (int c = 0; c < dbconnections_.Length; c++) {
-				Assert.IsTrue(dbconnections_[c].SQLFunction_exists("fnc0_User_isObject_byLogin"), "sql function: \"fnc0_User_isObject_byLogin\" doesn't exist");
+				Assert.IsTrue(
+					dbconnections_[c].SQLFunction_exists("fnc0_CRD_User_isObject_byLogin"), 
+					"sql function: \"fnc0_CRD_User_isObject_byLogin\" doesn't exist at {0}", 
+					dbconnections_[c].DBServerType.ToString()
+				);
 
 
 				Execute_SQL__insert(dbconnections_[c]);
@@ -469,17 +473,19 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						ParameterDirection.Input, 
 						string.Format("test-{0}", testid_), 
 						50
-					)
+					),
+					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 				};
 				Assert.IsTrue(
 					(bool)dbconnections_[c].Execute_SQLFunction(
-						"fnc0_User_isObject_byLogin",
+						"fnc0_CRD_User_isObject_byLogin",
 						_dataparameters,
 						DbType.Boolean,
 						0
 					), 
-					"user: '{0}' should exist",
-					(string)_dataparameters[0].Value
+					"user: '{0}' should exist at {1}", 
+					(string)_dataparameters[0].Value,
+					dbconnections_[c].DBServerType.ToString()
 				);
 
 
@@ -493,17 +499,19 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						ParameterDirection.Input, 
 						string.Format("test-{0}", testid_), 
 						50
-					)
+					),
+					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 				};
 				Assert.IsFalse(
 					(bool)dbconnections_[c].Execute_SQLFunction(
-						"fnc0_User_isObject_byLogin",
+						"fnc0_CRD_User_isObject_byLogin",
 						_dataparameters,
 						DbType.Boolean,
 						0
 					),
-					"user: '{0}' should NOT exist",
-					(string)_dataparameters[0].Value
+					"user: '{0}' should NOT exist at {0}",
+					(string)_dataparameters[0].Value, 
+					dbconnections_[c].DBServerType.ToString()
 				);
 			}
 		}
@@ -519,75 +527,90 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 
 			for (int c = 0; c < dbconnections_.Length; c++) {
 				switch ((DBServerTypes)Enum.Parse(typeof(DBServerTypes), dbconnections_[c].DBServerType)) {
-					case DBServerTypes.SQLServer: {
-						Assert.IsTrue(dbconnections_[c].SQLStoredProcedure_exists("sp0_User_getObject_byLogin"), "sql stored procedure: \"sp0_User_getObject_byLogin\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
+					case DBServerTypes.SQLServer:
+						Assert.IsTrue(dbconnections_[c].SQLStoredProcedure_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
 						break;
-					}
-					case DBServerTypes.PostgreSQL: {
-						Assert.IsTrue(dbconnections_[c].SQLFunction_exists("sp0_User_getObject_byLogin"), "sql function: \"sp0_User_getObject_byLogin\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
+					case DBServerTypes.PostgreSQL:
+						Assert.IsTrue(dbconnections_[c].SQLFunction_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
 						break;
-					}
 				}
+				Assert.IsTrue(dbconnections_[c].SQLFunction_exists("fnc_CRD_User_isObject_byLogin"), "sql function: \"fnc_CRD_User_isObject_byLogin\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
 				
 
 
 				Execute_SQL__insert(dbconnections_[c]);
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter("Login_search_", DbType.String, ParameterDirection.Input, string.Format("test-{0}", testid_), 50), 
+					dbconnections_[c].newDBDataParameter(
+						"Login_search_", 
+						DbType.AnsiString, 
+						ParameterDirection.Input, 
+						string.Format("test-{0}", testid_), 
+						255
+					), 
+					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 					dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
-					dbconnections_[c].newDBDataParameter("Login", DbType.String, ParameterDirection.Output, null, 50), 
-					dbconnections_[c].newDBDataParameter("Password", DbType.String, ParameterDirection.Output, null, 50), 
-					dbconnections_[c].newDBDataParameter("SomeNullValue", DbType.Int32, ParameterDirection.Output, null, 0)
+					dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 				};
 				dbconnections_[c].Execute_SQLFunction(
-					"sp0_User_getObject_byLogin", 
+					"sp0_CRD_User_getObject_byLogin", 
 					_dataparameters
 				);
 				Assert.IsTrue(
 					(
-						(_dataparameters[1].Value != DBNull.Value)
-						&&
 						(_dataparameters[2].Value != DBNull.Value)
 						&&
 						(_dataparameters[3].Value != DBNull.Value)
+						&&
+						(_dataparameters[4].Value != DBNull.Value)
 					),
-					"can't find or retrieve output values from \"sp0_User_getObject_byLogin\""
+					"can't find or retrieve output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", dbconnections_[c].DBServerType.ToString()
 				);
 				Assert.AreEqual(
-					string.Format("test-{0}", testid_), 
-					(string)_dataparameters[2].Value,
-					"unexpected value for Login field: {0}",
-					(string)_dataparameters[2].Value
+					string.Format("test-{0}", testid_),
+					(string)_dataparameters[3].Value,
+					"unexpected value for Login field: {0} at {1}", 
+					(string)_dataparameters[3].Value,
+					dbconnections_[c].DBServerType.ToString()
 				);
 				Assert.AreEqual(
 					"password",
-					(string)_dataparameters[3].Value,
-					"unexpected value for Password field: {0}",
-					(string)_dataparameters[3].Value
+					(string)_dataparameters[4].Value,
+					"unexpected value for Password field: {0} at {1}",
+					(string)_dataparameters[4].Value,
+					dbconnections_[c].DBServerType.ToString()
 				);
 
 
 				Execute_SQL__delete(dbconnections_[c]);
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter("Login_search_", DbType.String, ParameterDirection.Input, string.Format("test-{0}", testid_), 50), 
+					dbconnections_[c].newDBDataParameter(
+						"Login_search_", 
+						DbType.AnsiString, 
+						ParameterDirection.Input, 
+						string.Format("test-{0}", testid_), 
+						255
+					), 
+					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 					dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
-					dbconnections_[c].newDBDataParameter("Login", DbType.String, ParameterDirection.Output, null, 50), 
-					dbconnections_[c].newDBDataParameter("Password", DbType.String, ParameterDirection.Output, null, 50), 
-					dbconnections_[c].newDBDataParameter("SomeNullValue", DbType.Int32, ParameterDirection.Output, null, 0)
+					dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 				};
 				dbconnections_[c].Execute_SQLFunction(
-					"sp0_User_getObject_byLogin", 
+					"sp0_CRD_User_getObject_byLogin",
 					_dataparameters
 				);
 				Assert.IsTrue(
 					(
-						(_dataparameters[1].Value == DBNull.Value)
-						&&
 						(_dataparameters[2].Value == DBNull.Value)
 						&&
 						(_dataparameters[3].Value == DBNull.Value)
+						&&
+						(_dataparameters[4].Value == DBNull.Value)
 					),
-					"unexpectedly retrieved output values from \"sp0_User_getObject_byLogin\""
+					"unexpectedly retrieved output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", dbconnections_[c].DBServerType.ToString()
 				);
 			}
 		}
