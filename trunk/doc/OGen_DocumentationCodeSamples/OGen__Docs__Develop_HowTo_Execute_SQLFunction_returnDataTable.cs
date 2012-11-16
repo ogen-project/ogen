@@ -13,30 +13,48 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLFunction_returnDataTable {
-		public HowTo_Execute_SQLFunction_returnDataTable() {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_Execute_SQLFunction_returnDataTable {
+		public HowTo_Execute_SQLFunction_returnDataTable() { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
-long _idgroup_search = 1L;
+long _iduser_search = 1L;
 
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=KickUnitTests;"
 	);
 
 // set your function parameters
 System.Data.IDbDataParameter[] _dataparameters 
 	= new System.Data.IDbDataParameter[] {
 		_con.newDBDataParameter(
-			"IDGroup_search_", 
+			"IDUser_search_", 
 			System.Data.DbType.Int64, 
 			System.Data.ParameterDirection.Input, 
-			_idgroup_search, 
+			_iduser_search, 
 			0
 		)
 	};
@@ -45,12 +63,21 @@ System.Data.IDbDataParameter[] _dataparameters
 // with results from your sql function
 System.Data.DataTable _datatable 
 	= _con.Execute_SQLFunction_returnDataTable(
-		"sp0_User_Record_open_byGroup_fullmode", 
+		"sp0_CRD_UserProfile_Record_open_byUser", 
 		_dataparameters
 	);
 
 _con.Dispose(); _con = null;
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

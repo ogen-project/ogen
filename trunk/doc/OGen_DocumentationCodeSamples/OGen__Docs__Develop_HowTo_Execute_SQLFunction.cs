@@ -13,20 +13,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.UTs.howtos {
-	class HowTo_Execute_SQLFunction {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_Execute_SQLFunction {
 		public HowTo_Execute_SQLFunction() {
-//<document>
-long _iduser = 0L;
+		}
 
-OGen.lib.datalayer.DBConnection _con 
-	= OGen.lib.datalayer.DBConnectionsupport.CreateInstance(
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
+//<document>
+long _iduser = -1L; // it does nothing, this is just an example
+
+OGen.Libraries.DataLayer.DBConnection _con 
+	= OGen.Libraries.DataLayer.DBConnectionsupport.CreateInstance(
 		// set your db server type here
-		OGen.lib.datalayer.DBServerTypes.PostgreSQL, 
+		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=OGen-NTier_UTs;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=KickUnitTests;"
 	);
 
 // set your function parameters
@@ -43,12 +62,21 @@ System.Data.IDbDataParameter[] _dataparameters
 
 // call you function
 _con.Execute_SQLFunction(
-	"sp0_User_delObject", 
+	"sp0_CRD_User_delObject", 
 	_dataparameters
 );
 
 _con.Dispose(); _con = null;
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

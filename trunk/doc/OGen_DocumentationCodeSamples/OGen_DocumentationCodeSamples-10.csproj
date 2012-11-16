@@ -79,6 +79,15 @@
     <Compile Include="OGen__Docs__Considerations_Contribution-CSharpCodingStyle.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLFunction_returnSomevalue.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OGen__Docs__Develop_HowTo_Execute_SQLQuery.cs">
       <SubType>Code</SubType>
     </Compile>

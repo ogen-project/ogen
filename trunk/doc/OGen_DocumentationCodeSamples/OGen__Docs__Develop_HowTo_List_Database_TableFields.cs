@@ -42,7 +42,7 @@ OGen.Libraries.DataLayer.DBConnection _con
 		// set your db server type here
 		OGen.Libraries.DataLayer.DBServerTypes.PostgreSQL, 
 		// and connectionstring
-		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
+		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=KickUnitTests;"
 	);
 
 // you now have a cDBTableField array populated with all

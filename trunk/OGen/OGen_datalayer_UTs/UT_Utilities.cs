@@ -155,7 +155,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 
 			Assert.AreEqual(
 				"new DateTime(2341, 12, 12)", 
-					OGen.Libraries.DataLayer.DBUtilities_convert.DBType2NUnitTestValue(
+				OGen.Libraries.DataLayer.DBUtilities_convert.DBType2NUnitTestValue(
 					DbType.DateTime
 				)
 			);
