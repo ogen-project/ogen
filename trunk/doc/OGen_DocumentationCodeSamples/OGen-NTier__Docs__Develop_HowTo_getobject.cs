@@ -13,25 +13,53 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_getObject {
-		public HowTo_getObject() {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_getObject {
+		public HowTo_getObject() { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
 long _iduser = 1L;
 
-OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
-if (_user.getObject(_iduser))
+OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User _user 
+	= OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_User.getObject(_iduser);
+if (_user != null) {
 	Console.WriteLine(
-	  "user found:\nIDUser = {0}\nLogin = {1}", 
-	  _iduser, 
-	  _user.Fields.Login
+		"user found:\nIDUser = {0}\nLogin = {1}",
+		_iduser,
+		_user.Login
 	);
-else
+} else {
 	Console.WriteLine("user not found");
-_user.Dispose(); _user = null;
+}
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

@@ -13,33 +13,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_delObject {
-		public HowTo_delObject() {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_delObject {
+		public HowTo_delObject() { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
-long _iduser = 1L;
-
-OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
-if (_user.getObject(_iduser)) {
-	Console.Write(
-	  "deleting user {0} ... ",
-	  _user.Fields.Login
-	);
-
-	//--- if parameter not specified uses object property _user.IDUser
-	//_user.delObject(_iduser);
-
-	//-- so in the case no need to provide IDUser
-	_user.delObject();
-
-	Console.WriteLine("DONE!");
-} else {
-	Console.WriteLine("user not found");
-}
-_user.Dispose(); _user = null;
+OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_Profile.delObject(-1L); // it does nothing, this is just an example
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

@@ -46,6 +46,7 @@ OGen.Libraries.DataLayer.DBConnection _con
 		"Server=127.0.0.1;Port=5432;User ID=postgres;Password=passpub;Database=Kick;"
 	);
 
+Exception _exception = null;
 try {
 
 	// before beginning a transaction we need to open the connection
@@ -67,6 +68,8 @@ try {
 	// rollback transaction
 	_con.Transaction.Rollback();
 
+	_exception = _ex;
+
 } finally {
 
 	//// terminate transaction
@@ -85,6 +88,8 @@ try {
 	_con = null;
 
 }
+if (_exception != null)
+	throw _exception;
 //</document>
 
 			// the only porpuses is to keep documentation code samples updated by: 

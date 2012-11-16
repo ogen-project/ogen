@@ -489,3 +489,5 @@
 /trunk/doc/OGen_DocumentationCodeSamples/bin
 /trunk/doc/OGen_DocumentationCodeSamples/obj
 /trunk/doc/OGen_DocumentationCodeSamples/OGen_DocumentationCodeSamples-10.csproj.user
+/trunk/doc/OGen_DocumentationCodeSamples/Settings.StyleCop
+/trunk/doc/OGen_DocumentationCodeSamples/StyleCop.Cache

@@ -66,8 +66,8 @@ public class SomeClass : IDisposable { // PascalCasing
 	private int someproperty_; // lowercasing_
 
 	public int SomeProperty { // PascalCasing
-		get { return someproperty_; }
-		set { someproperty_ = value; }
+		get { return this.someproperty_; }
+		set { this.someproperty_ = value; }
 	}
 	#endregion
 	#region public SomeBigResourceConsumerClass SomeRarelyUsedProperty { get; }
@@ -78,12 +78,12 @@ public class SomeClass : IDisposable { // PascalCasing
 		get {
 
 			// check before lock
-			if (somerarelyusedproperty__ == null) {
+			if (this.somerarelyusedproperty__ == null) {
 
-				lock (somerarelyusedproperty__locker) {
+				lock (this.somerarelyusedproperty__locker) {
 
 					// double check, thread safer!
-					if (somerarelyusedproperty__ == null) {
+					if (this.somerarelyusedproperty__ == null) {
 
 						// instantiating for the first time and
 						// only because it became needed, otherwise
@@ -91,11 +91,11 @@ public class SomeClass : IDisposable { // PascalCasing
 
 						// initialization...
 						// ...attribution (last thing before unlock)
-						somerarelyusedproperty__ = new SomeBigResourceConsumerClass();
+						this.somerarelyusedproperty__ = new SomeBigResourceConsumerClass();
 					}
 				}
 			}
-			return somerarelyusedproperty__;
+			return this.somerarelyusedproperty__;
 		}
 	}
 	#endregion
@@ -134,11 +134,11 @@ public class SomeClass : IDisposable { // PascalCasing
 
 	public class SomeBigResourceConsumerClass : IDisposable { // PascalCasing
 		public SomeBigResourceConsumerClass() {
-			Disposed = false;
+			this.Disposed = false;
 		}
 
 		public void Dispose() {
-			Disposed = true;	
+			this.Disposed = true;
 		}
 
 		public bool Disposed;

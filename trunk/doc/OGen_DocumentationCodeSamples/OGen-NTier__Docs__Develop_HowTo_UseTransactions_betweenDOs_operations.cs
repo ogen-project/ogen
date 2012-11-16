@@ -13,72 +13,130 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
 	public class HowTo_UseTransactions_betweenDOs_operations {
 		public HowTo_UseTransactions_betweenDOs_operations() {
+		}
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
 string _testid = DateTime.Now.Ticks.ToString();
 bool _constraint;
 long _iduser;
-long _idgroup;
+long _ifprofile;
 
 // we need a shared connection between Data Objects
-OGen.lib.datalayer.DBConnection _con = OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnection_createInstance(
-	OGen.NTier.UTs.lib.datalayer.DO__utils.DBServerType,
-	OGen.NTier.UTs.lib.datalayer.DO__utils.DBConnectionstring, 
+OGen.Libraries.DataLayer.DBConnection _con = OGen.NTier.Kick.Libraries.DataLayer.DO__Utilities.DBConnection_createInstance(
+	OGen.NTier.Kick.Libraries.DataLayer.DO__Utilities.DBServerType,
+	OGen.NTier.Kick.Libraries.DataLayer.DO__Utilities.DBConnectionstring,
 	string.Empty
 );
 
-// before beginning a transaction we need to open the connection
-_con.Open();
+Exception _exception = null;
 try {
+	// before beginning a transaction we need to open the connection
+	_con.Open();
+
 	// beginning transaction
 	_con.Transaction.Begin();
 
+	OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User _user 
+		= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User();
+	// performing some operations on User Data Object
+	_user.Login = _testid;
+	_user.Password = _testid;
+	_user.IFApplication_isNull = true;
 	// sharing connection with User Data Object
-	OGen.NTier.UTs.lib.datalayer.DO_User _user 
-		= new OGen.NTier.UTs.lib.datalayer.DO_User(_con);
-	// performing some operations on User Data Object
-	_user.Fields.Login = _testid;
-	_user.Fields.Password = _testid;
-	_iduser = _user.insObject(true, out _constraint);
+	_iduser = OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_User.insObject(
+		_user,
+		true,
+		out _constraint,
+		_con
+	);
 	// handling constraint code should be added here
-	_user.Dispose(); _user = null;
 
-	// sharing connection with Group Data Object
-	OGen.NTier.UTs.lib.datalayer.DO_Group _group 
-		= new OGen.NTier.UTs.lib.datalayer.DO_Group(_con);
+	OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile _profile 
+		= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile();
 	// performing some operations on User Data Object
-	_group.Fields.Name = _testid;
-	_idgroup = _group.insObject(true);
-	_group.Dispose(); _group = null;
+	_profile.Name = _testid;
+	_profile.IFApplication_isNull = true;
+	// sharing connection with Group Data Object
+	_ifprofile = OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_Profile.insObject(
+		_profile,
+		true,
+		_con
+	);
 
-	// sharing connection with Group Data Object
-	OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup
-		= new OGen.NTier.UTs.lib.datalayer.DO_UserGroup(_con);
+	OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_UserProfile _userprofile
+		= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_UserProfile();
 	// performing some operations on User Data Object
-	_usergroup.Fields.IDGroup = _idgroup;
-	_usergroup.Fields.IDUser = _iduser;
-	_usergroup.Fields.Relationdate = DateTime.Now;
-	_usergroup.Fields.Defaultrelation = false;
-	_usergroup.setObject(false);
-	_usergroup.Dispose(); _usergroup = null;
+	_userprofile.IFProfile = _ifprofile;
+	_userprofile.IFUser = _iduser;
+	// sharing connection with Group Data Object
+	OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_UserProfile.setObject(
+		_userprofile,
+		false,
+		_con
+	);
 
 	// commit transaction
 	_con.Transaction.Commit();
+
 } catch (Exception _ex) {
+
 	// rollback transaction
 	_con.Transaction.Rollback();
+
+	_exception = _ex;
+
 } finally {
-	// terminate transaction
-	_con.Transaction.Terminate();
+
+	//// terminate transaction
+	//if (_con.Transaction.InTransaction) {
+	//    _con.Transaction.Terminate();
+	//}
+
+	//// closing connection
+	//if (_con.IsOpen) {
+	//    _con.Close();
+	//}
+
+	// no need to (conditionally) terminate transaction and close connection, 
+	// simply disposing connection will do all that
+	_con.Dispose();
+	_con = null;
+
 }
-// closing connection
-_con.Close();
-_con.Dispose(); _con = null;
+if (_exception != null)
+	throw _exception;
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

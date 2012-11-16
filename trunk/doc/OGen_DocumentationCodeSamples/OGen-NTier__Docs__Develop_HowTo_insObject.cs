@@ -13,25 +13,56 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_insObject {
-		public HowTo_insObject () {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_insObject {
+		public HowTo_insObject () { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
-long _idgroup = 0L;
+long _idprofile = 0L;
 
-OGen.NTier.UTs.lib.datalayer.DO_Group _group = new OGen.NTier.UTs.lib.datalayer.DO_Group();
-_group.Fields.Name = "someGroup";
+OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile _profile
+	= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_Profile();
+_profile.Name = "someprofile";
+_profile.IFApplication_isNull = true;
 // assigning selectIdentity parameter to true retrieves Sequence/Identity for IDUser
-_idgroup = _group.insObject(true);
-_group.Dispose(); _group = null;
+_idprofile = OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_Profile.insObject(
+	_profile,
+	true
+);
 
 Console.WriteLine(
-  "group inserted, at:\nIDGroup = {0}", 
-  _idgroup
+	"profile inserted, at:\nIDProfile = {0}", 
+	_idprofile
 );
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }

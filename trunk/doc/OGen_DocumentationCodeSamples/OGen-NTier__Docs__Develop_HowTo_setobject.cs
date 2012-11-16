@@ -13,26 +13,50 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_setObject {
-		public HowTo_setObject () {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_setObject {
+		public HowTo_setObject () { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
-long _iduser = 1L;
-long _idgroup = 1L;
-
-OGen.NTier.UTs.lib.datalayer.DO_UserGroup _usergroup = new OGen.NTier.UTs.lib.datalayer.DO_UserGroup();
-_usergroup.Fields.IDUser = _iduser;
-_usergroup.Fields.IDGroup = _idgroup;
-_usergroup.Fields.Relationdate = DateTime.Now;
-_usergroup.Fields.Defaultrelation = false;
+OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_UserProfile _userprofile 
+	= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_UserProfile();
+_userprofile.IFUser = 1L;
+_userprofile.IFProfile = 1L;
 
 // if relation exists, it updates, if not it inserts:
-_usergroup.setObject(true);
-
-_usergroup.Dispose(); _usergroup = null;
+OGen.NTier.Kick.Libraries.DataLayer.DO_CRD_UserProfile.setObject(
+	_userprofile,
+	true
+);
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }
