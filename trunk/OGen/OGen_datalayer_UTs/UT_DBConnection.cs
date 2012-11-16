@@ -44,7 +44,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				case DBServerTypes.PostgreSQL: {
 					dbconnections_in.Execute_SQLQuery(string.Format(
 						"insert into \"CRD_User\" (\"Login\", \"Password\", \"IFApplication\") values ('test-{0}', 'password', null)",
-						testid_
+						this.testid_
 					));
 					break;
 				}
@@ -66,7 +66,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				case DBServerTypes.PostgreSQL: {
 						dbconnections_in.Execute_SQLQuery(string.Format(
 						"delete from \"CRD_User\" where \"Login\" = 'test-{0}'",
-						testid_
+						this.testid_
 					));
 					break;
 				}
@@ -88,7 +88,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				case DBServerTypes.PostgreSQL: {
 					return dbconnections_in.Execute_SQLQuery_returnDataTable(string.Format(
 						"select \"IDUser\", \"Login\", \"Password\" from \"CRD_User\" where \"Login\" = 'test-{0}'",
-						testid_
+						this.testid_
 					));
 				}
 				default: {
@@ -108,8 +108,8 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		[TestFixtureSetUp]
 #endif
 		public void TestFixtureSetUp() {
-			testid_ = DateTime.Now.Ticks.ToString();// Guid.NewGuid().ToString();
-			dbname_ = 
+			this.testid_ = DateTime.Now.Ticks.ToString();// Guid.NewGuid().ToString();
+			this.dbname_ = 
 #if NET_1_1
 				System.Configuration.ConfigurationSettings.AppSettings
 #else
@@ -119,14 +119,14 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 			//---
 			DBServerTypes _dbtype;
 			DBServerTypes[] _dbtypes = (DBServerTypes[])Enum.GetValues(typeof(DBServerTypes));
-			dbconnections_ = new DBConnection[_dbtypes.Length -1]; // exclude DBServerTypes.invalid
+			this.dbconnections_ = new DBConnection[_dbtypes.Length -1]; // exclude DBServerTypes.invalid
 			int _dbconnections_index = 0;
 			for (int d = 0; d < _dbtypes.Length; d++) {
 				if (_dbtypes[d] == DBServerTypes.invalid) continue;
 
 				_dbtype = _dbtypes[d];
 
-				dbconnections_[_dbconnections_index++] = DBConnectionsupport.CreateInstance(
+				this.dbconnections_[_dbconnections_index++] = DBConnectionsupport.CreateInstance(
 					_dbtype,
 #if NET_1_1
 					System.Configuration.ConfigurationSettings.AppSettings
@@ -146,9 +146,9 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		[TestFixtureTearDown]
 #endif
 		public void TestFixtureTearDown() {
-			for (int d = 0; d < dbconnections_.Length; d++) {
-				dbconnections_[d].Dispose();
-				dbconnections_[d] = null;
+			for (int d = 0; d < this.dbconnections_.Length; d++) {
+				this.dbconnections_[d].Dispose();
+				this.dbconnections_[d] = null;
 			}
 		}
 		#endregion
@@ -163,16 +163,16 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 			string[] _dbs;
 			bool _found;
 
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				_dbs = dbconnections_[c].SchemaDatabases();
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				_dbs = this.dbconnections_[c].SchemaDatabases();
 				_found = false;
 				for (int d = 0; d < _dbs.Length; d++) {
-					if (_dbs[d] == dbname_) {
+					if (_dbs[d] == this.dbname_) {
 						_found = true;
 						break;
 					}
 				}
-				Assert.IsTrue(_found, "can't find db name: {0}", dbname_);
+				Assert.IsTrue(_found, "can't find db name: {0}", this.dbname_);
 			}
 		}
 		#endregion
@@ -188,9 +188,9 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 			int _tablesnum;
 			int _fieldsnum;
 
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				#region dbconnections_[c].SchemaDatabaseTables("User%");
-				_tables = dbconnections_[c].SchemaDatabaseTables("CRD_User|CRD_Profile|CRD_UserProfile");
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				#region this.dbconnections_[c].SchemaDatabaseTables("User%");
+				_tables = this.dbconnections_[c].SchemaDatabaseTables("CRD_User|CRD_Profile|CRD_UserProfile");
 				_tablesnum = 0;
 				for (int t = 0; t < _tables.Length; t++) {
 					switch (_tables[t].Name) {
@@ -206,8 +206,8 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				}
 				Assert.IsTrue((_tablesnum >= 2), "at least 2 tables expected, could only find {0}", _tablesnum);
 				#endregion
-				#region dbconnections_[c].SchemaDatabaseTables();
-				_tables = dbconnections_[c].SchemaDatabaseTables();
+				#region this.dbconnections_[c].SchemaDatabaseTables();
+				_tables = this.dbconnections_[c].SchemaDatabaseTables();
 				_tablesnum = 0;
 				for (int t = 0; t < _tables.Length; t++) {
 					switch (_tables[t].Name) {
@@ -264,7 +264,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						case "CRD_Profile":
 							_tablesnum++;
 
-							_fields = dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
+							_fields = this.dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
 							_fieldsnum = 0;
 							for (int f = 0; f < _fields.Length; f++) {
 								switch (_fields[f].Name) {
@@ -301,7 +301,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						case "CRD_User":
 							_tablesnum++;
 
-							_fields = dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
+							_fields = this.dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
 							_fieldsnum = 0;
 							for (int f = 0; f < _fields.Length; f++) {
 								switch (_fields[f].Name) {
@@ -350,7 +350,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						case "CRD_UserProfile":
 							_tablesnum++;
 
-							_fields = dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
+							_fields = this.dbconnections_[c].SchemaDatabaseTableFields(_tables[t].Name);
 							_fieldsnum = 0;
 							for (int f = 0; f < _fields.Length; f++) {
 								switch (_fields[f].Name) {
@@ -427,10 +427,10 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 			long _iduser;
 			DataTable _datatable;
 
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				Execute_SQL__insert(dbconnections_[c]);
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				this.Execute_SQL__insert(this.dbconnections_[c]);
 
-				_datatable = Execute_SQL__select(dbconnections_[c]);
+				_datatable = this.Execute_SQL__select(this.dbconnections_[c]);
 				Assert.AreEqual(1, _datatable.Rows.Count, "expected 1 row instead of {0}", _datatable.Rows.Count);
 
 				Assert.AreEqual(typeof(string), _datatable.Rows[0]["Login"].GetType(), "expected string type for Login field");
@@ -440,8 +440,8 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 				Assert.AreEqual(typeof(long), _datatable.Rows[0]["IDUser"].GetType(), "expected string type for IDUser field");
 				_iduser = (long)_datatable.Rows[0]["IDUser"];
 
-				Execute_SQL__delete(dbconnections_[c]);
-				_datatable = Execute_SQL__select(dbconnections_[c]);
+				this.Execute_SQL__delete(this.dbconnections_[c]);
+				_datatable = this.Execute_SQL__select(this.dbconnections_[c]);
 				Assert.AreEqual(0, _datatable.Rows.Count, "expected 0 rows instead of {0}", _datatable.Rows.Count);
 			}
 		}
@@ -455,29 +455,29 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		public void UT_Execute_SQLFunction_andCheckExistence() {
 			IDbDataParameter[] _dataparameters;
 
-			for (int c = 0; c < dbconnections_.Length; c++) {
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
 				Assert.IsTrue(
-					dbconnections_[c].SQLFunction_exists("fnc0_CRD_User_isObject_byLogin"), 
-					"sql function: \"fnc0_CRD_User_isObject_byLogin\" doesn't exist at {0}", 
-					dbconnections_[c].DBServerType.ToString()
+					this.dbconnections_[c].SQLFunction_exists("fnc0_CRD_User_isObject_byLogin"), 
+					"sql function: \"fnc0_CRD_User_isObject_byLogin\" doesn't exist at {0}",
+					this.dbconnections_[c].DBServerType.ToString()
 				);
 
 
-				Execute_SQL__insert(dbconnections_[c]);
+				this.Execute_SQL__insert(this.dbconnections_[c]);
 
 
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter(
+					this.dbconnections_[c].newDBDataParameter(
 						"Login_search_", 
 						DbType.String, 
 						ParameterDirection.Input, 
-						string.Format("test-{0}", testid_), 
+						string.Format("test-{0}", this.testid_), 
 						50
 					),
-					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 				};
 				Assert.IsTrue(
-					(bool)dbconnections_[c].Execute_SQLFunction(
+					(bool)this.dbconnections_[c].Execute_SQLFunction(
 						"fnc0_CRD_User_isObject_byLogin",
 						_dataparameters,
 						DbType.Boolean,
@@ -485,33 +485,33 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 					), 
 					"user: '{0}' should exist at {1}", 
 					(string)_dataparameters[0].Value,
-					dbconnections_[c].DBServerType.ToString()
+					this.dbconnections_[c].DBServerType.ToString()
 				);
 
 
-				Execute_SQL__delete(dbconnections_[c]);
+				this.Execute_SQL__delete(this.dbconnections_[c]);
 
 
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter(
+					this.dbconnections_[c].newDBDataParameter(
 						"Login_search_", 
 						DbType.String, 
 						ParameterDirection.Input, 
-						string.Format("test-{0}", testid_), 
+						string.Format("test-{0}", this.testid_), 
 						50
 					),
-					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
 				};
 				Assert.IsFalse(
-					(bool)dbconnections_[c].Execute_SQLFunction(
+					(bool)this.dbconnections_[c].Execute_SQLFunction(
 						"fnc0_CRD_User_isObject_byLogin",
 						_dataparameters,
 						DbType.Boolean,
 						0
 					),
 					"user: '{0}' should NOT exist at {0}",
-					(string)_dataparameters[0].Value, 
-					dbconnections_[c].DBServerType.ToString()
+					(string)_dataparameters[0].Value,
+					this.dbconnections_[c].DBServerType.ToString()
 				);
 			}
 		}
@@ -525,35 +525,35 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		public void UT_Execute_SQLStoredProcedure_andCheckExistence() {
 			IDbDataParameter[] _dataparameters;
 
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				switch ((DBServerTypes)Enum.Parse(typeof(DBServerTypes), dbconnections_[c].DBServerType)) {
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				switch ((DBServerTypes)Enum.Parse(typeof(DBServerTypes), this.dbconnections_[c].DBServerType)) {
 					case DBServerTypes.SQLServer:
-						Assert.IsTrue(dbconnections_[c].SQLStoredProcedure_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
+						Assert.IsTrue(this.dbconnections_[c].SQLStoredProcedure_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", this.dbconnections_[c].DBServerType.ToString());
 						break;
 					case DBServerTypes.PostgreSQL:
-						Assert.IsTrue(dbconnections_[c].SQLFunction_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
+						Assert.IsTrue(this.dbconnections_[c].SQLFunction_exists("sp0_CRD_User_getObject_byLogin"), "sql stored procedure: \"sp0_CRD_User_getObject\" doesn't exist at {0}", this.dbconnections_[c].DBServerType.ToString());
 						break;
 				}
-				Assert.IsTrue(dbconnections_[c].SQLFunction_exists("fnc_CRD_User_isObject_byLogin"), "sql function: \"fnc_CRD_User_isObject_byLogin\" doesn't exist at {0}", dbconnections_[c].DBServerType.ToString());
-				
+				Assert.IsTrue(this.dbconnections_[c].SQLFunction_exists("fnc_CRD_User_isObject_byLogin"), "sql function: \"fnc_CRD_User_isObject_byLogin\" doesn't exist at {0}", this.dbconnections_[c].DBServerType.ToString());
 
 
-				Execute_SQL__insert(dbconnections_[c]);
+
+				this.Execute_SQL__insert(this.dbconnections_[c]);
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter(
+					this.dbconnections_[c].newDBDataParameter(
 						"Login_search_", 
 						DbType.AnsiString, 
 						ParameterDirection.Input, 
-						string.Format("test-{0}", testid_), 
+						string.Format("test-{0}", this.testid_), 
 						255
 					), 
-					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
-					dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
-					dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-					dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-					dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
+					this.dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					this.dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					this.dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 				};
-				dbconnections_[c].Execute_SQLFunction(
+				this.dbconnections_[c].Execute_SQLFunction(
 					"sp0_CRD_User_getObject_byLogin", 
 					_dataparameters
 				);
@@ -565,40 +565,40 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						&&
 						(_dataparameters[4].Value != DBNull.Value)
 					),
-					"can't find or retrieve output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", dbconnections_[c].DBServerType.ToString()
+					"can't find or retrieve output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", this.dbconnections_[c].DBServerType.ToString()
 				);
 				Assert.AreEqual(
-					string.Format("test-{0}", testid_),
+					string.Format("test-{0}", this.testid_),
 					(string)_dataparameters[3].Value,
 					"unexpected value for Login field: {0} at {1}", 
 					(string)_dataparameters[3].Value,
-					dbconnections_[c].DBServerType.ToString()
+					this.dbconnections_[c].DBServerType.ToString()
 				);
 				Assert.AreEqual(
 					"password",
 					(string)_dataparameters[4].Value,
 					"unexpected value for Password field: {0} at {1}",
 					(string)_dataparameters[4].Value,
-					dbconnections_[c].DBServerType.ToString()
+					this.dbconnections_[c].DBServerType.ToString()
 				);
 
 
-				Execute_SQL__delete(dbconnections_[c]);
+				this.Execute_SQL__delete(this.dbconnections_[c]);
 				_dataparameters = new IDbDataParameter[] {
-					dbconnections_[c].newDBDataParameter(
+					this.dbconnections_[c].newDBDataParameter(
 						"Login_search_", 
 						DbType.AnsiString, 
 						ParameterDirection.Input, 
-						string.Format("test-{0}", testid_), 
+						string.Format("test-{0}", this.testid_), 
 						255
 					), 
-					dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
-					dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
-					dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-					dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
-					dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
+					this.dbconnections_[c].newDBDataParameter("IFApplication_search_", DbType.Int32, ParameterDirection.Input, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("IDUser", DbType.Int64, ParameterDirection.Output, null, 0), 
+					this.dbconnections_[c].newDBDataParameter("Login", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					this.dbconnections_[c].newDBDataParameter("Password", DbType.AnsiString, ParameterDirection.Output, null, 255), 
+					this.dbconnections_[c].newDBDataParameter("IFApplication", DbType.Int32, ParameterDirection.Output, null, 0)
 				};
-				dbconnections_[c].Execute_SQLFunction(
+				this.dbconnections_[c].Execute_SQLFunction(
 					"sp0_CRD_User_getObject_byLogin",
 					_dataparameters
 				);
@@ -610,7 +610,7 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 						&&
 						(_dataparameters[4].Value == DBNull.Value)
 					),
-					"unexpectedly retrieved output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", dbconnections_[c].DBServerType.ToString()
+					"unexpectedly retrieved output values from \"sp0_CRD_User_getObject_byLogin\" at {0}", this.dbconnections_[c].DBServerType.ToString()
 				);
 			}
 		}
@@ -623,22 +623,22 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		[TestMethod]
 #endif
 		public void UT_Transaction_Rollback() {
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				dbconnections_[c].Open();
-				dbconnections_[c].Transaction.Begin();
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				this.dbconnections_[c].Open();
+				this.dbconnections_[c].Transaction.Begin();
 
-				Execute_SQL__insert(dbconnections_[c]);
+				this.Execute_SQL__insert(this.dbconnections_[c]);
 
-				dbconnections_[c].Transaction.Rollback();
-				dbconnections_[c].Transaction.Terminate();
+				this.dbconnections_[c].Transaction.Rollback();
+				this.dbconnections_[c].Transaction.Terminate();
 
 				Assert.AreEqual(
-					0, 
-					Execute_SQL__select(dbconnections_[c]).Rows.Count, 
+					0,
+					this.Execute_SQL__select(this.dbconnections_[c]).Rows.Count, 
 					"transaction rollback failed somehow, changes to db have been commited"
 				);
 
-				dbconnections_[c].Close();
+				this.dbconnections_[c].Close();
 			}
 		}
 		#endregion
@@ -649,24 +649,24 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		[TestMethod]
 #endif
 		public void UT_Transaction_Commit() {
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				dbconnections_[c].Open();
-				dbconnections_[c].Transaction.Begin();
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				this.dbconnections_[c].Open();
+				this.dbconnections_[c].Transaction.Begin();
 
-				Execute_SQL__insert(dbconnections_[c]);
+				this.Execute_SQL__insert(this.dbconnections_[c]);
 
-				dbconnections_[c].Transaction.Commit();
-				dbconnections_[c].Transaction.Terminate();
+				this.dbconnections_[c].Transaction.Commit();
+				this.dbconnections_[c].Transaction.Terminate();
 
 				Assert.AreEqual(
-					1, 
-					Execute_SQL__select(dbconnections_[c]).Rows.Count, 
+					1,
+					this.Execute_SQL__select(this.dbconnections_[c]).Rows.Count, 
 					"transaction commit failed somehow"
 				);
 
-				Execute_SQL__delete(dbconnections_[c]);
+				this.Execute_SQL__delete(this.dbconnections_[c]);
 
-				dbconnections_[c].Close();
+				this.dbconnections_[c].Close();
 			}
 		}
 		#endregion
@@ -677,21 +677,21 @@ namespace OGen.Libraries.DataLayer.UnitTests {
 		[TestMethod]
 #endif
 		public void UT_Connection_Open_andClose() {
-			for (int c = 0; c < dbconnections_.Length; c++) {
-				dbconnections_[c].Open();
+			for (int c = 0; c < this.dbconnections_.Length; c++) {
+				this.dbconnections_[c].Open();
 				Assert.AreEqual(
-					ConnectionState.Open, 
-					dbconnections_[c].exposeConnection.State, 
-					"connection expected to be opened, instead it's: {0}", 
-					dbconnections_[c].exposeConnection.State.ToString()
+					ConnectionState.Open,
+					this.dbconnections_[c].exposeConnection.State, 
+					"connection expected to be opened, instead it's: {0}",
+					this.dbconnections_[c].exposeConnection.State.ToString()
 				);
 
-				dbconnections_[c].Close();
+				this.dbconnections_[c].Close();
 				//Assert.AreEqual(
 				//	ConnectionState.Closed, 
-				//	dbconnections_[c].exposeConnection.State, 
+				//	this.dbconnections_[c].exposeConnection.State, 
 				//	"connection expected to be closed, instead it's: {0}", 
-				//	dbconnections_[c].exposeConnection.State.ToString()
+				//	this.dbconnections_[c].exposeConnection.State.ToString()
 				//);
 			}
 		}
