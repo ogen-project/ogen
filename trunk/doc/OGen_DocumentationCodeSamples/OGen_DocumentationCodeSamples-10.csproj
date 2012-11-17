@@ -67,6 +67,12 @@
     <Compile Include="OGen-NTier__Docs__Develop_HowTo_insObject.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="OGen-NTier__Docs__Develop_HowTo_List_DataObjects.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OGen-NTier__Docs__Develop_HowTo_Read_DataObject_Property_Attributes.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="OGen-NTier__Docs__Develop_HowTo_setobject.cs">
       <SubType>Code</SubType>
     </Compile>

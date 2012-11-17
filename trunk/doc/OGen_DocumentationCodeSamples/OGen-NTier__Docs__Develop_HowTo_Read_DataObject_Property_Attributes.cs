@@ -13,46 +13,72 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_Read_DataObject_Property_Attributes {
-		public HowTo_Read_DataObject_Property_Attributes() {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_Read_DataObject_Property_Attributes {
+		public HowTo_Read_DataObject_Property_Attributes() { }
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
 //<document>
-OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
-	= (OGen.NTier.lib.datalayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
-		typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperty("IDUser"),
-		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute),
+OGen.NTier.Libraries.DataLayer.DOPropertyAttribute _attribute
+	= (OGen.NTier.Libraries.DataLayer.DOPropertyAttribute)Attribute.GetCustomAttribute(
+		typeof(OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User).GetProperty("IDUser"),
+		typeof(OGen.NTier.Libraries.DataLayer.DOPropertyAttribute),
 		true
 	);
 Console.WriteLine(
 	"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};",
 	_attribute.Name,
-	_attribute.isPK,
-	_attribute.isIdentity,
+	_attribute.IsPK,
+	_attribute.IsIdentity,
 	_attribute.DefaultValue,
 
 	// many other properties available, like:
 	_attribute.AditionalInfo, 
 	_attribute.DefaultValue, 
 	_attribute.ExtendedDescription, 
-	_attribute.FK_FieldName, 
-	_attribute.FK_TableName, 
+	_attribute.ForeignKey_TableName, 
+	_attribute.ForeignKey_TableFieldName, 
 	_attribute.FriendlyName, 
-	_attribute.isBool, 
-	_attribute.isConfig_Config, 
-	_attribute.isConfig_Datatype, 
-	_attribute.isConfig_Name, 
-	_attribute.isDateTime, 
-	_attribute.isDecimal, 
-	_attribute.isInt, 
-	_attribute.isListItemText, 
-	_attribute.isListItemValue, 
-	_attribute.isNullable, 
-	_attribute.isText, 
+	_attribute.IsBoolean, 
+	_attribute.IsConfig_Config, 
+	_attribute.IsConfig_Datatype, 
+	_attribute.IsConfig_Name, 
+	_attribute.IsDateTime, 
+	_attribute.IsDecimal, 
+	_attribute.IsInteger, 
+	_attribute.IsListItemText, 
+	_attribute.IsListItemValue, 
+	_attribute.IsNullable, 
+	_attribute.IsText, 
 	_attribute.Size
 );
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }
