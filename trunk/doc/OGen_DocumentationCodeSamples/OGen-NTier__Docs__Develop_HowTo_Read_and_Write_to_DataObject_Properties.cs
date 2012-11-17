@@ -13,26 +13,47 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #endregion
 
-using System;
+namespace OGen.Libraries.DocumentationCodeSamples.UnitTests {
+	using System;
+#if NUnit
+	using NUnit.Framework;
+#else
+	using Microsoft.VisualStudio.TestTools.UnitTesting;
+#endif
 
-namespace OGen.NTier.UTs.howtos {
-	class HowTo_Read_and_Write_to_DataObject_Properties {
+#if NUnit
+	[TestFixture]
+#else
+	[TestClass]
+#endif
+	public class HowTo_Read_and_Write_to_DataObject_Properties {
 		public HowTo_Read_and_Write_to_DataObject_Properties() {
+		}
+
+#if NUnit
+		[Test]
+#else
+		[TestMethod]
+#endif
+		public void HowTo() {
+
 //<document>
-OGen.NTier.UTs.lib.datalayer.DO_User _user = new OGen.NTier.UTs.lib.datalayer.DO_User();
-_user.Fields.IDUser = 123;
-_user.Fields.Login = "123";
-_user.Fields.Password = "123";
+OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User _user 
+	= new OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User();
+_user.IDUser = 123L;
+_user.Login = "123";
+_user.Password = "123";
+_user.IFApplication = 123;
 
 System.Reflection.PropertyInfo[] _properties
-	= typeof(OGen.NTier.UTs.lib.datalayer.proxy.SO_User).GetProperties(
+	= typeof(OGen.NTier.Kick.Libraries.DataLayer.Shared.Structures.SO_CRD_User).GetProperties(
 		System.Reflection.BindingFlags.Public |
 		System.Reflection.BindingFlags.Instance
 	);
 for (int _prop = 0; _prop < _properties.Length; _prop++) {
 	if (Attribute.IsDefined(
 		_properties[_prop],
-		typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute)
+		typeof(OGen.NTier.Libraries.DataLayer.DOPropertyAttribute)
 	)) {
 		Console.Write(
 			"{0}: ", 
@@ -40,28 +61,28 @@ for (int _prop = 0; _prop < _properties.Length; _prop++) {
 		);
 		Attribute[] _attributes = Attribute.GetCustomAttributes(
 			_properties[_prop],
-			typeof(OGen.NTier.lib.datalayer.DOPropertyAttribute), 
+			typeof(OGen.NTier.Libraries.DataLayer.DOPropertyAttribute), 
 			true
 		);
 		for (int _att = 0; _att < _attributes.Length; _att++) {
 			//if (_attributes[_att].GetType() == typeof(DOPropertyAttribute)) {
-			OGen.NTier.lib.datalayer.DOPropertyAttribute _attribute
-					= (OGen.NTier.lib.datalayer.DOPropertyAttribute)_attributes[_att];
+			OGen.NTier.Libraries.DataLayer.DOPropertyAttribute _attribute
+					= (OGen.NTier.Libraries.DataLayer.DOPropertyAttribute)_attributes[_att];
 				Console.Write(
 					"name:{0};  isPK:{1};  isIdentity:{2};  DefaultValue:{3};  ",
 					_attribute.Name,
-					_attribute.isPK,
-					_attribute.isIdentity,
+					_attribute.IsPK,
+					_attribute.IsIdentity,
 					_attribute.DefaultValue
 				);
 			//}
 		}
 		Console.Write(
 			"value: {0}; ", 
-			_properties[_prop].GetValue(_user.Fields, null)
+			_properties[_prop].GetValue(_user, null)
 		);
 		_properties[_prop].SetValue(
-			_user.Fields, 
+			_user, 
 			Convert.ChangeType(
 				456, 
 				_properties[_prop].PropertyType
@@ -70,11 +91,20 @@ for (int _prop = 0; _prop < _properties.Length; _prop++) {
 		);
 		Console.WriteLine(
 			"new value: {0}", 
-			_properties[_prop].GetValue(_user.Fields, null)
+			_properties[_prop].GetValue(_user, null)
 		);
 	}
 }
 //</document>
+
+			// the only porpuses is to keep documentation code samples updated by: 
+			// 1) ensure documentation code samples are compiling 
+			// 2) no exceptions are beeing thrown by documentation code samples
+			Assert.IsTrue(
+				true,
+				"documentation code sample is failing"
+			);
+
 		}
 	}
 }
