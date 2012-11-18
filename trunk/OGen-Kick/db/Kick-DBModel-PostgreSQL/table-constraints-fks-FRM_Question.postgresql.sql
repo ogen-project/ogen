@@ -1,0 +1,21 @@
+ALTER TABLE "FRM_Question"
+  ADD CONSTRAINT "FRM_Question_IFQuestion__parent_fkey" FOREIGN KEY ("IFQuestion__parent")
+    REFERENCES "FRM_Question" ("IDQuestion") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "FRM_Question_IFQuestiontype_fkey" FOREIGN KEY ("IFQuestiontype")
+    REFERENCES "FRM_Questiontype" ("IDQuestiontype") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "FRM_Question_IFApplication_fkey" FOREIGN KEY ("IFApplication")
+    REFERENCES "APP_Application" ("IDApplication") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "FRM_Question_IFUser__audit_fkey" FOREIGN KEY ("IFUser__audit")
+    REFERENCES "CRD_User" ("IDUser") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "FRM_Question_TX_Question_fkey" FOREIGN KEY ("TX_Question")
+    REFERENCES "DIC_Text" ("IDText") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION,
+  ADD CONSTRAINT "FRM_Question_TX_Details_fkey" FOREIGN KEY ("TX_Details")
+    REFERENCES "DIC_Text" ("IDText") MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION
+;
+

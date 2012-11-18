@@ -469,3 +469,240 @@ COMMENT ON TABLE "CRD_Action" IS NULL;
 	COMMENT ON COLUMN "CRD_Action"."IDAction" IS 'psql:bigint;sqlserver:bigint;identity:False;';
 	COMMENT ON COLUMN "CRD_Action"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
 
+CREATE TABLE "FRM_QuestionTriggerQuestion" (
+	"IFQuestion" bigint NOT NULL,
+	"IFTrigger" integer NOT NULL,
+	"IFQuestion__destination" bigint NOT NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_QuestionTriggerQuestion" IS NULL;
+	COMMENT ON COLUMN "FRM_QuestionTriggerQuestion"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerQuestion"."IFTrigger" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerQuestion"."IFQuestion__destination" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerQuestion"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerQuestion"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_QuestionTriggerAnswer" (
+	"IFQuestion" bigint NOT NULL,
+	"IFTrigger" integer NOT NULL,
+	"IFAnswer" bigint NOT NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_QuestionTriggerAnswer" IS NULL;
+	COMMENT ON COLUMN "FRM_QuestionTriggerAnswer"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerAnswer"."IFTrigger" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerAnswer"."IFAnswer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerAnswer"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionTriggerAnswer"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_Form" (
+	"IDForm" bigserial NOT NULL,
+	"TX_Name" bigint NULL,
+	"TX_Description" bigint NULL,
+	"IFApplication" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Form" IS NULL;
+	COMMENT ON COLUMN "FRM_Form"."IDForm" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
+	COMMENT ON COLUMN "FRM_Form"."TX_Name" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Form"."TX_Description" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Form"."IFApplication" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_Form"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Form"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_FormGroup" (
+	"IFForm" bigint NOT NULL,
+	"IFGroup" bigint NOT NULL,
+	"Order" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_FormGroup" IS NULL;
+	COMMENT ON COLUMN "FRM_FormGroup"."IFForm" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_FormGroup"."IFGroup" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_FormGroup"."Order" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_FormGroup"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_FormGroup"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_QuestionAnswer" (
+	"IFQuestion" bigint NOT NULL,
+	"IFAnswer" bigint NOT NULL,
+	"Order" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_QuestionAnswer" IS NULL;
+	COMMENT ON COLUMN "FRM_QuestionAnswer"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionAnswer"."IFAnswer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionAnswer"."Order" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_QuestionAnswer"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_QuestionAnswer"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_GroupQuestion" (
+	"IFGroup" bigint NOT NULL,
+	"IFQuestion" bigint NOT NULL,
+	"Order" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_GroupQuestion" IS NULL;
+	COMMENT ON COLUMN "FRM_GroupQuestion"."IFGroup" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupQuestion"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupQuestion"."Order" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_GroupQuestion"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupQuestion"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_Trigger" (
+	"IDTrigger" serial NOT NULL,
+	"Name" character varying(255) NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Trigger" IS NULL;
+	COMMENT ON COLUMN "FRM_Trigger"."IDTrigger" IS 'psql:serial;sqlserver:int;identity:True;';
+	COMMENT ON COLUMN "FRM_Trigger"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+
+CREATE TABLE "FRM_Group" (
+	"IDGroup" bigserial NOT NULL,
+	"IFGroup__parent" bigint NULL,
+	"TX_Title" bigint NULL,
+	"TX_Description" bigint NULL,
+	"IsTemplate" boolean NULL,
+	"GroupAnswers" boolean NULL,
+	"IFApplication" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Group" IS NULL;
+	COMMENT ON COLUMN "FRM_Group"."IDGroup" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
+	COMMENT ON COLUMN "FRM_Group"."IFGroup__parent" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Group"."TX_Title" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Group"."TX_Description" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Group"."IsTemplate" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FRM_Group"."GroupAnswers" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FRM_Group"."IFApplication" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_Group"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Group"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_Question" (
+	"IDQuestion" bigserial NOT NULL,
+	"IFQuestion__parent" bigint NULL,
+	"IFQuestiontype" integer NULL,
+	"TX_Question" bigint NULL,
+	"TX_Details" bigint NULL,
+	"IsRequired" boolean NULL,
+	"IsTemplate" boolean NULL,
+	"IFApplication" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Question" IS NULL;
+	COMMENT ON COLUMN "FRM_Question"."IDQuestion" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
+	COMMENT ON COLUMN "FRM_Question"."IFQuestion__parent" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Question"."IFQuestiontype" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_Question"."TX_Question" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Question"."TX_Details" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Question"."IsRequired" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FRM_Question"."IsTemplate" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FRM_Question"."IFApplication" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_Question"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Question"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_Answer" (
+	"IDAnswer" bigserial NOT NULL,
+	"TX_Answer" bigint NULL,
+	"TX_Details" bigint NULL,
+	"IsRequired" boolean NULL,
+	"IFApplication" integer NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Answer" IS NULL;
+	COMMENT ON COLUMN "FRM_Answer"."IDAnswer" IS 'psql:bigserial;sqlserver:bigint;identity:True;';
+	COMMENT ON COLUMN "FRM_Answer"."TX_Answer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Answer"."TX_Details" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Answer"."IsRequired" IS 'psql:boolean;sqlserver:bit;';
+	COMMENT ON COLUMN "FRM_Answer"."IFApplication" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_Answer"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_Answer"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_UserQuestion" (
+	"IFUser" bigint NOT NULL,
+	"IFQuestion" bigint NOT NULL,
+	"Answer" character varying(8000) NULL,
+	"IFUser__audit" bigint NULL,
+	"Date__audit" timestamp with time zone NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_UserQuestion" IS NULL;
+	COMMENT ON COLUMN "FRM_UserQuestion"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserQuestion"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserQuestion"."Answer" IS 'length:8000;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "FRM_UserQuestion"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserQuestion"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_GroupAnswer" (
+	"IFGroup" bigint NOT NULL,
+	"IFAnswer" bigint NOT NULL,
+	"Order" integer NULL,
+	"IFUser__audit" bigint NULL,
+	"Date__audit" timestamp with time zone NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_GroupAnswer" IS NULL;
+	COMMENT ON COLUMN "FRM_GroupAnswer"."IFGroup" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupAnswer"."IFAnswer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupAnswer"."Order" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_GroupAnswer"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_GroupAnswer"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_Questiontype" (
+	"IDQuestiontype" serial NOT NULL,
+	"Name" character varying(255) NOT NULL,
+	"RegularExpression" character varying(1024) NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_Questiontype" IS NULL;
+	COMMENT ON COLUMN "FRM_Questiontype"."IDQuestiontype" IS 'psql:serial;sqlserver:int;identity:True;';
+	COMMENT ON COLUMN "FRM_Questiontype"."Name" IS 'length:255;psql:character varying;sqlserver:varchar;';
+	COMMENT ON COLUMN "FRM_Questiontype"."RegularExpression" IS 'length:1024;psql:character varying;sqlserver:varchar;';
+
+CREATE TABLE "FRM_UserAnswer" (
+	"IFUser" bigint NOT NULL,
+	"IFAnswer" bigint NOT NULL,
+	"IFUser__audit" bigint NULL,
+	"Date__audit" timestamp with time zone NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_UserAnswer" IS NULL;
+	COMMENT ON COLUMN "FRM_UserAnswer"."IFUser" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserAnswer"."IFAnswer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserAnswer"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_UserAnswer"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+
+CREATE TABLE "FRM_AnswerTrigger" (
+	"IFAnswer" bigint NOT NULL,
+	"IFTrigger" integer NOT NULL,
+	"IFQuestion" bigint NOT NULL,
+	"IFUser__audit" bigint NOT NULL,
+	"Date__audit" timestamp with time zone NOT NULL
+)
+WITH (OIDS=FALSE);
+COMMENT ON TABLE "FRM_AnswerTrigger" IS NULL;
+	COMMENT ON COLUMN "FRM_AnswerTrigger"."IFAnswer" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_AnswerTrigger"."IFTrigger" IS 'psql:integer;sqlserver:int;';
+	COMMENT ON COLUMN "FRM_AnswerTrigger"."IFQuestion" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_AnswerTrigger"."IFUser__audit" IS 'psql:bigint;sqlserver:bigint;';
+	COMMENT ON COLUMN "FRM_AnswerTrigger"."Date__audit" IS 'psql:timestamp with time zone;sqlserver:datetime;';
+

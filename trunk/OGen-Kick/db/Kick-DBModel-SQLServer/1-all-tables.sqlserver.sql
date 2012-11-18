@@ -2922,3 +2922,1509 @@ GO
 		@level2name = 'Name';
 	GO
 
+CREATE TABLE "FRM_QuestionTriggerQuestion" (
+	"IFQuestion" "bigint" NOT NULL, 
+	"IFTrigger" "int" NOT NULL, 
+	"IFQuestion__destination" "bigint" NOT NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_QuestionTriggerQuestion" PRIMARY KEY CLUSTERED (
+		"IFQuestion" ASC, 
+		"IFTrigger" ASC, 
+		"IFQuestion__destination" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_QuestionTriggerQuestion';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFTrigger';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion__destination';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_QuestionTriggerAnswer" (
+	"IFQuestion" "bigint" NOT NULL, 
+	"IFTrigger" "int" NOT NULL, 
+	"IFAnswer" "bigint" NOT NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_QuestionTriggerAnswer" PRIMARY KEY CLUSTERED (
+		"IFQuestion" ASC, 
+		"IFTrigger" ASC, 
+		"IFAnswer" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_QuestionTriggerAnswer';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFTrigger';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionTriggerAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_Form" (
+	"IDForm" "bigint" IDENTITY(1, 1) NOT NULL, 
+	"TX_Name" "bigint" NULL, 
+	"TX_Description" "bigint" NULL, 
+	"IFApplication" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_Form" PRIMARY KEY CLUSTERED (
+		"IDForm" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Form';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigserial;sqlserver:bigint;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDForm';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Name';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Description';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFApplication';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Form', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_FormGroup" (
+	"IFForm" "bigint" NOT NULL, 
+	"IFGroup" "bigint" NOT NULL, 
+	"Order" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_FormGroup" PRIMARY KEY CLUSTERED (
+		"IFForm" ASC, 
+		"IFGroup" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_FormGroup';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_FormGroup', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFForm';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_FormGroup', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFGroup';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_FormGroup', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Order';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_FormGroup', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_FormGroup', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_QuestionAnswer" (
+	"IFQuestion" "bigint" NOT NULL, 
+	"IFAnswer" "bigint" NOT NULL, 
+	"Order" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_QuestionAnswer" PRIMARY KEY CLUSTERED (
+		"IFQuestion" ASC, 
+		"IFAnswer" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_QuestionAnswer';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Order';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_QuestionAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_GroupQuestion" (
+	"IFGroup" "bigint" NOT NULL, 
+	"IFQuestion" "bigint" NOT NULL, 
+	"Order" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_GroupQuestion" PRIMARY KEY CLUSTERED (
+		"IFGroup" ASC, 
+		"IFQuestion" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_GroupQuestion';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFGroup';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Order';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_Trigger" (
+	"IDTrigger" "int" IDENTITY(1, 1) NOT NULL, 
+	"Name" "varchar"(255) NOT NULL, 
+
+	CONSTRAINT "PK_FRM_Trigger" PRIMARY KEY CLUSTERED (
+		"IDTrigger" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Trigger';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:serial;sqlserver:int;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Trigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDTrigger';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:255;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Trigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Name';
+	GO
+
+CREATE TABLE "FRM_Group" (
+	"IDGroup" "bigint" IDENTITY(1, 1) NOT NULL, 
+	"IFGroup__parent" "bigint" NULL, 
+	"TX_Title" "bigint" NULL, 
+	"TX_Description" "bigint" NULL, 
+	"IsTemplate" "bit" NULL, 
+	"GroupAnswers" "bit" NULL, 
+	"IFApplication" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_Group" PRIMARY KEY CLUSTERED (
+		"IDGroup" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Group';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigserial;sqlserver:bigint;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDGroup';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFGroup__parent';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Title';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Description';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:boolean;sqlserver:bit;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IsTemplate';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:boolean;sqlserver:bit;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'GroupAnswers';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFApplication';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Group', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_Question" (
+	"IDQuestion" "bigint" IDENTITY(1, 1) NOT NULL, 
+	"IFQuestion__parent" "bigint" NULL, 
+	"IFQuestiontype" "int" NULL, 
+	"TX_Question" "bigint" NULL, 
+	"TX_Details" "bigint" NULL, 
+	"IsRequired" "bit" NULL, 
+	"IsTemplate" "bit" NULL, 
+	"IFApplication" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_Question" PRIMARY KEY CLUSTERED (
+		"IDQuestion" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Question';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigserial;sqlserver:bigint;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion__parent';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestiontype';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Question';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Details';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:boolean;sqlserver:bit;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IsRequired';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:boolean;sqlserver:bit;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IsTemplate';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFApplication';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Question', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_Answer" (
+	"IDAnswer" "bigint" IDENTITY(1, 1) NOT NULL, 
+	"TX_Answer" "bigint" NULL, 
+	"TX_Details" "bigint" NULL, 
+	"IsRequired" "bit" NULL, 
+	"IFApplication" "int" NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_Answer" PRIMARY KEY CLUSTERED (
+		"IDAnswer" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Answer';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigserial;sqlserver:bigint;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Answer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'TX_Details';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:boolean;sqlserver:bit;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IsRequired';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFApplication';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Answer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_UserQuestion" (
+	"IFUser" "bigint" NOT NULL, 
+	"IFQuestion" "bigint" NOT NULL, 
+	"Answer" "varchar"(8000) NULL, 
+	"IFUser__audit" "bigint" NULL, 
+	"Date__audit" "datetime" NULL, 
+
+	CONSTRAINT "PK_FRM_UserQuestion" PRIMARY KEY CLUSTERED (
+		"IFUser" ASC, 
+		"IFQuestion" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_UserQuestion';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:8000;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Answer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserQuestion', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_GroupAnswer" (
+	"IFGroup" "bigint" NOT NULL, 
+	"IFAnswer" "bigint" NOT NULL, 
+	"Order" "int" NULL, 
+	"IFUser__audit" "bigint" NULL, 
+	"Date__audit" "datetime" NULL, 
+
+	CONSTRAINT "PK_FRM_GroupAnswer" PRIMARY KEY CLUSTERED (
+		"IFGroup" ASC, 
+		"IFAnswer" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_GroupAnswer';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFGroup';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Order';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_GroupAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_Questiontype" (
+	"IDQuestiontype" "int" IDENTITY(1, 1) NOT NULL, 
+	"Name" "varchar"(255) NOT NULL, 
+	"RegularExpression" "varchar"(1024) NULL, 
+
+	CONSTRAINT "PK_FRM_Questiontype" PRIMARY KEY CLUSTERED (
+		"IDQuestiontype" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_Questiontype';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:serial;sqlserver:int;identity:True;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Questiontype', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IDQuestiontype';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:255;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Questiontype', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Name';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'length:1024;psql:character varying;sqlserver:varchar;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_Questiontype', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'RegularExpression';
+	GO
+
+CREATE TABLE "FRM_UserAnswer" (
+	"IFUser" "bigint" NOT NULL, 
+	"IFAnswer" "bigint" NOT NULL, 
+	"IFUser__audit" "bigint" NULL, 
+	"Date__audit" "datetime" NULL, 
+
+	CONSTRAINT "PK_FRM_UserAnswer" PRIMARY KEY CLUSTERED (
+		"IFUser" ASC, 
+		"IFAnswer" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_UserAnswer';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_UserAnswer', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+
+CREATE TABLE "FRM_AnswerTrigger" (
+	"IFAnswer" "bigint" NOT NULL, 
+	"IFTrigger" "int" NOT NULL, 
+	"IFQuestion" "bigint" NOT NULL, 
+	"IFUser__audit" "bigint" NOT NULL, 
+	"Date__audit" "datetime" NOT NULL, 
+
+	CONSTRAINT "PK_FRM_AnswerTrigger" PRIMARY KEY CLUSTERED (
+		"IFAnswer" ASC, 
+		"IFTrigger" ASC, 
+		"IFQuestion" ASC
+	) WITH (
+		PAD_INDEX = OFF, 
+		STATISTICS_NORECOMPUTE = OFF, 
+		IGNORE_DUP_KEY = OFF, 
+		ALLOW_ROW_LOCKS = ON, 
+		ALLOW_PAGE_LOCKS = ON
+	) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+EXEC sys.sp_addextendedproperty 
+	@name = N'MS_Description', 
+	@value = N'', 
+
+	@level0type = N'SCHEMA', 
+	@level0name = 'dbo', 
+
+	@level1type = N'TABLE',  
+	@level1name = 'FRM_AnswerTrigger';
+GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_AnswerTrigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFAnswer';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:integer;sqlserver:int;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_AnswerTrigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFTrigger';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_AnswerTrigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFQuestion';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:bigint;sqlserver:bigint;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_AnswerTrigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'IFUser__audit';
+	GO
+	EXEC sys.sp_addextendedproperty 
+		@name = N'MS_Description', 
+		@value = N'psql:timestamp with time zone;sqlserver:datetime;', 
+
+		@level0type = N'SCHEMA', 
+		@level0name = 'dbo', 
+
+		@level1type = N'TABLE',  
+		@level1name = 'FRM_AnswerTrigger', 
+
+		@level2type = N'COLUMN', 
+		@level2name = 'Date__audit';
+	GO
+

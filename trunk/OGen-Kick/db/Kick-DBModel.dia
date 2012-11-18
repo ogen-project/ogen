@@ -12303,7 +12303,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12372,7 +12372,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12441,7 +12441,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12510,7 +12510,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12579,7 +12579,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12652,7 +12652,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12725,7 +12725,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12794,7 +12794,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12863,7 +12863,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -12932,7 +12932,7 @@ suitable for new registered users#</dia:string>
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -15440,7 +15440,7 @@ suitable for new registered users#</dia:string>
         <dia:point val="-106,2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-106,1.38638;-93.5364,7.78725"/>
+        <dia:rectangle val="-106,1.405;-93.555,7.75"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -16117,7 +16117,7 @@ construção de um novo questionário
         <dia:enum val="2"/>
       </dia:attribute>
       <dia:attribute name="role_a">
-        <dia:string>#IFUser#</dia:string>
+        <dia:string>#IFUser__audit#</dia:string>
       </dia:attribute>
       <dia:attribute name="multipicity_a">
         <dia:string>##</dia:string>
@@ -16213,7 +16213,7 @@ construção de um novo questionário
         <dia:point val="-54.695,8.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-55.445,-0.6;4.43625,9.25"/>
+        <dia:rectangle val="-55.445,-0.75;4.43625,9.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -16432,7 +16432,7 @@ construção de um novo questionário
         <dia:point val="-62.58,8.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-63.33,-0.6;4.43625,9.25"/>
+        <dia:rectangle val="-63.33,-0.75;4.43625,9.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>

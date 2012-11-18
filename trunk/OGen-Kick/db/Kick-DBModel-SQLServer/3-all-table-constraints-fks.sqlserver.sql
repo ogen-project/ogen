@@ -718,3 +718,493 @@ GO
 ALTER TABLE "NET_User" CHECK CONSTRAINT "NET_User_IFApplication_fkey"
 GO
 
+ALTER TABLE "FRM_QuestionTriggerQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerQuestion_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerQuestion" CHECK CONSTRAINT "FRM_QuestionTriggerQuestion_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerQuestion_IFTrigger_fkey" FOREIGN KEY (
+		"IFTrigger"
+	) REFERENCES "FRM_Trigger" (
+		"IDTrigger"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerQuestion" CHECK CONSTRAINT "FRM_QuestionTriggerQuestion_IFTrigger_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerQuestion_IFQuestion__destination_fkey" FOREIGN KEY (
+		"IFQuestion__destination"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerQuestion" CHECK CONSTRAINT "FRM_QuestionTriggerQuestion_IFQuestion__destination_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerQuestion_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerQuestion" CHECK CONSTRAINT "FRM_QuestionTriggerQuestion_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerAnswer_IFAnswer_fkey" FOREIGN KEY (
+		"IFAnswer"
+	) REFERENCES "FRM_Answer" (
+		"IDAnswer"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerAnswer" CHECK CONSTRAINT "FRM_QuestionTriggerAnswer_IFAnswer_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerAnswer_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerAnswer" CHECK CONSTRAINT "FRM_QuestionTriggerAnswer_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerAnswer_IFTrigger_fkey" FOREIGN KEY (
+		"IFTrigger"
+	) REFERENCES "FRM_Trigger" (
+		"IDTrigger"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerAnswer" CHECK CONSTRAINT "FRM_QuestionTriggerAnswer_IFTrigger_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionTriggerAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionTriggerAnswer_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_QuestionTriggerAnswer" CHECK CONSTRAINT "FRM_QuestionTriggerAnswer_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Form" WITH CHECK 
+	ADD CONSTRAINT "FRM_Form_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "FRM_Form" CHECK CONSTRAINT "FRM_Form_IFApplication_fkey"
+GO
+
+ALTER TABLE "FRM_Form" WITH CHECK 
+	ADD CONSTRAINT "FRM_Form_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_Form" CHECK CONSTRAINT "FRM_Form_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Form" WITH CHECK 
+	ADD CONSTRAINT "FRM_Form_TX_Description_fkey" FOREIGN KEY (
+		"TX_Description"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Form" CHECK CONSTRAINT "FRM_Form_TX_Description_fkey"
+GO
+
+ALTER TABLE "FRM_Form" WITH CHECK 
+	ADD CONSTRAINT "FRM_Form_TX_Name_fkey" FOREIGN KEY (
+		"TX_Name"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Form" CHECK CONSTRAINT "FRM_Form_TX_Name_fkey"
+GO
+
+ALTER TABLE "FRM_FormGroup" WITH CHECK 
+	ADD CONSTRAINT "FRM_FormGroup_IFForm_fkey" FOREIGN KEY (
+		"IFForm"
+	) REFERENCES "FRM_Form" (
+		"IDForm"
+	)
+GO
+ALTER TABLE "FRM_FormGroup" CHECK CONSTRAINT "FRM_FormGroup_IFForm_fkey"
+GO
+
+ALTER TABLE "FRM_FormGroup" WITH CHECK 
+	ADD CONSTRAINT "FRM_FormGroup_IFGroup_fkey" FOREIGN KEY (
+		"IFGroup"
+	) REFERENCES "FRM_Group" (
+		"IDGroup"
+	)
+GO
+ALTER TABLE "FRM_FormGroup" CHECK CONSTRAINT "FRM_FormGroup_IFGroup_fkey"
+GO
+
+ALTER TABLE "FRM_FormGroup" WITH CHECK 
+	ADD CONSTRAINT "FRM_FormGroup_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_FormGroup" CHECK CONSTRAINT "FRM_FormGroup_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionAnswer_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_QuestionAnswer" CHECK CONSTRAINT "FRM_QuestionAnswer_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionAnswer_IFAnswer_fkey" FOREIGN KEY (
+		"IFAnswer"
+	) REFERENCES "FRM_Answer" (
+		"IDAnswer"
+	)
+GO
+ALTER TABLE "FRM_QuestionAnswer" CHECK CONSTRAINT "FRM_QuestionAnswer_IFAnswer_fkey"
+GO
+
+ALTER TABLE "FRM_QuestionAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_QuestionAnswer_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_QuestionAnswer" CHECK CONSTRAINT "FRM_QuestionAnswer_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_GroupQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupQuestion_IFGroup_fkey" FOREIGN KEY (
+		"IFGroup"
+	) REFERENCES "FRM_Group" (
+		"IDGroup"
+	)
+GO
+ALTER TABLE "FRM_GroupQuestion" CHECK CONSTRAINT "FRM_GroupQuestion_IFGroup_fkey"
+GO
+
+ALTER TABLE "FRM_GroupQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupQuestion_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_GroupQuestion" CHECK CONSTRAINT "FRM_GroupQuestion_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_GroupQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupQuestion_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_GroupQuestion" CHECK CONSTRAINT "FRM_GroupQuestion_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Group" WITH CHECK 
+	ADD CONSTRAINT "FRM_Group_IFGroup__parent_fkey" FOREIGN KEY (
+		"IFGroup__parent"
+	) REFERENCES "FRM_Group" (
+		"IDGroup"
+	)
+GO
+ALTER TABLE "FRM_Group" CHECK CONSTRAINT "FRM_Group_IFGroup__parent_fkey"
+GO
+
+ALTER TABLE "FRM_Group" WITH CHECK 
+	ADD CONSTRAINT "FRM_Group_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "FRM_Group" CHECK CONSTRAINT "FRM_Group_IFApplication_fkey"
+GO
+
+ALTER TABLE "FRM_Group" WITH CHECK 
+	ADD CONSTRAINT "FRM_Group_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_Group" CHECK CONSTRAINT "FRM_Group_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Group" WITH CHECK 
+	ADD CONSTRAINT "FRM_Group_TX_Title_fkey" FOREIGN KEY (
+		"TX_Title"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Group" CHECK CONSTRAINT "FRM_Group_TX_Title_fkey"
+GO
+
+ALTER TABLE "FRM_Group" WITH CHECK 
+	ADD CONSTRAINT "FRM_Group_TX_Description_fkey" FOREIGN KEY (
+		"TX_Description"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Group" CHECK CONSTRAINT "FRM_Group_TX_Description_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_IFQuestion__parent_fkey" FOREIGN KEY (
+		"IFQuestion__parent"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_IFQuestion__parent_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_IFQuestiontype_fkey" FOREIGN KEY (
+		"IFQuestiontype"
+	) REFERENCES "FRM_Questiontype" (
+		"IDQuestiontype"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_IFQuestiontype_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_IFApplication_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_TX_Question_fkey" FOREIGN KEY (
+		"TX_Question"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_TX_Question_fkey"
+GO
+
+ALTER TABLE "FRM_Question" WITH CHECK 
+	ADD CONSTRAINT "FRM_Question_TX_Details_fkey" FOREIGN KEY (
+		"TX_Details"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Question" CHECK CONSTRAINT "FRM_Question_TX_Details_fkey"
+GO
+
+ALTER TABLE "FRM_Answer" WITH CHECK 
+	ADD CONSTRAINT "FRM_Answer_IFApplication_fkey" FOREIGN KEY (
+		"IFApplication"
+	) REFERENCES "APP_Application" (
+		"IDApplication"
+	)
+GO
+ALTER TABLE "FRM_Answer" CHECK CONSTRAINT "FRM_Answer_IFApplication_fkey"
+GO
+
+ALTER TABLE "FRM_Answer" WITH CHECK 
+	ADD CONSTRAINT "FRM_Answer_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_Answer" CHECK CONSTRAINT "FRM_Answer_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_Answer" WITH CHECK 
+	ADD CONSTRAINT "FRM_Answer_TX_Answer_fkey" FOREIGN KEY (
+		"TX_Answer"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Answer" CHECK CONSTRAINT "FRM_Answer_TX_Answer_fkey"
+GO
+
+ALTER TABLE "FRM_Answer" WITH CHECK 
+	ADD CONSTRAINT "FRM_Answer_TX_Details_fkey" FOREIGN KEY (
+		"TX_Details"
+	) REFERENCES "DIC_Text" (
+		"IDText"
+	)
+GO
+ALTER TABLE "FRM_Answer" CHECK CONSTRAINT "FRM_Answer_TX_Details_fkey"
+GO
+
+ALTER TABLE "FRM_UserQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserQuestion_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_UserQuestion" CHECK CONSTRAINT "FRM_UserQuestion_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_UserQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserQuestion_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_UserQuestion" CHECK CONSTRAINT "FRM_UserQuestion_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_UserQuestion" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserQuestion_IFUser_fkey" FOREIGN KEY (
+		"IFUser"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_UserQuestion" CHECK CONSTRAINT "FRM_UserQuestion_IFUser_fkey"
+GO
+
+ALTER TABLE "FRM_GroupAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupAnswer_IFGroup_fkey" FOREIGN KEY (
+		"IFGroup"
+	) REFERENCES "FRM_Group" (
+		"IDGroup"
+	)
+GO
+ALTER TABLE "FRM_GroupAnswer" CHECK CONSTRAINT "FRM_GroupAnswer_IFGroup_fkey"
+GO
+
+ALTER TABLE "FRM_GroupAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupAnswer_IFAnswer_fkey" FOREIGN KEY (
+		"IFAnswer"
+	) REFERENCES "FRM_Answer" (
+		"IDAnswer"
+	)
+GO
+ALTER TABLE "FRM_GroupAnswer" CHECK CONSTRAINT "FRM_GroupAnswer_IFAnswer_fkey"
+GO
+
+ALTER TABLE "FRM_GroupAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_GroupAnswer_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_GroupAnswer" CHECK CONSTRAINT "FRM_GroupAnswer_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_UserAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserAnswer_IFAnswer_fkey" FOREIGN KEY (
+		"IFAnswer"
+	) REFERENCES "FRM_Answer" (
+		"IDAnswer"
+	)
+GO
+ALTER TABLE "FRM_UserAnswer" CHECK CONSTRAINT "FRM_UserAnswer_IFAnswer_fkey"
+GO
+
+ALTER TABLE "FRM_UserAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserAnswer_IFUser_fkey" FOREIGN KEY (
+		"IFUser"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_UserAnswer" CHECK CONSTRAINT "FRM_UserAnswer_IFUser_fkey"
+GO
+
+ALTER TABLE "FRM_UserAnswer" WITH CHECK 
+	ADD CONSTRAINT "FRM_UserAnswer_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_UserAnswer" CHECK CONSTRAINT "FRM_UserAnswer_IFUser__audit_fkey"
+GO
+
+ALTER TABLE "FRM_AnswerTrigger" WITH CHECK 
+	ADD CONSTRAINT "FRM_AnswerTrigger_IFAnswer_fkey" FOREIGN KEY (
+		"IFAnswer"
+	) REFERENCES "FRM_Answer" (
+		"IDAnswer"
+	)
+GO
+ALTER TABLE "FRM_AnswerTrigger" CHECK CONSTRAINT "FRM_AnswerTrigger_IFAnswer_fkey"
+GO
+
+ALTER TABLE "FRM_AnswerTrigger" WITH CHECK 
+	ADD CONSTRAINT "FRM_AnswerTrigger_IFTrigger_fkey" FOREIGN KEY (
+		"IFTrigger"
+	) REFERENCES "FRM_Trigger" (
+		"IDTrigger"
+	)
+GO
+ALTER TABLE "FRM_AnswerTrigger" CHECK CONSTRAINT "FRM_AnswerTrigger_IFTrigger_fkey"
+GO
+
+ALTER TABLE "FRM_AnswerTrigger" WITH CHECK 
+	ADD CONSTRAINT "FRM_AnswerTrigger_IFQuestion_fkey" FOREIGN KEY (
+		"IFQuestion"
+	) REFERENCES "FRM_Question" (
+		"IDQuestion"
+	)
+GO
+ALTER TABLE "FRM_AnswerTrigger" CHECK CONSTRAINT "FRM_AnswerTrigger_IFQuestion_fkey"
+GO
+
+ALTER TABLE "FRM_AnswerTrigger" WITH CHECK 
+	ADD CONSTRAINT "FRM_AnswerTrigger_IFUser__audit_fkey" FOREIGN KEY (
+		"IFUser__audit"
+	) REFERENCES "CRD_User" (
+		"IDUser"
+	)
+GO
+ALTER TABLE "FRM_AnswerTrigger" CHECK CONSTRAINT "FRM_AnswerTrigger_IFUser__audit_fkey"
+GO
+

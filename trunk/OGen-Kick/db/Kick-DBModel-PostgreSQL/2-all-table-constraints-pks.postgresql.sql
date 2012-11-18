@@ -220,3 +220,105 @@ ALTER TABLE "CRD_Action"
   )
 ;
 
+ALTER TABLE "FRM_QuestionTriggerQuestion"
+  ADD CONSTRAINT "FRM_QuestionTriggerQuestion_pkey" PRIMARY KEY (
+    "IFQuestion",
+    "IFTrigger",
+    "IFQuestion__destination"
+  )
+;
+
+ALTER TABLE "FRM_QuestionTriggerAnswer"
+  ADD CONSTRAINT "FRM_QuestionTriggerAnswer_pkey" PRIMARY KEY (
+    "IFQuestion",
+    "IFTrigger",
+    "IFAnswer"
+  )
+;
+
+ALTER TABLE "FRM_Form"
+  ADD CONSTRAINT "FRM_Form_pkey" PRIMARY KEY (
+    "IDForm"
+  )
+;
+
+ALTER TABLE "FRM_FormGroup"
+  ADD CONSTRAINT "FRM_FormGroup_pkey" PRIMARY KEY (
+    "IFForm",
+    "IFGroup"
+  )
+;
+
+ALTER TABLE "FRM_QuestionAnswer"
+  ADD CONSTRAINT "FRM_QuestionAnswer_pkey" PRIMARY KEY (
+    "IFQuestion",
+    "IFAnswer"
+  )
+;
+
+ALTER TABLE "FRM_GroupQuestion"
+  ADD CONSTRAINT "FRM_GroupQuestion_pkey" PRIMARY KEY (
+    "IFGroup",
+    "IFQuestion"
+  )
+;
+
+ALTER TABLE "FRM_Trigger"
+  ADD CONSTRAINT "FRM_Trigger_pkey" PRIMARY KEY (
+    "IDTrigger"
+  )
+;
+
+ALTER TABLE "FRM_Group"
+  ADD CONSTRAINT "FRM_Group_pkey" PRIMARY KEY (
+    "IDGroup"
+  )
+;
+
+ALTER TABLE "FRM_Question"
+  ADD CONSTRAINT "FRM_Question_pkey" PRIMARY KEY (
+    "IDQuestion"
+  )
+;
+
+ALTER TABLE "FRM_Answer"
+  ADD CONSTRAINT "FRM_Answer_pkey" PRIMARY KEY (
+    "IDAnswer"
+  )
+;
+
+ALTER TABLE "FRM_UserQuestion"
+  ADD CONSTRAINT "FRM_UserQuestion_pkey" PRIMARY KEY (
+    "IFUser",
+    "IFQuestion"
+  )
+;
+
+ALTER TABLE "FRM_GroupAnswer"
+  ADD CONSTRAINT "FRM_GroupAnswer_pkey" PRIMARY KEY (
+    "IFGroup",
+    "IFAnswer"
+  )
+;
+
+ALTER TABLE "FRM_Questiontype"
+  ADD CONSTRAINT "FRM_Questiontype_pkey" PRIMARY KEY (
+    "IDQuestiontype"
+  )
+;
+
+ALTER TABLE "FRM_UserAnswer"
+  ADD CONSTRAINT "FRM_UserAnswer_pkey" PRIMARY KEY (
+    "IFUser",
+    "IFAnswer"
+  )
+;
+
+ALTER TABLE "FRM_AnswerTrigger"
+  ADD CONSTRAINT "FRM_AnswerTrigger_pkey" PRIMARY KEY (
+    "IFAnswer",
+    "IFTrigger",
+    "IFQuestion"
+  )
+;
+
