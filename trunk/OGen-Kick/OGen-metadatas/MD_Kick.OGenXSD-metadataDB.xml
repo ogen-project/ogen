@@ -397,6 +397,612 @@
         </tableField>
       </tableFields>
     </table>
+    <table name="FRM_Answer" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Answer" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Answer" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDAnswer" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;FRM_Answer_IDAnswer_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Answer" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Answer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Answer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Details" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Details" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Details" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IsRequired" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsRequired" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsRequired" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_AnswerTrigger" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_AnswerTrigger" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_AnswerTrigger" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFAnswer" isPK="true" isIdentity="false" fkTableName="FRM_Answer" fkFieldName="IDAnswer" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTrigger" isPK="true" isIdentity="false" fkTableName="FRM_Trigger" fkFieldName="IDTrigger" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_Form" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Form" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Form" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDForm" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;FRM_Form_IDForm_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDForm" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDForm" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Name" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Description" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_FormGroup" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_FormGroup" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_FormGroup" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFForm" isPK="true" isIdentity="false" fkTableName="FRM_Form" fkFieldName="IDForm" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFForm" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFForm" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFGroup" isPK="true" isIdentity="false" fkTableName="FRM_Group" fkFieldName="IDGroup" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Order" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_Group" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Group" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Group" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDGroup" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;FRM_Group_IDGroup_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDGroup" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDGroup" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFGroup__parent" isPK="false" isIdentity="false" fkTableName="FRM_Group" fkFieldName="IDGroup" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Title" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Title" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Title" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Description" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Description" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IsTemplate" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsTemplate" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsTemplate" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="GroupAnswers" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="GroupAnswers" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="GroupAnswers" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_GroupAnswer" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_GroupAnswer" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_GroupAnswer" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFGroup" isPK="true" isIdentity="false" fkTableName="FRM_Group" fkFieldName="IDGroup" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFAnswer" isPK="true" isIdentity="false" fkTableName="FRM_Answer" fkFieldName="IDAnswer" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Order" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_GroupQuestion" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_GroupQuestion" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_GroupQuestion" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFGroup" isPK="true" isIdentity="false" fkTableName="FRM_Group" fkFieldName="IDGroup" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFGroup" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Order" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_Question" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Question" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Question" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDQuestion" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="nextval('&quot;FRM_Question_IDQuestion_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigserial;sqlserver:bigint;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestion__parent" isPK="false" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion__parent" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion__parent" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestiontype" isPK="false" isIdentity="false" fkTableName="FRM_Questiontype" fkFieldName="IDQuestiontype" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestiontype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestiontype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Question" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Question" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Question" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="TX_Details" isPK="false" isIdentity="false" fkTableName="DIC_Text" fkFieldName="IDText" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Details" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="TX_Details" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IsRequired" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsRequired" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsRequired" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IsTemplate" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="boolean" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsTemplate" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bit" dbDescription="psql:boolean;sqlserver:bit;" dbDefaultValue="" dbCollationName="" dbFieldName="IsTemplate" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFApplication" isPK="false" isIdentity="false" fkTableName="APP_Application" fkFieldName="IDApplication" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFApplication" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_QuestionAnswer" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_QuestionAnswer" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_QuestionAnswer" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFAnswer" isPK="true" isIdentity="false" fkTableName="FRM_Answer" fkFieldName="IDAnswer" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Order" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="Order" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_QuestionTriggerAnswer" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_QuestionTriggerAnswer" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_QuestionTriggerAnswer" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTrigger" isPK="true" isIdentity="false" fkTableName="FRM_Trigger" fkFieldName="IDTrigger" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFAnswer" isPK="true" isIdentity="false" fkTableName="FRM_Answer" fkFieldName="IDAnswer" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_QuestionTriggerQuestion" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_QuestionTriggerQuestion" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_QuestionTriggerQuestion" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFTrigger" isPK="true" isIdentity="false" fkTableName="FRM_Trigger" fkFieldName="IDTrigger" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:integer;sqlserver:int;" dbDefaultValue="" dbCollationName="" dbFieldName="IFTrigger" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestion__destination" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion__destination" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion__destination" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_Questiontype" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Questiontype" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Questiontype" dbDescription="psql:serial;sqlserver:int;identity:True;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDQuestiontype" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:serial;sqlserver:int;identity:True;" dbDefaultValue="nextval('&quot;FRM_Questiontype_IDQuestiontype_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDQuestiontype" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:serial;sqlserver:int;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDQuestiontype" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="Latin1_General_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="RegularExpression" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="1024" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:1024;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="RegularExpression" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="length:1024;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="Latin1_General_CI_AS" dbFieldName="RegularExpression" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_Trigger" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_Trigger" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_Trigger" dbDescription="psql:serial;sqlserver:int;identity:True;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IDTrigger" isPK="true" isIdentity="true" fkTableName="" fkFieldName="" isNullable="false" size="0" numericPrecision="10" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="integer" dbDescription="psql:serial;sqlserver:int;identity:True;" dbDefaultValue="nextval('&quot;FRM_Trigger_IDTrigger_seq&quot;'::regclass)" dbCollationName="" dbFieldName="IDTrigger" />
+            <tableFieldDB dbServerType="SQLServer" dbType="int" dbDescription="psql:serial;sqlserver:int;identity:True;" dbDefaultValue="" dbCollationName="" dbFieldName="IDTrigger" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Name" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="false" size="255" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="Name" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="length:255;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="Latin1_General_CI_AS" dbFieldName="Name" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_UserAnswer" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_UserAnswer" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_UserAnswer" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFAnswer" isPK="true" isIdentity="false" fkTableName="FRM_Answer" fkFieldName="IDAnswer" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFAnswer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
+    <table name="FRM_UserQuestion" isVirtualTable="false">
+      <tableDBs>
+        <tableDB dbServerType="PostgreSQL" dbTableName="FRM_UserQuestion" dbDescription="" />
+        <tableDB dbServerType="SQLServer" dbTableName="FRM_UserQuestion" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" />
+      </tableDBs>
+      <tableFields>
+        <tableField name="IFUser" isPK="true" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFQuestion" isPK="true" isIdentity="false" fkTableName="FRM_Question" fkFieldName="IDQuestion" isNullable="false" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFQuestion" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Answer" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="8000" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="character varying" dbDescription="length:8000;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="" dbFieldName="Answer" />
+            <tableFieldDB dbServerType="SQLServer" dbType="varchar" dbDescription="length:8000;psql:character varying;sqlserver:varchar;" dbDefaultValue="" dbCollationName="Latin1_General_CI_AS" dbFieldName="Answer" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="IFUser__audit" isPK="false" isIdentity="false" fkTableName="CRD_User" fkFieldName="IDUser" isNullable="true" size="0" numericPrecision="19" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="bigint" dbDescription="psql:bigint;sqlserver:bigint;" dbDefaultValue="" dbCollationName="" dbFieldName="IFUser__audit" />
+          </tableFieldDBs>
+        </tableField>
+        <tableField name="Date__audit" isPK="false" isIdentity="false" fkTableName="" fkFieldName="" isNullable="true" size="0" numericPrecision="0" numericScale="0">
+          <tableFieldDBs>
+            <tableFieldDB dbServerType="PostgreSQL" dbType="timestamp with time zone" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+            <tableFieldDB dbServerType="SQLServer" dbType="datetime" dbDescription="psql:timestamp with time zone;sqlserver:datetime;" dbDefaultValue="" dbCollationName="" dbFieldName="Date__audit" />
+          </tableFieldDBs>
+        </tableField>
+      </tableFields>
+    </table>
     <table name="LOG_Error" isVirtualTable="false">
       <tableDBs>
         <tableDB dbServerType="PostgreSQL" dbTableName="LOG_Error" dbDescription="" />
