@@ -13776,17 +13776,17 @@ suitable for new registered users#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-105.695,6.2"/>
+        <dia:point val="-105.695,7.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-106.445,-9.35;-70.6412,7.05"/>
+        <dia:rectangle val="-106.445,-9.35;-70.6412,8.05"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-105.695,6.2"/>
-        <dia:point val="-74.2712,6.2"/>
+        <dia:point val="-105.695,7.2"/>
+        <dia:point val="-74.2712,7.2"/>
         <dia:point val="-74.2712,-9.3"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
@@ -13918,17 +13918,17 @@ suitable for new registered users#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-105.695,5.4"/>
+        <dia:point val="-105.695,6.4"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-106.445,-0.75;4.43625,6.25"/>
+        <dia:rectangle val="-106.445,-0.75;4.43625,7.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-105.695,5.4"/>
-        <dia:point val="-104.695,5.4"/>
+        <dia:point val="-105.695,6.4"/>
+        <dia:point val="-104.695,6.4"/>
         <dia:point val="-104.695,0"/>
         <dia:point val="1.57625,0"/>
         <dia:point val="1.57625,1"/>
@@ -13991,17 +13991,17 @@ suitable for new registered users#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-105.695,7"/>
+        <dia:point val="-105.695,8.8"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-106.445,-0.75;4.43625,7.85"/>
+        <dia:rectangle val="-106.445,-0.75;4.43625,9.65"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-105.695,7"/>
-        <dia:point val="-104.695,7"/>
+        <dia:point val="-105.695,8.8"/>
+        <dia:point val="-104.695,8.8"/>
         <dia:point val="-104.695,0"/>
         <dia:point val="1.57625,0"/>
         <dia:point val="1.57625,1"/>
@@ -14022,7 +14022,7 @@ suitable for new registered users#</dia:string>
         <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:connections>
-        <dia:connection handle="0" to="O185" connection="17"/>
+        <dia:connection handle="0" to="O185" connection="19"/>
         <dia:connection handle="1" to="O73" connection="1"/>
       </dia:connections>
     </dia:object>
@@ -14064,17 +14064,17 @@ suitable for new registered users#</dia:string>
         <dia:boolean val="true"/>
       </dia:attribute>
       <dia:attribute name="obj_pos">
-        <dia:point val="-105.58,1.8"/>
+        <dia:point val="-105.58,2.6"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-106.33,-0.75;4.43625,2.65"/>
+        <dia:rectangle val="-106.33,-0.75;4.43625,3.45"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="-105.58,1.8"/>
-        <dia:point val="-104.58,1.8"/>
+        <dia:point val="-105.58,2.6"/>
+        <dia:point val="-104.58,2.6"/>
         <dia:point val="-104.58,0"/>
         <dia:point val="1.57625,0"/>
         <dia:point val="1.57625,1"/>
@@ -14095,7 +14095,7 @@ suitable for new registered users#</dia:string>
         <dia:color val="#ff0000"/>
       </dia:attribute>
       <dia:connections>
-        <dia:connection handle="0" to="O190" connection="19"/>
+        <dia:connection handle="0" to="O190" connection="21"/>
         <dia:connection handle="1" to="O73" connection="1"/>
       </dia:connections>
     </dia:object>
@@ -15231,7 +15231,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -15401,7 +15401,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -15591,7 +15591,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -15761,7 +15761,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -15931,7 +15931,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -16101,7 +16101,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -16461,7 +16461,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -16671,7 +16671,7 @@ suitable for new registered users#</dia:string>
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -16693,10 +16693,10 @@ suitable for new registered users#</dia:string>
     </dia:object>
     <dia:object type="Standard - Text" version="1" id="O181">
       <dia:attribute name="obj_pos">
-        <dia:point val="-92,3"/>
+        <dia:point val="-92,1"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-92,2.405;-78.49,10.35"/>
+        <dia:rectangle val="-92,0.386375;-78.4714,9.98725"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -16709,6 +16709,8 @@ suitable for new registered users#</dia:string>
 construção de um novo questionário, com
 algum codigo que depois converte as 
 respostas na estrutura aqui presente
+[  ] binding desses dados a tabelas em
+base de dados
 [  ] intervalos
 [  ] ...#</dia:string>
           </dia:attribute>
@@ -16719,7 +16721,7 @@ respostas na estrutura aqui presente
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="-92,3"/>
+            <dia:point val="-92,1"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -16889,7 +16891,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -17059,7 +17061,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -17249,7 +17251,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -17271,22 +17273,22 @@ respostas na estrutura aqui presente
     </dia:object>
     <dia:object type="Database - Table" version="0" id="O185">
       <dia:attribute name="obj_pos">
-        <dia:point val="-112,4"/>
+        <dia:point val="-112,5"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-112,4;-105.695,8.3"/>
+        <dia:rectangle val="-112,5;-105.695,10.1"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="-112,4"/>
+        <dia:point val="-112,5"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="6.3049999999999997"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="4.3000000000000007"/>
+        <dia:real val="5.0999999999999996"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#000000"/>
@@ -17379,6 +17381,26 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
+            <dia:string>#Step#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:integer;sqlserver:int;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
             <dia:string>#IFUser__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
@@ -17399,7 +17421,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -17669,7 +17691,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -17839,7 +17861,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -18009,7 +18031,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -18179,7 +18201,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
@@ -18204,7 +18226,7 @@ respostas na estrutura aqui presente
         <dia:point val="-112,-2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="-112,-2;-105.58,3.1"/>
+        <dia:rectangle val="-112,-2;-105.58,3.9"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -18216,7 +18238,7 @@ respostas na estrutura aqui presente
         <dia:real val="6.4199999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="5.0999999999999996"/>
+        <dia:real val="5.9000000000000004"/>
       </dia:attribute>
       <dia:attribute name="text_colour">
         <dia:color val="#000000"/>
@@ -18309,6 +18331,26 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
+            <dia:string>#Step#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#psql:integer;sqlserver:int;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="primary_key">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+          <dia:attribute name="nullable">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="unique">
+            <dia:boolean val="true"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="table_attribute">
+          <dia:attribute name="name">
             <dia:string>#Answer#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
@@ -18349,7 +18391,7 @@ respostas na estrutura aqui presente
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#Date__audit#</dia:string>
+            <dia:string>#Stamp__audit#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>##</dia:string>
