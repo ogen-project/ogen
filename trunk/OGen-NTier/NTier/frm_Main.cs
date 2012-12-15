@@ -28,42 +28,42 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		private IContainer components;
 		#region Required designer variable
 
-		private System.Windows.Forms.MenuItem miHelp;
-		private System.Windows.Forms.MenuItem miHelp_About;
-		private System.Windows.Forms.MenuItem miProject_Exit;
-		private System.Windows.Forms.MenuItem miProject;
-		private System.Windows.Forms.MenuItem miProject_New;
-		private System.Windows.Forms.MenuItem miProject_Open;
-		private System.Windows.Forms.MenuItem miProject_Save;
-		private System.Windows.Forms.MenuItem miProject_Close;
-		private System.Windows.Forms.MenuItem miGenerator;
-		private System.Windows.Forms.MenuItem miGenerator_Generate;
-		private System.Windows.Forms.MenuItem menuItem1;
-		private System.Windows.Forms.MenuItem menuItem2;
-		private System.Windows.Forms.MenuItem miWindow;
-		private System.Windows.Forms.MenuItem miWindow_DataLayer;
-		private System.Windows.Forms.MenuItem miWindow_BusinessLayer;
-		private System.Windows.Forms.MenuItem miWindow_Templates;
-		private System.Windows.Forms.MenuItem menuItem4;
-		private System.Windows.Forms.MenuItem menuItem3;
-		private System.Windows.Forms.MenuItem menuItem5;
-		private System.Windows.Forms.MenuItem menuItem6;
-		private System.Windows.Forms.MenuItem menuItem7;
-		private System.Windows.Forms.MenuItem miManage;
-		private System.Windows.Forms.MenuItem miManage_DL;
-		private System.Windows.Forms.MenuItem miManage_DL_Search;
-		private System.Windows.Forms.MenuItem miManage_DL_Update;
-		private System.Windows.Forms.MenuItem miManage_DL_ViewsPK;
-		private System.Windows.Forms.MenuItem miManage_DL_TablesListItems;
-		private System.Windows.Forms.MenuItem miManage_DL_ConfigTable;
-		private System.Windows.Forms.MenuItem miManage_BL;
-		private System.Windows.Forms.MenuItem menuItem8;
-		private System.Windows.Forms.MenuItem miManage_Configuration;
-		private System.Windows.Forms.MenuItem miManage_Configuration_Project;
-		private System.Windows.Forms.MenuItem miManage_Configuration_Generator;
-		private System.Windows.Forms.MenuItem miManage_DL_Search_Search;
-		private System.Windows.Forms.MenuItem miManage_DL_Search_Update;
-		private System.Windows.Forms.MainMenu mm_Main;
+		private System.Windows.Forms.MenuItem MenuItemHelp;
+		private System.Windows.Forms.MenuItem MenuItemHelp_About;
+		private System.Windows.Forms.MenuItem MenuItemProject_Exit;
+		private System.Windows.Forms.MenuItem MenuItemProject;
+		private System.Windows.Forms.MenuItem MenuItemProject_New;
+		private System.Windows.Forms.MenuItem MenuItemProject_Open;
+		private System.Windows.Forms.MenuItem MenuItemProject_Save;
+		private System.Windows.Forms.MenuItem MenuItemProject_Close;
+		private System.Windows.Forms.MenuItem MenuItemGenerator;
+		private System.Windows.Forms.MenuItem MenuItemGenerator_Generate;
+		private System.Windows.Forms.MenuItem MenuItem1;
+		private System.Windows.Forms.MenuItem MenuItem2;
+		private System.Windows.Forms.MenuItem MenuItemWindow;
+		private System.Windows.Forms.MenuItem MenuItemWindow_DataLayer;
+		private System.Windows.Forms.MenuItem MenuItemWindow_BusinessLayer;
+		private System.Windows.Forms.MenuItem MenuItemWindow_Templates;
+		private System.Windows.Forms.MenuItem MenuItem4;
+		private System.Windows.Forms.MenuItem MenuItem3;
+		private System.Windows.Forms.MenuItem MenuItem5;
+		private System.Windows.Forms.MenuItem MenuItem6;
+		private System.Windows.Forms.MenuItem MenuItem7;
+		private System.Windows.Forms.MenuItem MenuItemManage;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_Search;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_Update;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_ViewsPK;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_TablesListItems;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_ConfigTable;
+		private System.Windows.Forms.MenuItem MenuItemManage_BL;
+		private System.Windows.Forms.MenuItem MenuItem8;
+		private System.Windows.Forms.MenuItem MenuItemManage_Configuration;
+		private System.Windows.Forms.MenuItem MenuItemManage_Configuration_Project;
+		private System.Windows.Forms.MenuItem MenuItemManage_Configuration_Generator;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_Search_Search;
+		private System.Windows.Forms.MenuItem MenuItemManage_DL_Search_Update;
+		private System.Windows.Forms.MainMenu MainMenu_Main;
 
 		/// <summary>
 		/// Clean up any resources being used.
@@ -84,293 +84,293 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
-			this.mm_Main = new System.Windows.Forms.MainMenu(this.components);
-			this.miProject = new System.Windows.Forms.MenuItem();
-			this.miProject_New = new System.Windows.Forms.MenuItem();
-			this.miProject_Open = new System.Windows.Forms.MenuItem();
-			this.miProject_Close = new System.Windows.Forms.MenuItem();
-			this.menuItem1 = new System.Windows.Forms.MenuItem();
-			this.menuItem8 = new System.Windows.Forms.MenuItem();
-			this.miProject_Save = new System.Windows.Forms.MenuItem();
-			this.menuItem2 = new System.Windows.Forms.MenuItem();
-			this.menuItem6 = new System.Windows.Forms.MenuItem();
-			this.menuItem7 = new System.Windows.Forms.MenuItem();
-			this.miProject_Exit = new System.Windows.Forms.MenuItem();
-			this.miManage = new System.Windows.Forms.MenuItem();
-			this.miManage_DL = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Search = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Search_Search = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Search_Update = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_Update = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_ViewsPK = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_TablesListItems = new System.Windows.Forms.MenuItem();
-			this.miManage_DL_ConfigTable = new System.Windows.Forms.MenuItem();
-			this.miManage_BL = new System.Windows.Forms.MenuItem();
-			this.miManage_Configuration = new System.Windows.Forms.MenuItem();
-			this.miManage_Configuration_Project = new System.Windows.Forms.MenuItem();
-			this.miManage_Configuration_Generator = new System.Windows.Forms.MenuItem();
-			this.miGenerator = new System.Windows.Forms.MenuItem();
-			this.miGenerator_Generate = new System.Windows.Forms.MenuItem();
-			this.miWindow = new System.Windows.Forms.MenuItem();
-			this.menuItem5 = new System.Windows.Forms.MenuItem();
-			this.miWindow_DataLayer = new System.Windows.Forms.MenuItem();
-			this.miWindow_BusinessLayer = new System.Windows.Forms.MenuItem();
-			this.menuItem4 = new System.Windows.Forms.MenuItem();
-			this.miWindow_Templates = new System.Windows.Forms.MenuItem();
-			this.menuItem3 = new System.Windows.Forms.MenuItem();
-			this.miHelp = new System.Windows.Forms.MenuItem();
-			this.miHelp_About = new System.Windows.Forms.MenuItem();
+			this.MainMenu_Main = new System.Windows.Forms.MainMenu(this.components);
+			this.MenuItemProject = new System.Windows.Forms.MenuItem();
+			this.MenuItemProject_New = new System.Windows.Forms.MenuItem();
+			this.MenuItemProject_Open = new System.Windows.Forms.MenuItem();
+			this.MenuItemProject_Close = new System.Windows.Forms.MenuItem();
+			this.MenuItem1 = new System.Windows.Forms.MenuItem();
+			this.MenuItem8 = new System.Windows.Forms.MenuItem();
+			this.MenuItemProject_Save = new System.Windows.Forms.MenuItem();
+			this.MenuItem2 = new System.Windows.Forms.MenuItem();
+			this.MenuItem6 = new System.Windows.Forms.MenuItem();
+			this.MenuItem7 = new System.Windows.Forms.MenuItem();
+			this.MenuItemProject_Exit = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_Search = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_Search_Search = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_Search_Update = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_Update = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_ViewsPK = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_TablesListItems = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_DL_ConfigTable = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_BL = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_Configuration = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_Configuration_Project = new System.Windows.Forms.MenuItem();
+			this.MenuItemManage_Configuration_Generator = new System.Windows.Forms.MenuItem();
+			this.MenuItemGenerator = new System.Windows.Forms.MenuItem();
+			this.MenuItemGenerator_Generate = new System.Windows.Forms.MenuItem();
+			this.MenuItemWindow = new System.Windows.Forms.MenuItem();
+			this.MenuItem5 = new System.Windows.Forms.MenuItem();
+			this.MenuItemWindow_DataLayer = new System.Windows.Forms.MenuItem();
+			this.MenuItemWindow_BusinessLayer = new System.Windows.Forms.MenuItem();
+			this.MenuItem4 = new System.Windows.Forms.MenuItem();
+			this.MenuItemWindow_Templates = new System.Windows.Forms.MenuItem();
+			this.MenuItem3 = new System.Windows.Forms.MenuItem();
+			this.MenuItemHelp = new System.Windows.Forms.MenuItem();
+			this.MenuItemHelp_About = new System.Windows.Forms.MenuItem();
 			this.SuspendLayout();
 			// 
 			// mm_Main
 			// 
-			this.mm_Main.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miProject,
-            this.miManage,
-            this.miGenerator,
-            this.miWindow,
-            this.miHelp});
+			this.MainMenu_Main.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemProject,
+            this.MenuItemManage,
+            this.MenuItemGenerator,
+            this.MenuItemWindow,
+            this.MenuItemHelp});
 			// 
 			// miProject
 			// 
-			this.miProject.Index = 0;
-			this.miProject.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miProject_New,
-            this.miProject_Open,
-            this.miProject_Close,
-            this.menuItem1,
-            this.menuItem8,
-            this.miProject_Save,
-            this.menuItem2,
-            this.menuItem6,
-            this.menuItem7,
-            this.miProject_Exit});
-			this.miProject.Text = "&Project";
+			this.MenuItemProject.Index = 0;
+			this.MenuItemProject.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemProject_New,
+            this.MenuItemProject_Open,
+            this.MenuItemProject_Close,
+            this.MenuItem1,
+            this.MenuItem8,
+            this.MenuItemProject_Save,
+            this.MenuItem2,
+            this.MenuItem6,
+            this.MenuItem7,
+            this.MenuItemProject_Exit});
+			this.MenuItemProject.Text = "&Project";
 			// 
 			// miProject_New
 			// 
-			this.miProject_New.Index = 0;
-			this.miProject_New.Text = "&New";
-			this.miProject_New.Click += new System.EventHandler(this.miProject_New_Click);
+			this.MenuItemProject_New.Index = 0;
+			this.MenuItemProject_New.Text = "&New";
+			this.MenuItemProject_New.Click += new System.EventHandler(this.miProject_New_Click);
 			// 
 			// miProject_Open
 			// 
-			this.miProject_Open.Index = 1;
-			this.miProject_Open.Text = "&Open";
-			this.miProject_Open.Click += new System.EventHandler(this.miProject_Open_Click);
+			this.MenuItemProject_Open.Index = 1;
+			this.MenuItemProject_Open.Text = "&Open";
+			this.MenuItemProject_Open.Click += new System.EventHandler(this.miProject_Open_Click);
 			// 
 			// miProject_Close
 			// 
-			this.miProject_Close.Index = 2;
-			this.miProject_Close.Text = "&Close";
-			this.miProject_Close.Click += new System.EventHandler(this.miProject_Close_Click);
+			this.MenuItemProject_Close.Index = 2;
+			this.MenuItemProject_Close.Text = "&Close";
+			this.MenuItemProject_Close.Click += new System.EventHandler(this.miProject_Close_Click);
 			// 
 			// menuItem1
 			// 
-			this.menuItem1.Index = 3;
-			this.menuItem1.Text = "-";
+			this.MenuItem1.Index = 3;
+			this.MenuItem1.Text = "-";
 			// 
 			// menuItem8
 			// 
-			this.menuItem8.Index = 4;
-			this.menuItem8.Text = "&Edit";
-			this.menuItem8.Visible = false;
+			this.MenuItem8.Index = 4;
+			this.MenuItem8.Text = "&Edit";
+			this.MenuItem8.Visible = false;
 			// 
 			// miProject_Save
 			// 
-			this.miProject_Save.Index = 5;
-			this.miProject_Save.Text = "&Save";
-			this.miProject_Save.Click += new System.EventHandler(this.miProject_Save_Click);
+			this.MenuItemProject_Save.Index = 5;
+			this.MenuItemProject_Save.Text = "&Save";
+			this.MenuItemProject_Save.Click += new System.EventHandler(this.miProject_Save_Click);
 			// 
 			// menuItem2
 			// 
-			this.menuItem2.Index = 6;
-			this.menuItem2.Text = "-";
+			this.MenuItem2.Index = 6;
+			this.MenuItem2.Text = "-";
 			// 
 			// menuItem6
 			// 
-			this.menuItem6.Index = 7;
-			this.menuItem6.Text = "&Recent Projects";
-			this.menuItem6.Visible = false;
+			this.MenuItem6.Index = 7;
+			this.MenuItem6.Text = "&Recent Projects";
+			this.MenuItem6.Visible = false;
 			// 
 			// menuItem7
 			// 
-			this.menuItem7.Index = 8;
-			this.menuItem7.Text = "-";
-			this.menuItem7.Visible = false;
+			this.MenuItem7.Index = 8;
+			this.MenuItem7.Text = "-";
+			this.MenuItem7.Visible = false;
 			// 
 			// miProject_Exit
 			// 
-			this.miProject_Exit.Index = 9;
-			this.miProject_Exit.Text = "E&xit";
-			this.miProject_Exit.Click += new System.EventHandler(this.miProject_Exit_Click);
+			this.MenuItemProject_Exit.Index = 9;
+			this.MenuItemProject_Exit.Text = "E&xit";
+			this.MenuItemProject_Exit.Click += new System.EventHandler(this.miProject_Exit_Click);
 			// 
 			// miManage
 			// 
-			this.miManage.Index = 1;
-			this.miManage.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miManage_DL,
-            this.miManage_BL,
-            this.miManage_Configuration});
-			this.miManage.Text = "&NextStep";
+			this.MenuItemManage.Index = 1;
+			this.MenuItemManage.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemManage_DL,
+            this.MenuItemManage_BL,
+            this.MenuItemManage_Configuration});
+			this.MenuItemManage.Text = "&NextStep";
 			// 
 			// miManage_DL
 			// 
-			this.miManage_DL.Index = 0;
-			this.miManage_DL.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miManage_DL_Search,
-            this.miManage_DL_Update,
-            this.miManage_DL_ViewsPK,
-            this.miManage_DL_TablesListItems,
-            this.miManage_DL_ConfigTable});
-			this.miManage_DL.Text = "on &DataLayer";
+			this.MenuItemManage_DL.Index = 0;
+			this.MenuItemManage_DL.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemManage_DL_Search,
+            this.MenuItemManage_DL_Update,
+            this.MenuItemManage_DL_ViewsPK,
+            this.MenuItemManage_DL_TablesListItems,
+            this.MenuItemManage_DL_ConfigTable});
+			this.MenuItemManage_DL.Text = "on &DataLayer";
 			// 
 			// miManage_DL_Search
 			// 
-			this.miManage_DL_Search.Index = 0;
-			this.miManage_DL_Search.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miManage_DL_Search_Search,
-            this.miManage_DL_Search_Update});
-			this.miManage_DL_Search.Text = "&Searches";
-			this.miManage_DL_Search.Click += new System.EventHandler(this.miManage_DL_Search_Click);
+			this.MenuItemManage_DL_Search.Index = 0;
+			this.MenuItemManage_DL_Search.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemManage_DL_Search_Search,
+            this.MenuItemManage_DL_Search_Update});
+			this.MenuItemManage_DL_Search.Text = "&Searches";
+			this.MenuItemManage_DL_Search.Click += new System.EventHandler(this.miManage_DL_Search_Click);
 			// 
 			// miManage_DL_Search_Search
 			// 
-			this.miManage_DL_Search_Search.Index = 0;
-			this.miManage_DL_Search_Search.Text = "Searches";
-			this.miManage_DL_Search_Search.Click += new System.EventHandler(this.miManage_DL_Search_Search_Click);
+			this.MenuItemManage_DL_Search_Search.Index = 0;
+			this.MenuItemManage_DL_Search_Search.Text = "Searches";
+			this.MenuItemManage_DL_Search_Search.Click += new System.EventHandler(this.miManage_DL_Search_Search_Click);
 			// 
 			// miManage_DL_Search_Update
 			// 
-			this.miManage_DL_Search_Update.Index = 1;
-			this.miManage_DL_Search_Update.Text = "Updates";
-			this.miManage_DL_Search_Update.Click += new System.EventHandler(this.miManage_DL_Search_Update_Click);
+			this.MenuItemManage_DL_Search_Update.Index = 1;
+			this.MenuItemManage_DL_Search_Update.Text = "Updates";
+			this.MenuItemManage_DL_Search_Update.Click += new System.EventHandler(this.miManage_DL_Search_Update_Click);
 			// 
 			// miManage_DL_Update
 			// 
-			this.miManage_DL_Update.Index = 1;
-			this.miManage_DL_Update.Text = "&Updates";
-			this.miManage_DL_Update.Click += new System.EventHandler(this.miManage_DL_Update_Click);
+			this.MenuItemManage_DL_Update.Index = 1;
+			this.MenuItemManage_DL_Update.Text = "&Updates";
+			this.MenuItemManage_DL_Update.Click += new System.EventHandler(this.miManage_DL_Update_Click);
 			// 
 			// miManage_DL_ViewsPK
 			// 
-			this.miManage_DL_ViewsPK.Index = 2;
-			this.miManage_DL_ViewsPK.Text = "View\'s P&K";
-			this.miManage_DL_ViewsPK.Click += new System.EventHandler(this.miManage_DL_ViewsPK_Click);
+			this.MenuItemManage_DL_ViewsPK.Index = 2;
+			this.MenuItemManage_DL_ViewsPK.Text = "View\'s P&K";
+			this.MenuItemManage_DL_ViewsPK.Click += new System.EventHandler(this.miManage_DL_ViewsPK_Click);
 			// 
 			// miManage_DL_TablesListItems
 			// 
-			this.miManage_DL_TablesListItems.Index = 3;
-			this.miManage_DL_TablesListItems.Text = "Table\'s &ListItems";
+			this.MenuItemManage_DL_TablesListItems.Index = 3;
+			this.MenuItemManage_DL_TablesListItems.Text = "Table\'s &ListItems";
 			// 
 			// miManage_DL_ConfigTable
 			// 
-			this.miManage_DL_ConfigTable.Index = 4;
-			this.miManage_DL_ConfigTable.Text = "&Config Tables";
-			this.miManage_DL_ConfigTable.Click += new System.EventHandler(this.miManage_DL_ConfigTable_Click);
+			this.MenuItemManage_DL_ConfigTable.Index = 4;
+			this.MenuItemManage_DL_ConfigTable.Text = "&Config Tables";
+			this.MenuItemManage_DL_ConfigTable.Click += new System.EventHandler(this.miManage_DL_ConfigTable_Click);
 			// 
 			// miManage_BL
 			// 
-			this.miManage_BL.Index = 1;
-			this.miManage_BL.Text = "on &BusinessLayer";
-			this.miManage_BL.Visible = false;
+			this.MenuItemManage_BL.Index = 1;
+			this.MenuItemManage_BL.Text = "on &BusinessLayer";
+			this.MenuItemManage_BL.Visible = false;
 			// 
 			// miManage_Configuration
 			// 
-			this.miManage_Configuration.Index = 2;
-			this.miManage_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miManage_Configuration_Project,
-            this.miManage_Configuration_Generator});
-			this.miManage_Configuration.Text = "&Configurations";
+			this.MenuItemManage_Configuration.Index = 2;
+			this.MenuItemManage_Configuration.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemManage_Configuration_Project,
+            this.MenuItemManage_Configuration_Generator});
+			this.MenuItemManage_Configuration.Text = "&Configurations";
 			// 
 			// miManage_Configuration_Project
 			// 
-			this.miManage_Configuration_Project.Index = 0;
-			this.miManage_Configuration_Project.Text = "Current &Project";
-			this.miManage_Configuration_Project.Click += new System.EventHandler(this.miManage_Configuration_Project_Click);
+			this.MenuItemManage_Configuration_Project.Index = 0;
+			this.MenuItemManage_Configuration_Project.Text = "Current &Project";
+			this.MenuItemManage_Configuration_Project.Click += new System.EventHandler(this.miManage_Configuration_Project_Click);
 			// 
 			// miManage_Configuration_Generator
 			// 
-			this.miManage_Configuration_Generator.Index = 1;
-			this.miManage_Configuration_Generator.Text = "&Generator";
-			this.miManage_Configuration_Generator.Visible = false;
-			this.miManage_Configuration_Generator.Click += new System.EventHandler(this.miManage_Configuration_Generator_Click);
+			this.MenuItemManage_Configuration_Generator.Index = 1;
+			this.MenuItemManage_Configuration_Generator.Text = "&Generator";
+			this.MenuItemManage_Configuration_Generator.Visible = false;
+			this.MenuItemManage_Configuration_Generator.Click += new System.EventHandler(this.miManage_Configuration_Generator_Click);
 			// 
 			// miGenerator
 			// 
-			this.miGenerator.Index = 2;
-			this.miGenerator.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miGenerator_Generate});
-			this.miGenerator.Text = "&Generator";
+			this.MenuItemGenerator.Index = 2;
+			this.MenuItemGenerator.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemGenerator_Generate});
+			this.MenuItemGenerator.Text = "&Generator";
 			// 
 			// miGenerator_Generate
 			// 
-			this.miGenerator_Generate.Index = 0;
-			this.miGenerator_Generate.Text = "&Generate";
-			this.miGenerator_Generate.Click += new System.EventHandler(this.miGenerator_Generate_Click);
+			this.MenuItemGenerator_Generate.Index = 0;
+			this.MenuItemGenerator_Generate.Text = "&Generate";
+			this.MenuItemGenerator_Generate.Click += new System.EventHandler(this.miGenerator_Generate_Click);
 			// 
 			// miWindow
 			// 
-			this.miWindow.Index = 3;
-			this.miWindow.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItem5,
-            this.miWindow_DataLayer,
-            this.miWindow_BusinessLayer,
-            this.menuItem4,
-            this.miWindow_Templates,
-            this.menuItem3});
-			this.miWindow.Text = "&Window";
-			this.miWindow.Visible = false;
+			this.MenuItemWindow.Index = 3;
+			this.MenuItemWindow.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItem5,
+            this.MenuItemWindow_DataLayer,
+            this.MenuItemWindow_BusinessLayer,
+            this.MenuItem4,
+            this.MenuItemWindow_Templates,
+            this.MenuItem3});
+			this.MenuItemWindow.Text = "&Window";
+			this.MenuItemWindow.Visible = false;
 			// 
 			// menuItem5
 			// 
-			this.menuItem5.Index = 0;
-			this.menuItem5.Text = "-";
+			this.MenuItem5.Index = 0;
+			this.MenuItem5.Text = "-";
 			// 
 			// miWindow_DataLayer
 			// 
-			this.miWindow_DataLayer.Index = 1;
-			this.miWindow_DataLayer.Text = "&Data Layer";
+			this.MenuItemWindow_DataLayer.Index = 1;
+			this.MenuItemWindow_DataLayer.Text = "&Data Layer";
 			// 
 			// miWindow_BusinessLayer
 			// 
-			this.miWindow_BusinessLayer.Index = 2;
-			this.miWindow_BusinessLayer.Text = "&Business Layer";
+			this.MenuItemWindow_BusinessLayer.Index = 2;
+			this.MenuItemWindow_BusinessLayer.Text = "&Business Layer";
 			// 
 			// menuItem4
 			// 
-			this.menuItem4.Index = 3;
-			this.menuItem4.Text = "-";
+			this.MenuItem4.Index = 3;
+			this.MenuItem4.Text = "-";
 			// 
 			// miWindow_Templates
 			// 
-			this.miWindow_Templates.Index = 4;
-			this.miWindow_Templates.Text = "&Templates";
+			this.MenuItemWindow_Templates.Index = 4;
+			this.MenuItemWindow_Templates.Text = "&Templates";
 			// 
 			// menuItem3
 			// 
-			this.menuItem3.Index = 5;
-			this.menuItem3.Text = "-";
+			this.MenuItem3.Index = 5;
+			this.MenuItem3.Text = "-";
 			// 
 			// miHelp
 			// 
-			this.miHelp.Index = 4;
-			this.miHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.miHelp_About});
-			this.miHelp.Text = "&Help";
+			this.MenuItemHelp.Index = 4;
+			this.MenuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.MenuItemHelp_About});
+			this.MenuItemHelp.Text = "&Help";
 			// 
 			// miHelp_About
 			// 
-			this.miHelp_About.Index = 0;
-			this.miHelp_About.Text = "&About";
-			this.miHelp_About.Click += new System.EventHandler(this.miHelp_About_Click);
+			this.MenuItemHelp_About.Index = 0;
+			this.MenuItemHelp_About.Text = "&About";
+			this.MenuItemHelp_About.Click += new System.EventHandler(this.miHelp_About_Click);
 			// 
 			// frm_Main
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(581, 429);
 			this.IsMdiContainer = true;
-			this.Menu = this.mm_Main;
+			this.Menu = this.MainMenu_Main;
 			this.Name = "frm_Main";
 			this.Text = "OGen";
 			this.ResumeLayout(false);
@@ -566,32 +566,32 @@ namespace OGen.NTier.PresentationLayer.WinForms {
 						"OGen: - {0}*", 
 						Path.GetFileName(NTierProject.FileName)
 					);
-					this.miProject_Save.Enabled = true;
+					this.MenuItemProject_Save.Enabled = true;
 				} else {
 					this.Text = string.Format(
 						System.Globalization.CultureInfo.CurrentCulture, 
 						"OGen: - {0}", 
 						Path.GetFileName(NTierProject.FileName)
 					);
-					this.miProject_Save.Enabled = false;
+					this.MenuItemProject_Save.Enabled = false;
 				}
-				this.miProject_Close.Enabled = true;
+				this.MenuItemProject_Close.Enabled = true;
 				//this.miManage.Enabled = true;
-				this.miManage_BL.Enabled = true;
-				this.miManage_DL.Enabled = true;
-				this.miManage_Configuration_Project.Enabled = true;
-				this.miGenerator.Enabled = true;
-				this.miWindow.Enabled = true;
+				this.MenuItemManage_BL.Enabled = true;
+				this.MenuItemManage_DL.Enabled = true;
+				this.MenuItemManage_Configuration_Project.Enabled = true;
+				this.MenuItemGenerator.Enabled = true;
+				this.MenuItemWindow.Enabled = true;
 			} else {
 				this.Text = "OGen";
-				this.miProject_Close.Enabled = false;
-				this.miProject_Save.Enabled = false;
+				this.MenuItemProject_Close.Enabled = false;
+				this.MenuItemProject_Save.Enabled = false;
 				//this.miManage.Enabled = false;
-				this.miManage_BL.Enabled = false;
-				this.miManage_DL.Enabled = false;
-				this.miManage_Configuration_Project.Enabled = false;
-				this.miGenerator.Enabled = false;
-				this.miWindow.Enabled = false;
+				this.MenuItemManage_BL.Enabled = false;
+				this.MenuItemManage_DL.Enabled = false;
+				this.MenuItemManage_Configuration_Project.Enabled = false;
+				this.MenuItemGenerator.Enabled = false;
+				this.MenuItemWindow.Enabled = false;
 			}
 		}
 		#endregion

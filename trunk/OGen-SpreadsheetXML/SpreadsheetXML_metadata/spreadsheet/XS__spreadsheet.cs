@@ -31,7 +31,7 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 
 		#region public static DataTable[] Spreadsheet_toDataTable(...);
 		public static DataTable[] Spreadsheet_toDataTable(
-			string ssFilePath_in
+			string spreadSheetFilePath_in
 		) {
 			// NOTE: i haven't tested with Excel 8.0
 
@@ -52,39 +52,39 @@ namespace OGen.SpreadsheetXML.Libraries.Metadata.Spreadsheet {
 			#region string _connectionString = ...;
 			string _connectionString = null;
 			if (
-				ssFilePath_in.ToLower(
+				spreadSheetFilePath_in.ToLower(
 					System.Globalization.CultureInfo.CurrentCulture
 				).LastIndexOf(
 					XLSX, 
 					StringComparison.CurrentCulture
 				)
 				==
-				ssFilePath_in.Length - XLSX.Length
+				spreadSheetFilePath_in.Length - XLSX.Length
 			) {
 				_connectionString = string.Concat(
 					"Provider=Microsoft.ACE.OLEDB.12.0;",
-					"Data Source=", ssFilePath_in, ";",
+					"Data Source=", spreadSheetFilePath_in, ";",
 					"Extended Properties=\"Excel 12.0;HDR=YES;\""
 				);
 			} else if (
-				ssFilePath_in.ToLower(
+				spreadSheetFilePath_in.ToLower(
 					System.Globalization.CultureInfo.CurrentCulture
 				).LastIndexOf(
 					XLS,
 					StringComparison.CurrentCulture
 				)
 				==
-				ssFilePath_in.Length - XLS.Length
+				spreadSheetFilePath_in.Length - XLS.Length
 			) {
 				_connectionString =
 					"Provider=Microsoft.Jet.OLEDB.4.0;" +
-					"Data Source=" + ssFilePath_in + ";" +
+					"Data Source=" + spreadSheetFilePath_in + ";" +
 					"Extended Properties=\"Excel 8.0;HDR=YES;\""
 				;
 			}
 
 			if (string.IsNullOrEmpty(_connectionString)) {
-				Console.WriteLine("invalid file type; {0}", ssFilePath_in);
+				Console.WriteLine("invalid file type; {0}", spreadSheetFilePath_in);
 				return null;
 			}
 			#endregion

@@ -26,12 +26,12 @@ namespace SpreadsheetXML_Console {
 		public static void Main(string[] args) {
 
 			#region string _ssFilePath = args[0];
-			string _ssFilePath;
+			string _spreadSheetFilePath;
 #if DEBUG
 			if (args.Length != 1) {
-				_ssFilePath = @"C:\Documents and Settings\Administrator\Desktop\TEST\Livro1.xlsx";
+				_spreadSheetFilePath = @"C:\Documents and Settings\Administrator\Desktop\TEST\Livro1.xlsx";
 			} else {
-				_ssFilePath = args[0];
+				_spreadSheetFilePath = args[0];
 			}
 #else
 			if (
@@ -51,7 +51,7 @@ namespace SpreadsheetXML_Console {
 
 			#region DataTable[] _datatable = XS__spreadsheet.Spreadsheet_toDataTable(...);
 			DataTable[] _datatable = XS__spreadsheet.Spreadsheet_toDataTable(
-				_ssFilePath
+				_spreadSheetFilePath
 			);
 			if (_datatable == null) {
 				return;
@@ -60,11 +60,11 @@ namespace SpreadsheetXML_Console {
 
 			#region string _xmlFilePath = ...;
 			string _xmlFilePath = System.IO.Path.Combine(
-				System.IO.Path.GetDirectoryName(_ssFilePath),
+				System.IO.Path.GetDirectoryName(_spreadSheetFilePath),
 				string.Format(
 					System.Globalization.CultureInfo.CurrentCulture,
 					"{0}.SpreadsheetXML.xml",
-					System.IO.Path.GetFileNameWithoutExtension(_ssFilePath)
+					System.IO.Path.GetFileNameWithoutExtension(_spreadSheetFilePath)
 				)
 			); 
 			#endregion

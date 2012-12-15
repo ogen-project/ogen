@@ -86,13 +86,13 @@ namespace OGen.NTier.Libraries.DistributedLayer.WebServices.Client {
 			if (string.IsNullOrEmpty(url)) {
 				return false;
 			}
-			System.Uri wsUri = new System.Uri(url);
+			System.Uri _uri = new System.Uri(url);
 			if (
-				(wsUri.Port >= 1024)
+				(_uri.Port >= 1024)
 				&&
 				(
 					string.Compare(
-						wsUri.Host,
+						_uri.Host,
 						"localHost", 
 #if !NET_1_1
 						System.StringComparison.OrdinalIgnoreCase

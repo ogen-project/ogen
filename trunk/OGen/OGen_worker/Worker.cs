@@ -38,17 +38,17 @@ namespace OGen.Libraries.Worker {
 			IsReadyToWork isReadyToWork_in,
 			MakeItWork makeItWork_in
 #else
-		/// <typeparam name="T">type of work item</typeparam>
-		public bool DoWork<T>(
-			WorkItem<T>[] workItems_in,
-			IsReadyToWork<T> isReadyToWork_in,
-			MakeItWork<T> makeItWork_in
+		/// <typeparam name="TWorkItem">type of work item</typeparam>
+		public bool DoWork<TWorkItem>(
+			WorkItem<TWorkItem>[] workItems_in,
+			IsReadyToWork<TWorkItem> isReadyToWork_in,
+			MakeItWork<TWorkItem> makeItWork_in
 #endif
 		) {
 #if NET_1_1
-			return DoWork(
+			return this.DoWork(
 #else
-			return DoWork<T>(
+			return this.DoWork<TWorkItem>(
 #endif
 				workItems_in,
 				isReadyToWork_in,
@@ -71,11 +71,11 @@ namespace OGen.Libraries.Worker {
 			IsReadyToWork isReadyToWork_in,
 			MakeItWork makeItWork_in,
 #else
-		/// <typeparam name="T">type of work item</typeparam>
-		public bool DoWork<T>(
-			WorkItem<T>[] workItems_in,
-			IsReadyToWork<T> isReadyToWork_in,
-			MakeItWork<T> makeItWork_in,
+		/// <typeparam name="TWorkItem">type of work item</typeparam>
+		public bool DoWork<TWorkItem>(
+			WorkItem<TWorkItem>[] workItems_in,
+			IsReadyToWork<TWorkItem> isReadyToWork_in,
+			MakeItWork<TWorkItem> makeItWork_in,
 #endif
 
 			ThreadFinished threadFinished_in
@@ -83,7 +83,7 @@ namespace OGen.Libraries.Worker {
 #if NET_1_1
 			WorkItem _item;
 #else
-			WorkItem<T> _item;
+			WorkItem<TWorkItem> _item;
 #endif
 			bool _itemsonqueue;
 			bool _othersstillworking;
