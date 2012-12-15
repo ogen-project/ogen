@@ -147,6 +147,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen-test-10", "..\..\OGen\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGen_DocumentationCodeSamples-10", "..\..\doc\OGen_DocumentationCodeSamples\OGen_DocumentationCodeSamples-10.csproj", "{40B18F60-DF7A-4325-897D-18D90C89BD54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc-10", "..\..\OGen-Doc\Doc\Doc-10.csproj", "{12E87F31-F752-447D-92BC-8B3D6CD8845A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug .Net 1.1|Any CPU = Debug .Net 1.1|Any CPU
@@ -1483,6 +1485,24 @@ Global
 		{40B18F60-DF7A-4325-897D-18D90C89BD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40B18F60-DF7A-4325-897D-18D90C89BD54}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40B18F60-DF7A-4325-897D-18D90C89BD54}.Release|x86.ActiveCfg = Release|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 1.1|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 1.1|Any CPU.Build.0 = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 1.1|x86.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 2.0|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 2.0|Any CPU.Build.0 = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 2.0|x86.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 3.5|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 3.5|Any CPU.Build.0 = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 3.5|x86.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 4.0|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 4.0|Any CPU.Build.0 = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug .Net 4.0|x86.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E87F31-F752-447D-92BC-8B3D6CD8845A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

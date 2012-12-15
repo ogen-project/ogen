@@ -36,7 +36,7 @@ namespace Doc
 			//
 			// Required for Windows Form Designer support
 			//
-			InitializeComponent();
+			this.InitializeComponent();
 
 			//
 			// TODO: Add any constructor code after InitializeComponent call
@@ -50,9 +50,9 @@ namespace Doc
 		{
 			if( disposing )
 			{
-				if (components != null) 
+				if (this.components != null) 
 				{
-					components.Dispose();
+					this.components.Dispose();
 				}
 			}
 			base.Dispose( disposing );
