@@ -532,7 +532,7 @@ SELECT
 		WHEN (_table.table_type = 'VIEW') THEN
 			CAST(0 AS INT)
 		ELSE
-			CAST(COLUMNPROPERTY(OBJECT_ID(_field.table_name), _field.column_name, 'IsIdentity') AS INT)
+			CAST(COLUMNPROPERTY(OBJECT_ID(_field.table_schema + '.' + _field.table_name), _field.column_name, 'IsIdentity') AS INT)
 	END
 	AS is_identity,
 
