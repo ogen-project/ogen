@@ -12,12 +12,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using MySql.Data.MySqlClient;
-using System.Text;
 
-namespace OGen.lib.datalayer.MySQL {
+namespace OGen.Libraries.DataLayer.MySQL {
+	using System;
+	using System.Data;
+	using System.Text;
+	using MySql.Data.MySqlClient;
+
 	public sealed class DBConnection_MySQL : DBConnection {
 		//#region public DBConnection_MySQL(...);
 		public DBConnection_MySQL(

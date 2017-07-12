@@ -135,6 +135,9 @@ namespace OGen.Libraries.DataLayer.SQLServer {
 		//#endregion
 
 		//#region private Methods...
+		protected override IDbConnection newDBConnection() {
+			return new SqlConnection(this.Connectionstring);
+		}
 		#region protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in);
 		protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in) {
 			IDbCommand _output;

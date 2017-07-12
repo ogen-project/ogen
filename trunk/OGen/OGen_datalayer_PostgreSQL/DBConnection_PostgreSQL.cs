@@ -135,6 +135,9 @@ namespace OGen.Libraries.DataLayer.PostgreSQL {
 		//#endregion
 
 		//#region private Methods...
+		protected override IDbConnection newDBConnection() {
+			return new NpgsqlConnection(this.Connectionstring);
+		}
 		#region protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in);
 		protected override IDbCommand newDBCommand(string command_in, IDbConnection connection_in) {
 			IDbCommand _output;

@@ -1,4 +1,3 @@
-
 /trunk/distro/win-120-buildAssembies-10.suo
 /trunk/distro/win-120-buildAssembies-9.suo
 /trunk/OGen-Dia/Dia_generator/bin
@@ -495,3 +494,5 @@
 /trunk/OGen-Doc/Doc/bin
 /trunk/OGen-Doc/Doc/obj
 /trunk/OGen-Doc/Doc/StyleCop.Cache
+/trunk/OGen/.vs
+/trunk/OGen/packages

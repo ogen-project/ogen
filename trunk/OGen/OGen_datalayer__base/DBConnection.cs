@@ -346,6 +346,7 @@ namespace OGen.Libraries.DataLayer {
 		}
 		#endregion
 
+		protected abstract IDbConnection newDBConnection();
 		protected abstract IDbCommand newDBCommand(
 			string command_in, 
 			IDbConnection connection_in
@@ -533,16 +534,18 @@ namespace OGen.Libraries.DataLayer {
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				this.exposeConnection.Open();
+				IDbConnection _connection = this.newDBConnection();
+				_connection.Open();
 
 				IDbCommand _command = this.newDBCommand(
 					query_in,
-					this.exposeConnection
+					_connection
 				);
 				this.Execute_SQLQuery(query_in, _command);
 				_command.Dispose(); _command = null;
 
-				this.exposeConnection.Close();
+				_connection.Close();
+				_connection.Dispose();
 				#endregion
 			}
 		}
@@ -620,15 +623,17 @@ namespace OGen.Libraries.DataLayer {
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				this.exposeConnection.Open();
+				IDbConnection _connection = this.newDBConnection();
+				_connection.Open();
 
 				_output
 					= this.Execute_SQLQuery_returnDataSet(
 						query_in,
-						this.exposeConnection
+						_connection
 					);
 
-				this.exposeConnection.Close();
+				_connection.Close();
+				_connection.Dispose();
 				#endregion
 			}
 
@@ -758,12 +763,13 @@ namespace OGen.Libraries.DataLayer {
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
+				IDbConnection _connection = this.newDBConnection();
 				IDbCommand _command = this.newDBCommand(
 					function_in,
-					this.exposeConnection
+					_connection
 				);
 
-				this.exposeConnection.Open();
+				_connection.Open();
 				_output = this.Execute_SQLFunction(
 					function_in,
 					dataParameters_in,
@@ -771,7 +777,8 @@ namespace OGen.Libraries.DataLayer {
 					returnValue_DbType_in,
 					returnValue_Size_in
 				);
-				this.exposeConnection.Close();
+				_connection.Close();
+				_connection.Dispose();
 
 				_command.Dispose(); _command = null;
 				#endregion
@@ -868,16 +875,18 @@ namespace OGen.Libraries.DataLayer {
 				#endregion
 			} else {
 				#region Opening, Using and Closing Connection...
-				this.exposeConnection.Open();
+				IDbConnection _connection = this.newDBConnection();
+				_connection.Open();
 
 				_output
 					= this.Execute_SQLFunction_returnDataSet(
 						function_in,
 						dataParameters_in,
-						this.exposeConnection
+						_connection
 					);
 
-				this.exposeConnection.Close();
+				_connection.Close();
+				_connection.Dispose();
 				#endregion
 			}
 

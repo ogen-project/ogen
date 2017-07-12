@@ -12,11 +12,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 */
 #endregion
-using System;
-using System.Data;
-using MySql.Data.MySqlClient;
 
-namespace OGen.lib.datalayer.MySQL {
+namespace OGen.Libraries.DataLayer.MySQL {
+	using System;
+	using System.Data;
+	using MySql.Data.MySqlClient;
+
 	public sealed class DBUtilities_MySQL : DBUtilities {
 		#region public override DBUtilities_convert Convert { get; }
 		private static DBUtilities_convert_MySQL convert__;
